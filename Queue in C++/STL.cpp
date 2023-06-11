@@ -35,39 +35,39 @@ void main() {
 	que1.push(120);
 	que1.push(140);
 	que1.push(160);
-  cout << "The queue que1 is : ";
+	cout << "The queue que1 is : ";
 	showq(que1);
 
-	cout << "\n The first swap que elements are : " ;
 	swap(que, que1);
+	cout << "\n The first swap queue que is : " ;
 	showq(que);
-	cout << "\n The first swap que1 elements are  : ";
+	cout << "\n The first swap queue que1 is  : ";
 	showq(que1);
 
-	cout << "\n The second swap que elements are  : ";
 	que.swap(que1);
+	cout << "\n The second swap queue que is   : ";
 	showq(que);
-	cout << "\n The second swap que1 elements are  : ";
+	cout << "\n The second swap queue que1 is  : ";
 	showq(que1);
 
 }
 
 /*
-The queue que is :     20    40    60
+The queue que is :      20      40      60
 
-que.size() : 3
-que.front() : 20
-que.back() : 60
-que.pop() :     40    60
-The queue que1 is :     120    140    160
+ que.size() : 3
+ que.front() : 20
+ que.back() : 60
+gquiz.pop() :   40      60
+The queue que1 is :     120     140     160
 
- The first swap que elements are :      120     140     160
+ The first swap queue que is :  120     140     160
 
- The first swap que1 elements are  :    40      60
+ The first swap queue que1 is  :        40      60
 
- The second swap que elements are  :    40      60
+ The second swap queue que is   :       40      60
 
- The second swap que1 elements are  :   120     140     160
+ The second swap queue que1 is  :       120     140     160
 */
 
 /*
