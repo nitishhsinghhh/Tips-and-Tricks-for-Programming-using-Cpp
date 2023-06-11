@@ -77,7 +77,7 @@ The time complexity and definition of the following functions are as follows:
 O(1): Constant Time
 queue::empty()	O(1)
 queue::size()	O(1)
-queue::emplace()	O(1)
+queue::emplace() O(1)
 queue::front()	O(1)
 queue::back()	O(1)
 queue::push(g) 	O(1)
@@ -87,11 +87,11 @@ queue::pop() 	O(1)
 /*
 Method	                    Definition
 queue::empty()              Returns whether the queue is empty. It return true if the queue is empty otherwise returns false.
-queue::size()	              Returns the size of the queue.
-queue::swap()	              Exchange the contents of two queues but the queues must be of the same data type, although sizes may differ.
-queue::emplace()	          Insert a new element into the queue container, the new element is added to the end of the queue.
+queue::size()	            Returns the size of the queue.
+queue::swap()	            Exchange the contents of two queues but the queues must be of the same data type, although sizes may differ.
+queue::emplace()	    Insert a new element into the queue container, the new element is added to the end of the queue.
 queue::front()	            Returns a reference to the first element of the queue.
-queue::back()	              Returns a reference to the last element of the queue.
+queue::back()	            Returns a reference to the last element of the queue.
 queue::push(g) 	            Adds the element ‘g’ at the end of the queue.
-queue::pop() 	              Deletes the first element of the queue.
+queue::pop() 	            Deletes the first element of the queue.
 */
