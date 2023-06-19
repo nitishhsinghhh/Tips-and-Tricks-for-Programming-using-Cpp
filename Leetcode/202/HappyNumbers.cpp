@@ -33,11 +33,21 @@ int main() {
     // Test cases
     int testCases[] = {19, 7, 82, 68, 23, 44, 86, 91, 76, 39, 100, 33, 56, 8, 70, 14, 69, 95, 47, 13, 30, 98, 71, 50, 93, 80, 27, 59, 16, 84, 36, 60, 88, 67, 21, 79, 75, 51, 94, 62, 35, 48, 64, 12, 87, 40, 83, 52, 90, 74, 99, 18};
 
+    int happyCount = 0;
+    int unhappyCount = 0;
+
     for (int i = 0; i < sizeof(testCases) / sizeof(testCases[0]); i++) {
-        std::cout << testCases[i] << " is a"
-                  << (oSolution.isHappy(testCases[i]) ? " happy" : "n unhappy")
-                  << " number." << std::endl;
+        if (oSolution.isHappy(testCases[i])) {
+            happyCount++;
+            std::cout << testCases[i] << " is a happy number." << std::endl;
+        } else {
+            unhappyCount++;
+            std::cout << testCases[i] << " is an unhappy number." << std::endl;
+        }
     }
+
+    std::cout << "Total happy numbers: " << happyCount << std::endl;
+    std::cout << "Total unhappy numbers: " << unhappyCount << std::endl;
 
     return 0;
 }
@@ -95,4 +105,7 @@ Output:
 90 is an unhappy number.
 74 is an unhappy number.
 99 is an unhappy number.
+18 is an unhappy number.
+Total happy numbers: 13
+Total unhappy numbers: 39
 */
