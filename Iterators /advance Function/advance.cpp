@@ -1,12 +1,9 @@
 #include <iostream>
+#include <iterator>
 #include <list>
 using namespace std;
 
-#include <iterator>
-#include <list>
-
 // Advance implementation
-
 template<class Iterator, class Distance>
 void advanceImpl(Iterator& it, Distance n, std::random_access_iterator_tag) {
     it += n;
