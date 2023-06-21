@@ -1,6 +1,11 @@
 #include <iostream>
+#include <list>
+using namespace std;
+
 #include <iterator>
 #include <list>
+
+// Advance implementation
 
 template<class Iterator, class Distance>
 void advanceImpl(Iterator& it, Distance n, std::random_access_iterator_tag) {
@@ -28,18 +33,46 @@ void advanceImpl(Iterator& it, Distance n, std::input_iterator_tag) {
 }
 
 template<class Iterator, class Distance>
-void advance(Iterator& it, Distance n) {
+void advance1(Iterator& it, Distance n) {
     typename std::iterator_traits<Iterator>::iterator_category category;
     advanceImpl(it, n, category);
 }
 
 int main() {
-    std::list<int> myList = {1, 2, 3, 4, 5};
 
-    auto it = myList.begin();
-    std::advance(it, 2);
+    // Create a double-linked list
+    list<int> dblList = {1, 2, 3, 4, 5};
 
-    std::cout << "Element after advancing: " << *it << std::endl;
+    // Find the middle iterator
+    auto middleIterator = dblList.begin();
+    advance(middleIterator, dblList.size() / 2);
 
+    // Delete the middle element
+    dblList.erase(middleIterator);
+
+    // Print the updated list
+    for (const auto& element : dblList) 
+        cout << element << " ";
+        
+    cout<< endl;
+
+    // Test Advance1 func
+
+    // Create a double-linked list
+    list<int> dblList1 = {1, 2, 3, 4, 5};
+
+    // Find the middle iterator
+    auto middleIterator1 = dblList1.begin();
+    advance1(middleIterator1, dblList1.size() / 2);
+
+    // Delete the middle element
+    dblList1.erase(middleIterator1);
+
+    // Print the updated list
+    for (const auto& element : dblList1) 
+        cout << element << " ";
+    
+    cout << endl;    
+    
     return 0;
 }
