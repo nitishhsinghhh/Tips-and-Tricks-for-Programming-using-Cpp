@@ -73,3 +73,20 @@ int main() {
     
     return 0;
 }
+
+/*
+Note:
+In C++, iterators are used to traverse and access elements in a container, such as an array or a standard container 
+like std::vector. The category of an iterator determines the set of operations that can be performed on it and the 
+guarantees it provides.
+
+The iterator categories, in increasing order of capabilities, are:
+
+Input Iterator: 
+Supports reading values from the pointed-to element and advancing to the next element.
+Output Iterator: Supports writing values to the pointed-to element and advancing to the next element.
+Forward Iterator: Supports both input and output operations, as well as multiple passes over the same range.
+Bidirectional Iterator: Supports all operations of a forward iterator, and additionally allows moving backward.
+Random Access Iterator: Supports all operations of a bidirectional iterator, and additionally provides constant-time 
+access to elements at arbitrary positions, pointer arithmetic, and comparison of iterators.
+*/
