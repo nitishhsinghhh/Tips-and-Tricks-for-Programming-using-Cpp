@@ -133,10 +133,9 @@ public:
 		Node* newNode = new Node(value);
 		Node* current = head;
 
-		for (size_t i = 0; i < position; i++) {
+		for (size_t i = 0; i < position; i++) 
 			current = current->next;
-		}
-
+		
 		newNode->prev = current->prev;
 		newNode->next = current;
 		current->prev->next = newNode;
@@ -184,3 +183,14 @@ void main() {
 
 	cout << "Size: " << list.getSize() << endl;
 }
+
+/*
+Output:
+Front: 1
+Back: 3
+Front: 2
+Back: 2
+2 10
+Size: 2
+
+*/
