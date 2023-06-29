@@ -24,8 +24,7 @@ public:
 		Node* newNode = new Node(value);
 		if (head == nullptr)
 			head = newNode;
-		else
-		{
+		else {
 			Node* current = head;
 			while (current->next != nullptr)
 				current = current->next;
@@ -89,3 +88,10 @@ void main() {
 	list.printList();
 
 }
+
+/*
+Output:
+Original list: 1 2 3 4 5
+List after deleting middle element: 1 2 4 5
+
+*/
