@@ -33,7 +33,7 @@ public:
 
 void main() {
 
-  // Test with integer
+  	// Test with integer
 	Stack<int> MyStack;
 	MyStack.push(10);
 	MyStack.push(20);
@@ -44,7 +44,7 @@ void main() {
 	cout << "Top element after pop: " << MyStack.top() << endl;
 	cout << "Stack size: " << MyStack.size() << endl;
 
-  // Test with string
+  	// Test with string
 	Stack<string> MyStringStack;
 	MyStringStack.push("10.00");
 	MyStringStack.push("20.00");
@@ -55,7 +55,7 @@ void main() {
 	cout << "Top element string after pop: " << MyStringStack.top() << endl;
 	cout << "Stack size: " << MyStack.size() << endl;
 
-  // Test with double
+  	// Test with double
 	Stack<int> MyDoubleStack;
 	MyDoubleStack.push(10.00);
 	MyDoubleStack.push(20.00);
