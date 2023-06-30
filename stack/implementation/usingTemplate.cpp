@@ -56,7 +56,7 @@ void main() {
 	cout << "Stack size: " << MyStack.size() << endl;
 
   	// Test with double
-	Stack<int> MyDoubleStack;
+	Stack<double> MyDoubleStack;
 	MyDoubleStack.push(10.00);
 	MyDoubleStack.push(20.00);
 	MyDoubleStack.push(30.00);
