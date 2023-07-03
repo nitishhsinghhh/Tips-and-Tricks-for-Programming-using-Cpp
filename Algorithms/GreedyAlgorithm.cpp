@@ -46,4 +46,5 @@ possible until the remaining amount is less than the denomination. The function 
 change for the given amount using the given coins. The main function takes input for the amount to make change for and 
 calls the coinChange function on a vector of coin denominations. If it is possible to make change, it prints the number 
 of each coin denomination needed to make change to the console.
+
 */
