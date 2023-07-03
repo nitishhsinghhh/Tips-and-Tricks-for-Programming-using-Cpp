@@ -53,7 +53,8 @@ int main() {
     return 0;
 }
 
-/* This program uses a merge sort algorithm to sort an array of integers. The merge function takes three indices that 
+/* 
+This program uses a merge sort algorithm to sort an array of integers. The merge function takes three indices that 
 divide the array into two subarrays and merges the subarrays into a sorted array. It creates a temporary array to \
 store the sorted elements, compares the elements in the two subarrays, and copies them into the temporary array in sorted 
 order. The mergeSort function uses the divide and conquer approach to sort the array. It repeatedly divides the array in 
