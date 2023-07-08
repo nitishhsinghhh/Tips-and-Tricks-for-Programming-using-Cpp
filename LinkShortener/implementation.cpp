@@ -15,11 +15,8 @@ private:
 		mt19937 generator(rd());
 		uniform_int_distribution<int> distribution(0, characters.size() - 1);
 		string code;
-
-		for (int i = 0; i < length; ++i) {
+		for (int i = 0; i < length; ++i) 
 			code += characters[distribution(generator)];
-		}
-
 		return code;
 	}
 
@@ -40,9 +37,8 @@ public:
 	}
 
 	string getOriginalLink(const string& shortenedLink) {
-		if (links.find(shortenedLink) != links.end()) {
+		if (links.find(shortenedLink) != links.end()) 
 			return links[shortenedLink];
-		}
 
 		return ""; // Return empty string if the shortened link doesn't exist
 	}
@@ -54,16 +50,13 @@ int main() {
 
 	string originalLink = "https://www.linkedin.com/in/nitishsingh47/";
 	string shortenedLink = shortener.shortenLink(originalLink);
-
 	cout << "Shortened link: " << shortenedLink << endl;
 
 	string retrievedLink = shortener.getOriginalLink(shortenedLink);
-	if (!retrievedLink.empty()) {
+	if (!retrievedLink.empty()) 
 		cout << "Original link: " << retrievedLink << endl;
-	}
-	else {
+	else 
 		cout << "Invalid or non-existent shortened link." << endl;
-	}
 
 	return 0;
 }
