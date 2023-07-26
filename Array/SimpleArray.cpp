@@ -11,3 +11,9 @@ int main() {
 
     return 0;
 }
+
+/*
+Accessing array elements:
+numbers[2]: 3
+arr[3]: 4
+*/
