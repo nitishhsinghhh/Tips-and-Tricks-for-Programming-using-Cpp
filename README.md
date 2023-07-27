@@ -1,4 +1,4 @@
-# Tips-TricksProgramming
+# Tips and Tricks Programming
 
 | # | Title with Medium Article Link | Solution | Comment |
 |---| ------------------------------ | -------- | ------------------------------------------------------ |
