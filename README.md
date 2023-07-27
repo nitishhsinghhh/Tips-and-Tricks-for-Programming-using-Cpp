@@ -1,4 +1,4 @@
-# Tips and Tricks Programming
+# Tips and Tricks Programming using C++
 
 | # | Title with Medium Article Link | Solution | Comment |
 |---| ------------------------------ | -------- | ------------------------------------------------------ |
