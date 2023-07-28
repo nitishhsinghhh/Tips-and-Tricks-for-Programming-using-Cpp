@@ -5,6 +5,8 @@ With a focus on practical solutions and real-world examples, my articles cover a
 
 So, whether you're a seasoned developer or just starting out, this repository is the perfect place to find valuable resources and insights. Be sure to check out my latest articles on Medium, and don't hesitate to reach out if you have any questions or feedback. Together, let's build a stronger, more empowered tech community!
 
+Connect me on [LinkedIn](https://www.linkedin.com/in/nitishhsinghhh/)
+
 | # | Title with Medium Article Link | Solution | Comment |
 |---| ------------------------------ | -------- | ------------------------------------------------------ |
 |1|[Converting Character to Integer](https://nitishhsinghhh.medium.com/converting-ascii-characters-to-numeric-values-a-fundamental-technique-for-arithmetic-and-fdd1e8a320c) | [C++](./ASCII/performingASCIIcalculations.cpp) | This program demonstrates how to convert characters to integers and calculate their sum.|
