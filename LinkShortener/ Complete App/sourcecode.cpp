@@ -2,7 +2,6 @@
 #include <string>
 #include <unordered_map>
 #include <random>
-
 using namespace std;
 
 class LinkShortener {
@@ -46,26 +45,38 @@ public:
 };
 
 int main() {
-	cout << "Base URL: ";
-	string baseUrl = "";
-	cin >> baseUrl;
-	cout << endl;
+	try {
+		cout << "This program generates shortened links based on a given base URL." << endl;
+		cout << "In the URL : https://github.com/nitishhsinghhh. The base URL is: https://github.com/" << endl;
 
-	LinkShortener shortener(baseUrl);
+		cout << "Please enter the base URL: ";
+		string baseUrl = "";
+		cin >> baseUrl;
+		cout << "The base URL is: " << baseUrl << endl;
 
-	string originalLink;
-	cout << "URL Link to be Shotened: ";
-	cin >> originalLink;
-	cout << endl;
+		LinkShortener shortener(baseUrl);
 
-	string shortenedLink = shortener.shortenLink(originalLink);
-	cout << "Shortened link: " << shortenedLink << endl;
+		cout << "Please enter the URL to be shortened: ";
+		string originalLink;
+		cin >> originalLink;
 
-	string retrievedLink = shortener.getOriginalLink(shortenedLink);
-	if (!retrievedLink.empty())
-		cout << "Original link: " << retrievedLink << endl;
-	else
-		cout << "Invalid or non-existent shortened link." << endl;
+		string shortenedLink = shortener.shortenLink(originalLink);
+		cout << "The shortened link is: " << shortenedLink << endl;
+
+		string retrievedLink = shortener.getOriginalLink(shortenedLink);
+		if (retrievedLink.empty())
+			cout << "Invalid or non-existent shortened link." << endl;
+		else
+			cout << "The original link is: " << retrievedLink << endl;
+	}
+	catch (const exception& ex) {
+		cout << "Error occurred: " << ex.what() << endl;
+	}
+	catch (...) {
+		cout << "Unknown error occurred." << endl;
+	}
+
+	system("pause");
 
 	return 0;
 }
