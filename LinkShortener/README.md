@@ -9,6 +9,9 @@ Our Application is staring point to develop on top of this.
 * [App Documentation](../../../wiki/App-Documentation)
 * [Medium Article](https://blog.devgenius.io/designing-a-link-shortener-in-c-9a626c172a85)
 
+
+## Table of Contents
+
 |#| Title | Comment |
 |---| ------------------------------------------------------------ | -------- |
 |1| [URL Shortener](./implementation.cpp) | This is a C++ program for a URL shortener that generates a random code to create shortened links. |
