@@ -11,6 +11,6 @@ Our Application is staring point to develop on top of this.
 
 |#| Title | Comment |
 |---| ------------------------------------------------------------ | -------- |
-|1| [URL Shortener](./LinkShortener/implementation.cpp) | This is a C++ program for a URL shortener that generates a random code to create shortened links. |
+|1| [URL Shortener](./implementation.cpp) | This is a C++ program for a URL shortener that generates a random code to create shortened links. |
 |2| [Working Application Code](./%20Complete%20App/sourcecode.cpp) | This is a C++ program for a URL shortener that prompts the user to enter a base URL and a URL to be shortened, and then generates a shortened link using a random code. |
 |3| [Working Application](./%20Complete%20App/LinkShortner.exe) | This is a fully functional application that can be downloaded and used as an executable file called "LinkShortener.exe." |
