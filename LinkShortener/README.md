@@ -6,7 +6,7 @@ Our Application is staring point to develop on top of this.
 ## Documentation
 
 
-* [App Documentation](../../wiki)
+* [App Documentation](../../wiki/App-Documentation)
 * [Medium Article](https://blog.devgenius.io/designing-a-link-shortener-in-c-9a626c172a85)
 
 |#| Title | Comment |
