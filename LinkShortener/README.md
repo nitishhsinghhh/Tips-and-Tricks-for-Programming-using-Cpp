@@ -3,4 +3,4 @@ URL shorteners are online tools that help to reduce the length of a URL, making 
 
 |#| Title | Comment |
 |---| ------------------------------------------------------------ | -------- |
-|1| [URL Shortener](./LinkShortener/implementation.cpp) | This is a C++ program for a URL shortener that generates a random code to create shortened links. |
+|1| [URL Shortener](./implementation.cpp) | This is a C++ program for a URL shortener that generates a random code to create shortened links. |
