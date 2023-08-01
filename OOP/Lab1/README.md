@@ -1,4 +1,6 @@
 # **Practical Lab Assignment - Operators**
+This GitHub README provides a list of C++ programs that can be used to calculate the area and circumference of a circle, area of an equilateral triangle, area of a right angle triangle, area of a rectangle, area of a square, and area of a scalene triangle. These programs take user input for the required parameters and calculate the area and/or circumference using appropriate formulas. This README serves as a useful reference for anyone looking to write similar programs in C++.
+
 
 |#| **Title** | **Comment** |
 |---| ------------------------------------------------------------ | ------------------------------------------------------------ |
