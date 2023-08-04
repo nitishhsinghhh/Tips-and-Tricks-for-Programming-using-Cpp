@@ -19,3 +19,11 @@ Our application is the perfect starting point to build upon and create even more
 |1| [URL Shortener](./implementation.cpp) | This is a C++ program for a URL shortener that generates a random code to create shortened links. |
 |2| [Working Application Code](./%20Complete%20App/sourcecode.cpp) | This is a C++ program for a URL shortener that prompts the user to enter a base URL and a URL to be shortened, and then generates a shortened link using a random code. |
 |3| [Working Application](./%20Complete%20App/LinkShortner.exe) | This is a fully functional application that can be downloaded and used as an executable file called "LinkShortener.exe." |
+
+## How to Use
+To use these programs, you will need to have a C++ compiler installed on your computer. You can then download the program files from this repository and compile them using the compiler.
+
+Alternatively, you can also use an online C++ compiler to run these programs without needing to install a compiler on your computer.
+
+## Contributions
+If you have any suggestions for improvements or would like to add additional C++ programs to this repository, please feel free to create a pull request. We welcome contributions from the community to make this repository more useful for everyone.
