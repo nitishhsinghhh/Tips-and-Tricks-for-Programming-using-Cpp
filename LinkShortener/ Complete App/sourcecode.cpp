@@ -80,3 +80,17 @@ int main() {
 
 	return 0;
 }
+
+/*
+In C++, "catch (...)" is a special exception handler that catches any exception thrown by the try block that it immediately follows. 
+The ellipsis "..." is a placeholder that matches any type of exception. This is known as a catch-all exception handler, as it allows 
+the programmer to handle any unexpected exceptions that may occur during program execution. It is generally recommended to use more 
+specific exception handlers wherever possible, as catch-all handlers can make it difficult to diagnose and fix errors in the code.
+
+The "const" keyword is used to indicate that the exception object being caught is read-only and cannot be modified.
+When an exception is caught, it is passed as a reference to the catch block. By making the reference const, we ensure 
+that the exception object cannot be modified within the catch block. This is important because modifying the exception 
+object could potentially change its state and make it more difficult to diagnose the cause of the exception.
+In addition, using a const reference is more efficient than passing the exception object by value, as it avoids the 
+unnecessary overhead of creating a copy of the object.
+*/
