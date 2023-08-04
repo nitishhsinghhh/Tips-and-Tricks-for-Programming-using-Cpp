@@ -6,7 +6,7 @@ Our application is a helpful assistant that offers a simple and effective soluti
 
 |#| Title | Comment |
 |---| ------------------------------------------------------------ | -------- |
-|1| [Source Code](./LinkShortener/%20Complete%20App/sourcecode.cpp) | This is a C++ program for a URL shortener that generates a random code to create shortened links. |
+|1| [Source Code](./%20Complete%20App/sourcecode.cpp) | This is a C++ program for a URL shortener that generates a random code to create shortened links. |
 |2| [Working Application](./%20Complete%20App/LinkShortner.exe) | This is a fully functional application that can be downloaded and used as an executable file called "LinkShortener.exe." |
 
 ## How to Use
