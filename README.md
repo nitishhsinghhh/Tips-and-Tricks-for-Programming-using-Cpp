@@ -41,3 +41,12 @@ Connect me on [**LinkedIn**](https://www.linkedin.com/in/nitishhsinghhh/)
 |30|[**URL Shortener**](https://blog.devgenius.io/designing-a-link-shortener-in-c-9a626c172a85) | [**C++**](./LinkShortener/implementation.cpp) |This program implements a link shortener using a hash map to map original links to shortened links with randomly generated codes, and provides functionality to retrieve the original link from the shortened link. |
 |31|[**Implementation of Vector Container**](https://blog.devgenius.io/implementing-a-vector-container-data-structure-in-c-using-templates-79b247784fc8) | [**C++**](./Array/implementation/template.cpp/) | This program implements a vector class template in C++ with dynamic resizing and indexing functionality, and demonstrates its usage with integers. |
 |32|[**Stack-based Calculator**](https://blog.devgenius.io/building-a-simple-stack-based-calculator-in-c-cd5666ae6515) | [**C++**](./stack/implementation/Stack-based%20Calculator/Code.cpp) |This program implements a postfix expression calculator using a stack data structure in C++, which evaluates postfix expressions with operators +, -, *, and /, and outputs the result. |
+
+
+## How to Use
+To use these programs, you will need to have a C++ compiler installed on your computer. You can then download the program files from this repository and compile them using the compiler.
+
+Alternatively, you can also use an online C++ compiler to run these programs without needing to install a compiler on your computer.
+
+## Contributions
+If you have any suggestions for improvements or would like to add additional C++ programs to this repository, please feel free to create a pull request. We welcome contributions from the community to make this repository more useful for everyone.
