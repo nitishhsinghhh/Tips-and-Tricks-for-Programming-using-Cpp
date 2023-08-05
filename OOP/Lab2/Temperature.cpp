@@ -1,3 +1,5 @@
+// This program is used to convert celcius to Fahrenheit.
+
 #include <iostream>
 using namespace std;
 
