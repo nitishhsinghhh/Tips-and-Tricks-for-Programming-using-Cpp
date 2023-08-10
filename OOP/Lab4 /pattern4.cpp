@@ -28,3 +28,18 @@ void main() {
 	oSolution.CreatePattern(9);
 	system("pause");
 }
+
+/*
+Output:
+
+Sum is: 2.70833
+
+Sum is: 2.71667
+
+Sum is: 2.71806
+
+Sum is: 2.71825
+
+Sum is: 2.71828
+
+*/
