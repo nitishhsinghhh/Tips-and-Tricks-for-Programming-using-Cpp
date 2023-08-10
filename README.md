@@ -14,6 +14,8 @@ Connect me on [**LinkedIn**](https://www.linkedin.com/in/nitishhsinghhh/)
 - Problem Solving
 - Projects Ideas
 
+## Table 
+
 | # | Title with Medium Article Link   | Solution | Comment |
 |---| ------------------------------------------------------------ | -------- | ------------------------------------------------------ |
 |1|[**Converting Character to Integer**](https://nitishhsinghhh.medium.com/converting-ascii-characters-to-numeric-values-a-fundamental-technique-for-arithmetic-and-fdd1e8a320c) | [**C++**](./ASCII/performingASCIIcalculations.cpp) | This program demonstrates how to convert characters to integers and calculate their sum.|
