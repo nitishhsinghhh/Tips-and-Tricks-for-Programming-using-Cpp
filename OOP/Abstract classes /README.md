@@ -4,7 +4,7 @@ Abstract classes act as expressions of general concepts from which more specific
 
 You create an abstract class by declaring at least one pure virtual member function. That's a virtual function declared by using the *pure* specifier (`= 0`) syntax. Classes derived from the abstract class must implement the pure virtual function or they, too, are abstract classes.
 
-Consider the example presented in [Virtual functions](../Virtual%20Functions/README.md). The intent of class `Account` is to provide general functionality, but objects of type `Account` are too general to be useful. That means `Account` is a good candidate for an abstract class:
+Consider the example presented in **[Virtual functions](../Virtual%20Functions/README.md)**. The intent of class `Account` is to provide general functionality, but objects of type `Account` are too general to be useful. That means `Account` is a good candidate for an abstract class:
 
 ```cpp
 // deriv_AbstractClasses.cpp
