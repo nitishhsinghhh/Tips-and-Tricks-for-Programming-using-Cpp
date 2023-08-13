@@ -8,6 +8,7 @@ Suppose a base class contains a function declared as virtual and a derived class
 
 Please use the following link to access the [CPP Code](./PrintBalance%20.cpp)
 
+
 In the preceding code, the calls to PrintBalance are identical, except for the object pAccount points to. Because PrintBalance is virtual, the version of the function defined for each object is called. The PrintBalance function in the derived classes CheckingAccount and SavingsAccount "override" the function in the base class Account.
 
 If a class is declared that does not provide an overriding implementation of the PrintBalance function, the default implementation from the base class Account is used.
