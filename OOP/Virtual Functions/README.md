@@ -19,3 +19,28 @@ When calling a function using pointers or references, the following rules apply:
 
 1. A call to a virtual function is resolved according to the underlying type of object for which it is called.
 2. A call to a nonvirtual function is resolved according to the type of the pointer or reference.
+
+The following example shows how virtual and nonvirtual functions behave when called through **[pointers](./virtual_nonvirtual_functions.cpp).**
+
+Note that regardless of whether the `NameOf` function is invoked through a pointer to `Base` or a pointer to `Derived`, it calls the function for `Derived`. It calls the function for `Derived` because `NameOf` is a virtual function, and both `pBase` and `pDerived` point to an object of type `Derived`.
+
+Because virtual functions are called only for objects of class types, you cannot declare global or static functions as **`virtual`**.
+
+The **`virtual`** keyword can be used when declaring overriding functions in a derived class, but it is unnecessary; overrides of virtual functions are always virtual.
+
+Virtual functions in a base class must be defined unless they are declared using the *pure-specifier*. (For more information about pure virtual functions, see Abstract Classes.
+
+The virtual function-call mechanism can be suppressed by explicitly qualifying the function name using the scope-resolution operator (`::`). Consider the earlier example involving the `Account` class. To call `PrintBalance` in the base class, use code such as the following:
+
+```cpp
+CheckingAccount *pChecking = new CheckingAccount( 100.00 );
+
+pChecking->Account::PrintBalance();  //  Explicit qualification.
+
+Account *pAccount = pChecking;  // Call Account::PrintBalance
+
+pAccount->Account::PrintBalance();   //  Explicit qualification.
+```
+
+Both calls to `PrintBalance` in the preceding example suppress the virtual function-call mechanism.
+
