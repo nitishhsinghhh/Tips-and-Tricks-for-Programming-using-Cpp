@@ -6,4 +6,4 @@ Virtual functions ensure that the correct function is called for an object, rega
 
 Suppose a base class contains a function declared as virtual and a derived class defines the same function. The function from the derived class is invoked for objects of the derived class, even if it is called using a pointer or reference to the base class. The following example shows a base class that provides an implementation of the `PrintBalance` function and two derived classes
 
-[CPP Code](./PrintBalance%20.cpp)
+Please use the following link to access the [CPP Code](./PrintBalance%20.cpp)
