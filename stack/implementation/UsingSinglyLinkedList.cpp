@@ -62,3 +62,10 @@ int main() {
 	cout << "Stack size: " << myStack.size() << endl;
 	return 0;
 }
+
+/*
+Output:
+Top element: 50
+Top element after pop: 40
+Stack size: 2
+*/
