@@ -7,7 +7,7 @@ So, whether you're a seasoned developer or just starting out, this repository is
 
 Connect me on [**LinkedIn**](https://www.linkedin.com/in/nitishhsinghhh/)
 
-I recommend reading the [C++ FAQ Lite](https://isocpp.org/wiki/faq/templates)
+I recommend reading the **[C++ FAQ Lite](https://isocpp.org/wiki/faq/templates)**
 
 ## Contents
 - Tips
