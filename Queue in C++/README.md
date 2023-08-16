@@ -19,4 +19,6 @@ However you decide to implement the queue, remember that Queues should provide s
 
 There are other operations you might want to add to your queue (In C++, you may want an iterator to the front/back of your queue) but how you build your queue should not make a difference with regards to the operations it provides.
 
-However, depending on how you want to use your queue, there are better ways to build it. The usual tradeoff is insert/removal time versus search time. Here is [a decent reference.](https://en.wikipedia.org/wiki/Linked_list#Linked_lists_vs._arrays)
+However, depending on how you want to use your queue, there are better ways to build it. The usual tradeoff is insert/removal time versus search time. Here is [a decent reference.](https://en.wikipedia.org/wiki/Linked_list#Linked_lists_vs._arrays) Also, if yo want to read more please use the following [link.](https://en.cppreference.com/w/cpp/container/queue)
+
+
