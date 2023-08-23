@@ -1,7 +1,5 @@
 #include <iostream>
-
 using namespace std;
-
 const int MAX_SIZE = 5;
 
 class CircularQueue {
