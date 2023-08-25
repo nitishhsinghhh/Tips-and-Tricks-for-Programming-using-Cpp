@@ -43,3 +43,11 @@ syntax :  p3.swap(p1)
 emplace()	This method adds a new element in a container at the top of the priority queue. It takes value in a parameter.
 syntax :  p3.emplace(value)   
 */
+
+/*
+Priority Queue is a container that stores elements with priority. Unlike queues, which insert or delete the element based on the FIFO rule, 
+in Priority Queue, elements are removed based on priority. The element with the highest priority is the first one to be removed from the queue.
+
+Priority queue supports three operations: is_empty to check if there is no element in the queue,insert_with_priority, to add an element with 
+priority, and Pull_highest_priority_element, to fetch element of highest priority in the queue and show 
+*/
