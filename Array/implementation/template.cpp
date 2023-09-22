@@ -3,7 +3,6 @@
 using namespace std;
 
 template<typename T>
-
 class Vector {
 private:
 	int m_size; // private member to keep track of the size of the vector
