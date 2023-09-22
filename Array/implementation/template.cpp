@@ -3,6 +3,7 @@
 using namespace std;
 
 template<typename T>
+
 class Vector {
 private:
 	int m_size;
@@ -77,6 +78,8 @@ int main() {
 	vec.push_back("A");
 	vec.push_back("B");
 	vec.push_back("C");
+
+	cout<< "The vector at index 2 is: " << vec[2] << endl;
 
 	for (int i = 0; i < vec.size(); i++)
 		cout << vec[i] << " ";
