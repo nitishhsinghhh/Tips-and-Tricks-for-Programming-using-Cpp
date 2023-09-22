@@ -1,40 +1,28 @@
 #include <iostream>
+#include<string>
 using namespace std;
 
-template <typename T>
+template<typename T>
 class Vector {
 private:
 	int m_size;
 	int m_capacity;
-	T* m_data;
+	T *m_data;
 
 public:
-	Vector() : m_size(0), m_capacity(2), m_data(new T[m_capacity]) {}
-	Vector(int size) : m_size(size), m_capacity(size * 2), m_data(new T[m_capacity]) {}
+	Vector(): m_size(0), m_capacity(2), m_data(new T[m_capacity]) {}
+	Vector(int size) : m_size(size), m_capacity(2 * size), m_data(new T[m_capacity]) {}
 	Vector(const Vector& other) : m_size(other.m_size), m_capacity(other.m_capacity), m_data(new T[m_capacity]) {
-		for (int i = 0; i < m_size; i++) 
+		for (int i = 0; i < m_size; i++)
 			m_data[i] = other.m_data[i];
 	}
-
 	~Vector() {
 		delete[] m_data;
 	}
 
-	void push_back(const T& val) {
-		if (m_size >= m_capacity) 
-			reserve(m_capacity * 2);
-		
-		m_data[m_size++] = val;
-	}
-
-	void pop_back() {
-		if (m_size > 0) 
-			m_size--;
-	}
-
 	void reserve(int newCapacity) {
-		T* newData = new T[newCapacity];
-		for (int i = 0; i < m_size; i++) 
+		T *newData = new T[newCapacity];
+		for (int i = 0; i < m_size; i++)
 			newData[i] = m_data[i];
 
 		delete[] m_data;
@@ -42,7 +30,19 @@ public:
 		m_capacity = newCapacity;
 	}
 
-	T& operator[](int index) {
+	void push_back(const T& val) {
+		if (m_size >= m_capacity)
+			reserve(m_capacity * 2);
+
+		m_data[m_size++] = val;			
+	}
+
+	void pop_back() {
+		if (m_size > 0)
+			m_size--;
+	}
+
+	T& operator[] (int index) {
 		return m_data[index];
 	}
 
@@ -57,23 +57,41 @@ public:
 	bool empty() const {
 		return m_size == 0;
 	}
+
+	void insertAt(const T& val, int index) {
+		if (index < 0 || index > m_size) return;
+
+		if (m_size >= m_capacity)
+			reserve(m_capacity * 2);
+
+		for (int i = m_size - 1; i >= index; i--)
+			m_data[i + 1] = m_data[i];
+
+		m_data[index] = val;
+		m_size++;
+	}
 };
 
 int main() {
-	Vector<int> v;
-	v.push_back(1);
-	v.push_back(2);
-	v.push_back(3);
+	Vector<string> vec;
+	vec.push_back("A");
+	vec.push_back("B");
+	vec.push_back("C");
 
-	for (int i = 0; i < v.size(); i++) 
-		cout << v[i] << " ";
+	for (int i = 0; i < vec.size(); i++)
+		cout << vec[i] << " ";
 	cout << endl;
 
-	v.pop_back();
-
-	for (int i = 0; i < v.size(); i++)
-		cout << v[i] << " ";
+	vec.insertAt("AA", 2);
+	for (int i = 0; i < vec.size(); i++)
+		cout << vec[i] << " ";
 	cout << endl;
 
-	return 0;
+	vec.pop_back();
+
+	for (int i = 0; i < vec.size(); i++)
+		cout << vec[i] << " ";
+	cout << endl;
+
+	system("pause");
 }
