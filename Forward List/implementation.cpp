@@ -9,7 +9,6 @@ namespace detail {
     struct forward_list_node {
         T value;                          // Value stored in the node
         forward_list_node<T>* next;       // Pointer to the next node
-
         forward_list_node(const T& val) : value(val), next(nullptr) {}
     };
 
