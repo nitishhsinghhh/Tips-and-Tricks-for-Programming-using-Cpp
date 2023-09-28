@@ -1,35 +1,31 @@
 #include<iostream>
 using namespace std;
 
-class Node {
-public:
-	int data;
-	Node* prev;
-	Node* next;
-	Node(int value) {
-		data = value;
-		prev = nullptr;
-		next = nullptr;
-	}
+struct ListNode {
+	int val;
+	ListNode *next;
+	ListNode *prev;
+	ListNode() : val(0), next(nullptr), prev(nullptr) {}
+	ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}
+	ListNode(int x, ListNode *next, ListNode *prev) : val(x), next(next), prev(prev) {}
 };
 
-class DoublyLinkedList {
+class Solution {
 private:
-	Node* head;
+	ListNode* head;
 
 public:
-	DoublyLinkedList() {
+	Solution() {
 		head = nullptr;
 	}
 
-	// Insert a node at the end of the list
+	// Insert a ListNode at the end of the list
 	void insert(int value) {
-		Node* newNode = new Node(value);
+		ListNode* newNode = new ListNode(value);
 		if (head == nullptr)
 			head = newNode;
-		else
-		{
-			Node* current = head;
+		else {
+			ListNode* current = head;
 			while (current->next != nullptr)
 				current = current->next;
 
@@ -45,9 +41,7 @@ public:
 			return;
 		}
 
-		Node* fast = head;
-		Node* slow = head;
-
+		ListNode* fast = head, * slow = head;
 		while (fast != nullptr && fast->next != nullptr) {
 			fast = fast->next->next;
 			slow = slow->next;
@@ -66,10 +60,9 @@ public:
 
 	// print the list
 	void printList() {
-		Node* current = head;
-		while (current != nullptr)
-		{
-			cout << current->data << " ";
+		ListNode* current = head;
+		while (current != nullptr) {
+			cout << current->val << " ";
 			current = current->next;
 		}
 		cout << endl;
@@ -78,7 +71,7 @@ public:
 };
 
 void main() {
-	DoublyLinkedList list;
+	Solution list;
 	list.insert(1);
 	list.insert(2);
 	list.insert(3);
