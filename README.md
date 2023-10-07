@@ -7,7 +7,7 @@ So, whether you're a seasoned developer or just starting out, this repository is
 
 Connect me on [**LinkedIn**](https://www.linkedin.com/in/nitishhsinghhh/)
 
-Follow my youtube [**channel**](https://www.youtube.com/@nitishsingh4359)
+Please consider subscribing to my YouTube [**channel.**](https://www.youtube.com/@nitishsingh4359)
 
 I recommend reading the **[C++ FAQ Lite](https://isocpp.org/wiki/faq/templates)**
 
