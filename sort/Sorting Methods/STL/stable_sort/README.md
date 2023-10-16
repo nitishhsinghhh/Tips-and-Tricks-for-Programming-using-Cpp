@@ -3,7 +3,6 @@
 stable_sort() is used to sort the elements in the range [first, last) in ascending order. It is like std::sort, but stable_sort() keeps the relative order of elements with equivalent values. It comes under the <algorithm> header file.
 
 Syntax:
-
 template< class RandomIterator>
 void stable_sort( RandomIterator first, RandomIterator last );
 or
