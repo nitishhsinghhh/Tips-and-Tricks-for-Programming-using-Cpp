@@ -9,6 +9,17 @@ enum MergeMethod {
 
 class MergeSort {
 public:
+	void mergeSort(vector<int> &nums, int low, int high, MergeMethod method) {
+		if (low >= high) return;
+		int mid = (high - low) / 2 + low;
+		mergeSort(nums, low, mid, method);
+		mergeSort(nums, mid + 1, high, method);
+		if (method == Outplace)
+			outPlaceMerge(nums, low, mid, high);
+		else if (method == Inplace)
+			inPlaceMerge(nums, low, mid, high);
+	}
+private:
 	void outPlaceMerge(vector<int> &nums, int low, int mid, int high) {
 		if (low >= high) return;
 		int l = low, r = mid + 1, k = 0, size = high - low + 1;
@@ -36,17 +47,6 @@ public:
 				mid++;
 			}
 		}
-	}
-
-	void mergeSort(vector<int> &nums, int low, int high, MergeMethod method) {
-		if (low >= high) return;
-		int mid = (high - low) / 2 + low;
-		mergeSort(nums, low, mid, method);
-		mergeSort(nums, mid + 1, high, method);
-		if (method == Outplace)
-			outPlaceMerge(nums, low, mid, high);
-		else if (method == Inplace)
-			inPlaceMerge(nums, low, mid, high);
 	}
 };
 
