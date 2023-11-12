@@ -100,3 +100,59 @@ void main() {
 
 	system("pause");
 }
+
+/*
+Output:
+List 1:
+apple
+banana
+cherry
+
+List 2:
+red
+green
+blue
+
+List 3:
+1
+2
+3
+4
+
+List 4:
+Hello,
+world!
+
+List 5:
+
+List 6:
+1
+2
+3
+4
+5
+
+List 7:
+car
+bus
+train
+plane
+
+List 8:
+1
+
+List 9:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+List 10:
+cat,dog,bird
+*/
