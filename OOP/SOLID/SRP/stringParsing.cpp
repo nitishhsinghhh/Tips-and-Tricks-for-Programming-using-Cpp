@@ -16,7 +16,6 @@ public:
 			string value;
 			while (getline(ss, value, delimiter)) 
 				list.push_back(value);
-			
 		}
 		else 
 			list.push_back(inputString);
