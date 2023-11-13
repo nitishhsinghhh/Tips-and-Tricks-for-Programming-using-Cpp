@@ -5,7 +5,6 @@ using namespace std;
 class CharAdder {
 public:
 	char char1, char2;
-
 	CharAdder(char c1, char c2) : char1(c1), char2(c2) {}
 	int add() {
 		int num1 = char1 - '0';
