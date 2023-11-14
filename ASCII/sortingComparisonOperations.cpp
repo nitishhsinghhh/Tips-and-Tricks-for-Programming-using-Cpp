@@ -44,7 +44,6 @@ int main() {
 	handler.handle();
 	system("pause");
 }
-
 /*
 Output:
 The smallest number is 12356
