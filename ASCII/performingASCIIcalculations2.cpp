@@ -22,7 +22,6 @@ public:
 // Class to add two character strings
 class CharAdder {
 public:
-	std::string char1, char2;
 	CharAdder(const std::string& c1, const std::string&c2) : char1(c1), char2(c2) {}
 	int add() {
 		int num1 = 0, num2 = 0;
@@ -32,6 +31,8 @@ public:
 			num2 = num2 * 10 + (c - '0');
 		return num1 + num2;
 	}
+private:
+	std::string char1, char2;
 };
 
 // Class to get user input
@@ -64,7 +65,7 @@ int main() {
 
 	CharAdder adder(inputValidator1.input_str, inputValidator2.input_str);
 	int sum = adder.add();
-	std::cout << "The sum of " << adder.char1 << " and " << adder.char2 << " is " << sum << std::endl;
+	std::cout << "The sum of " << inputValidator1.input_str << " and " << inputValidator2.input_str << " is " << sum << std::endl;
 	system("pause");
 	return 0;
 }
