@@ -28,12 +28,10 @@ public:
 	InputHandler() {}
 	void handle() {
 		string str1 = "65321", str2 = "98765";
-
 		// Create instances of StringConverter to convert the strings to integers
 		StringConverter converter1(str1);
 		StringConverter converter2(str2);
 		int num1 = converter1.convert(), num2 = converter2.convert();
-
 		// Determine the smallest and largest numbers and output them to the console
 		if (num1 < num2)
 			swap(num1, num2);
