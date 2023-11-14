@@ -18,7 +18,6 @@ public:
 		}
 		else 
 			list.push_back(inputString);
-		
 		return list;
 	}
 };
