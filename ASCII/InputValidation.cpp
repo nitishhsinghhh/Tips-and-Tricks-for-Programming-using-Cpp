@@ -25,7 +25,6 @@ public:
 		char input_char;
 		cout << "Enter a number between 1 and 10: ";
 		cin >> input_char;
-
 		// Create an instance of InputValidator to validate the input
 		InputValidator validator(input_char);
 		if (validator.validate()) 
@@ -41,7 +40,6 @@ int main() {
 	handler.handle();
 	system("pause");
 }
-
 /*
 Output:
 Enter a number between 1 and 10: J
