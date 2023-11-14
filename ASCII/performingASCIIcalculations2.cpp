@@ -1,25 +1,25 @@
 #include<iostream>
 #include<string>
 
+// Class to validate user input
 class InputValidator {
 public:
-	std::string input_str;
-	InputValidator(std::string s) : input_str(s) {}
+	std::string input_str; // Store the input string for debugging
+	InputValidator(std::string s) : input_str(s) {} // Constructor to initialize input string
 	bool validate() {
 		if (input_str.empty())
 			return false;
-
-		for (char c : input_str)
-			if (c < '0' || c > '9') return false;
-
 		int input_num = 0;
-		for (char c : input_str)
+		for (char c : input_str) {
+			if (c < '0' || c > '9')
+				return false;
 			input_num = input_num * 10 + (c - '0');
-
-		return input_num >= 1 && input_num < 3999;
+		}
+		return input_num >= 1 && input_num < 3999; // Validate that input is between 1 and 3998
 	}
 };
 
+// Class to add two character strings
 class CharAdder {
 public:
 	std::string char1, char2;
@@ -34,6 +34,7 @@ public:
 	}
 };
 
+// Class to get user input
 class UserInput {
 public:
 	std::string getInput(std::string message) {
@@ -44,6 +45,7 @@ public:
 	}
 };
 
+// Main function to run the program
 int main() {
 	UserInput userInput;
 	InputValidator inputValidator1(userInput.getInput("Enter first input between 0 to 3999, both excluded: "));
