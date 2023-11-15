@@ -1,19 +1,30 @@
 #include <iostream>
 #include <array>
 
+class NumbersArray {
+private:
+	std::array<int, 5> arr;
+public:
+	NumbersArray() : arr({ 1, 2, 3, 4, 5 }) {}
+
+	int getNumberAtIndex(int index) const {
+		if (index < 0 || index >= arr.size()) {
+			throw std::out_of_range("Index out of range");
+		}
+		return arr[index];
+	}
+};
+
 int main() {
-    int numbers[5] = {1, 2, 3, 4, 5};
-    array<int, 5> arr = {1, 2, 3, 4, 5};
+	NumbersArray numbersArray;
 
-    cout << "Accessing array elements:" << endl;
-    cout << "numbers[2]: " << numbers[2] << endl;
-    cout << "arr[3]: " << arr[3] << endl;
-
-    return 0;
+	std::cout << "Accessing array elements:" << std::endl;
+	std::cout << "numbersArray.getNumberAtIndex(2): " << numbersArray.getNumberAtIndex(2) << std::endl;
+	system("pause");
+	return 0;
 }
 
 /*
 Accessing array elements:
-numbers[2]: 3
-arr[3]: 4
+numbersArray.getNumberAtIndex(2): 3
 */
