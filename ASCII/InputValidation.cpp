@@ -5,16 +5,15 @@ using namespace std;
 // Single Responsibility Principle: This class is responsible for validating user input
 class InputValidator {
 public:
-	InputValidator(char c) : input_char(c) {}
+	InputValidator(int num) : input_num(num) {}
 	bool validate() {
-		int input_num = input_char - '0';
 		return input_num >= 1 && input_num <= 10;
 	}
 	int getNum() {
-		return input_char - '0';
+		return input_num;
 	}
 private:
-	char input_char;
+	int input_num;
 };
 
 // Single Responsibility Principle: This class is responsible for handling user input and output
@@ -22,15 +21,22 @@ class InputHandler {
 public:
 	InputHandler() {}
 	void handle() {
-		char input_char;
-		cout << "Enter a number between 1 and 10: ";
-		cin >> input_char;
-		// Create an instance of InputValidator to validate the input
-		InputValidator validator(input_char);
-		if (validator.validate()) 
-			cout << "Valid input: " << validator.getNum() << endl;
-		else 
-			cout << "Invalid input: " << input_char << endl;
+		string input_str;
+		cout << "Enter a number between 0 and 10, both not included: ";
+		cin >> input_str;
+		if (input_str.length() == 1) {
+			// If the input string size is 1, create an instance of InputValidator to validate the input
+			char input_char = input_str[0];
+			InputValidator validator(input_char - '0');
+			if (validator.validate())
+				cout << "Valid input: " << validator.getNum() << endl;
+			else
+				cout << "Invalid input: " << input_char << endl;
+		}
+		else {
+			// If the input string size is greater than 1, output an error message
+			cout << "Invalid input size: " << input_str.length() << endl;
+		}
 	}
 };
 
@@ -42,8 +48,12 @@ int main() {
 }
 /*
 Output:
-Enter a number between 1 and 10: J
+Enter a number between 0 and 10, both not included: 0
+Invalid input: 0
+Enter a number between 0 and 10, both not included: 2
+Valid input: 2
+Enter a number between 0 and 10, both not included: 10
+Invalid input size: 2
+Enter a number between 0 and 10, both not included: J
 Invalid input: J
-Enter a number between 1 and 10: 1
-valid input: 1
 */
