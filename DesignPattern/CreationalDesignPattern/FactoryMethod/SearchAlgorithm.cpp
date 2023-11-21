@@ -81,7 +81,6 @@ void main() {
 	auto binarySearch = SearchAlgorithmFactory::createSearchAlgorithm(SearchAlgorithm::Binary);
 
 	// Perform searches
-	int res; 
 	if (linearSearch) {
 		int linearResult = linearSearch->search(unsortedData, target);
 		cout << "Linear Search Result: " << linearResult << endl;
