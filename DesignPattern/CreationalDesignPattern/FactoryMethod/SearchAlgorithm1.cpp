@@ -112,8 +112,7 @@ void main() {
 	auto binarySearch = SearchAlgorithmFactory::createSearchAlgorithm(SearchAlgorithm::Binary);
 	auto interpolationSearch = SearchAlgorithmFactory::createSearchAlgorithm(SearchAlgorithm::Interpolation);
 
-	// Perform searches
-	int res; 
+	// Perform searches 
 	if (linearSearch) {
 		int linearResult = linearSearch->search(unsortedData, target);
 		cout << "Linear Search Result: " << linearResult << endl;
