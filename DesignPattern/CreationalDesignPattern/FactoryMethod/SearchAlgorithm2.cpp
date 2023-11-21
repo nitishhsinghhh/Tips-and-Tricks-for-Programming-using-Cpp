@@ -44,11 +44,11 @@ private:
 		while (left <= right) {
 			int mid = left + (right - left) / 2;
 
-			if (arr[mid] == target) 
+			if (arr[mid] == target)
 				return mid; // Target found
-			else if (arr[mid] < target) 
+			else if (arr[mid] < target)
 				left = mid + 1; // Discard left half of the array
-			else 
+			else
 				right = mid - 1; // Discard right half of the array
 		}
 
@@ -130,8 +130,8 @@ public:
 
 void main() {
 	// Define the data to search
-	std::vector<int> sortedData { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-	std::vector<int> unsortedData { 5, 2, 8, 1, 9, 3, 4, 7, 6, 10 };
+	std::vector<int> sortedData{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	std::vector<int> unsortedData{ 5, 2, 8, 1, 9, 3, 4, 7, 6, 10 };
 	int target = 7;
 
 	// Use the factory to create the desired search 
@@ -141,25 +141,21 @@ void main() {
 	auto jumpSearch = SearchAlgorithmFactory::createSearchAlgorithm(SearchAlgorithm::Jump);
 
 	// Perform searches
-	int res; 
-	if (linearSearch) {
-		int linearResult = linearSearch->search(unsortedData, target);
-		cout << "Linear Search Result: " << linearResult << endl;
-	}
-
-	if (binarySearch) {
-		int binaryResult = binarySearch->search(sortedData, target);
-		cout << "Binary Search Result: " << binaryResult << endl;
-	}
-
-	if (interpolationSearch) {
-		int interpolationResult = interpolationSearch->search(sortedData, target);
-		std::cout << "Interpolation Search Result: " << interpolationResult << std::endl;
-	}
-	if (jumpSearch) {
-		int jumpResult = jumpSearch->search(sortedData, target);
-		std::cout << "Jump Search Result: " << jumpResult << std::endl;
-	}
+	if (linearSearch) 
+		cout << "Linear Search Result: " << linearSearch->search(unsortedData, target) << endl;
+	if (binarySearch) 
+		cout << "Binary Search Result: " << binarySearch->search(sortedData, target) << endl;
+	if (interpolationSearch) 
+		std::cout << "Interpolation Search Result: " << interpolationSearch->search(sortedData, target) << std::endl;
+	if (jumpSearch) 
+		std::cout << "Jump Search Result: " << jumpSearch->search(sortedData, target) << std::endl;
 
 	system("pause");
 }
+/*
+Output:
+Linear Search Result: 7
+Binary Search Result: 6
+Interpolation Search Result: 6
+Jump Search Result: 6
+*/
