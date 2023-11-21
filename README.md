@@ -11,6 +11,14 @@ Please consider subscribing to my YouTube [**channel.**](https://www.youtube.com
 
 I recommend reading the **[C++ FAQ Lite](https://isocpp.org/wiki/faq/templates)**
 
+## To fork this repository, follow these steps:
+
+1. Navigate to the repository on GitHub.
+2. Click on the "Fork" button in the top-right corner of the page.
+3. Select the account or organization where you want to fork the repository.
+4. Wait for the forking process to complete.
+Once you have forked the repository, you will have your own copy of the code and resources to work with. You can make changes to the code, add new resources, and submit pull requests to contribute your changes back to the original repository.
+
 ## Contents
 - Tips
 - Computer Science Basics
