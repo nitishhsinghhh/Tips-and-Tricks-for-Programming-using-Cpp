@@ -5,11 +5,14 @@ With a focus on practical solutions and real-world examples, my articles cover a
 
 So, whether you're a seasoned developer or just starting out, this repository is the perfect place to find valuable resources and insights. Be sure to check out my latest articles on Medium, and don't hesitate to reach out if you have any questions or feedback. Together, let's build a stronger, more empowered tech community!
 
-Connect me on [**LinkedIn**](https://www.linkedin.com/in/nitishhsinghhh/)
-
-Please consider subscribing to my YouTube [**channel.**](https://www.youtube.com/@nitishsingh4359)
-
 I recommend reading the **[C++ FAQ Lite](https://isocpp.org/wiki/faq/templates)**
+
+## Getting Started
+To compile and run these programs on your local machine, you'll need to have the appropriate programming language and compiler installed. Here are the steps to get started:
+
+1. Clone this repository to your local machine using git clone.
+2. Navigate to the folder containing the program you want to run.
+3. Follow the instructions in the program's README file to compile and run the program.
 
 ## To fork this repository, follow these steps:
 
@@ -85,3 +88,18 @@ Alternatively, you can also use an online C++ compiler to run these programs wit
 
 ## Contributions
 If you have any suggestions for improvements or would like to add additional C++ programs to this repository, please feel free to create a pull request. We welcome contributions from the community to make this repository more useful for everyone.
+
+Contributions to this repository are welcome! If you'd like to contribute, please follow these guidelines:
+
+1. Fork this repository to your own GitHub account.
+2. Create a new branch for your changes using git checkout -b my-feature-branch
+3. Make your changes and commit them with a descriptive commit message.
+4. Push your changes to your forked repository with git push origin my-feature-branch
+5. Submit a pull request to this repository with a detailed description of your changes.
+
+## Contact
+If you have any questions or need help with this repository, please contact me at me.singhnitish@yandex.com.
+
+Connect me on [**LinkedIn**](https://www.linkedin.com/in/nitishhsinghhh/)
+
+Please consider subscribing to my YouTube [**channel.**](https://www.youtube.com/@nitishsingh4359)
