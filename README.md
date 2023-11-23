@@ -7,6 +7,13 @@ So, whether you're a seasoned developer or just starting out, this repository is
 
 I recommend reading the **[C++ FAQ Lite](https://isocpp.org/wiki/faq/templates)**
 
+## Please help by giving a star
+
+⭐ Please give this repository a star. It takes seconds and help thousands of developers! ⭐
+
+Once you have forked the repository, you will have your own copy of the code and resources to work with. You can make changes to the code, add new resources, and submit pull requests to contribute your changes back to the original repository.
+![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/b08ce8d7-f9a4-432b-9840-e42e7a71c791)
+
 ## Getting Started
 To compile and run these programs on your local machine, you'll need to have the appropriate programming language and compiler installed. Here are the steps to get started:
 
@@ -20,8 +27,6 @@ To compile and run these programs on your local machine, you'll need to have the
 2. Click on the "Fork" button in the top-right corner of the page.
 3. Select the account or organization where you want to fork the repository.
 4. Wait for the forking process to complete.
-
-Once you have forked the repository, you will have your own copy of the code and resources to work with. You can make changes to the code, add new resources, and submit pull requests to contribute your changes back to the original repository.
 
 ## Contents
 - Tips
