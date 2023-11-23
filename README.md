@@ -12,7 +12,8 @@ I recommend reading the **[C++ FAQ Lite](https://isocpp.org/wiki/faq/templates)*
 ⭐ Please give this repository a star. It takes seconds and help thousands of developers! ⭐
 
 Once you have forked the repository, you will have your own copy of the code and resources to work with. You can make changes to the code, add new resources, and submit pull requests to contribute your changes back to the original repository.
-![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/b08ce8d7-f9a4-432b-9840-e42e7a71c791)
+
+![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/8ea8a38f-c347-4dcd-8d18-0246e4da2c31)
 
 ## Getting Started
 To compile and run these programs on your local machine, you'll need to have the appropriate programming language and compiler installed. Here are the steps to get started:
