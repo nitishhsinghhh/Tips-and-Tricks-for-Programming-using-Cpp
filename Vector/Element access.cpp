@@ -2,29 +2,30 @@
 // element access in vector
 #include<iostream>
 #include<vector>
-using namespace std;
 
 void main() {
-	vector<int> g1{ 2,4,6,8,10 };
+	std::vector<int> g1{ 2,4,6,8,10 };
 
-	cout << "\nReference operator [g] : g1[2] = " << g1[2];
-	cout << "\nat : g1.at(4) = " << g1.at(4);
-	cout << "\nfront() : g1.front() = " << g1.front();
-	cout << "\nback() : g1.back() = " << g1.back();
+	std::cout << "\nReference operator [g] : g1[2] = " << g1[2];
+	std::cout << "\nat : g1.at(4) = " << g1.at(4);
+	std::cout << "\nfront() : g1.front() = " << g1.front();
+	std::cout << "\nback() : g1.back() = " << g1.back();
 
 	// pointer to the first element
 	int* pos = g1.data();
+	std::cout << "\nThe first element is " << *pos;
+	std::cout << std::endl;
 
-	cout << "\nThe first element is " << *pos;
+	system("pause");
 }
 
 /*
-Output:
 Reference operator [g] : g1[2] = 6
 at : g1.at(4) = 10
 front() : g1.front() = 2
 back() : g1.back() = 10
 The first element is 2
+Press any key to continue . . .
 */
 
 /*
