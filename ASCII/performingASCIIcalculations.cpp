@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// Single Responsibility Principle: This class is responsible for adding two characters together
+// This class is responsible for adding two characters together
 class CharAdder {
 public:
 	char char1, char2;
