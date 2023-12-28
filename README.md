@@ -108,9 +108,9 @@ If you have any questions or need help with this repository, please contact me a
 
 Please connect with the contributor on LinkedIn
 <br>
-1. [Vani Sharma](https://www.linkedin.com/in/vani-s-136957294/)
+[Vani Sharma](https://www.linkedin.com/in/vani-s-136957294/)
 <br>
-2. [Anupama Halder](https://www.linkedin.com/in/anupama-halder7/)
+[Anupama Halder](https://www.linkedin.com/in/anupama-halder7/)
 <br>
-3. [Nitish Singh](https://www.linkedin.com/in/nitishhsinghhh/)
+[Nitish Singh](https://www.linkedin.com/in/nitishhsinghhh/)
 
