@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
 #include<string>
-using namespace std;
 
 template<typename T>
 class Stack {
 private:
-	vector<T> elements;
+	std::vector<T> elements;
 public:
 	void push(T element) {
 		elements.push_back(element);
@@ -39,21 +38,21 @@ void main() {
 	MyStack.push(20);
 	MyStack.push(30);
 
-	cout << "Top element: " << MyStack.top() << endl;
+	std::cout << "Top element: " << MyStack.top() << std::endl;
 	MyStack.pop();
-	cout << "Top element after pop: " << MyStack.top() << endl;
-	cout << "Stack size: " << MyStack.size() << endl;
+	std::cout << "Top element after pop: " << MyStack.top() << std::endl;
+	std::cout << "Stack size: " << MyStack.size() << std::endl;
 
 	// String Stack
-	Stack<string> MyStringStack;
+	Stack<std::string> MyStringStack;
 	MyStringStack.push("10.00");
 	MyStringStack.push("20.00");
 	MyStringStack.push("30.00");
 
-	cout << "Top element string: " << MyStringStack.top() << endl;
+	std::cout << "Top element string: " << MyStringStack.top() << std::endl;
 	MyStringStack.pop();
-	cout << "Top element string after pop: " << MyStringStack.top() << endl;
-	cout << "Stack size: " << MyStack.size() << endl;
+	std::cout << "Top element string after pop: " << MyStringStack.top() << std::endl;
+	std::cout << "Stack size: " << MyStack.size() << std::endl;
 
 	// double stack
 	Stack<double> MyDoubleStack;
@@ -61,15 +60,16 @@ void main() {
 	MyDoubleStack.push(20.08);
 	MyDoubleStack.push(30.09);
 
-	cout << "Top element: " << MyDoubleStack.top() << endl;
+	std::cout << "Top element: " << MyDoubleStack.top() << std::endl;
 	MyDoubleStack.pop();
-	cout << "Top element after pop: " << MyDoubleStack.top() << endl;
-	cout << "Stack size: " << MyDoubleStack.size() << endl;
+	std::cout << "Top element after pop: " << MyDoubleStack.top() << std::endl;
+	std::cout << "Stack size: " << MyDoubleStack.size() << std::endl;
+
+	system("pause");
 
 }
 
 /*
-Output:
 Top element: 30
 Top element after pop: 20
 Stack size: 2
@@ -79,4 +79,5 @@ Stack size: 2
 Top element: 30.09
 Top element after pop: 20.08
 Stack size: 2
+Press any key to continue . . .
 */
