@@ -8,21 +8,17 @@ public:
 	void push(int element) {
 		elements.push_back(element);
 	}
-
 	bool isEmpty() {
 		return elements.empty();
 	}
-
 	void pop() {
 		if (!isEmpty())
 			elements.pop_back();
 	}
-
 	int top() {
 		if (!isEmpty())
 			return elements.back();
 	}
-
 	int size() {
 		return elements.size();
 	}
