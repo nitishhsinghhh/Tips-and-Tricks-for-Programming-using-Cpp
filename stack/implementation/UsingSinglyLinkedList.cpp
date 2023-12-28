@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 // Singly Linked List
 struct ListNode {
@@ -25,9 +24,9 @@ public:
 	}
 
 	int pop() {
-		if (topNode == nullptr) 
+		if (topNode == nullptr)
 			throw "Stack is empty";
-		
+
 		int val = topNode->val;
 		ListNode *temp = topNode;
 		topNode = topNode->next;
@@ -35,7 +34,7 @@ public:
 		stackSize--;
 		return val;
 	}
-	
+
 	int top() {
 		if (topNode == nullptr)
 			throw "Stack is empty";
@@ -51,21 +50,20 @@ public:
 	}
 };
 
-int main() {
+void main() {
 	Stack myStack;
 	myStack.push(30);
 	myStack.push(40);
 	myStack.push(50);
-	cout << "Top element: " << myStack.top() << endl;
+	std::cout << "Top element: " << myStack.top() << std::endl;
 	myStack.pop();
-	cout << "Top element after pop: " << myStack.top() << endl;
-	cout << "Stack size: " << myStack.size() << endl;
-	return 0;
+	std::cout << "Top element after pop: " << myStack.top() << std::endl;
+	std::cout << "Stack size: " << myStack.size() << std::endl;
+	system("pause");
 }
-
 /*
-Output:
 Top element: 50
 Top element after pop: 40
 Stack size: 2
+Press any key to continue . . .
 */
