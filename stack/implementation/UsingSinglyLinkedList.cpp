@@ -1,5 +1,4 @@
 #include <iostream>
-
 // Singly Linked List
 struct ListNode {
 	int val;
@@ -8,7 +7,6 @@ struct ListNode {
 	ListNode(int x) : val(x), next(nullptr) {}
 	ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
-
 class Stack {
 private:
 	ListNode *topNode;
@@ -22,7 +20,6 @@ public:
 		topNode = newNode;
 		stackSize++;
 	}
-
 	int pop() {
 		if (topNode == nullptr)
 			throw "Stack is empty";
@@ -34,22 +31,18 @@ public:
 		stackSize--;
 		return val;
 	}
-
 	int top() {
 		if (topNode == nullptr)
 			throw "Stack is empty";
 		return topNode->val;
 	}
-
 	bool empty() {
 		return topNode == nullptr;
 	}
-
 	int size() {
 		return stackSize;
 	}
 };
-
 void main() {
 	Stack myStack;
 	myStack.push(30);
