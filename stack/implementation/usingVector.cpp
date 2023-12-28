@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
 class Stack {
 private:
-	vector<int> elements;
+	std::vector<int> elements;
 public:
 	void push(int element) {
 		elements.push_back(element);
@@ -15,12 +14,12 @@ public:
 	}
 
 	void pop() {
-		if(!isEmpty())
+		if (!isEmpty())
 			elements.pop_back();
 	}
 
 	int top() {
-		if (!isEmpty()) 
+		if (!isEmpty())
 			return elements.back();
 	}
 
@@ -34,9 +33,15 @@ void main() {
 	oStack.push(10);
 	oStack.push(20);
 	oStack.push(30);
-
-	cout << "Top element: " << oStack.top() << endl;
+	std::cout << "Top element: " << oStack.top() << std::endl;
 	oStack.pop();
-	cout << "Top element after pop: " << oStack.top() << endl;
-	cout << "Stack size: " << oStack.size() << endl;
+	std::cout << "Top element after pop: " << oStack.top() << std::endl;
+	std::cout << "Stack size: " << oStack.size() << std::endl;
+	system("pause");
 }
+/*
+Top element: 30
+Top element after pop: 20
+Stack size: 2
+Press any key to continue . . .
+*/
