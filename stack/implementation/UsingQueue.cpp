@@ -1,10 +1,9 @@
 #include <iostream>
 #include <queue>
-using namespace std;
 
 class Stack {
 private:
-	queue<int> q1, q2;
+	std::queue<int> q1, q2;
 	int topElement;
 public:
 	Stack() {}
@@ -41,20 +40,21 @@ public:
 	}
 };
 
-int main() {
+void main() {
 	Stack myStack;
 	myStack.push(30);
 	myStack.push(40);
 	myStack.push(50);
-	cout << "Top element: " << myStack.top() << endl;
+	std::cout << "Top element: " << myStack.top() << std::endl;
 	myStack.pop();
-	cout << "Top element after pop: " << myStack.top() << endl;
-	cout << "Stack size: " << myStack.size() << endl;
-	return 0;
+	std::cout << "Top element after pop: " << myStack.top() << std::endl;
+	std::cout << "Stack size: " << myStack.size() << std::endl;
+	system("pause");
 }
+
 /*
-Output:
 Top element: 50
 Top element after pop: 40
 Stack size: 2
+Press any key to continue . . .
 */
