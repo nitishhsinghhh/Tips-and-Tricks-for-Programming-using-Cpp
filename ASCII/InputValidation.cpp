@@ -37,7 +37,7 @@ private:
     int input_num;
 };
 
-// Single Responsibility Principle: This class is responsible for handling user input and output
+// This class is responsible for handling user input and output
 class InputHandler {
 public:
     InputHandler() {}
@@ -47,8 +47,7 @@ public:
         std::cin >> input_str;
 
         // If the input string size is 1, create an instance of InputValidator to validate the input
-        // If the input string size is greater than 1, output an error message
-
+        // Else the input string size is greater than 1, output an error message
         if (input_str.length() == 1) {
             char input_char = input_str[0];
             InputValidator validator(input_char - '0');
