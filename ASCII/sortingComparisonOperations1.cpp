@@ -3,32 +3,19 @@ Author: Nitish Singh
 Date: December 29, 2023
 Email ID: me.singhnitish@yandex.com
 
-Problem Statement:
-This program demonstrates a simple application that sorts and converts two strings to integers, and then determines the smallest and largest numbers to output to the console.
+Problem Statement: 
+This program demonstrates a simple application that sorts and converts two strings to integers and outputs the smallest and largest numbers to the console.
 
-Solution:
+Solution: 
 The program consists of two classes:
 1. StringConverter: Responsible for sorting and converting a string to an integer.
 2. InputHandler: Responsible for handling user input and output.
 
-The main function drives the program by using instances of StringConverter to convert strings to integers and then determine the smallest and largest numbers to be output.
+The main function provides information about the maximum size of the input string that can be converted to an int and uses instances of StringConverter to convert the strings to integers and determine the smallest and largest numbers for output.
 
 Additional Information:
 - The StringConverter class sorts the input string and converts it to an integer, handling negative numbers as well.
 - The InputHandler class creates instances of StringConverter to convert strings and determines the smallest and largest numbers for output.
-
-Note:
-- The line sort(input_str.begin(), input_str.end()); is using the std::sort algorithm to sort the characters in the input_str string in
-  ascending order. Here's a breakdown of this line:
-
-  input_str: This is the input string to be sorted. It contains the characters that need to be arranged in ascending order.
-  input_str.begin(): This is a method of the string class that returns an iterator pointing to the beginning of the string.
-  input_str.end(): This is a method of the string class that returns an iterator pointing to the end of the string.
-  std::sort: This is the standard library algorithm used to sort the elements in a range defined by the iterators.
-
-- When std::sort is called with the iterators input_str.begin() and input_str.end(), it rearranges the characters within the specified
-  range (from the beginning to the end of the string) into ascending order according to their ASCII values. After this line is executed,
-  the input_str string will have its characters sorted in ascending order.
 */
 
 #include <iostream>
