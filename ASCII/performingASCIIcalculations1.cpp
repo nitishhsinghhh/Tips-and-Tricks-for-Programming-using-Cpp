@@ -18,6 +18,15 @@ Additional Information:
 - The InputValidator class checks if the input string contains only numeric characters and is within the range of 1 to 3998.
 - The CharAdder class converts the character strings to integers and adds them together.
 - The UserInput class gets input from the user and returns the input as a string.
+
+Note: 
+The line InputValidator(std::string s) : input_str(s) {} is a constructor for the InputValidator class. Let's break down this line:
+
+InputValidator(std::string s): This part defines the constructor for the InputValidator class. It takes a parameter of type std::string, 
+denoted as s. This means that when an object of the InputValidator class is created, it can be initialized with a string input.
+
+: input_str(s) {}: This part is the initializer list. It is used to initialize the member variable input_str of the InputValidator class 
+with the value of the parameter s passed to the constructor. This allows the member variable input_str to be set to the value of the string input when an object of InputValidator is created.
 */
 #include<iostream>
 #include<string>
