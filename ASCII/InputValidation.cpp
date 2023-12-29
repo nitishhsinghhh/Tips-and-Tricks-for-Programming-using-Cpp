@@ -5,12 +5,10 @@
            an instance of InputValidator to validate the input. If the input is valid, the program outputs "Valid input: " followed by the 
 	   input number. If the input is invalid, the program outputs "Invalid input: " followed by the input character.              
 */
-
 #include <iostream>
 #include <string>
-using namespace std;
 
-// Single Responsibility Principle: This class is responsible for validating user input
+// This class is responsible for validating user input
 class InputValidator {
 public:
 	InputValidator(int num) : input_num(num) {}
@@ -29,60 +27,60 @@ class InputHandler {
 public:
 	InputHandler() {}
 	void handle() {
-		string input_str;
-		cout << "Enter a number between 1 and 9, both included: ";
-		cin >> input_str;
-		if (input_str.length() == 1) {
-			// If the input string size is 1, create an instance of InputValidator to validate the input
+		std::string input_str;
+		std::cout << "Enter a number between 1 and 9, both included: ";
+		std::cin >> input_str;
+
+		// If the input string size is 1, create an instance of InputValidator to validate the input
+		// If the input string size is greater than 1, output an error message
+
+		if (input_str.length() == 1) {			
 			char input_char = input_str[0];
 			InputValidator validator(input_char - '0');
 			if (validator.validate())
-				cout << "Valid input: " << validator.getNum() << endl;
+				std::cout << "Valid input: " << validator.getNum() << std::endl;
 			else
-				cout << "Invalid input: " << input_char << endl;
+				std::cout << "Invalid input: " << input_char << std::endl;
 		}
-		else {
-			// If the input string size is greater than 1, output an error message
-			cout << "Invalid input size: " << input_str.length() << endl;
-		}
+		else 
+			std::cout << "Invalid input size: " << input_str.length() << std::endl;
 	}
 };
 
 int main() {
-	cout << "Enter test case 1: input is '10'" << endl;
-	cout << "Expected output: Invalid input size: 2" << endl;
+	std::cout << "Enter test case 1: input is '10'" << std::endl;
+	std::cout << "Expected output: Invalid input size: 2" << std::endl;
 	InputHandler handler1;
 	handler1.handle();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "Enter test case 2: input is '9'" << endl;
-	cout << "Expected output: Valid input: 9" << endl;
+	std::cout << "Enter test case 2: input is '9'" << std::endl;
+	std::cout << "Expected output: Valid input: 9" << std::endl;
 	InputHandler handler2;
 	handler2.handle();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "Enter test case 3: input is '1'" << endl;
-	cout << "Expected output: Valid input: 1" << endl;
+	std::cout << "Enter test case 3: input is '1'" << std::endl;
+	std::cout << "Expected output: Valid input: 1" << std::endl;
 	InputHandler handler3;
 	handler3.handle();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "Enter test case 4: input is '0'" << endl;
-	cout << "Expected output: Invalid input: 0" << endl;
+	std::cout << "Enter test case 4: input is '0'" << std::endl;
+	std::cout << "Expected output: Invalid input: 0" << std::endl;
 	InputHandler handler4;
 	handler4.handle();
-	cout << endl;
+	std::cout << std::endl;
 
-	cout << "Enter test case 5: input is 'J'" << endl;
-	cout << "Expected output: Invalid input: J" << endl;
+	std::cout << "Enter test case 5: input is 'J'" << std::endl;
+	std::cout << "Expected output: Invalid input: J" << std::endl;
 	InputHandler handler5;
 	handler5.handle();
-	cout << endl;
+	std::cout << std::endl;
 
 	system("pause");
 }
 /*
-Output:
 Enter test case 1: input is '10'
 Expected output: Invalid input size: 2
 Enter a number between 1 and 9, both included: 10
@@ -105,6 +103,8 @@ Invalid input: 0
 
 Enter test case 5: input is 'J'
 Expected output: Invalid input: J
-Enter a number between 1 and 9, both included: j
-Invalid input: j
+Enter a number between 1 and 9, both included: J
+Invalid input: J
+
+Press any key to continue . . .
 */
