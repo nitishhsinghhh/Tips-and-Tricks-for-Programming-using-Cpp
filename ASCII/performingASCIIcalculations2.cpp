@@ -1,3 +1,24 @@
+/*
+Author: Nitish Singh
+Date: December 29, 2023
+Email ID: me.singhnitish@yandex.com
+
+Problem Statement: 
+This program demonstrates a simple application that validates user input, adds two character strings, and outputs the sum.
+
+Solution: 
+The program consists of three classes:
+1. InputValidator: Responsible for validating user input.
+2. CharAdder: Responsible for adding two character strings.
+3. UserInput: Responsible for getting user input from the console.
+
+The main function drives the program by using instances of InputValidator to validate user input and then using CharAdder to add the validated input.
+
+Additional Information:
+- The InputValidator class checks if the input string contains only numeric characters and is within the range of 1 to 3998.
+- The CharAdder class converts the character strings to integers and adds them together.
+- The UserInput class gets input from the user and returns the input as a string.
+*/
 #include<iostream>
 #include<string>
 
@@ -69,3 +90,10 @@ int main() {
 	system("pause");
 	return 0;
 }
+
+/*
+Enter first input between 0 to 3999, both excluded: 566
+Enter second input between 0 to 3999, both excluded: 566
+The sum of 566 and 566 is 1132
+Press any key to continue . . .
+*/
