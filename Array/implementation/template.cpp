@@ -5,9 +5,9 @@ using namespace std;
 template<typename T>
 class Vector {
 private:
-	int m_size; // private member to keep track of the size of the vector
-	int m_capacity; // private member to keep track of the capacity of the vector
-	T *m_data; // private member to point to the underlying array of the vector
+	int m_size; // To keep track of the size of the vector
+	int m_capacity; // To keep track of the capacity of the vector
+	T *m_data; // To point to the underlying array of the vector
 
 public:
 	// Default constructor to initialise the vector with size 0 and capacity 2
