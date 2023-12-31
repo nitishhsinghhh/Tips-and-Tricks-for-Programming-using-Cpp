@@ -1,6 +1,5 @@
 #include <iostream>
 #include<string>
-using namespace std;
 
 template<typename T>
 class Vector {
@@ -86,39 +85,41 @@ public:
 
 int main() {
 	// Creating a Vector object of type string
-	Vector<string> vec;
+	Vector<std::string> vec;
 	// Adding three elements to the vector using push_back()
 	vec.push_back("A");
 	vec.push_back("B");
 	vec.push_back("C");
 
 	// Printing the element at index 2 using operator[]
-	cout << "The vector at index 2 is: " << vec[2] << endl;
+	std::cout << "The vector at index 2 is: " << vec[2] << std::endl;
 
 	// Printing all the elements of the vector using a for loop and operator[]
 	for (int i = 0; i < vec.size(); i++)
-		cout << vec[i] << " ";
-	cout << endl;
+		std::cout << vec[i] << " ";
+	std::cout << std::endl;
 
 	// Inserting a new element at index 2 using insertAt() and printing the updated elements of the vector
 	vec.insertAt("AA", 2);
 	for (int i = 0; i < vec.size(); i++)
-		cout << vec[i] << " ";
-	cout << endl;
+		std::cout << vec[i] << " ";
+	std::cout << std::endl;
 
 	// Removing the last element using pop_back() and printing the updated elements of the vector
 	vec.pop_back();
 	for (int i = 0; i < vec.size(); i++)
-		cout << vec[i] << " ";
-	cout << endl;
+		std::cout << vec[i] << " ";
+	std::cout << std::endl;
 
 	// Pausing the console
 	system("pause");
 }
 
-// Output:
-// The vector at index 2 is: C
-// A B C
-// A B AA C
-// A B AA
-// Press any key to continue . . . 
+/*
+The vector at index 2 is: C
+A B C
+A B AA C
+A B AA
+Press any key to continue . . .
+
+*/
