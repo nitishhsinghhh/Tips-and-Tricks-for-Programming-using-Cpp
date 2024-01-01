@@ -2,9 +2,8 @@
  * Binary Search: (Binary search is a divide-and-conquer algorithm that can be used to find the position of a target value within a sorted array.)
 */
 #include<bits/stdc++.h>
-using namespace std;
 
-int binary_search(vector<int>&nums, int search_key){
+int binary_search(std::vector<int>&nums, int search_key){
     int ans_index = -1;
     int left = 0;
     int right = nums.size()-1;
@@ -26,7 +25,7 @@ int binary_search(vector<int>&nums, int search_key){
     return ans_index;
 }
 int main(){
-    vector<int>numbers={4,6,7,12,9,3,6,7};
+    std::vector<int>numbers={4,6,7,12,9,3,6,7};
     int search_key = 6;
     int res;
     // sort the given array before calling binary search
@@ -36,19 +35,19 @@ int main(){
     // test case 1
     res = binary_search(numbers, search_key);
     if(res == -1){
-        cout<<"Element is not found"<<endl;
+        std::cout<<"Element is not found\n";
     }
     else{
-        cout<<"Element has found"<<endl;
+        std::cout<<"Element has found\n";
     }
 
     // test case 2
     res = binary_search(numbers, 5);
     if(res == -1){
-        cout<<"Element is not found"<<endl;
+        std::cout<<"Element is not found\n";
     }
     else{
-        cout<<"Element has found"<<endl;
+        std::cout<<"Element has found\n";
     }
 
     return 0;
