@@ -28,17 +28,6 @@ public:
         }
         return head;
     }
-    void insert_at_tail(ListNode *&head, ListNode *&tail, int val){
-        // create a new node 
-        ListNode *newNode = new ListNode(val);
-        if(head == NULL){
-            head = newNode;
-            tail = newNode;
-            return;
-        }
-        tail->next = newNode;
-        tail = newNode;
-    }
     void print_linkedlist(ListNode *head){
         ListNode *tmp = head;
         while(tmp != NULL){
@@ -50,15 +39,7 @@ public:
 };
 int main(){
     Solution sol;
-    ListNode *head = NULL, *tail = NULL;
-    sol.insert_at_tail(head, tail, 1);
-    sol.insert_at_tail(head, tail, 2);
-    sol.insert_at_tail(head, tail, 2);
-    sol.insert_at_tail(head, tail, 3);
-    sol.insert_at_tail(head, tail, 3);
-    sol.insert_at_tail(head, tail, 4);
-    sol.insert_at_tail(head, tail, 4);
-    sol.insert_at_tail(head, tail, 5);
+    ListNode *head = new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(3, new ListNode(3, new ListNode(4, new ListNode(4,new ListNode(5))))))));    
 
     // print the linked list before removing duplicate elements
     sol.print_linkedlist(head); //1->2->2->3->3->4->4->5

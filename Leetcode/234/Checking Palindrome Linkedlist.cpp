@@ -58,15 +58,7 @@ public:
 };
 int main(){
     Solution sol;
-    ListNode *head = NULL, *tail = NULL;
-    sol.insert_at_tail(head, tail, 1);
-    sol.insert_at_tail(head, tail, 2);
-    sol.insert_at_tail(head, tail, 2);
-    sol.insert_at_tail(head, tail, 3);
-    sol.insert_at_tail(head, tail, 3);
-    sol.insert_at_tail(head, tail, 4);
-    sol.insert_at_tail(head, tail, 4);
-    sol.insert_at_tail(head, tail, 5);
+    
 
     bool res;
 
