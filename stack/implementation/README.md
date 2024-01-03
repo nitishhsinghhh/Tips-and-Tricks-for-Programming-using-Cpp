@@ -15,6 +15,3 @@ This repository contains different implementations of a stack data structure usi
 
 Feel free to contribute by adding more examples, improving existing code, or providing feedback through issues and pull requests.
 
-## License
-
-This repository is licensed under the [MIT License](LICENSE).
