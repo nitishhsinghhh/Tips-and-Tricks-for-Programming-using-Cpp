@@ -1,3 +1,24 @@
+/*
+Author: Nitish Singh
+Date: January 3, 2024
+Email ID: me.singhnitish@yandex.com
+
+Problem Statement: 
+Create a C++ program to evaluate a postfix expression using a stack-based calculator. The program should accept a postfix expression as input and calculate the result using a stack data structure. 
+The input expression can contain numbers and the operators '+', '-', '*', and '/'. The program should handle invalid expressions and provide appropriate error messages.
+
+Solution: 
+The StackCalculator class contains a method named "calculate" that takes a postfix expression as input and evaluates it using a stack. The class uses a stack to push operands and perform operations 
+based on the encountered operators. It also includes methods to check whether a token is a number or an operator, as well as to perform arithmetic operations. The main function prompts the user to 
+enter a postfix expression, calls the calculate method of the StackCalculator, and displays the result or any error messages.
+
+Additional Information:
+- The program uses a stack-based approach to evaluate postfix expressions, which is a common technique in computer science and mathematics.
+- Error handling is implemented to handle cases such as invalid expressions, division by zero, and unknown operators.
+- The program demonstrates the use of stringstream for tokenizing the input expression and handling the input/output operations.
+- The main function provides a sample output for a valid postfix expression to demonstrate the functionality of the program.
+*/
+
 #include <iostream>
 #include <stack>
 #include <sstream>
@@ -81,7 +102,6 @@ int main() {
 	catch (const std::exception& e) {
 		std::cout << "Error: " << e.what() << std::endl;
 	}
-
 	return 0;
 }
 
