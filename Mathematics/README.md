@@ -19,9 +19,9 @@ The discriminant can take on three different cases:
 
 The discriminant helps in classifying the solutions and is a fundamental concept when dealing with quadratic equations and their graphical representation. In programming, it is often used to guide the branching logic in solving quadratic equations.
 
-### Mastering Namespace: Essential Tips and Tricks
+# Essential Tips and Tricks
 
-# **Why is "using namespace std;" considered bad practice?**
+## **Why is "using namespace std;" considered bad practice?**
 
 When working with multiple libraries or namespaces in your code, it's important to be mindful of potential conflicts that may arise. One common issue is when two libraries import functions into the global namespace, which can lead to conflicts and make your code harder to maintain.
 
@@ -32,7 +32,7 @@ To avoid such conflicts, it's recommended to use the full namespace when calling
 By using the full namespace, you can mitigate potential conflicts and make your code more resilient to changes in library versions.
 **Inputs from stackoverflow.**
 
-# Why We  Should Avoid Including <bits/stdc++.h>
+## Why We  Should Avoid Including <bits/stdc++.h>
 
 Including <bits/stdc++.h> appears to be an increasingly common thing to see, perhaps something newly added to a national curriculum in the current academic year.
 I imagine the advantages are vaguely given thus:
