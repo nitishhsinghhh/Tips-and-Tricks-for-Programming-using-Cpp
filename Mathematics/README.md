@@ -34,22 +34,17 @@ By using the full namespace, you can mitigate potential conflicts and make your 
 
 # Why We  Should Avoid Including <bits/stdc++.h>
 
-Including <bits/stdc++.h> appears to be an increasingly common thing to see on Stack Overflow, perhaps something newly added to a national curriculum in the current academic year.
-
+Including <bits/stdc++.h> appears to be an increasingly common thing to see, perhaps something newly added to a national curriculum in the current academic year.
 I imagine the advantages are vaguely given thus:
-
 - You only need write one #include line.
 - You do not need to look up which standard header everything is in.
-
 Unfortunately, this is a lazy hack, naming a GCC internal header directly instead of individual standard headers like <string>, <iostream>, and <vector>. It ruins portability and fosters terrible habits.
 
 The disadvantages include:
-
 - It will probably only work on that compiler.
 - You have no idea what it'll do when you use it, because its contents are not set by a standard.
 - Even just upgrading your compiler to its own next version may break your program.
 - Every single standard header must be parsed and compiled along with your source code, which is slow and results in a bulky executable under certain compilation settings. **Inputs from stackoverflow.**
-
 Don't do it!
 
 [GCC 4.8.0 /bits/stdc++.h source](https://gcc.gnu.org/onlinedocs/gcc-4.8.0/libstdc++/api/a01541_source.html)
