@@ -32,7 +32,7 @@ To avoid such conflicts, it's recommended to use the full namespace when calling
 By using the full namespace, you can mitigate potential conflicts and make your code more resilient to changes in library versions.
 **Inputs from stackoverflow.**
 
-### Why We  Should Avoid Including <bits/stdc++.h>
+# Why We  Should Avoid Including <bits/stdc++.h>
 
 Including <bits/stdc++.h> appears to be an increasingly common thing to see on Stack Overflow, perhaps something newly added to a national curriculum in the current academic year.
 
