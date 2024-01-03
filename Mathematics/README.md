@@ -52,7 +52,7 @@ The disadvantages include:
 
 Don't do it!
 
-(GCC 4.8.0 /bits/stdc++.h source.)[https://gcc.gnu.org/onlinedocs/gcc-4.8.0/libstdc++/api/a01541_source.html]
+(GCC 4.8.0 /bits/stdc++.h source)[https://gcc.gnu.org/onlinedocs/gcc-4.8.0/libstdc++/api/a01541_source.html]
 <br>
 Including <bits/stdc++.h> results in unnecessary bloat and longer compilation times. While it serves as an implementation for precompiled headers, setting it up for precompilation may potentially speed up compilation time for certain projects. Nonetheless, It is recommended taking the time to understand and include each standard library header separately rather than relying on "super headers" unless for precompilation purposes.
 
