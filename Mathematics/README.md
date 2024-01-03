@@ -28,4 +28,5 @@ For example, if you have two libraries called Foo and Bar, and you use `using na
 To avoid such conflicts, it's recommended to use the full namespace when calling functions from different libraries. For example, instead of using `Blah()` from Foo and `Quux()` from Bar directly, you can use `foo::Blah()` and `bar::Quux()`. This approach helps to prevent conflicts, especially when libraries introduce new functions with the same name.
 
 By using the full namespace, you can mitigate potential conflicts and make your code more resilient to changes in library versions.
+**Inputs from stackoverflow.**
 
