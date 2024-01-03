@@ -4,11 +4,11 @@ This repository contains different implementations of a stack data structure usi
 
 | File Name                                   | Description                                                                          |
 |---------------------------------------------|--------------------------------------------------------------------------------------|
-| [UsingDeque.cpp](./implementation/UsingDeque.cpp)           | Implements a stack using a deque (double-ended queue) in C++.                        |
-| [UsingQueue.cpp](./implementation/UsingQueue.cpp)           | implementation of a stack using a queue in C++.                                      |
-| [UsingSinglyLinkedList.cpp](./implementation/UsingSinglyLinkedList.cpp) | implementation of a stack using a singly linked list in C++.              |
-| [usingTemplate.cpp](./implementation/usingTemplate.cpp)       | implementation of a stack using templates for generic programming in C++.    |
-| [usingVector.cpp](./implementation/usingVector.cpp)           | implementation a stack using vectors (dynamic arrays) in C++.                   |
+| [UsingDeque.cpp](./UsingDeque.cpp)           | Implements a stack using a deque (double-ended queue) in C++.                        |
+| [UsingQueue.cpp](./UsingQueue.cpp)           | implementation of a stack using a queue in C++.                                      |
+| [UsingSinglyLinkedList.cpp](./UsingSinglyLinkedList.cpp) | implementation of a stack using a singly linked list in C++.              |
+| [usingTemplate.cpp](./usingTemplate.cpp)       | implementation of a stack using templates for generic programming in C++.    |
+| [usingVector.cpp](./usingVector.cpp)           | implementation a stack using vectors (dynamic arrays) in C++.                   |
 
 
 ## Contributing
