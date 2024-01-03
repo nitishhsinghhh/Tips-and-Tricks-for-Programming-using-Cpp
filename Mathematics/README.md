@@ -21,6 +21,8 @@ The discriminant helps in classifying the solutions and is a fundamental concept
 
 ### Mastering Namespace: Essential Tips and Tricks
 
+# **Why is "using namespace std;" considered bad practice?**
+
 When working with multiple libraries or namespaces in your code, it's important to be mindful of potential conflicts that may arise. One common issue is when two libraries import functions into the global namespace, which can lead to conflicts and make your code harder to maintain.
 
 For example, if you have two libraries called Foo and Bar, and you use `using namespace foo;` and `using namespace bar;`, you may encounter issues if both libraries offer functions with the same name.
