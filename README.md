@@ -106,11 +106,3 @@ Contributions to this repository are welcome! If you'd like to contribute, pleas
 ## Contact
 If you have any questions or need help with this repository, please contact me at **me.singhnitish@yandex.com.**
 
-Please connect with the contributor on LinkedIn
-<br>
-[Vani Sharma](https://www.linkedin.com/in/vani-s-136957294/)
-<br>
-[Anupama Halder](https://www.linkedin.com/in/anupama-halder7/)
-<br>
-[Nitish Singh](https://www.linkedin.com/in/nitishhsinghhh/)
-
