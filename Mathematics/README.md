@@ -104,22 +104,16 @@ Friday 11:03 AM
 #### How to check whether a number is Prime or not? 
 
 ##### Naive Approach: The naive approach is to
-```
 Iterate from 2 to  (n-1) and check if any number in this range divides n. If the number divides n, then it is not a prime number.
-```
-```
+<br>
 Recursion can also be used to check if a number between 2 to n – 1 divides n. If we find any number that divides, we return false.
-```
+
 ##### Efficient Approach: An efficient solution is to:
-```
 Iterate through all numbers from 2 to ssquare root of n and for every number check if it divides n [because if a number is expressed as n = xy and any of the x or y is greater than the root of n, the other must be less than the root value]. If we find any number that divides, we return false.
-```
 
 ##### Another Efficient approach: 
 To check whether  the number is prime or not follow the below idea:
-```
 We will deal with a few numbers such as 1, 2, 3, and the numbers which are divisible by 2 and 3 in separate cases and for remaining numbers. Iterate from 5 to sqrt(n) and check for each iteration whether (that value) or (that value + 2) divides n or not and increment the value by 6 [because any prime can be expressed as 6n+1 or 6n-1]. If we find any number that divides, we return false.
-```
 
 
 
