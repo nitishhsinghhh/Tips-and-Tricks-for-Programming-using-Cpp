@@ -6,12 +6,11 @@
 | 2.  | [Quadratic Equation Solver](./Quadratic_Equation_Solver_V1.1.cpp) | Updated program for quadratic equation solving     | 1.1     |
 | 3.  | [Prime Factorization](./Prime_Factorization_V1.0.cpp) | Program to perform prime factorization            | 1.0     |
 | 4.  | [LCM of two numbers](./LCM_two_numbers_V1.0.cpp)         | Program to calculate LCM of two numbers           | 1.0     |
-| 7.  | [LCM and GCD of two numbers](./GCD_two_numbers_V1.0.cpp)         | Program to calculate GCD of two numbers           | 1.0     |
-| 5.  | [LCM of two numbers](./GCD_LCM_two_numbers_V1.1.cpp) | Updated Program with using interface to calculate GCD and LCM of two numbers   | 1.1     |
-| 6.  | [LCM and GCD of two numbers](./GCD_LCM_two_numbers_V1.2.cpp) | Updated Program with GCD fucntion to calculate GCD of two numbers      | 1.2     |
+| 5.  | [LCM and GCD of two numbers](./GCD_two_numbers_V1.0.cpp)         | Program to calculate GCD of two numbers           | 1.0     |
+| 6.  | [LCM and GCD of two numbers](./GCD_LCM_two_numbers_V1.1.cpp) | Updated Program with using interface to calculate GCD and LCM of two numbers   | 1.1     |
+| 7.  | [LCM and GCD of two numbers](./GCD_LCM_two_numbers_V1.2.cpp) | Updated Program with GCD fucntion to calculate GCD of two numbers      | 1.2     |
 
-
-### Discriminant
+# Discriminant
 
 The discriminant is a term used in the context of quadratic equations and is part of the quadratic formula. For a quadratic equation in the form (ax^2 + bx + c = 0), the discriminant is given by the expression inside the square root of the quadratic formula:
 
