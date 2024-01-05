@@ -81,5 +81,11 @@ int gcd(int a, int b) {
 }
 ```
 
+The product of the least common multiple (LCM) and greatest common divisor (GCD) of two natural numbers, a and b, is equal to the product of the two numbers. This equation is helpful for calculating the LCM, GCD, or the numbers themselves when three out of the four values are known.
+
+```
+LCM (a , b) × HCF (a , b) = a × b
+```
+
 
 
