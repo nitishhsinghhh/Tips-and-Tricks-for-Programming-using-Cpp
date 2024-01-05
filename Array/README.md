@@ -103,7 +103,7 @@ N - the number of elements in the array or 0.
 | operator<=>(C++20)    | compares the values of two arrays (C++20) |
 | get(C++11)            | accesses an element of an array (function template) |
 | std::swap(C++11)      | specializes the std::swap algorithm for arrays (function template) |
-| to_array(C++11)       | creates a std::array object from a built-in array (function template) |
+| to_array(C++20)       | creates a std::array object from a built-in array (function template) |
 
 
 # Helper classes
