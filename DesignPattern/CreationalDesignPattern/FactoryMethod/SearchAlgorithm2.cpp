@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 // Define an enumeration for search algorithms
 enum class SearchAlgorithm {
@@ -22,13 +21,10 @@ public:
 class LinearSearch : public SearchAlgorithmBase {
 private:
 	int search(const std::vector<int>& arr, int target) const override {
-		// Iterate through the vector
-		for (int i = 0; i < arr.size(); i++) {
-			if (arr[i] == target) {
-				return i; // Target found
-			}
-		}
-		return -1; // Target not found
+		for (int i = 0; i < arr.size(); i++)
+			if (arr[i] == target) 
+				return i;
+		return -1;
 	}
 };
 
@@ -36,23 +32,18 @@ private:
 class BinarySearch : public SearchAlgorithmBase {
 private:
 	int search(const std::vector<int>& arr, int target) const override {
-		// Set the left and right indexes
-		int left = 0;
-		int right = arr.size() - 1;
-
-		// Perform binary search
+		int left = 0, right = arr.size() - 1;
 		while (left <= right) {
 			int mid = left + (right - left) / 2;
 
 			if (arr[mid] == target)
-				return mid; // Target found
+				return mid;
 			else if (arr[mid] < target)
-				left = mid + 1; // Discard left half of the array
+				left = mid + 1;
 			else
-				right = mid - 1; // Discard right half of the array
+				right = mid - 1;
 		}
-
-		return -1; // Target not found
+		return -1;
 	}
 };
 
@@ -60,23 +51,17 @@ private:
 class InterpolationSearch : public SearchAlgorithmBase {
 private:
 	int search(const std::vector<int>& arr, int target) const override {
-		// Set the left and right indexes
-		int left = 0;
-		int right = arr.size() - 1;
+		int left = 0, right = arr.size() - 1;
 
 		// Perform interpolation search
 		while (left <= right && target >= arr[left] && target <= arr[right]) {
 			int pos = left + ((target - arr[left]) * (right - left)) / (arr[right] - arr[left]);
-
-			if (arr[pos] == target) {
-				return pos; // Target found
-			}
-			else if (arr[pos] < target) {
-				left = pos + 1; // Discard left half of the array
-			}
-			else {
-				right = pos - 1; // Discard right half of the array
-			}
+			if (arr[pos] == target) 
+				return pos; 
+			else if (arr[pos] < target) 
+				left = pos + 1; 
+			else 
+				right = pos - 1;
 		}
 
 		return -1; // Target not found
@@ -87,23 +72,15 @@ private:
 class JumpSearch : public SearchAlgorithmBase {
 public:
 	int search(const std::vector<int>& arr, int target) const override {
-		// Set the jump size
-		int jump = sqrt(arr.size());
-
-		// Perform jump search
-		int left = 0;
-		int right = jump - 1;
+		int jump = sqrt(arr.size()), left = 0, right = jump - 1;
 		while (right < arr.size() && arr[right] < target) {
 			left = right;
 			right += jump;
 		}
 
-		for (int i = left; i <= min(right, (int)arr.size() - 1); i++) {
-			if (arr[i] == target) {
-				return i; // Target found
-			}
-		}
-
+		for (int i = left; i <= std::min(right, (int)arr.size() - 1); i++)
+			if (arr[i] == target) 
+				return i; 
 		return -1; // Target not found
 	}
 };
@@ -141,21 +118,20 @@ void main() {
 	auto jumpSearch = SearchAlgorithmFactory::createSearchAlgorithm(SearchAlgorithm::Jump);
 
 	// Perform searches
-	if (linearSearch) 
-		cout << "Linear Search Result: " << linearSearch->search(unsortedData, target) << endl;
-	if (binarySearch) 
-		cout << "Binary Search Result: " << binarySearch->search(sortedData, target) << endl;
-	if (interpolationSearch) 
+	if (linearSearch)
+		std::cout << "Linear Search Result: " << linearSearch->search(unsortedData, target) << std::endl;
+	if (binarySearch)
+		std::cout << "Binary Search Result: " << binarySearch->search(sortedData, target) << std::endl;
+	if (interpolationSearch)
 		std::cout << "Interpolation Search Result: " << interpolationSearch->search(sortedData, target) << std::endl;
-	if (jumpSearch) 
+	if (jumpSearch)
 		std::cout << "Jump Search Result: " << jumpSearch->search(sortedData, target) << std::endl;
-
 	system("pause");
 }
 /*
-Output:
 Linear Search Result: 7
 Binary Search Result: 6
 Interpolation Search Result: 6
 Jump Search Result: 6
+Press any key to continue . . .
 */
