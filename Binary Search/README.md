@@ -30,3 +30,29 @@ The Binary Search Algorithm can be implemented in the following two ways:
 2. **Recursive Binary Search Algorithm:**
    Create a recursive function and compare the mid of the search space with the key. And based on the result either return the index where the key is found or call the recursive function for the next search space.
 
+### Complexity Analysis of Binary Search
+
+**Time Complexity:**
+- Best Case: O(1)
+- Average Case: O(log N)
+- Worst Case: O(log N)
+
+**Auxiliary Space:** 
+- O(1), If the recursive call stack is considered then the auxiliary space will be O(logN).
+
+**Advantages of Binary Search:**
+- Binary search is faster than linear search, especially for large arrays.
+- More efficient than other searching algorithms with a similar time complexity, such as interpolation search or exponential search.
+- Well-suited for searching large datasets that are stored in external memory, such as on a hard drive or in the cloud.
+
+**Drawbacks of Binary Search:**
+- The array should be sorted.
+- Requires that the data structure being searched be stored in contiguous memory locations.
+- Requires that the elements of the array be comparable, meaning that they must be able to be ordered.
+
+**Applications of Binary Search:**
+- Can be used as a building block for more complex algorithms used in machine learning, such as algorithms for training neural networks or finding the optimal hyperparameters for a model.
+- Used for searching in computer graphics such as algorithms for ray tracing or texture mapping.
+- Can be used for searching a database.
+
+
