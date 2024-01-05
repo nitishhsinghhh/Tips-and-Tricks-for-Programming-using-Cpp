@@ -1,3 +1,16 @@
+# Table of Content
+
+| Filename                          | Description                                      | Version |
+|-----------------------------------|--------------------------------------------------|---------|
+| GCD_LCM_two_numbers_V1.1.cpp      | Program to calculate GCD and LCM of two numbers   | 1.1     |
+| GCD_LCM_two_numbers_V1.2.cpp      | Updated program for GCD and LCM calculation       | 1.2     |
+| GCD_two_numbers_V1.0.cpp          | Program to calculate GCD of two numbers           | 1.0     |
+| LCM_two_numbers_V1.0.cpp          | Program to calculate LCM of two numbers           | 1.0     |
+| Prime_Factorization_V1.0.cpp      | Program to perform prime factorization            | 1.0     |
+| Quadratic Equation Solver_V1.0.cpp| Program to solve quadratic equations               | 1.0     |
+| Quadratic Equation Solver_V1.1.cpp| Updated program for quadratic equation solving     | 1.1     |
+
+
 ### Discriminant
 
 The discriminant is a term used in the context of quadratic equations and is part of the quadratic formula. For a quadratic equation in the form (ax^2 + bx + c = 0), the discriminant is given by the expression inside the square root of the quadratic formula:
