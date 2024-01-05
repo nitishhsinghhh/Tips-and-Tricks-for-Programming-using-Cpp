@@ -63,3 +63,23 @@ Don't do it!
 <br>
 Including <bits/stdc++.h> results in unnecessary bloat and longer compilation times. While it serves as an implementation for precompiled headers, setting it up for precompilation may potentially speed up compilation time for certain projects. Nonetheless, It is recommended taking the time to understand and include each standard library header separately rather than relying on "super headers" unless for precompilation purposes.
 
+# Euclidean algorithms 
+
+The Euclidean algorithm is a method used to determine the greatest common divisor of two positive integers. The greatest common divisor (GCD) of two numbers is the largest number that can evenly divide both of them. One straightforward approach to finding the GCD is to factorize both numbers and then identify and multiply their common prime factors.
+
+![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/a91c9d63-3a4f-4175-97c9-abda1084f2ae)
+
+The basic Euclidean Algorithm for finding the Greatest Common Divisor (GCD) is based on the following principles:
+
+1. When we subtract a smaller number from a larger one, the GCD remains the same. Therefore, by repeatedly subtracting the larger number from the smaller one, we eventually arrive at the GCD.
+2. Alternatively, instead of subtraction, if we divide the smaller number by the larger one, the algorithm stops when the remainder is 0.
+
+```
+// Function to return gcd of a and b
+int gcd(int a, int b) {
+    return b == 0 ? a : gcd(b, a%b);
+}
+```
+
+
+
