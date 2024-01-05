@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 // Define an enumeration for search algorithms
 enum class SearchAlgorithm {
@@ -42,11 +41,11 @@ public:
 		while (left <= right) {
 			int mid = left + (right - left) / 2;
 
-			if (arr[mid] == target) 
+			if (arr[mid] == target)
 				return mid; // Target found
-			else if (arr[mid] < target) 
+			else if (arr[mid] < target)
 				left = mid + 1; // Discard left half of the array
-			else 
+			else
 				right = mid - 1; // Discard right half of the array
 		}
 
@@ -71,9 +70,7 @@ public:
 };
 
 void main() {
-	// Define the data to search
-	std::vector<int> sortedData { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-	std::vector<int> unsortedData { 5, 2, 8, 1, 9, 3, 4, 7, 6, 10 };
+	std::vector<int> sortedData{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, unsortedData{ 5, 2, 8, 1, 9, 3, 4, 7, 6, 10 };
 	int target = 7;
 
 	// Use the factory to create the desired search algorithm
@@ -83,13 +80,11 @@ void main() {
 	// Perform searches
 	if (linearSearch) {
 		int linearResult = linearSearch->search(unsortedData, target);
-		cout << "Linear Search Result: " << linearResult << endl;
+		std::cout << "Linear Search Result: " << linearResult << std::endl;
 	}
-
 	if (binarySearch) {
 		int binaryResult = binarySearch->search(sortedData, target);
-		cout << "Binary Search Result: " << binaryResult << endl;
+		std::cout << "Binary Search Result: " << binaryResult << std::endl;
 	}
-
 	system("pause");
 }
