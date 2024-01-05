@@ -2,7 +2,6 @@
 #include <string>
 #include <sstream>
 #include<cctype>
-using namespace std;
 
 // Enum to represent different types of string conversions
 enum ConversionType {
@@ -16,7 +15,7 @@ enum ConversionType {
 // Abstract base class for string conversions
 class StringConversion {
 public:
-	virtual string convertString(string s) = 0;	// pure virtual class
+	virtual std::string convertString(std::string s) = 0;	// pure virtual class
 	virtual ~StringConversion() {}
 };
 
@@ -25,7 +24,7 @@ public:
 // Converts the string to lowercase
 class ClasstoLowerCase : public StringConversion {
 public:
-	string convertString(string s) {
+	std::string convertString(std::string s) {
 		for (auto& c : s)
 			if ('A' <= c && c <= 'Z')
 				c = c - 'A' + 'a';
@@ -33,10 +32,10 @@ public:
 	}
 };
 
-// Converts the string to uppercase
+// Converts the std::string to uppercase
 class ClasstoUpperCase : public StringConversion {
 public:
-	string convertString(string s) {
+	std::string convertString(std::string s) {
 		for (auto& c : s)
 			if ('a' <= c && c <= 'z')
 				c = c - 'a' + 'A';
@@ -44,12 +43,12 @@ public:
 	}
 };
 
-// Capitalizes each word in the string
+// Capitalizes each word in the std::string
 class ClasscapitalizeEachWord : public StringConversion {
 public:
-	string convertString(string s) {
-		istringstream iss(s);
-		string result, word;
+	std::string convertString(std::string s) {
+		std::istringstream iss(s);
+		std::string result, word;
 		while (iss >> word) {
 			if (!result.empty())
 				result += ' ';
@@ -62,10 +61,10 @@ public:
 	}
 };
 
-// Converts the string to sentence case (first letter uppercase, rest lowercase)
+// Converts the std::string to sentence case (first letter uppercase, rest lowercase)
 class ClasstoSentenceCase : public StringConversion {
 public:
-	string convertString(string s) {
+	std::string convertString(std::string s) {
 		if (!s.empty()) {
 			s[0] = toupper(s[0]);
 			for (size_t i = 1; i < s.length(); ++i)
@@ -75,10 +74,10 @@ public:
 	}
 };
 
-// Toggles the case of each character in the string
+// Toggles the case of each character in the std::string
 class ClasstoggleCase : public StringConversion {
 public:
-	string convertString(string s) {
+	std::string convertString(std::string s) {
 		for (auto& c : s) {
 			if (islower(c))
 				c = toupper(c);
@@ -140,45 +139,43 @@ int main() {
 	Client* pClient = new Client();
 
 	// Input strings
-	string input = "";
-	cout << "Please provide the input string for conversion" << endl;
-	getline(cin, input);
+	std::string input = "";
+	std::cout << "Please provide the input std::string for conversion" << std::endl;
+	std::getline(std::cin, input);
 
-	cout << "Please slelect the conversion type. The default is lower case. "<<endl;
-	cout << "1 for Lower Case, 2 for Upper Case, 3 for Sentence Case, 4 for Capitalize, 5 for toggle case"<<endl;
-	int ConversionType =0;
-	cin >> ConversionType;
+	std::cout << "Please slelect the conversion type. The default is lower case. " << std::endl;
+	std::cout << "1 for Lower Case, 2 for Upper Case, 3 for Sentence Case, 4 for Capitalize, 5 for toggle case" << std::endl;
+	int ConversionType = 0;
+	std::cin >> ConversionType;
 
-	if (ConversionType>0 && ConversionType <6) {
+	if (ConversionType > 0 && ConversionType < 6) {
 		switch (ConversionType) {
 		case 1:
 			pClient->BuildStringConversion(CT_LowerCase);
-			cout << "Lower Case : " << pClient->getConversionType()->convertString(input) << endl;
+			std::cout << "Lower Case : " << pClient->getConversionType()->convertString(input) << std::endl;
 			break;
 		case 2:
 			pClient->BuildStringConversion(CT_UpperCase);
-			cout << "Upper Case : " << pClient->getConversionType()->convertString(input) << endl;
+			std::cout << "Upper Case : " << pClient->getConversionType()->convertString(input) << std::endl;
 			break;
 		case 3:
 			pClient->BuildStringConversion(CT_SentenceCase);
-			cout << "Sentence Case : " << pClient->getConversionType()->convertString(input) << endl;
+			std::cout << "Sentence Case : " << pClient->getConversionType()->convertString(input) << std::endl;
 			break;
 		case 4:
 			pClient->BuildStringConversion(CT_Capitalize);
-			cout << "Capitalize : " << pClient->getConversionType()->convertString(input) << endl;
+			std::cout << "Capitalize : " << pClient->getConversionType()->convertString(input) << std::endl;
 			break;
 		case 5:
 			pClient->BuildStringConversion(CT_ToggleCase);
-			cout << "Toggle Case : " << pClient->getConversionType()->convertString(input) << endl;
+			std::cout << "Toggle Case : " << pClient->getConversionType()->convertString(input) << std::endl;
 			break;
 		default:
 			break;
 		}
 
 	}
-	
 	delete pClient;
-
 	system("pause");
 	return 0;
 }
