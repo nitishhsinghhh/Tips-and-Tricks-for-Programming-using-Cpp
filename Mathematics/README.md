@@ -5,10 +5,11 @@
 | 1.  | [Quadratic Equation Solver ](./Quadratic_Equation_Solver_V1.0.cpp) | Program to solve quadratic equations     | 1.0     |
 | 2.  | [Quadratic Equation Solver](./Quadratic_Equation_Solver_V1.1.cpp) | Updated program for quadratic equation solving     | 1.1     |
 | 3.  | [Prime Factorization](./Prime_Factorization_V1.0.cpp) | Program to perform prime factorization            | 1.0     |
-| 4.  | [LCM of two numbers](./LCM_two_numbers_V1.0.cpp)         | Program to calculate LCM of two numbers           | 1.0     |
-| 5.  | [LCM and GCD of two numbers](./GCD_two_numbers_V1.0.cpp)         | Program to calculate GCD and LCM of two numbers           | 1.0     |
-| 6.  | [LCM and GCD of two numbers](./GCD_LCM_two_numbers_V1.1.cpp) | Updated Program with using interface to calculate GCD and LCM of two numbers   | 1.1     |
-| 7.  | [LCM and GCD of two numbers](./GCD_LCM_two_numbers_V1.2.cpp) | Updated Program with updtaed GCD function to calculate GCD and LCM of two numbers      | 1.2     |
+| 4.  | [Prime Factorization](./Prime_Factorization_V1.1.cpp) | Updated logic to perform prime factorization            | 1.1    |
+| 5.  | [LCM of two numbers](./LCM_two_numbers_V1.0.cpp)         | Program to calculate LCM of two numbers           | 1.0     |
+| 6.  | [LCM and GCD of two numbers](./GCD_two_numbers_V1.0.cpp)         | Program to calculate GCD and LCM of two numbers           | 1.0     |
+| 7.  | [LCM and GCD of two numbers](./GCD_LCM_two_numbers_V1.1.cpp) | Updated Program with using interface to calculate GCD and LCM of two numbers   | 1.1     |
+| 8.  | [LCM and GCD of two numbers](./GCD_LCM_two_numbers_V1.2.cpp) | Updated Program with updtaed GCD function to calculate GCD and LCM of two numbers      | 1.2     |
 
 # Discriminant
 
@@ -114,8 +115,3 @@ Iterate through all numbers from 2 to ssquare root of n and for every number che
 ##### Another Efficient approach: 
 To check whether  the number is prime or not follow the below idea:
 We will deal with a few numbers such as 1, 2, 3, and the numbers which are divisible by 2 and 3 in separate cases and for remaining numbers. Iterate from 5 to sqrt(n) and check for each iteration whether (that value) or (that value + 2) divides n or not and increment the value by 6 [because any prime can be expressed as 6n+1 or 6n-1]. If we find any number that divides, we return false.
-
-
-
-
-
