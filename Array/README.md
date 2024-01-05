@@ -40,7 +40,7 @@ N - the number of elements in the array or 0.
 | const_pointer      | const value_type*                                      |
 | iterator           | LegacyRandomAccessIterator and LegacyContiguousIterator to value_type (until C++17) <br> LegacyRandomAccessIterator and LegacyContiguousIterator that is a LiteralType to value_type (since C++17, until C++20) <br> LegacyRandomAccessIterator, contiguous_iterator, and ConstexprIterator to value_type (since C++20) |
 | const_iterator     | LegacyRandomAccessIterator and LegacyContiguousIterator to const value_type (until C++17) <br> LegacyRandomAccessIterator and LegacyContiguousIterator that is a LiteralType to const value_type (since C++17, until C++20) <br> LegacyRandomAccessIterator, contiguous_iterator, and ConstexprIterator to const value_type (since C++20) |
-| reverse_iterator   | std::reverse_iterator<iterator> |
+| reverse_iterator   | std::reverse_iterator <iterator> |
 | const_reverse_iterator | std::reverse_iterator<const_iterator>                 |
 
 
