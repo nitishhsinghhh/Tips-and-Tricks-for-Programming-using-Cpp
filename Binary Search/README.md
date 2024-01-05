@@ -1,0 +1,2 @@
+# Binary Search 
+Binary search is a powerful searching algorithm that takes advantage of the sorted nature of an array to efficiently locate a specific element. By repeatedly dividing the search interval in half, binary search can quickly zero in on the desired value, reducing the time complexity to O(log N) in the process. This makes binary search an excellent choice for searching in large sorted arrays, as it can significantly improve the search performance compared to linear search algorithms.
