@@ -114,7 +114,7 @@ N - the number of elements in the array or 0.
 
 
 # Example 
-```
+```C++[]
 #include <algorithm>
 #include <array>
 #include <iostream>
