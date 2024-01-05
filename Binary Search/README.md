@@ -16,8 +16,8 @@ Binary search is an algorithm employed for searching in a sorted array by iterat
 2. Compare the middle element of the search space with the key: <br>
    A. If the key is found at the middle element, the process is terminated. <br>
    B. If the key is not found at the middle element, choose which half will be used as the next search space. <br>
-      a. If the key is smaller than the middle element, then the left side is used for the next search. <br>
-      b. If the key is larger than the middle element, then the right side is used for the next search. <br>
+      - If the key is smaller than the middle element, then the left side is used for the next search. <br>
+   - If the key is larger than the middle element, then the right side is used for the next search. <br>
 3. This process is continued until the key is found or the total search space is exhausted.
 
 
