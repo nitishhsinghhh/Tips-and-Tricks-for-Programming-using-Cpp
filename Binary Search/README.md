@@ -25,8 +25,8 @@ Binary search is an algorithm employed for searching in a sorted array by iterat
 The Binary Search Algorithm can be implemented in the following two ways:
 
 1. **Iterative Binary Search Algorithm:**
-   - Here we use a while loop to continue the process of comparing the key and splitting the search space in two halves.
+   Here we use a while loop to continue the process of comparing the key and splitting the search space in two halves.
 
 2. **Recursive Binary Search Algorithm:**
-   - Create a recursive function and compare the mid of the search space with the key. And based on the result either return the index where the key is found or call the recursive function for the next search space.
+   Create a recursive function and compare the mid of the search space with the key. And based on the result either return the index where the key is found or call the recursive function for the next search space.
 
