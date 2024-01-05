@@ -87,5 +87,41 @@ The product of the least common multiple (LCM) and greatest common divisor (GCD)
 LCM (a , b) × HCF (a , b) = a × b
 ```
 
+# What are Prime Numbers?
+A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. In other words, a prime number is a whole number greater than 1 that cannot be formed by multiplying two smaller natural numbers. The initial prime numbers include 2, 3, 5, 7, 11, 13, 17, 19, 23, and so on.
+
+OpenAI GPT3.5
+Friday 11:03 AM
+
+#### Here are some interesting facts about prime numbers:
+
+1. With the exception of 2, which is the smallest and only even prime number, all other prime numbers are odd.
+2. Every prime number, except for 2 and 3, can be expressed in the form of 6n + 1 or 6n - 1, where n is any natural number.
+3. 2 and 3 are the only consecutive natural numbers that are prime.
+4. The Goldbach Conjecture proposes that every even integer greater than 2 can be expressed as the sum of two prime numbers.
+5. Wilson's Theorem states that a natural number p greater than 1 is a prime number if and only if (p-1)! + 1 is divisible by p.
+
+#### How to check whether a number is Prime or not? 
+
+##### Naive Approach: The naive approach is to
+```
+Iterate from 2 to  (n-1) and check if any number in this range divides n. If the number divides n, then it is not a prime number.
+```
+```
+Recursion can also be used to check if a number between 2 to n – 1 divides n. If we find any number that divides, we return false.
+```
+##### Efficient Approach: An efficient solution is to:
+```
+Iterate through all numbers from 2 to ssquare root of n and for every number check if it divides n [because if a number is expressed as n = xy and any of the x or y is greater than the root of n, the other must be less than the root value]. If we find any number that divides, we return false.
+```
+
+##### Another Efficient approach: 
+To check whether  the number is prime or not follow the below idea:
+```
+We will deal with a few numbers such as 1, 2, 3, and the numbers which are divisible by 2 and 3 in separate cases and for remaining numbers. Iterate from 5 to sqrt(n) and check for each iteration whether (that value) or (that value + 2) divides n or not and increment the value by 6 [because any prime can be expressed as 6n+1 or 6n-1]. If we find any number that divides, we return false.
+```
+
+
+
 
 
