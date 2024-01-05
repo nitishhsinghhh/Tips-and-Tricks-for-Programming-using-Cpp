@@ -46,7 +46,6 @@ void add(int a, int b, int c) {
 	std::cout << std::endl << "sum = " << (a + b + c);
 }
 
-// Driver code
 int main() {
 	add(10, 2);
 	add(5, 6, 4);
