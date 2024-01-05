@@ -1,37 +1,35 @@
 #include <iostream>
 #include <vector>
+#include<string>
 #include <algorithm>
 
-using namespace std;
-
 int main() {
-    string str1 = "apple";
-    string str2 = "banana";
-    if (str1 < str2) {
-        cout << str1 << " comes before " << str2 << endl;
-    }
+	std::string str1 = "apple";
+	std::string str2 = "banana";
+	if (str1 < str2) 
+		std::cout << str1 << " comes before " << str2 << std::endl;
 
-    vector<string> fruits = {"banana", "apple", "cherry"};
-    sort(fruits.begin(), fruits.end());
+	std::vector<std::string> fruits = { "banana", "apple", "cherry" };
+	sort(fruits.begin(), fruits.end());
 
-    vector<int> nums = {1, 2, 3};
-    do {
-        // Process current permutation
-        for (int i = 0; i < nums.size(); i++) {
-            cout << nums[i] << " ";
-        }
-        cout << endl;
-    } while (next_permutation(nums.begin(), nums.end()));
+	std::vector<int> nums = { 1, 2, 3 };
+	do {
+		// Process current permutation
+		for (int i = 0; i < nums.size(); i++) 
+			std::cout << nums[i] << " ";
+		std::cout << std::endl;
+	} while (next_permutation(nums.begin(), nums.end()));
 
-    // Additional testing
-    cout << "Sorted fruits: ";
-    for (int i = 0; i < fruits.size(); i++) {
-        cout << fruits[i] << " ";
-    }
-    cout << endl;
+	// Additional testing
+	std::cout << "Sorted fruits: ";
+	for (int i = 0; i < fruits.size(); i++) 
+		std::cout << fruits[i] << " ";
+	std::cout << std::endl;
 
-    return 0;
+	system("pause");
+	return 0;
 }
+
 
 /*
 apple comes before banana
