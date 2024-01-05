@@ -1,9 +1,6 @@
 #include <iostream>
-#include <string>
-using namespace std;
-
-string vowels = "aeiouAEIOU";
-bool halvesAreAlike(string S) {
+std::string vowels = "aeiouAEIOU";
+bool halvesAreAlike(std::string S) {
 	int mid = S.size() / 2, ans = 0;
 	for (int i = 0, j = mid; i < mid; i++, j++) {
 		if (~vowels.find(S[i]))
@@ -16,20 +13,21 @@ bool halvesAreAlike(string S) {
 
 void main() {
 	// Test cases
-	string test1 = "book";
-	string test2 = "textbook";
-	string test3 = "AbCdEfGh";
+	std::string test1 = "book";
+	std::string test2 = "textbook";
+	std::string test3 = "AbCdEfGh";
 
-	cout << "Test 1: " << (halvesAreAlike(test1) ? "true" : "false") << endl;
-	cout << "Test 2: " << (halvesAreAlike(test2) ? "true" : "false") << endl;
-	cout << "Test 3: " << (halvesAreAlike(test3) ? "true" : "false") << endl;
+	std::cout << "Test 1: " << (halvesAreAlike(test1) ? "true" : "false") << std::endl;
+	std::cout << "Test 2: " << (halvesAreAlike(test2) ? "true" : "false") << std::endl;
+	std::cout << "Test 3: " << (halvesAreAlike(test3) ? "true" : "false") << std::endl;
 
+	system("pause");
 }
 
-/*
-Output:
-Test 1: true
-Test 2: false
-Test 3: true
+/**
+* Test 1: true
+* Test 2: false
+* Test 3: true
+* Press any key to continue . . .
+**/
 
-*/
