@@ -38,14 +38,27 @@ The standard containers std::vector (including std::vector<bool>), std::deque, a
 | constructor | Constructs the stack (public member function) |
 | destructor  | Destructs the stack (public member function)  |
 | operator=   | Assigns values to the container adaptor (public member function) |
+
+### Element access
+| Function    | Description                             |
+|-------------|-----------------------------------------|
 | top         | Accesses the top element (public member function) |
+
+
+### Capacity
+| Function    | Description                             |
+|-------------|-----------------------------------------|
 | empty       | Checks whether the container adaptor is empty (public member function) |
 | size        | Returns the number of elements (public member function) |
+
+### Modifiers
+| Function    | Description                             |
+|-------------|-----------------------------------------|
 | push        | Inserts element at the top (public member function) |
-| push_range  | Inserts a range of elements at the top (public member function) |
-| emplace     | Constructs element in-place at the top (public member function) |
+| push_range (C++23) | Inserts a range of elements at the top (public member function) |
+| emplace (C++11)    | Constructs element in-place at the top (public member function) |
 | pop         | Removes the top element (public member function) |
-| swap        | Swaps the contents (public member function) |
+| swap (C++11)     | Swaps the contents (public member function) |
 
 ### Non-member Functions
 | Function       | Description                                           |
@@ -56,11 +69,11 @@ The standard containers std::vector (including std::vector<bool>), std::deque, a
 | operator<=     | Lexicographically compares the values of two stacks (function template) |
 | operator>      | Lexicographically compares the values of two stacks (function template) |
 | operator>=     | Lexicographically compares the values of two stacks (function template) |
-| operator<=>    | Lexicographically compares the values of two stacks (function template) |
+| operator<=> (C++20)  | Lexicographically compares the values of two stacks (function template) |
 | std::swap(std::stack) | Specializes the std::swap algorithm (function template) |
 
 ### Helper Classes
-| Class                                     | Description                                           |
+| Class                                     | Description                   |
 |-------------------------------------------|-------------------------------------------------------|
 | std::uses_allocator<std::stack>           | Specializes the std::uses_allocator type trait (class template specialization) |
 
