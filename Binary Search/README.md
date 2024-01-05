@@ -90,3 +90,43 @@ int main() {
 	return 0;
 }
 ```
+
+### Implementation of Iterative  Binary Search Algorithm: 
+
+```
+#include <iostream>
+#include <vector>
+
+class BinarySearch {
+public:
+	int search(const std::vector<int>& arr, int x) {
+		int l = 0, r = arr.size() - 1;
+		while (l <= r) {
+			int m = l + (r - l) / 2;
+
+			if (arr[m] == x) 
+				return m;
+			if (arr[m] < x) 
+				l = m + 1;
+			else 
+				r = m - 1;
+		}
+		return -1;
+	}
+};
+
+int main() {
+	std::vector<int> arr{ 2, 3, 4, 10, 40 };
+	int x = 10;
+	BinarySearch bs;
+	int result = bs.search(arr, x);
+	if (result == -1) 
+		std::cout << "Element is not present in array";
+	else 
+		std::cout << "Element is present at index " << result;
+	std::cout << std::endl;
+	system("pause");
+	return 0;
+}
+```
+
