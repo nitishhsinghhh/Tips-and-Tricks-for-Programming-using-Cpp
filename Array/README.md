@@ -24,7 +24,7 @@ An array can also be used as a tuple of N elements of the same type.
 As a rule, iterators to an array are never invalidated throughout the lifetime of the array. One should take note, however, that during swap, the iterator will continue to point to the same array element, and will thus change its value.
 
 # Template parameters
-T - element type Must be MoveConstructible and MoveAssignable.
+T - element type Must be MoveConstructible and MoveAssignable. <br>
 N - the number of elements in the array or 0.
 
 # Member types
