@@ -77,3 +77,14 @@ The standard containers std::vector (including std::vector<bool>), std::deque, a
 |-------------------------------------------|-------------------------------------------------------|
 | std::uses_allocator<std::stack>           | Specializes the std::uses_allocator type trait (class template specialization) |
 
+### Complexity Analysis
+The time complexity for the operations of the std::stack class depends on the underlying container used. For the standard containers such as std::vector, std::deque, and std::list, the time complexity for the operations is as follows:
+
+- Accessing the top element (top): O(1)
+- Checking if the stack is empty (empty): O(1)
+- Retrieving the number of elements (size): O(1)
+- Inserting an element at the top (push): O(1)
+- Removing the top element (pop): O(1)
+- Swapping the contents (swap): O(1)
+
+The time complexity for the push_range and emplace functions would depend on the complexity of the underlying operations used to perform these functions.
