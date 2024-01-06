@@ -199,13 +199,11 @@ int main() {
 	arraySearch.show();
 
 	std::cout << "\n\nLet's say we want to search for 2 in the array. So, we first sort the array";
-
 	arraySearch.sortArray();
 	std::cout << "\n\nThe array after sorting is : ";
 	arraySearch.show();
 
 	std::cout << "\n\nNow, we do the binary search";
-
 	if (arraySearch.binarySearch(2))
 		std::cout << "\nElement found in the array";
 	else
