@@ -163,59 +163,57 @@ true if an element equal to valuetofind is found, else false.
 # CPP code example
 
 ```
-#include <algorithm> 
-#include <iostream> 
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-class ArraySearch {
+class VectorSearch {
 private:
-	int* array;
-	int size;
+	std::vector<int> vec;
 
 public:
-	ArraySearch(int a[], int arraySize) {
-		array = a;
-		size = arraySize;
-	}
+	VectorSearch(const std::vector<int>& v) : vec(v) {}
 
 	void show() {
-		for (int i = 0; i < size; ++i)
-			std::cout << array[i] << ",";
+		for (int i : vec) {
+			std::cout << i << ",";
+		}
 	}
 
-	void sortArray() {
-		std::sort(array, array + size);
+	void sortVector() {
+		std::sort(vec.begin(), vec.end());
 	}
 
 	bool binarySearch(int key) {
-		return std::binary_search(array, array + size, key);
+		return std::binary_search(vec.begin(), vec.end(), key);
 	}
 };
 
 int main() {
-	int a[] = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 };
-	int asize = sizeof(a) / sizeof(a[0]);
-	std::cout << "The array is : ";
-	ArraySearch arraySearch(a, asize);
-	arraySearch.show();
+	std::vector<int> vec = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 };
+	std::cout << "The vector is : ";
+	VectorSearch vectorSearch(vec);
 
-	std::cout << "\n\nLet's say we want to search for 2 in the array. So, we first sort the array";
-	arraySearch.sortArray();
-	std::cout << "\n\nThe array after sorting is : ";
-	arraySearch.show();
+	vectorSearch.show();
+
+	std::cout << "\n\nLet's say we want to search for 2 in the vector. So, we first sort the vector";
+
+	vectorSearch.sortVector();
+	std::cout << "\n\nThe vector after sorting is : ";
+	vectorSearch.show();
 
 	std::cout << "\n\nNow, we do the binary search";
-	if (arraySearch.binarySearch(2))
-		std::cout << "\nElement found in the array";
+	if (vectorSearch.binarySearch(2))
+		std::cout << "\nElement found in the vector";
 	else
-		std::cout << "\nElement not found in the array";
+		std::cout << "\nElement not found in the vector";
 
 	std::cout << "\n\nNow, say we want to search for 10";
-	if (arraySearch.binarySearch(10))
-		std::cout << "\nElement found in the array";
+	if (vectorSearch.binarySearch(10))
+		std::cout << "\nElement found in the vector \n";
 	else
-		std::cout << "\nElement not found in the array";
-
-	std::cout << std::endl;
+		std::cout << "\nElement not found in the vector \n";
+	
 	system("pause");
 	return 0;
 }
@@ -223,15 +221,15 @@ int main() {
 
 Output
 ```
-The array is : 1,5,8,9,6,7,3,4,2,0,
+The vector is : 1,5,8,9,6,7,3,4,2,0,
 
-Let's say we want to search for 2 in the array. So, we first sort the array
+Let's say we want to search for 2 in the vector. So, we first sort the vector
 
-The array after sorting is : 0,1,2,3,4,5,6,7,8,9,
+The vector after sorting is : 0,1,2,3,4,5,6,7,8,9,
 
 Now, we do the binary search
-Element found in the array
+Element found in the vector
 
 Now, say we want to search for 10
-Element not found in the array
+Element not found in the vector
 ```
