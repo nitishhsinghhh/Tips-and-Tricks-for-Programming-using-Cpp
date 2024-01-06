@@ -175,9 +175,8 @@ public:
 	VectorSearch(const std::vector<int>& v) : vec(v) {}
 
 	void show() {
-		for (int i : vec) {
+		for (int i : vec) 
 			std::cout << i << ",";
-		}
 	}
 
 	void sortVector() {
@@ -193,11 +192,9 @@ int main() {
 	std::vector<int> vec = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 };
 	std::cout << "The vector is : ";
 	VectorSearch vectorSearch(vec);
-
 	vectorSearch.show();
 
 	std::cout << "\n\nLet's say we want to search for 2 in the vector. So, we first sort the vector";
-
 	vectorSearch.sortVector();
 	std::cout << "\n\nThe vector after sorting is : ";
 	vectorSearch.show();
