@@ -129,4 +129,111 @@ int main() {
 	return 0;
 }
 ```
+# Edge Cases
 
+When working with array search algorithms, it's important to consider the following edge cases:
+
+1. **Non-existent Element**: It's crucial to handle the scenario where the element being searched for does not exist in the array. This requires preventing the search from accessing invalid indices and causing exceptions.
+
+2. **Rightmost or Leftmost Target**: The target value may be located at the extreme ends of the array.
+
+3. **Target in Different Positions**: The target value could be the first, middle, or any other position within the array.
+
+4. **Duplicate Entries**: If the array contains duplicate entries, the algorithm may return the position of the first occurrence, which may not be suitable for all use cases.
+
+It's important to consider and address these edge cases to ensure the robustness and accuracy of the array search algorithm.
+
+### Binary Search in C++ Standard Template Library (STL)
+
+The prototype for binary search is : 
+
+```
+binary_search(startaddress, 
+              endaddress, valuetofind)
+Parameters :
+startaddress: the address of the first 
+              element of the array.
+endaddress: the address of the next contiguous 
+            location of the last element of the array.
+valuetofind: the target value which we have 
+             to search for.
+Returns :
+true if an element equal to valuetofind is found, else false.
+```
+# CPP code example
+
+```
+#include <algorithm> 
+#include <iostream> 
+
+class ArraySearch {
+private:
+	int* array;
+	int size;
+
+public:
+	ArraySearch(int a[], int arraySize) {
+		array = a;
+		size = arraySize;
+	}
+
+	void show() {
+		for (int i = 0; i < size; ++i)
+			std::cout << array[i] << ",";
+	}
+
+	void sortArray() {
+		std::sort(array, array + size);
+	}
+
+	bool binarySearch(int key) {
+		return std::binary_search(array, array + size, key);
+	}
+};
+
+int main() {
+	int a[] = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 };
+	int asize = sizeof(a) / sizeof(a[0]);
+	std::cout << "The array is : ";
+	ArraySearch arraySearch(a, asize);
+	arraySearch.show();
+
+	std::cout << "\n\nLet's say we want to search for 2 in the array. So, we first sort the array";
+
+	arraySearch.sortArray();
+	std::cout << "\n\nThe array after sorting is : ";
+	arraySearch.show();
+
+	std::cout << "\n\nNow, we do the binary search";
+
+	if (arraySearch.binarySearch(2))
+		std::cout << "\nElement found in the array";
+	else
+		std::cout << "\nElement not found in the array";
+
+	std::cout << "\n\nNow, say we want to search for 10";
+	if (arraySearch.binarySearch(10))
+		std::cout << "\nElement found in the array";
+	else
+		std::cout << "\nElement not found in the array";
+
+	std::cout << std::endl;
+	system("pause");
+	return 0;
+}
+```
+
+Output
+```
+The array is : 1,5,8,9,6,7,3,4,2,0,
+
+Let's say we want to search for 2 in the array. So, we first sort the array
+
+The array after sorting is : 0,1,2,3,4,5,6,7,8,9,
+
+Now, we do the binary search
+Element found in the array
+
+Now, say we want to search for 10
+Element not found in the array
+```
