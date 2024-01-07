@@ -1,4 +1,4 @@
-# std::array
+# Array
 
 Defined in header <array>
 ```
