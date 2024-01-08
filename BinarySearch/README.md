@@ -93,7 +93,7 @@ int main() {
 
 ### Implementation of Iterative  Binary Search Algorithm: 
 
-```cppp
+```cpp
 #include <iostream>
 #include <vector>
 
