@@ -28,9 +28,9 @@ The syntax for defining iterators in C++ is as follows:
 ```
 <Container_Type>::iterator;
 <Container_Type>::const_iterator;
-In the above syntax:
 ```
 
+In the above syntax:
 ```Container_Type``` represents the type of container for which the iterator is being declared.
 It’s important to note that not all STL containers support all five types of iterators. For example, the “vector” container supports random-access iterators, while the “list” container supports bidirectional iterators.
 
