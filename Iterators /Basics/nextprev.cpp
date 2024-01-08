@@ -1,5 +1,3 @@
-#include "pch.h"
-
 /**
 *  @File: nextprev.cpp
 *  @Author: Nitish
