@@ -75,7 +75,7 @@ The basic Euclidean Algorithm for finding the Greatest Common Divisor (GCD) is b
 1. When we subtract a smaller number from a larger one, the GCD remains the same. Therefore, by repeatedly subtracting the larger number from the smaller one, we eventually arrive at the GCD.
 2. Alternatively, instead of subtraction, if we divide the smaller number by the larger one, the algorithm stops when the remainder is 0.
 
-```
+```cpp
 // Function to return gcd of a and b
 int gcd(int a, int b) {
     return b == 0 ? a : gcd(b, a%b);
