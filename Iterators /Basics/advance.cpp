@@ -11,14 +11,14 @@
 #include <iostream>
 #include <vector>
 int main() {
-	std::vector<int> vec{ 1, 2, 3, 4, 5 };
+	std::vector<int> vec{ 1, 2, 3, 6, 5 };
 	std::vector<int>::iterator itr = vec.begin();
 	std::advance(itr, 3);
-	std::cout << "The position of the iterator after advancing is: " << *itr << std::endl;
+	std::cout << "The value of at position after advancing is: " << *itr << std::endl;
 	system("pause");
 	return 0;
 }
 /**
-*	The position of the iterator after advancing is: 4
+*	The value of at position after advancing is:: 6
 *	Press any key to continue . . .
 **/
