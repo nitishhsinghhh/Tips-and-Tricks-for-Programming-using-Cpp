@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
 template <typename T>
 class Queue {
 private:
-	vector<T> elements;
+	std::vector<T> elements;
 public:
 	void enqueue(const T& value) {
 		elements.push_back(value);
@@ -21,16 +20,16 @@ public:
 	}
 
 	const T& front() const {
-		if (!isEmpty()) 
+		if (!isEmpty())
 			return elements.front();
-		throw out_of_range("Queue is empty");
+		throw std::out_of_range("Queue is empty");
 	}
 
 	void printQueue() const {
 		for (const T& element : elements) {
-			cout << element << " ";
+			std::cout << element << " ";
 		}
-		cout << endl;
+		std::cout << std::endl;
 	}
 };
 
