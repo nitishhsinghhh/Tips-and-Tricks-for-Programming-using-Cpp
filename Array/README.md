@@ -1,6 +1,6 @@
 # Array
 
-Defined in header <array>
+Defined in header ```<array>```
 ```cpp
 template<
     class T,
