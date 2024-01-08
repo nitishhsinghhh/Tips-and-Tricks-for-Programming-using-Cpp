@@ -147,7 +147,7 @@ It's important to consider and address these edge cases to ensure the robustness
 
 The prototype for binary search is : 
 
-```
+```cpp
 binary_search(startaddress, 
               endaddress, valuetofind)
 Parameters :
@@ -160,7 +160,7 @@ valuetofind: the target value which we have
 Returns :
 true if an element equal to valuetofind is found, else false.
 ```
-# CPP code example
+# C++ code example
 
 ```cpp
 #include <iostream>
