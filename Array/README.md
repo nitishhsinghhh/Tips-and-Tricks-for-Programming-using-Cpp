@@ -1,7 +1,7 @@
 # Array
 
 Defined in header <array>
-```
+```cpp
 template<
     class T,
     std::size_t N
@@ -114,7 +114,7 @@ N - the number of elements in the array or 0.
 
 
 # Example 
-```C++[]
+```cpp
 #include <algorithm>
 #include <array>
 #include <iostream>
