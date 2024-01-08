@@ -25,7 +25,7 @@ C++98 introduces various iterator types, each designed for specific purposes. So
 Syntax of Defining Iterators:
 
 The syntax for defining iterators in C++ is as follows:
-```
+```cpp
 <Container_Type>::iterator;
 <Container_Type>::const_iterator;
 ```
@@ -73,7 +73,7 @@ The limitations of input iterators in C++ include:
 - **Limited arithmetic operators:**
   - Input iterators do not support arithmetic operators, unlike other iterator categories.
 
-```
+```cpp
 #include<iostream>
 #include<vector>
 int main() {
@@ -133,7 +133,7 @@ Output iterators are used for output operations, allowing the assignment of valu
 - **Limited arithmetic operators:**
   - Output iterators do not support arithmetic operators, similar to input iterators.
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <iterator> 
@@ -186,7 +186,7 @@ Forward iterators combine the functionalities of both input and output iterators
 
 Understanding the features and limitations of forward iterators is essential for effectively utilizing them in C++ programming.
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 template<class FIterator>
@@ -236,7 +236,7 @@ Bidirectional iterators provide the capability to iterate in both forward and ba
 
 Understanding these features and limitations is essential for effectively utilizing bidirectional iterators in C++ programming, especially when working with containers that support bidirectional iteration.
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 int main() {
@@ -285,7 +285,7 @@ Random-access iterators are considered to be the most advanced iterators among t
 
 Understanding the advanced capabilities and features of random-access iterators is crucial when working with complex data structures and algorithms in C++ programming. These iterators provide powerful traversal and manipulation capabilities, making them essential for efficient and flexible data handling.
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 int main() {
@@ -329,8 +329,7 @@ int main() {
 #### advance():
 The advance() function is used to increment the iterator position by the specified number of steps. It is particularly useful when we want to move the iterator to a specific position within the container.
 
-```
-
+```cpp
 #include <iostream>
 #include <vector>
 #include <iterator>
@@ -346,8 +345,7 @@ int main() {
 #### next() and prev():
 The next() and prev() functions return new iterators based on the given iterator and the number of steps to move forward or backward, respectively. These functions are useful for obtaining iterators to positions relative to the current iterator.
 
-```
-
+```cpp
 #include <iostream>
 #include <vector>
 #include <iterator>
@@ -367,7 +365,7 @@ int main() {
 #### inserter():
 The inserter() function is used to insert elements at any position within the container. It takes two arguments: the container and an iterator indicating the position where the elements should be inserted.
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <iterator>
