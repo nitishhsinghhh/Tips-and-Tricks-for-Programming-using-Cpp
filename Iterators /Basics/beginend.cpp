@@ -11,7 +11,7 @@
 #include <vector>
 
 int main() {
-    std::vector<int> vec { 1, 2, 3, 4, 5 };
+    std::vector<int> vec{ 1, 2, 3, 4, 5 };
     std::vector<int>::iterator itr;
     std::cout << "The vector elements are: ";
     for (itr = vec.begin(); itr < vec.end(); ++itr) 
