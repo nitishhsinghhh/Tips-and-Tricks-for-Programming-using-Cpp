@@ -23,12 +23,7 @@ public:
 
 int main() {
 	Solution oSolution;
-	ListNode *head = new ListNode(1);
-	head->next = new ListNode(2);
-	head->next->next = new ListNode(3);
-	head->next->next->next = new ListNode(4);
-	head->next->next->next->next = new ListNode(5);
-
+	ListNode *head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
 	ListNode *middle = oSolution.middleNode(head);
 	std::cout << "Output result: " << middle->val << std::endl;
 
@@ -38,5 +33,3 @@ int main() {
 Output:
 Output result: 3
 */
-
-
