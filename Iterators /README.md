@@ -22,3 +22,21 @@ C++98 introduces various iterator types, each designed for specific purposes. So
 4. Bidirectional Iterator: Allows for read and write traversal in both forward and backward directions.
 5. Random Access Iterator: Provides read and write traversal with direct element access using operators such as +, -, +=, and -=.
 
+Syntax of Defining Iterators:
+
+The syntax for defining iterators in C++ is as follows:
+```
+<Container_Type>::iterator;
+<Container_Type>::const_iterator;
+In the above syntax:
+```
+
+```Container_Type``` represents the type of container for which the iterator is being declared.
+It’s important to note that not all STL containers support all five types of iterators. For example, the “vector” container supports random-access iterators, while the “list” container supports bidirectional iterators.
+
+The table below summarizes the STL containers and the iterators supported by them in C++:
+
+![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/02099909-9175-4907-a97d-9b5b5dc6d0f5)
+
+
+
