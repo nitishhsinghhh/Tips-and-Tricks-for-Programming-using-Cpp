@@ -1,3 +1,12 @@
+/**
+*  @File: nextprev.cpp
+*  @Author: Nitish
+*  @Date: January 8, 2024
+*  @Email: me.singhnitish@yandex.com
+*  @Description:
+    This program demonstrates the use of the std::next and std::prev functions to create new iterators at specific positions relative to existing iterators in a vector.
+**/
+
 #include <iostream>
 #include <vector>
 
