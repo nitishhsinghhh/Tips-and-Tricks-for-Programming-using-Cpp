@@ -16,11 +16,11 @@ Iterators are a foundational component of the C++ STL. They are used to point to
 
 C++98 introduces various iterator types, each designed for specific purposes. Some of the commonly used iterator types in C++98 include:
 
-1. Input Iterator: Enables read-only traversal in a forward direction.
-2. Output Iterator: Facilitates write-only traversal in a forward direction.
-3. Forward Iterator: Supports both read and write traversal in a forward direction.
-4. Bidirectional Iterator: Allows for read and write traversal in both forward and backward directions.
-5. Random Access Iterator: Provides read and write traversal with direct element access using operators such as +, -, +=, and -=.
+1. **Input Iterator:** Enables read-only traversal in a forward direction.
+2. **Output Iterator:** Facilitates write-only traversal in a forward direction.
+3. **Forward Iterator:** Supports both read and write traversal in a forward direction.
+4. **Bidirectional Iterator:** Allows for read and write traversal in both forward and backward directions.
+5. **Random Access Iterator:** Provides read and write traversal with direct element access using operators such as +, -, +=, and -=.
 
 Syntax of Defining Iterators:
 
