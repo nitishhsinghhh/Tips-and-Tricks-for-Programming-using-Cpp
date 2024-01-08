@@ -95,15 +95,16 @@ However, depending on how you want to use your queue, there are better ways to b
 | swap                 | swaps the contents       (public member function)                          |
 
 ## Non-member functions 
-|  Member type     |         Definition                                    |
-|----------------------|---------------------------------------------------|
-| operator==           |                                                   |
-| operator!=   (removed in C++20)        |                                                   |
-| operator<    (removed in C++20)        |                                                   |
-| operator<=   (removed in C++20)        |          lexicographically compares the values of two deques (function template |
-| operator>  (removed in C++20)          |                                                   |
-| operator>=   (removed in C++20)        |                                                   |
-| operator<=>  (removed in C++20)        | 
+| Member type  | Definition                                          |
+|--------------|-----------------------------------------------------|
+| operator==   |                                                     |
+| operator!= (removed in C++20) |                                                     |
+| operator< (removed in C++20) |                                                     |
+| operator<= (removed in C++20) | lexicographically compares the values of two deques (function template) |
+| operator> (removed in C++20) |                                                     |
+| operator>= (removed in C++20) |                                                     |
+| operator<=> (removed in C++20) |                                                     |
+
 
 | Member type                                      | Description                                                      |
 |----------------------------------------------|------------------------------------------------------------------|
