@@ -21,4 +21,90 @@ There are other operations you might want to add to your queue (In C++, you may 
 
 However, depending on how you want to use your queue, there are better ways to build it. The usual tradeoff is insert/removal time versus search time. Here is [a decent reference.](https://en.wikipedia.org/wiki/Linked_list#Linked_lists_vs._arrays) If you would like to read more, please follow the [link provided.](https://en.cppreference.com/w/cpp/container/queue)
 
+## Member types
 
+| Member type          | Definition                                        |
+|----------------------|---------------------------------------------------|
+| value_type           | T                                                 |
+| allocator_type       | Allocator                                          |
+| size_type            | Unsigned integer type (usually std::size_t)       |
+| difference_type      | Signed integer type (usually std::ptrdiff_t)      |
+| reference            | value_type&                                        |
+| const_reference      | const value_type&                                  |
+| pointer              |                                                   |
+| Allocator::pointer   | (until C++11)                                     |
+| std::allocator_traits<Allocator>::pointer | (since C++11) |
+| const_pointer        |                                                   |
+| Allocator::const_pointer | (until C++11)                                 |
+| std::allocator_traits<Allocator>::const_pointer | (since C++11) |
+| iterator             | LegacyRandomAccessIterator to value_type          |
+| const_iterator       | LegacyRandomAccessIterator to const value_type    |
+| reverse_iterator     | std::reverse_iterator<iterator>                   |
+| const_reverse_iterator | std::reverse_iterator<const_iterator>            |
+
+## Member functions
+
+|  Member type     |         Definition                                    |
+|----------------------|---------------------------------------------------|
+| (constructor)        | constructs the deque                               |
+| (destructor)         | destructs the deque                                |
+| operator=            | assigns values to the container                   |
+| assign               | assigns values to the container                   |
+| assign_range         | (C++23)                                           |
+| get_allocator        | returns the associated allocator                  |
+
+## Element access
+|  Member type     |         Definition                                    |
+|----------------------|---------------------------------------------------|
+| at                   | access specified element with bounds checking     |
+| operator[]           | access specified element                           |
+| front                | access the first element                           |
+| back                 | access the last element                            |
+
+## Iterators
+|  Member type     |         Definition                                    |
+|----------------------|---------------------------------------------------|
+| begin                | cbegin (C++11)                                    |
+| end                  | cend (C++11)                                      |
+| rbegin               | crbegin (C++11)                                   |
+| rend                 | crend (C++11)                                     |
+
+## Capacity
+|  Member type     |         Definition                                    |
+|----------------------|---------------------------------------------------|
+| empty                | checks whether the container is empty             |
+| size                 | returns the number of elements                    |
+| max_size             | returns the maximum possible number of elements   |
+| shrink_to_fit        | (DR*)                                             |
+
+## Modifiers
+|  Member type     |         Definition                                    |
+|----------------------|---------------------------------------------------|
+| clear                | clears the contents                               |
+| insert               | inserts elements                                  |
+| insert_range         | (C++23)                                           |
+| emplace              | (C++11)                                           |
+| erase                | erases elements                                   |
+| push_back            | adds an element to the end                        |
+| emplace_back         | (C++11)                                           |
+| append_range         | (C++23)                                           |
+| pop_back             | removes the last element                           |
+| push_front           | inserts an element to the beginning               |
+| emplace_front        | (C++11)                                           |
+| prepend_range        | (C++23)                                           |
+| pop_front            | removes the first element                         |
+| resize               | changes the number of elements stored             |
+| swap                 | swaps the contents                                |
+
+## Non-member functions 
+|  Member type     |         Definition                                    |
+|----------------------|---------------------------------------------------|
+| operator==           |                                                   |
+| operator!=           |                                                   |
+| operator<            |                                                   |
+| operator<=           |                                                   |
+| operator>            |                                                   |
+| operator>=           |                                                   |
+| operator<=>          | (removed in C++20)                                |
+| std::swap(std::deque) | specializes the std::swap algorithm               |
+| erase(std::deque)    | erase_if(std::deque) (C++20)                      |
