@@ -15,7 +15,7 @@ Parameters for function overloading should adhere to one or more of the followin
     - `add(int a, int b)`
     - `add(double a, double b)`
 
-```
+```cpp
 #include <iostream>
 void add(int a, int b) {
 	std::cout << "sum = " << (a + b);
@@ -35,7 +35,7 @@ int main() {
     - `add(int a, int b)`
     - `add(int a, int b, int c)`
    
-```
+```cpp
 #include <iostream>
 
 void add(int a, int b) {
@@ -58,7 +58,7 @@ int main() {
     - `add(int a, double b)`
     - `add(double a, int b)`
    
-```
+```cpp
 #include<iostream>
 void add(int a, double b) {
 	std::cout << "sum = " << (a + b);
