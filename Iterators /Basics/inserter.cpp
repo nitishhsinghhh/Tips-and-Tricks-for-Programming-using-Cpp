@@ -13,7 +13,7 @@
 int main() {
 	std::vector<int> vec = { 1, 2, 3, 4, 5 }, newVec = { 10, 20, 30 };
 	std::vector<int>::iterator itr = vec.begin();
-	advance(itr, 3);
+	std::advance(itr, 3);
 	copy(newVec.begin(), newVec.end(), inserter(vec, itr));
 	std::cout << "The new vector after inserting elements is: ";
 	for (int& x : vec) 
