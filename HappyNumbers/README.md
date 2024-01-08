@@ -5,7 +5,7 @@ More generally, a base-b happy number is a natural number in a given number base
 
 ##### A simple program in C++ to check if a number is happy:
 
-```
+```cpp
 class Solution {
 public:
     bool isHappy(int n) {
