@@ -31,12 +31,10 @@ However, depending on how you want to use your queue, there are better ways to b
 | difference_type      | Signed integer type (usually std::ptrdiff_t)      |
 | reference            | value_type&                                        |
 | const_reference      | const value_type&                                  |
-| pointer              |                                                   |
-| Allocator::pointer   | (until C++11)                                     |
-| std::allocator_traits<Allocator>::pointer | (since C++11) |
-| const_pointer        |                                                   |
-| Allocator::const_pointer | (until C++11)                                 |
-| std::allocator_traits<Allocator>::const_pointer | (since C++11) |
+|    pointer                   | Allocator::pointer (until C++11)                  |
+|                       | std::allocator_traits<Allocator>::pointer (since C++11) |
+| const_pointer        |  Allocator::const_pointer | (until C++11)                                 |
+|                        | std::allocator_traits<Allocator>::const_pointer (since C++11) |
 | iterator             | LegacyRandomAccessIterator to value_type          |
 | const_iterator       | LegacyRandomAccessIterator to const value_type    |
 | reverse_iterator     | std::reverse_iterator<iterator>                   |
@@ -46,65 +44,67 @@ However, depending on how you want to use your queue, there are better ways to b
 
 |  Member type     |         Definition                                    |
 |----------------------|---------------------------------------------------|
-| (constructor)        | constructs the deque                               |
-| (destructor)         | destructs the deque                                |
-| operator=            | assigns values to the container                   |
-| assign               | assigns values to the container                   |
-| assign_range         | (C++23)                                           |
-| get_allocator        | returns the associated allocator                  |
+| (constructor)        | constructs the deque   (public member function)                            |
+| (destructor)         | destructs the deque  (public member function)                              |
+| operator=            | assigns values to the container   (public member function)                |
+| assign               | assigns values to the container   (public member function)                |
+| assign_range  (C++23)       |  assigns a range of values to the container (public member function) |
+| get_allocator        | returns the associated allocator (public member function)                     |
 
 ## Element access
 |  Member type     |         Definition                                    |
 |----------------------|---------------------------------------------------|
-| at                   | access specified element with bounds checking     |
-| operator[]           | access specified element                           |
-| front                | access the first element                           |
-| back                 | access the last element                            |
+| at                   | access specified element with bounds checking  (public member function)      |
+| operator[]           | access specified element     (public member function)                          |
+| front                | access the first element  (public member function)                             |
+| back                 | access the last element   (public member function)                             |
 
 ## Iterators
 |  Member type     |         Definition                                    |
 |----------------------|---------------------------------------------------|
-| begin                | cbegin (C++11)                                    |
-| end                  | cend (C++11)                                      |
-| rbegin               | crbegin (C++11)                                   |
-| rend                 | crend (C++11)                                     |
+| begin / cbegin (C++11)                |  returns an iterator to the beginning (public member function)                                     |
+| end / cend (C++11)                   |    returns an iterator to the end (public member function)                                    |
+| rbegin /  crbegin (C++11)              |   returns a reverse iterator to the beginning (public member function)                                   |
+| rend / crend (C++11)                 |   returns a reverse iterator to the end (public member function)                                    |
 
 ## Capacity
 |  Member type     |         Definition                                    |
 |----------------------|---------------------------------------------------|
-| empty                | checks whether the container is empty             |
-| size                 | returns the number of elements                    |
-| max_size             | returns the maximum possible number of elements   |
-| shrink_to_fit        | (DR*)                                             |
+| empty                | checks whether the container is empty (public member function)            |
+| size                 | returns the number of elements  (public member function)                  |
+| max_size             | returns the maximum possible number of elements (public member function)  |
+| shrink_to_fit  (DR*)      | reduces memory usage by freeing unused memory (public member function)                                             |
 
 ## Modifiers
 |  Member type     |         Definition                                    |
 |----------------------|---------------------------------------------------|
-| clear                | clears the contents                               |
-| insert               | inserts elements                                  |
-| insert_range         | (C++23)                                           |
-| emplace              | (C++11)                                           |
-| erase                | erases elements                                   |
-| push_back            | adds an element to the end                        |
-| emplace_back         | (C++11)                                           |
-| append_range         | (C++23)                                           |
-| pop_back             | removes the last element                           |
-| push_front           | inserts an element to the beginning               |
-| emplace_front        | (C++11)                                           |
-| prepend_range        | (C++23)                                           |
-| pop_front            | removes the first element                         |
-| resize               | changes the number of elements stored             |
-| swap                 | swaps the contents                                |
+| clear                | clears the contents (public member function)      |
+| insert               | inserts elements (public member function)         |
+| insert_range (C++23) | inserts a range of elements  (public member function) |
+| emplace              |    constructs element in-place     (public member function)                                   |
+| erase  (C++11)               | erases elements  (public member function)                                  |
+| push_back            | adds an element to the end   (public member function)                      |
+| emplace_back (C++11)        | constructs an element in-place at the end (public member function)                |
+| append_range (C++23)        |  adds a range of elements to the end (public member function)                          |
+| pop_back             | removes the last element      (public member function)                      |
+| push_front           | inserts an element to the beginning  (public member function)              |
+| emplace_front (C++11)          | constructs an element in-place at the beginning (public member function)   |
+| prepend_range (C++23)        |  adds a range of elements to the beginning   (public member function) |
+| pop_front            | removes the first element (public member function)                         |
+| resize               | changes the number of elements stored  (public member function)            |
+| swap                 | swaps the contents       (public member function)                          |
 
 ## Non-member functions 
 |  Member type     |         Definition                                    |
 |----------------------|---------------------------------------------------|
 | operator==           |                                                   |
-| operator!=           |                                                   |
-| operator<            |                                                   |
-| operator<=           |                                                   |
-| operator>            |                                                   |
-| operator>=           |                                                   |
-| operator<=>          | (removed in C++20)                                |
-| std::swap(std::deque) | specializes the std::swap algorithm               |
-| erase(std::deque)    | erase_if(std::deque) (C++20)                      |
+| operator!=   (removed in C++20)        |                                                   |
+| operator<    (removed in C++20)        |                                                   |
+| operator<=   (removed in C++20)        |          lexicographically compares the values of two deques (function template |
+| operator>  (removed in C++20)          |                                                   |
+| operator>=   (removed in C++20)        |                                                   |
+| operator<=>  (removed in C++20)        | 
+
+|----------------------|---------------------------------------------------||
+| std::swap(std::deque) | specializes the std::swap algorithm   function template)            |
+| erase(std::deque) /erase_if(std::deque) (C++20)   | erases all elements satisfying specific criteria (function template) |
