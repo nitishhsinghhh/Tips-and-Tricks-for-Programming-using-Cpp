@@ -1,5 +1,4 @@
 #include<iostream>
-using namespace std;
 
 struct ListNode {
 	int val;
@@ -37,11 +36,11 @@ public:
 	// delete the middle in the list
 	void deleteMiddleelement() {
 		if (head == nullptr) {
-			cout << "List is empty " << endl;
+			std::cout << "List is empty " << std::endl;
 			return;
 		}
 
-		ListNode* fast = head, * slow = head;
+		ListNode* fast = head, *slow = head;
 		while (fast != nullptr && fast->next != nullptr) {
 			fast = fast->next->next;
 			slow = slow->next;
@@ -62,33 +61,9 @@ public:
 	void printList() {
 		ListNode* current = head;
 		while (current != nullptr) {
-			cout << current->val << " ";
+			std::cout << current->val << " ";
 			current = current->next;
 		}
-		cout << endl;
+		std::cout << std::endl;
 	}
-
 };
-
-void main() {
-	Solution list;
-	list.insert(1);
-	list.insert(2);
-	list.insert(3);
-	list.insert(4);
-	list.insert(5);
-
-	cout << "Original list: ";
-	list.printList();
-
-	list.deleteMiddleelement();
-
-	cout << "List after deleting middle element: ";
-	list.printList();
-}
-
-/*
-Output:
-Original list: 1 2 3 4 5
-List after deleting middle element: 1 2 4 5
-*/
