@@ -76,6 +76,7 @@ The limitations of input iterators in C++ include:
 ```cpp
 #include<iostream>
 #include<vector>
+
 int main() {
   std::vector<int> v{ 1, 2, 3, 4, 5 };
   std::vector<int>::iterator it1, it2, temp;
@@ -137,6 +138,7 @@ Output iterators are used for output operations, allowing the assignment of valu
 #include <iostream>
 #include <vector>
 #include <iterator> 
+
 int main() {
   std::vector<int> v1, v2;
   for (int i = 1; i <= 10; i++) {
@@ -189,6 +191,7 @@ Understanding the features and limitations of forward iterators is essential for
 ```cpp
 #include <iostream>
 #include <vector>
+
 template<class FIterator>
 void forwardIterator(FIterator start, FIterator end) {
   while (start != end) {
@@ -239,6 +242,7 @@ Understanding these features and limitations is essential for effectively utiliz
 ```cpp
 #include <iostream>
 #include <vector>
+
 int main() {
   std::vector<int> v1{ 10, 20, 30, 40, 50, 60 };
   std::vector<int>::iterator i1;
@@ -288,6 +292,7 @@ Understanding the advanced capabilities and features of random-access iterators 
 ```cpp
 #include <iostream>
 #include <vector>
+
 int main() {
   std::vector<int> vec1 = { 10, 20, 30, 40, 50, 60 };
 
@@ -314,6 +319,7 @@ The `begin()` function returns an iterator pointing to the beginning position of
 ```cpp
 #include <iostream>
 #include <vector>
+
 using namespace std;
 int main() {
     vector<int> vec {1, 2, 3, 4, 5};
@@ -333,6 +339,7 @@ The advance() function is used to increment the iterator position by the specifi
 #include <iostream>
 #include <vector>
 #include <iterator>
+
 int main() {
     std::vector<int> vec { 1, 2, 3, 4, 5 };
     std::vector<int>::iterator itr = vec.begin();
@@ -349,6 +356,7 @@ The next() and prev() functions return new iterators based on the given iterator
 #include <iostream>
 #include <vector>
 #include <iterator>
+
 int main() {
     std::vector<int> vec{ 1, 2, 3, 4, 5 };
     std::vector<int>::iterator itr = vec.begin();
@@ -369,6 +377,7 @@ The inserter() function is used to insert elements at any position within the co
 #include <iostream>
 #include <vector>
 #include <iterator>
+
 int main() {
     std::vector<int> vec { 1, 2, 3, 4, 5 }, newVec { 10, 20, 30 };
     std::vector<int>::iterator itr = vec.begin();
