@@ -10,21 +10,22 @@ template<
 ```
 std::array is a container that encapsulates fixed size arrays.
 
-This container is an aggregate type with the same semantics as a struct holding a C-style array T[N] as its only non-static data member. Unlike a C-style array, it doesn't decay to T* automatically. As an aggregate type, it can be initialized with aggregate-initialization given at most N initializers that are convertible to T: std::array<int, 3> a = {1, 2, 3};.
+This container is an aggregate type with the same semantics as a struct holding a C-style array T[N] as its only non-static data member. Unlike a C-style array, it doesn't decay to T* automatically. As an aggregate type, it can be initialized with aggregate-initialization given at most N initializers that are convertible to T: 
+```std::array<int, 3> a = {1, 2, 3};```
 
 The struct combines the performance and accessibility of a C-style array with the benefits of a standard container, such as knowing its own size, supporting assignment, random access iterators, etc.
 
-std::array satisfies the requirements of Container and ReversibleContainer except that default-constructed array is not empty and that the complexity of swapping is linear, satisfies the requirements of ContiguousContainer,(since C++17) and partially satisfies the requirements of SequenceContainer.
+std::array satisfies the requirements of Container and ReversibleContainer except that default-constructed array is not empty and that the complexity of swapping is linear, ```satisfies the requirements of ContiguousContainer,(since C++17)``` and partially satisfies the requirements of SequenceContainer.
 
-There is a special case for a zero-length array (N == 0). In that case, array.begin() == array.end(), which is some unique value. The effect of calling front() or back() on a zero-sized array is undefined.
+There is a special case for a zero-length array (N == 0). In that case, ```array.begin() == array.end()```, which is some unique value. The effect of calling ```front()``` or ```back()``` on a zero-sized array is undefined.
 
 An array can also be used as a tuple of N elements of the same type.
 
 ## Iterator invalidation
-As a rule, iterators to an array are never invalidated throughout the lifetime of the array. One should take note, however, that during swap, the iterator will continue to point to the same array element, and will thus change its value.
+As a rule, iterators to an array are never invalidated throughout the lifetime of the array. One should take note, however, that during ```swap```, the iterator will continue to point to the same array element, and will thus change its value.
 
 # Template parameters
-T - element type Must be MoveConstructible and MoveAssignable. <br>
+T - element type Must be ```MoveConstructible``` and ```MoveAssignable```. <br>
 N - the number of elements in the array or 0.
 
 # Member types
@@ -48,9 +49,9 @@ N - the number of elements in the array or 0.
 ## Implicitly-defined member functions
 | Member Function | Description |
 |-----------------|-------------|
-| (constructor)   | (implicitly declared) initializes the array following the rules of aggregate initialization (note that default initialization may result in indeterminate values for non-class T) (public member function) |
-| (destructor)    | (implicitly declared) destroys every element of the array (public member function) |
-| operator=       | (implicitly declared) overwrites every element of the array with the corresponding element of another array (public member function) |
+| (constructor)  (implicitly declared) |  initializes the array following the rules of aggregate initialization (note that default initialization may result in indeterminate values for non-class T) (public member function) |
+| (destructor) (implicitly declared) | destroys every element of the array (public member function) |
+| operator= (implicitly declared) | overwrites every element of the array with the corresponding element of another array (public member function) |
 
 
 # Element access
@@ -153,7 +154,12 @@ int main() {
 }
 ```
 
+### Output:
 
+```
+3 2 1
+E Ǝ
+```
 
 
 
