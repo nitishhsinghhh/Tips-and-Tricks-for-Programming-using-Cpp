@@ -105,7 +105,7 @@ However, depending on how you want to use your queue, there are better ways to b
 | operator>=   (removed in C++20)        |                                                   |
 | operator<=>  (removed in C++20)        | 
 
-| Function                                     | Description                                                      |
+| Member type                                      | Description                                                      |
 |----------------------------------------------|------------------------------------------------------------------|
 | std::swap(std::deque)                        | Specializes the std::swap algorithm (function template)           |
 | erase(std::deque) / erase_if(std::deque)     | Erases all elements satisfying specific criteria (function template) (C++20) |
