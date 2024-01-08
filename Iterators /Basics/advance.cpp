@@ -1,13 +1,13 @@
-/*
-	@File: main.cpp
-	@Author: Nitish
-	@Date: January 8, 2024
-	@Email: me.singhnitish@yandex.com
-
-	@Description:
-	This program demonstrates the use of the std::advance function to move an iterator forward in a vector. It initializes a vector with some values, 
-	advances the iterator by 3 positions, and then outputs the value at the new position.
-*/
+/**
+*	@File: main.cpp
+*	@Author: Nitish
+*	@Date: January 8, 2024
+*	@Email: me.singhnitish@yandex.com
+*	
+*	@Description:
+*	This program demonstrates the use of the std::advance function to move an iterator forward in a vector. It initializes a vector with some values, 
+*	advances the iterator by 3 positions, and then outputs the value at the new position.
+**/
 #include <iostream>
 #include <vector>
 int main() {
@@ -19,6 +19,6 @@ int main() {
 	return 0;
 }
 /**
-The position of the iterator after advancing is: 4
-Press any key to continue . . .
+*	The position of the iterator after advancing is: 4
+*	Press any key to continue . . .
 **/
