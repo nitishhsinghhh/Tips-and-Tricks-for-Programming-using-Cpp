@@ -57,7 +57,7 @@ The Binary Search Algorithm can be implemented in the following two ways:
 
 ### Implementation of Recursive  Binary Search Algorithm:
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 class BinarySearch {
@@ -93,7 +93,7 @@ int main() {
 
 ### Implementation of Iterative  Binary Search Algorithm: 
 
-```
+```cppp
 #include <iostream>
 #include <vector>
 
@@ -162,7 +162,7 @@ true if an element equal to valuetofind is found, else false.
 ```
 # CPP code example
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
