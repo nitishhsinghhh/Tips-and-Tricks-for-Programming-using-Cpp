@@ -5,7 +5,7 @@
 *	@Email: me.singhnitish@yandex.com
 *	
 *	@Description:
-*	This program demonstrates the use of the std::advance function to move an iterator forward in a vector. It initializes a vector with some values, 
+*	This program demonstrates the use of the advance function to move an iterator forward in a vector. It initializes a vector, 
 *	advances the iterator by 3 positions, and then outputs the value at the new position.
 **/
 #include <iostream>
