@@ -1,6 +1,6 @@
 # Managing Capacity
 
-The `[vector](https://en.cppreference.com/w/cpp/container/vector)` container in C++ offers several functions to query and adjust its capacity based on the number of elements it holds. By understanding these functions, programmers can optimize memory usage and ensure efficient storage management when working with the `vector` container.
+The [vector](https://en.cppreference.com/w/cpp/container/vector) container in C++ offers several functions to query and adjust its capacity based on the number of elements it holds. By understanding these functions, programmers can optimize memory usage and ensure efficient storage management when working with the `vector` container.
 
 ## Capacity Functions
 
