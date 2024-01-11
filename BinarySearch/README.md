@@ -147,6 +147,24 @@ It's important to consider and address these edge cases to ensure the robustness
 
 The prototype for [Binary Search](https://en.cppreference.com/w/cpp/algorithm/binary_search) is : 
 
+### binary_search (1)
+```cpp
+template<class ForwardIt, class T>
+bool binary_search(ForwardIt first, ForwardIt last, const T& value) {
+    first = std::lower_bound(first, last, value);
+    return (!(first == last) and !(value < *first));
+}
+```
+
+### binary_search (2)
+```cpp
+template<class ForwardIt, class T, class Compare>
+bool binary_search(ForwardIt first, ForwardIt last, const T& value, Compare comp) {
+    first = std::lower_bound(first, last, value, comp);
+    return (!(first == last) and !(comp(value, *first)));
+}
+'''
+
 ```cpp
 binary_search(startaddress, 
               endaddress, valuetofind)
@@ -160,7 +178,7 @@ valuetofind: the target value which we have
 Returns :
 true if an element equal to valuetofind is found, else false.
 ```
-# C++ code example
+# C++ code example 1
 
 ```cpp
 #include <iostream>
@@ -229,4 +247,34 @@ Element found in the vector
 
 Now, say we want to search for 10
 Element not found in the vector
+```
+
+## Example 2
+```cpp
+#include <algorithm>
+#include <iostream>
+#include <vector>
+ 
+int main() {
+    std::vector<int> haystack{1, 3, 4, 5, 9};
+    std::vector<int> needles{1, 2, 3};
+ 
+    for (const auto needle : needles) {
+        std::cout << "Searching for " << needle << '\n';
+        if (std::binary_search(haystack.begin(), haystack.end(), needle))
+            std::cout << "Found " << needle << '\n';
+        else
+            std::cout << "No dice!\n";
+    }
+}
+```
+
+Output:
+```
+Searching for 1
+Found 1
+Searching for 2
+no dice!
+Searching for 3
+Found 3
 ```
