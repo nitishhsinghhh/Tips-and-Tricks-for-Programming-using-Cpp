@@ -163,7 +163,7 @@ bool binary_search(ForwardIt first, ForwardIt last, const T& value, Compare comp
     first = std::lower_bound(first, last, value, comp);
     return (!(first == last) and !(comp(value, *first)));
 }
-'''
+```
 
 ```cpp
 binary_search(startaddress, 
@@ -178,7 +178,7 @@ valuetofind: the target value which we have
 Returns :
 true if an element equal to valuetofind is found, else false.
 ```
-# C++ code example 1
+### C++ code example 1
 
 ```cpp
 #include <iostream>
@@ -249,7 +249,7 @@ Now, say we want to search for 10
 Element not found in the vector
 ```
 
-## Example 2
+### C++ code example 2
 ```cpp
 #include <algorithm>
 #include <iostream>
