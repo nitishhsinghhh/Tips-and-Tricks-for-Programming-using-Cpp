@@ -250,9 +250,9 @@ Element not found in the vector
 ```
 
 ### C++ code example 2
-```cpp
-
 // GCC 13.1 (C++ 23)
+
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <vector>
