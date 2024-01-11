@@ -145,7 +145,7 @@ It's important to consider and address these edge cases to ensure the robustness
 
 ### Binary Search in C++ Standard Template Library (STL)
 
-The prototype for binary search is : 
+The prototype for [Binary Search](https://en.cppreference.com/w/cpp/algorithm/binary_search) is : 
 
 ```cpp
 binary_search(startaddress, 
