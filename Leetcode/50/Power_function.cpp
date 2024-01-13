@@ -3,7 +3,7 @@
  * (https://leetcode.com/problems/powx-n/description/)
 */
 
-#include<bits/stdc++.h>
+#include<iostream>
 class Solution {
 private:
     double power(double x, int n){
