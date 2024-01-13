@@ -342,10 +342,10 @@ public:
 ## Tricky Binary Search
 There are multiple conditions we need to figure out if we need to select left or if we need to select right.
 
-https://leetcode.com/problems/find-peak-element/ <br>
-https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/ <br>
-https://leetcode.com/problems/search-in-rotated-sorted-array/ <br>
-https://leetcode.com/problems/missing-element-in-sorted-array/ <br>
+[Find Peak Element](https://leetcode.com/problems/find-peak-element/) <br>
+[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) <br>
+[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) <br>
+[Missing element in sorted array](https://leetcode.com/problems/missing-element-in-sorted-array/) <br>
 
 ```cpp
 class Solution {
@@ -387,12 +387,12 @@ public:
 ```
 
 ## Simple Binary Search
-https://leetcode.com/problems/find-smallest-letter-greater-than-target/ <br>
-https://leetcode.com/problems/missing-element-in-sorted-array/ <br>
-https://leetcode.com/problems/peak-index-in-a-mountain-array/ <br>
-https://leetcode.com/problems/h-index-ii/ <br>
-https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/ <br>
-https://leetcode.com/problems/first-bad-version/ <br>
+[Find Smallest Letter Greater Than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/) <br>
+[Missing element in sorted array](https://leetcode.com/problems/missing-element-in-sorted-array/)<br>
+[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/) <br>
+[H-Index II](https://leetcode.com/problems/h-index-ii/) <br>
+[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) <br>
+[First Bad Version](https://leetcode.com/problems/first-bad-version/) <br>
 
 ```cpp
 class Solution {
@@ -424,10 +424,10 @@ public:
 
 ## Using C++ STL upper bound for binary search
 <br>
-https://leetcode.com/problems/time-based-key-value-store/ <br>
-https://leetcode.com/problems/online-election/ <br>
-https://leetcode.com/problems/random-pick-with-weight/ <br>
-https://leetcode.com/problems/find-right-interval/ <br>
+[Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) <br>
+[Online Election](https://leetcode.com/problems/online-election/) <br>
+[Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/) <br>
+[Find Right Interval](https://leetcode.com/problems/find-right-interval/) <br>
 
 ```cpp
 class TimeMap {
@@ -450,7 +450,7 @@ public:
 ```
 
 ## Binary search based on condition on 2 arrays
-https://leetcode.com/problems/median-of-two-sorted-arrays/ <br>
+[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) <br>
 
 ```cpp
 class Solution {
