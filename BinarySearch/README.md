@@ -283,22 +283,22 @@ Found 3
 
 
 # Binary search leetcode
-[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)
-[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)
-[Counting Bits](https://leetcode.com/problems/counting-bits/description/)
-[Missing Number](https://leetcode.com/problems/missing-number/description/)
-[Reverse Bits](https://leetcode.com/problems/reverse-bits/description/)
+[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)<br>
+[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)<br>
+[Counting Bits](https://leetcode.com/problems/counting-bits/description/)<br>
+[Missing Number](https://leetcode.com/problems/missing-number/description/)<br>
+[Reverse Bits](https://leetcode.com/problems/reverse-bits/description/)<br>
 
 
 # Problems where its Difficult to figure out if Binary Search can be applied.
 
 There are certain problem scenarios where it can be challenging to determine if binary search is applicable. In these cases, there is an array of length (n) and the task is to find the minimum value that satisfies a specific condition on the array. The runtime for these problems is typically nLog(m).
 
-https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/
-https://leetcode.com/problems/sum-of-mutated-array-closest-to-target/
-https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/
-https://leetcode.com/problems/koko-eating-bananas/
-https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
+https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/ <br>
+https://leetcode.com/problems/sum-of-mutated-array-closest-to-target/ <br>
+https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/ <br>
+https://leetcode.com/problems/koko-eating-bananas/ <br>
+https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/ <br>
 
 ```cpp
 class Solution {
@@ -342,10 +342,10 @@ public:
 ## Tricky Binary Search
 There are multiple conditions we need to figure out if we need to select left or if we need to select right.
 
-https://leetcode.com/problems/find-peak-element/
-https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
-https://leetcode.com/problems/search-in-rotated-sorted-array/
-https://leetcode.com/problems/missing-element-in-sorted-array/
+https://leetcode.com/problems/find-peak-element/ <br>
+https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/ <br>
+https://leetcode.com/problems/search-in-rotated-sorted-array/ <br>
+https://leetcode.com/problems/missing-element-in-sorted-array/ <br>
 
 ```cpp
 class Solution {
@@ -387,12 +387,12 @@ public:
 ```
 
 ## Simple Binary Search
-https://leetcode.com/problems/find-smallest-letter-greater-than-target/
-https://leetcode.com/problems/missing-element-in-sorted-array/
-https://leetcode.com/problems/peak-index-in-a-mountain-array/
-https://leetcode.com/problems/h-index-ii/
-https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
-https://leetcode.com/problems/first-bad-version/
+https://leetcode.com/problems/find-smallest-letter-greater-than-target/ <br>
+https://leetcode.com/problems/missing-element-in-sorted-array/ <br>
+https://leetcode.com/problems/peak-index-in-a-mountain-array/ <br>
+https://leetcode.com/problems/h-index-ii/ <br>
+https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/ <br>
+https://leetcode.com/problems/first-bad-version/ <br>
 
 ```cpp
 class Solution {
@@ -424,10 +424,10 @@ public:
 
 ## Using C++ STL upper bound for binary search
 <br>
-https://leetcode.com/problems/time-based-key-value-store/
-https://leetcode.com/problems/online-election/
-https://leetcode.com/problems/random-pick-with-weight/
-https://leetcode.com/problems/find-right-interval/
+https://leetcode.com/problems/time-based-key-value-store/ <br>
+https://leetcode.com/problems/online-election/ <br>
+https://leetcode.com/problems/random-pick-with-weight/ <br>
+https://leetcode.com/problems/find-right-interval/ <br>
 
 ```cpp
 class TimeMap {
@@ -450,7 +450,7 @@ public:
 ```
 
 ## Binary search based on condition on 2 arrays
-https://leetcode.com/problems/median-of-two-sorted-arrays/
+https://leetcode.com/problems/median-of-two-sorted-arrays/ <br>
 
 ```cpp
 class Solution {
