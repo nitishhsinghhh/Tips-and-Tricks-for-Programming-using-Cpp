@@ -283,7 +283,7 @@ Found 3
 
 
 # Binary search leetcode
-Blind top 5
+Blind top 5<br>
 [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)<br>
 [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)<br>
 [Counting Bits](https://leetcode.com/problems/counting-bits/description/)<br>
@@ -424,7 +424,6 @@ public:
 ```
 
 ## Using C++ STL upper bound for binary search
-<br>
 [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)<br>
 [Online Election](https://leetcode.com/problems/online-election/)<br>
 [Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)<br>
