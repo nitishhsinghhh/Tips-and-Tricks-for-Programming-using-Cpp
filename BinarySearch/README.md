@@ -68,9 +68,9 @@ public:
 			int mid = l + (r - l) / 2;
 			if (arr[mid] == x)
 				return mid;
-			if (arr[mid] > x) 
+			if (arr[mid] > x)
 				r = mid - 1;
-			else 
+			else
 				l = mid + 1;
 		}
 		return -1;
@@ -82,9 +82,9 @@ int main() {
 	int x = 10;
 	BinarySearch bs;
 	int result = bs.search(arr, x);
-	if (result == -1) 
+	if (result == -1)
 		std::cout << "Element is not present in array";
-	else 
+	else
 		std::cout << "Element is present at index " << result;
 	std::cout << std::endl;
 	return 0;
@@ -104,11 +104,11 @@ public:
 		while (l <= r) {
 			int m = l + (r - l) / 2;
 
-			if (arr[m] == x) 
+			if (arr[m] == x)
 				return m;
-			if (arr[m] < x) 
+			if (arr[m] < x)
 				l = m + 1;
-			else 
+			else
 				r = m - 1;
 		}
 		return -1;
@@ -120,9 +120,9 @@ int main() {
 	int x = 10;
 	BinarySearch bs;
 	int result = bs.search(arr, x);
-	if (result == -1) 
+	if (result == -1)
 		std::cout << "Element is not present in array";
-	else 
+	else
 		std::cout << "Element is present at index " << result;
 	std::cout << std::endl;
 	system("pause");
@@ -193,7 +193,7 @@ public:
 	VectorSearch(const std::vector<int>& v) : vec(v) {}
 
 	void show() {
-		for (int i : vec) 
+		for (int i : vec)
 			std::cout << i << ",";
 	}
 
@@ -228,7 +228,7 @@ int main() {
 		std::cout << "\nElement found in the vector \n";
 	else
 		std::cout << "\nElement not found in the vector \n";
-	
+
 	system("pause");
 	return 0;
 }
@@ -256,18 +256,18 @@ Element not found in the vector
 #include <algorithm>
 #include <iostream>
 #include <vector>
- 
+
 int main() {
-    std::vector<int> haystack{1, 3, 4, 5, 9};
-    std::vector<int> needles{1, 2, 3};
- 
-    for (const auto needle : needles) {
-        std::cout << "Searching for " << needle << '\n';
-        if (std::binary_search(haystack.begin(), haystack.end(), needle))
-            std::cout << "Found " << needle << '\n';
-        else
-            std::cout << "No dice!\n";
-    }
+	std::vector<int> haystack{ 1, 3, 4, 5, 9 };
+	std::vector<int> needles{ 1, 2, 3 };
+
+	for (const auto needle : needles) {
+		std::cout << "Searching for " << needle << '\n';
+		if (std::binary_search(haystack.begin(), haystack.end(), needle))
+			std::cout << "Found " << needle << '\n';
+		else
+			std::cout << "No dice!\n";
+	}
 }
 ```
 
@@ -307,7 +307,7 @@ class Solution {
 
 		int count = 0, size = 0;
 		for (int i = 0; i < bloomDay.size(); i++) {
-			size = (bloomDay[i] <= mid) ? size+1 : 0;
+			size = (bloomDay[i] <= mid) ? size + 1 : 0;
 			if (size == k) size = 0, count++;
 			if (count == m)
 				return true;
@@ -317,7 +317,7 @@ class Solution {
 	}
 public:
 	int minDays(vector<int>& bloomDay, int m, int k) {
-		if(bloomDay.size() == 0 || m == 0 || k == 0) return 0;
+		if (bloomDay.size() == 0 || m == 0 || k == 0) return 0;
 		if (m * k > bloomDay.size()) return -1;
 
 		int l = INT_MAX, r = INT_MIN;
@@ -327,12 +327,12 @@ public:
 		}
 
 		while (l <= r) {
-			int mid = l + (r-l)/2;
+			int mid = l + (r - l) / 2;
 
 			if (isValid(bloomDay, m, k, mid))
-				r = mid-1;
+				r = mid - 1;
 			else
-				l = mid+1;
+				l = mid + 1;
 		}
 
 		return l;
@@ -353,22 +353,23 @@ class Solution {
 
 	int findPeakElementUtil(vector<int>& nums, int l, int r) {
 
-		if (l > r) return -1;
+		if (l > r)
+			return -1;
 
-		int m = l + (r-l)/2;
+		int m = l + (r - l) / 2;
 
-		if (((m > 0) && (nums[m] > nums[m-1])) &&
-			((m < nums.size()-1) && (nums[m] > nums[m+1])))
+		if (((m > 0) && (nums[m] > nums[m - 1])) &&
+			((m < nums.size() - 1) && (nums[m] > nums[m + 1])))
 			return m;
 
-		if (m == 0 && nums.size() > 1 && nums[m] > nums[m+1])
+		if (m == 0 && nums.size() > 1 && nums[m] > nums[m + 1])
 			return m;
 
-		if ((m == nums.size()-1) && (nums[m] > nums[m-1]))
+		if ((m == nums.size() - 1) && (nums[m] > nums[m - 1]))
 			return m;
 
-		int left = findPeakElementUtil(nums, l, m-1);
-		int right = findPeakElementUtil(nums, m+1, r);
+		int left = findPeakElementUtil(nums, l, m - 1);
+		int right = findPeakElementUtil(nums, m + 1, r);
 
 		if (left != -1)
 			return left;
@@ -382,7 +383,7 @@ public:
 
 		if (n == 1) return 0;
 
-		return findPeakElementUtil(nums, 0, n-1);
+		return findPeakElementUtil(nums, 0, n - 1);
 	}
 };
 ```
@@ -401,21 +402,21 @@ public:
 	char nextGreatestLetter(vector<char>& letters, char target) {
 
 		int n = letters.size();
-		int l = 0, r = n-1;
+		int l = 0, r = n - 1;
 
-		if (target >= letters[n-1] || target < letters[0])
+		if (target >= letters[n - 1] || target < letters[0])
 			return letters[0];
 
 		int m = 0;
 		while (l <= r) {
-			m = l + (r-l)/2;
+			m = l + (r - l) / 2;
 
-			if (m > 0 && (target >= letters[m-1] && target < letters[m]))
-					return letters[m];
+			if (m > 0 && (target >= letters[m - 1] && target < letters[m]))
+				return letters[m];
 			else if (target >= letters[m])
-					l = m+1;
-			else	
-					r = m-1;
+				l = m + 1;
+			else
+				r = m - 1;
 		}
 
 		return letters[m];
@@ -431,7 +432,7 @@ public:
 
 ```cpp
 class TimeMap {
-	unordered_map<string, map<int, string>>hm;
+unordered_map<string, map<int, string>>hm;
 public:
 	/** Initialize your data structure here. */
 	TimeMap() {
@@ -439,7 +440,7 @@ public:
 	}
 
 	void set(string key, string value, int timestamp) {
-		hm[key].insert({timestamp, value});
+		hm[key].insert({ timestamp, value });
 	}
 
 	string get(string key, int timestamp) {
@@ -463,30 +464,30 @@ public:
 		if (n > m)
 			return findMedianSortedArrays(nums2, nums1);
 
-		int k = (n+m-1)/2;
+		int k = (n + m - 1) / 2;
 
 		int l = 0;
 		int r = min(k, n);
 
 		while (l < r) {
-			int mid1 = l + (r-l)/2;
-			int mid2 = k-mid1;
+			int mid1 = l + (r - l) / 2;
+			int mid2 = k - mid1;
 
 			if (nums1[mid1] > nums2[mid2])
 				r = mid1;
 			else
-				l = mid1+1;
+				l = mid1 + 1;
 		}
 
 		/* if (n+m) is odd, the median is the larger one between nums1[l-1] and nums2[k-l] */
-		int a = max(l >= 1 ? nums1[l-1] : INT_MIN, k >= l ? nums2[k-l] : INT_MIN);
-		if ((n+m) % 2 != 0)
+		int a = max(l >= 1 ? nums1[l - 1] : INT_MIN, k >= l ? nums2[k - l] : INT_MIN);
+		if ((n + m) % 2 != 0)
 			return a;
 
 		/* in case (n+m) is even, take the average of mid 2 elements */
-		int b =  min(l < n ? nums1[l] : INT_MAX, k-l+1 < m ? nums2[k-l+1] : INT_MAX);
+		int b = min(l < n ? nums1[l] : INT_MAX, k - l + 1 < m ? nums2[k - l + 1] : INT_MAX);
 
-		return (a+b)/2.0;
+		return (a + b) / 2.0;
 	}
 };
 ```
