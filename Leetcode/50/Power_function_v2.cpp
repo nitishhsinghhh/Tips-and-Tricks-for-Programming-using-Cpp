@@ -7,12 +7,14 @@
 class Solution {
 public:
     double myPow(double x, int n) {
-        // If n is negative, return the reciprocal of myPow with -n
-        if (n < 0)
-            return 1/myPow(x, -n);
-        // If n is equal to 0 return 1 (something to the power 0 is 1)
-        if (n == 0)
-            return 1;
+       if(x==0) return 0;
+        // If n is equal to 0 return 1 (something to the power 0 is 1) or x is 1
+        if(x==1 || n==0) return 1;
+        // if n is less than 0 then make the x to its reciprocal and n as postive number
+        if (n < 0){
+            n = abs(n);
+            x = 1/x;
+        }
         // Calculate half by recursively calling myPow with x and n/2
         double half = myPow(x, n / 2);
         // if n is even return the square of half
