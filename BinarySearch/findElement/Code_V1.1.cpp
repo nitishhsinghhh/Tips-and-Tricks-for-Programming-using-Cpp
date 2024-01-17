@@ -1,3 +1,7 @@
+/**
+ * Binary Search: (Binary search is a divide-and-conquer algorithm that can be used to find the position of a target value within a sorted array.)
+*/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
