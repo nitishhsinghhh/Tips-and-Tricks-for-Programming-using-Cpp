@@ -9,33 +9,30 @@
 class Solution {
 public:
     int minSteps(std::string s, std::string t) {
-        // Declare two unordered maps to store the frequency of characters in each string
-        std::unordered_map<char, int> freqS, freqT;
+        // Create an unordered map to store the frequency difference of characters
+        std::unordered_map<char, int> freqDifference;
 
         // Count the frequency of characters in string s
         for (char ch : s) {
-            freqS[ch]++;
+            freqDifference[ch]++;
         }
 
-        // Count the frequency of characters in string t
+        // Subtract the frequency of characters in string t
         for (char ch : t) {
-            freqT[ch]++;
+            freqDifference[ch]--;
         }
 
+        // Initialize the result variable
         int res = 0;
 
-        // Iterate through the frequency map of string s
-        for (auto it = freqS.begin(); it != freqS.end(); it++) {
-            char currentChar = it->first;
-            int freqDifference = it->second - freqT[currentChar];
-
-            // Add only positive differences to the result
-            if (freqDifference > 0) {
-                res += freqDifference;
-            }
+        // Iterate over the key-value pairs in the frequency difference map
+        for (const auto& [key, value] : freqDifference) {
+            // Add the absolute value of the frequency difference to the result
+            res += abs(value);
         }
 
-        return res;
+        // Return the final result, divided by 2 as each difference contributes twice
+        return res / 2;
     }
 };
 
