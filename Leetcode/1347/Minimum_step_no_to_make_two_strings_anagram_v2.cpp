@@ -1,5 +1,16 @@
 
-int minSteps(const std::string& s, const std::string& t) {
+/*
+  Leetcode Problem: 1347
+  Problem link: (https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/)
+*/
+
+#include<iostream>
+#include<string>
+#include<unordered_map>
+
+class Solution {
+public:
+    int minSteps(const std::string& s, const std::string& t) {
         // Create a vector to store the frequency difference of characters
         std::vector<int> freqDifference(26, 0);
 
@@ -25,3 +36,41 @@ int minSteps(const std::string& s, const std::string& t) {
         // Return the final result, divided by 2 as each difference contributes twice
         return res / 2;
     }
+};
+
+int main(){
+    // Creating an object of Solution Class
+    Solution sol;
+    
+    std::string str1, str2;
+    int res;
+    // test case 1 
+    str1 = "bab";
+    str2 = "aba";
+    res = sol.minSteps(str1, str2);
+    std::cout<<"To make '"<<str1<<"' and '"<<str2<<"' anagrams, only "<<res<<" step is needed."<<std::endl;
+    // test case 2
+    str1 = "leetcode";
+    str2 = "practice";
+    res = sol.minSteps(str1,str2);
+    std::cout<<"To make '"<<str1<<"' and '"<<str2<<"' anagrams, only "<<res<<" step is needed."<<std::endl;
+    return 0;
+}
+
+
+/*
+=====================OUTPUT SECTION=============================
+Testcase 1:
+Input: s = "anagram", t = "mangaar"
+Output: To make 'anagram' and 'mangaar' anagrams, only 0 step is needed.
+------------------------------------
+Testcase 2:
+Input: s = "anupama", s = "haldera"
+Output: To make 'anupama' and 'haldera' anagrams, only 5 step is needed.
+------------------------------------
+Testcase 3:
+Input: s = "bab", t = "aba"
+Output: To make 'bab' and 'aba' anagrams, only 1 step is needed.
+ 
+=================================================================
+*/
