@@ -9,34 +9,33 @@
 class Solution {
 public:
     int minSteps(std::string s, std::string t) {
-        // Declare two vectors as frequency array to count the number of characters of a string
-        std::vector<int>f1(26,0);
-        std::vector<int>f2(26,0);
-        int i=0;
-        // Count number of characters in string s and put the frequency of character of string s
-        // in the index value of f1
-        while(s[i] != 0){
-            f1[s[i]-'a']++;
-            i++;
+        // Declare two unordered maps to store the frequency of characters in each string
+        std::unordered_map<char, int> freqS, freqT;
+
+        // Count the frequency of characters in string s
+        for (char ch : s) {
+            freqS[ch]++;
         }
-        i=0;
-        // Count number of characters in string s and put the frequency of character of string t
-        // in the index value of f2
-        while(t[i] != 0){
-            f2[t[i]-'a']++;
-            i++;
+
+        // Count the frequency of characters in string t
+        for (char ch : t) {
+            freqT[ch]++;
         }
-        // compare two frequncy array if both are same then return 0 as minimum steps number
-        if(f1==f2) return 0;
+
         int res = 0;
-        // count the difference between two strings
-        for(int i=0;i<26;i++){
-            int diff = abs(f1[i]-f2[i]);
-            res += diff;
+
+        // Iterate through the frequency map of string s
+        for (auto it = freqS.begin(); it != freqS.end(); it++) {
+            char currentChar = it->first;
+            int freqDifference = it->second - freqT[currentChar];
+
+            // Add only positive differences to the result
+            if (freqDifference > 0) {
+                res += freqDifference;
+            }
         }
-        // as we have counted twice (to make one string others' equal) so dividing by 2 is our required 
-        // minimum number of steps
-        return res/2;
+
+        return res;
     }
 };
 
