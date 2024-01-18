@@ -147,21 +147,21 @@ It's important to consider and address these edge cases to ensure the robustness
 
 The prototype for [Binary Search](https://en.cppreference.com/w/cpp/algorithm/binary_search) is:
 
-```
+```cpp
 template< class ForwardIt, class T >
 bool binary_search( ForwardIt first, ForwardIt last, const T& value );
-(until C++20) <br>
+(until C++20) 
 template< class ForwardIt, class T >
 constexpr bool binary_search( ForwardIt first, ForwardIt last, const T& value );
-(since C++20)<br>
-(2)	<br>
+(since C++20)
+(2)	
 template< class ForwardIt, class T, class Compare >
 bool binary_search( ForwardIt first, ForwardIt last,
                     const T& value, Compare comp );
-(until C++20)<br>
+(until C++20)
 template< class ForwardIt, class T, class Compare >
 constexpr bool binary_search( ForwardIt first, ForwardIt last,
-                              const T& value, Compare comp );<br>
+                              const T& value, Compare comp );
 (since C++20)
 ```
 
