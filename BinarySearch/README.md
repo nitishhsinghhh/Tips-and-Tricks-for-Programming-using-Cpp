@@ -145,7 +145,25 @@ It's important to consider and address these edge cases to ensure the robustness
 
 ### Binary Search in C++ Standard Template Library (STL)
 
-The prototype for [Binary Search](https://en.cppreference.com/w/cpp/algorithm/binary_search) is : 
+The prototype for [Binary Search](https://en.cppreference.com/w/cpp/algorithm/binary_search) is:
+
+```
+template< class ForwardIt, class T >
+bool binary_search( ForwardIt first, ForwardIt last, const T& value );
+(until C++20) <br>
+template< class ForwardIt, class T >
+constexpr bool binary_search( ForwardIt first, ForwardIt last, const T& value );
+(since C++20)<br>
+(2)	<br>
+template< class ForwardIt, class T, class Compare >
+bool binary_search( ForwardIt first, ForwardIt last,
+                    const T& value, Compare comp );
+(until C++20)<br>
+template< class ForwardIt, class T, class Compare >
+constexpr bool binary_search( ForwardIt first, ForwardIt last,
+                              const T& value, Compare comp );<br>
+(since C++20)
+```
 
 ### binary_search (1)
 ```cpp
