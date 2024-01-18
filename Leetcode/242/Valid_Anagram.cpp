@@ -3,7 +3,8 @@
  * (https://leetcode.com/problems/valid-anagram/description/)
 */
 
-#include<bits/stdc++.h>
+#include<iostream>
+
 class Solution {
 public:
 	bool isAnagram(std::string s, std::string t) {
