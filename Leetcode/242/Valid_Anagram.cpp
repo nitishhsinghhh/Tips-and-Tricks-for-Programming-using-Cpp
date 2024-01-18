@@ -7,16 +7,21 @@
 class Solution {
 public:
 	bool isAnagram(std::string s, std::string t) {
+		// Declare two array for counting frequency of characters of string
 		int freq1[26] = { 0 };
 		int freq2[26] = { 0 };
+		// Counting characters of string s
 		for (char ch : s) {
 			freq1[ch - 'a']++;
 		}
+		// Counting characters of string t
 		for (char ch : t) {
 			freq2[ch - 'a']++;
 		}
 		// check anagram or not 
 		for (int i = 0; i < 26; i++) {
+			// If counting of a character of two strings are not equal then two strings
+			// are not anagram 
 			if (freq1[i] != freq2[i]) {
 				return false;
 			}
