@@ -9,36 +9,25 @@
 class Solution {
 public:
 	bool isAnagram(std::string s, std::string t) {
-    vector<int>freq(26,0);
-        for(char ch: s){
-            freq[ch-'a']++;
-        }
-        for(char ch: t){
-            freq[ch-'a']--;
-        }
-        for(int val: freq){
-            if(val != 0) return false;
-        }
-        return true;
-		// Declare two array for counting frequency of characters of string
-		int freq1[26] = { 0 };
-		int freq2[26] = { 0 };
-		// Counting characters of string s
-		for (char ch : s) {
-			freq1[ch - 'a']++;
+		// Declare an array to store the frequency of characters of the string
+		std::vector<int>freq(26,0);
+		
+		// Increment the frequency of characters in the array for string s
+		for(char ch: s){
+		    freq[ch-'a']++;
 		}
-		// Counting characters of string t
-		for (char ch : t) {
-			freq2[ch - 'a']++;
+		
+		// Decrement the frequency of characters in the array for string t
+		for(char ch: t){
+		    freq[ch-'a']--;
 		}
-		// check anagram or not 
-		for (int i = 0; i < 26; i++) {
-			// If counting of a character of two strings are not equal then two strings
-			// are not anagram 
-			if (freq1[i] != freq2[i]) {
-				return false;
-			}
+		
+		// Check if all frequencies in the array are zero
+		for(int val: freq){
+		    // If any frequency is non-zero, strings are not anagrams
+		    if(val != 0) return false;
 		}
+		// If all frequencies are zero, strings are anagarams
 		return true;
 	}
 };
