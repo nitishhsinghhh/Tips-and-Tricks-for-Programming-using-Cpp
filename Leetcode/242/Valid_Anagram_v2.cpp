@@ -3,24 +3,31 @@
  * (https://leetcode.com/problems/valid-anagram/description/)
 */
 
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
+
 class Solution {
 public:
 	bool isAnagram(std::string s, std::string t) {
-		int freq1[26] = { 0 };
-		int freq2[26] = { 0 };
-		for (char ch : s) {
-			freq1[ch - 'a']++;
+		// Declare an array to store the frequency of characters of the string
+		std::vector<int>freq(26,0);
+		
+		// Increment the frequency of characters in the array for string s
+		for(char ch: s){
+		    freq[ch-'a']++;
 		}
-		for (char ch : t) {
-			freq2[ch - 'a']++;
+		
+		// Decrement the frequency of characters in the array for string t
+		for(char ch: t){
+		    freq[ch-'a']--;
 		}
-		// check anagram or not 
-		for (int i = 0; i < 26; i++) {
-			if (freq1[i] != freq2[i]) {
-				return false;
-			}
+		
+		// Check if all frequencies in the array are zero
+		for(int val: freq){
+		    // If any frequency is non-zero, strings are not anagrams
+		    if(val != 0) return false;
 		}
+		// If all frequencies are zero, strings are anagarams
 		return true;
 	}
 };
