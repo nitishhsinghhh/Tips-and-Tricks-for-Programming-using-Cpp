@@ -1,5 +1,5 @@
 /**
- * 242. Valid Anagram 
+ * 242. Valid Anagram
  * (https://leetcode.com/problems/valid-anagram/description/)
 */
 
@@ -61,14 +61,14 @@ int main() {
 }
 /**
  * --------Output of Testcases--------
- * 
+ *
  * Input: s = "rat", t = "car"
  * Output: false
- * 
+ *
  * Input: s = "anagram", t = "nagaram"
  * Output: true
- * 
+ *
  * Input: s = "program", t = "prolog"
  * Output: false
- * 
+ *
  * */
