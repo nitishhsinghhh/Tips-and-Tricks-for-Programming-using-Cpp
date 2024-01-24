@@ -1,4 +1,4 @@
-# Modern C++ Design Patterns
+# C++ Design Patterns
 
 Software design patterns provide a structured approach to solving common design problems in software development. They encapsulate solutions to recurring design challenges and provide a common vocabulary for developers to communicate and share best practices. By utilizing design patterns, developers can benefit from proven solutions that promote maintainability, scalability, and reusability in their software systems.
 
