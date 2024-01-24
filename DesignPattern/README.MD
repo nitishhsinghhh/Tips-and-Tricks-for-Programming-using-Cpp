@@ -48,3 +48,4 @@ Choosing the correct design pattern in software engineering is critical to pract
 - **State:** Encapsulate state-specific behavior. For example, handling different states of a user interface element (e.g., enabled, disabled, selected).
 - **Template Method:** Define the skeleton of an algorithm in operation, deferring some steps to subclasses and implementing a base class for unit testing with customizable setup and teardown steps.
 
+Credits: [Dr Milan Milanović](https://www.linkedin.com/in/milanmilanovic/)
