@@ -25,6 +25,9 @@ Choosing the correct design pattern in software engineering is critical to pract
  🔸 Object Assembly? → Structural Patterns<br>
  🔸 Object Interactions? → Behavioral Patterns<br>
 
+
+
+
 ## Creational Patterns
 - **Singleton:** Use when a single instance of a class is needed. Some examples are logging and database connections.
 - **Factory Method:** Decouple object creation from usage. For example, you create different types of database connections based on configuration.
