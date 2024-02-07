@@ -24,10 +24,10 @@ Build a habit of thorough testing. You'll thank yourself later.
 8. **Take care of yourself:**<br>
 Your health and mindset directly impact your productivity. A healthy developer is a productive developer.
 
-10. **Write out topics / pseudo code:**<br>
+10. **Write out topics / pseudo code:** <br>
 Think the problem through before writing a single line of code. 
 
-11.** Warm-up:** <br>
+11. **Warm-up:** <br>
 Coding is like a sport with the brain, don't jump right into the hard stuff right away. Warm yourself up to it. It will be smoother and more efficient.
 
 12. **Learn when you work your best:**. <br>
