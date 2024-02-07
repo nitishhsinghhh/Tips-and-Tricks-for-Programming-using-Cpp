@@ -31,6 +31,6 @@ Your health and mindset directly impact your productivity. A healthy developer i
 12. Learn when you work your best. Are you an early bird or a night owl? Plan your day accordingly.
 
 
-13 10 - 30 minutes to know new things that are out of your profession, it will help Improving your understanding of the World, and give you new perspectives for your problems and solutions.
+13. 10 - 30 minutes to know new things that are out of your profession, it will help Improving your understanding of the World, and give you new perspectives for your problems and solutions.
 
-14 10 - 15 minutes of block time, block your self from both Virtual and physical world interactions to clear your mind and to keep your internal peace.
+14. 10 - 15 minutes of block time, block your self from both Virtual and physical world interactions to clear your mind and to keep your internal peace.
