@@ -33,7 +33,7 @@ They realized they really only needed 2 roommates to grocery shop instead of 4. 
 
 Just so we do look at some code, here's a simple example of a race condition and a safe(r) example in C++ via interleaved execution.
 
-```cpp[]
+```cpp
 #include<iostream>
 #include<mutex>
 #include<thread>
