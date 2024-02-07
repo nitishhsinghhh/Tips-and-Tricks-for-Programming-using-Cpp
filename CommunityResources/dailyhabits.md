@@ -23,3 +23,14 @@ Build a habit of thorough testing. You'll thank yourself later.
 
 8. Take care of yourself
 Your health and mindset directly impact your productivity. A healthy developer is a productive developer.
+
+10. Think the problem through before writing a single line of code. Write out topics / pseudo code. 
+
+11. Warm-up! Coding is like a sport with the brain, don't jump right into the hard stuff right away. Warm yourself up to it. It will be smoother and more efficient.
+
+12. Learn when you work your best. Are you an early bird or a night owl? Plan your day accordingly.
+
+
+13 10 - 30 minutes to know new things that are out of your profession, it will help Improving your understanding of the World, and give you new perspectives for your problems and solutions.
+
+14 10 - 15 minutes of block time, block your self from both Virtual and physical world interactions to clear your mind and to keep your internal peace.
