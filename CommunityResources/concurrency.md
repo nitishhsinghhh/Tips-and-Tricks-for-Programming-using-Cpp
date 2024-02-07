@@ -1,7 +1,5 @@
 # Concurrent Programming: [Gotchas](https://www.linkedin.com/in/dennis-kennetz/)
 
-Before diving into starting to explore multi-threaded programs, I thought it would be apt to discuss some of the problems encountered when writing multi-threaded programs so we could refer back to them.
-
 Concurrent programming "gotchas" all revolve around shared resource contention, and fall into the following categories:
 
 - Race conditions - A timing issue - multiple threads access shared resource "out of turn" resulting in inconsistent, unexpected, or corrupt data. Note, race conditions are not an incorrect result - each thread performed its instructions in a valid manner related to the shared variable.
