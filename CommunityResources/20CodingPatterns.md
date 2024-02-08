@@ -17,7 +17,7 @@ Let’s get started.
 ## 20 Coding Interview Patterns to the Rescue
 Here are the top 20 coding interview patterns discussed in Grokking the Coding Interview:
 
-1. **Pattern: Two Pointers**
+1. **Pattern: Two Pointers**<br>
    Description: This method uses two pointers to traverse an array or a list from different ends or directions.
    Usage: It’s particularly useful for ordered data structures, where we can make intelligent decisions based on the position of the pointers.
    Problems: ‘Pair with Target Sum’, ‘Remove Duplicates’, ‘Squaring a Sorted Array’.
