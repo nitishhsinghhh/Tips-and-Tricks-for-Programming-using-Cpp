@@ -33,14 +33,14 @@ In dynamic programming, after you solve each sub-problem, you must memoize, or s
 
 When told to implement an algorithm that calculates the Fibonacci value for any given number, what would you do? Most people I know would opt for a recursive algorithm that looks something like this in C++:
 ```cpp
-	int fibonacciVal(int n) {
-		if (n == 0)
-			return 0;
-		else if (n == 1)
-			return 1;
-		else
-			return fibonacciVal(n - 1) + fibonacciVal(n - 2);
-	}
+int fibonacciVal(int n) {
+	if (n == 0)
+		return 0;
+	else if (n == 1)
+		return 1;
+	else
+		return fibonacciVal(n - 1) + fibonacciVal(n - 2);
+}
 ```
 
 This algorithm accomplishes its purpose, but at a huge cost. For example, let’s look at what this algorithm must calculate in order to solve for n = 5 (abbreviated as F(5)):
