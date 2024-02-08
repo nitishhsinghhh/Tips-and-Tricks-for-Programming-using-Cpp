@@ -33,6 +33,8 @@ Coding is like a sport with the brain, don't jump right into the hard stuff righ
 12. **Learn when you work your best:**. <br>
 Are you an early bird or a night owl? Plan your day accordingly.
 
-13. 10 - 30 minutes to know new things that are out of your profession, it will help Improving your understanding of the World, and give you new perspectives for your problems and solutions.<br>
+13. **Broadening Perspectives: The Value of Learning Beyond Your Profession**<br>
+10 - 30 minutes to know new things that are out of your profession, it will help Improving your understanding of the World, and give you new perspectives for your problems and solutions.<br>
 
-14. 10 - 15 minutes of block time, block your self from both Virtual and physical world interactions to clear your mind and to keep your internal peace.<br>
+14. **Mindful Breaks: Finding Peace Through Block Time**<br>
+10 - 15 minutes of block time, block your self from both Virtual and physical world interactions to clear your mind and to keep your internal peace.<br>
