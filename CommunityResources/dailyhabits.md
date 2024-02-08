@@ -1,4 +1,4 @@
-My 8 daily habits that will make you a better developer:
+# My 8 daily habits that will make you a better developer:
 
 1. **Dedicate time to learning:**<br>
 Block out specific time in your calendar for learning new languages, frameworks or best practices. The landscape is constantly evolving and you need to build the habit of staying ahead of the curve.
