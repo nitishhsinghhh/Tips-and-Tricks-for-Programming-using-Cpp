@@ -1,5 +1,5 @@
 # Grokking the Coding Interview: Mastering the 20 Coding Patterns
-_How Mastering Coding Patterns Can Transform Your Interview Performance._
+_How Mastering Coding Patterns Can Transform Your Interview Performance._<br>
 In today’s competitive job market, coding interviews are becoming harder every day. If you want to stay ahead of the curve, it’s essential to understand how to approach a coding interview. Knowing what interview questions could be asked is only part of the battle; you also need to have the skills to tackle them successfully.
 
 If you’re reading this, you are likely preparing for that all-important coding interview or simply looking to expand your knowledge of algorithms and data structures. Either way, you’re in the right place.
