@@ -1,6 +1,6 @@
-/*
+/**
 Author: Nitish Singh
-Date: December 29, 2023
+Date: February 12, 2024
 Email ID: me.singhnitish@yandex.com
 
 Problem Statement: 
@@ -16,7 +16,7 @@ The main function provides information about the maximum size of the input strin
 Additional Information:
 - The StringConverter class sorts the input string and converts it to an integer, handling negative numbers as well.
 - The InputHandler class creates instances of StringConverter to convert strings and determines the smallest and largest numbers for output.
-*/
+**/
 
 #include <iostream>
 #include <algorithm>
