@@ -1,6 +1,6 @@
-/*
+/**
 Author: Nitish Singh
-Date: December 29, 2023
+Date: February 12, 2024
 Email ID: me.singhnitish@yandex.com
 
 Problem Statement: 
@@ -18,7 +18,7 @@ Additional Information:
 - Test cases are provided in the main function to demonstrate the expected outputs for different input scenarios.
 - The program ensures input validation by checking the size of the input string and validating the input character against the specified range.
 - Error messages are displayed for invalid input size and characters falling outside the specified range.
-*/
+**/
 
 #include <iostream>
 #include <string>
