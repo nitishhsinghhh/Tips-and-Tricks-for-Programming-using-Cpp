@@ -14,4 +14,3 @@ The following chart contains all 128 ASCII decimal (dec), octal (oct), hexadecim
 |     |     |     |                          ||     |     |     |                         ||     |     |     |                         ||     |     |     |                         |
 | 8   | 10  | 08  | BS (backspace)           || 40  | 50  | 28  | (                     || 72  | 110 | 48  | H                       || 104 | 150 | 68  | h                       |
 | 9   | 11  | 09  | HT (horizontal tab)      || 41  | 51  | 29  | )                     || 73  | 111 | 49  | I                       || 105 | 151 | 69  | i                       |
-| 10  | 12 
