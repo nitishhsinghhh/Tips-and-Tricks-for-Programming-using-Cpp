@@ -1,8 +1,8 @@
 The following chart contains all 128 ASCII decimal (dec), octal (oct), hexadecimal (hex) and character (ch) codes.
 
-| Dec | Oct | Hex | Ch                       | Dec | Oct | Hex | Ch  | Dec | Oct | Hex | Ch | Dec | Oct | Hex | Ch |
-|-----|-----|-----|--------------------------|-----|-----|-----|-----|-----|-----|-----|----|-----|-----|-----|----|
-| 0   | 0   | 00  | NUL (null)               | 32  | 40  | 20  | (space)               | 64  | 100 | 40  | @  | 96  | 140 | 60  | `  |
+| Dec | Oct | Hex | Ch                       | Dec | | Oct | Hex | Ch  | Dec | | Oct | Hex | Ch || Dec | Oct | Hex | Ch |
+|-----|-----|-----|--------------------------|-----|-----|-----|-----|-----|-----|-----|----|-----|-----|-----|----||-----||-----||-----|
+| 0   | 0   | 00  | NUL (null)               || 32  | 40  | 20  | (space)               || 64  | 100 | 40  | @  || 96  | 140 | 60  | `  |
 | 1   | 1   | 01  | SOH (start of header)    | 33  | 41  | 21  | !                     | 65  | 101 | 41  | A  | 97  | 141 | 61  | a  |
 | 2   | 2   | 02  | STX (start of text)      | 34  | 42  | 22  | "                     | 66  | 102 | 42  | B  | 98  | 142 | 62  | b  |
 | 3   | 3   | 03  | ETX (end of text)        | 35  | 43  | 23  | #                     | 67  | 103 | 43  | C  | 99  | 143 | 63  | c  |
