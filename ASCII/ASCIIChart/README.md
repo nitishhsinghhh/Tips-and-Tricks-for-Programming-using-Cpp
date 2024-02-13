@@ -1,15 +1,22 @@
 The following chart contains all 128 ASCII decimal (dec), octal (oct), hexadecimal (hex) and character (ch) codes.
 
-| Dec | Oct | Hex | Ch                      || Dec | Oct | Hex | Ch                      || Dec | Oct | Hex | Ch                      || Dec | Oct | Hex | Ch                      |
-|-----|-----|-----|-------------------------||-----|-----|-----|-------------------------||-----|-----|-----|-------------------------||-----|-----|-----|-------------------------| 
-| 0   | 0   | 00  | NUL (null)              || 32  | 40  | 20  | (space)                || 64  | 100 | 40  | @                       || 96  | 140 | 60  | `                       |
-| 1   | 1   | 01  | SOH (start of header)   || 33  | 41  | 21  | !                      || 65  | 101 | 41  | A                       || 97  | 141 | 61  | a                       |
-| 2   | 2   | 02  | STX (start of text)     || 34  | 42  | 22  | "                      || 66  | 102 | 42  | B                       || 98  | 142 | 62  | b                       |
-| 3   | 3   | 03  | ETX (end of text)       || 35  | 43  | 23  | #                      || 67  | 103 | 43  | C                       || 99  | 143 | 63  | c                       |
-| 4   | 4   | 04  | EOT (end of transmission)|| 36  | 44  | 24  | $                     || 68  | 104 | 44  | D                       || 100 | 144 | 64  | d                       |
-| 5   | 5   | 05  | ENQ (enquiry)           || 37  | 45  | 25  | %                      || 69  | 105 | 45  | E                       || 101 | 145 | 65  | e                       |
-| 6   | 6   | 06  | ACK (acknowledge)       || 38  | 46  | 26  | &                      || 70  | 106 | 46  | F                       || 102 | 146 | 66  | f                       |
-| 7   | 7   | 07  | BEL (bell)              || 39  | 47  | 27  | '                      || 71  | 107 | 47  | G                       || 103 | 147 | 67  | g                       |
-| 8   | 10  | 08  | BS (backspace)          || 40  | 50  | 28  | (                      || 72  | 110 | 48  | H                       || 104 | 150 | 68  | h                       |
-| 9   | 11  | 09  | HT (horizontal tab)     || 41  | 51  | 29  | )                      || 73  | 111 | 49  | I                       || 105 | 151 | 69  | i                       |
-| 10  | 12  | 0a  | LF (line feed - new line)|| 42  | 52  | 2a  | *                     || 74  | 112 | 4a  | J                       || 106 | 152 | 6a  | j                       |
+![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/assets/93253740/f257abee-7cc9-4038-b2ab-61c59c202745)
+
+```CPP
+#include <iostream>
+// GCC 13.1: C++ 23
+int main()
+{
+    std::cout << "Printable ASCII [32..126]:\n";
+    for (char c{' '}; c <= '~'; ++c)
+        std::cout << c << ((c + 1) % 32 ? ' ' : '\n');
+    std::cout << '\n';
+}
+```
+```
+Output: 
+Printable ASCII [32..126]:
+  ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ?
+@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _
+` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
+```
