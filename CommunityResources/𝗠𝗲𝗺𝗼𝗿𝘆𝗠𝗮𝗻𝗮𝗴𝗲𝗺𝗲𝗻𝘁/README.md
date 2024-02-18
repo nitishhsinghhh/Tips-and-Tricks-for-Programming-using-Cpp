@@ -16,4 +16,4 @@ As shown, using malloc() can lead to uninitialized objects, which can cause unex
 
 🔍 𝗖𝗼𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 🔍 In modern C++, it's recommended to use new and delete for dynamic memory allocation and deallocation. This approach ensures proper construction and destruction of objects, maintains code consistency, and minimizes the risk of runtime errors. Be explicit in your code about the use of memory allocation and choose the right approach based on your application's requirements.
 
-(Credit](https://www.linkedin.com/in/rafael-rodriguez-calvente/)
+(Credit)[https://www.linkedin.com/in/rafael-rodriguez-calvente/]
