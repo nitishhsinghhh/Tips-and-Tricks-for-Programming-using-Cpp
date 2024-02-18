@@ -108,7 +108,6 @@ The interface of C++ standard library is defined by the following collection of 
 |                         | `<condition_variable>`                _(C++11)_                                                       | Thread waiting conditions                      |
 |                         | `<future>`                                      _(C++11)_                                             | Primitives for asynchronous computations       |
 |                         | `<hazard_pointer>`                                         _(C++20)_                                 | Hazard pointers                                |
-|                         | `<latch>`                                                                                  | Latches                                        |
 |                         | `<latch>`     _(C++20)_                                                                              |  Latches                                        |
 |                         | `<mutex>`                                _(C++11)_                                                   |  Mutual exclusion primitives                    |
 |                         | `<rcu>`                                  _(C++26)_                                                   |  Read-copy update mechanisms                    |
