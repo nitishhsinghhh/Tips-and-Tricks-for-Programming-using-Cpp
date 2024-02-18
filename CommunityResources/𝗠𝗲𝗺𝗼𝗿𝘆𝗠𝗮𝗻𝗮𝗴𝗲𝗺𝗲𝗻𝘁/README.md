@@ -15,3 +15,5 @@ As shown, using malloc() can lead to uninitialized objects, which can cause unex
 📢 𝗘𝘅𝗰𝗲𝗽𝘁𝗶𝗼𝗻 𝘁𝗼 𝘁𝗵𝗲 𝗘𝘅𝗰𝗲𝗽𝘁𝗶𝗼𝗻 📢 While there are legitimate reasons to avoid exceptions, it's essential to distinguish between genuine concerns, such as hard-real-time requirements, and outdated beliefs. In some cases, the ban on exception use might be based on superstition or concerns about older code bases. Exercise caution and evaluate the specific needs of your application.
 
 🔍 𝗖𝗼𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 🔍 In modern C++, it's recommended to use new and delete for dynamic memory allocation and deallocation. This approach ensures proper construction and destruction of objects, maintains code consistency, and minimizes the risk of runtime errors. Be explicit in your code about the use of memory allocation and choose the right approach based on your application's requirements.
+
+(Credit](https://www.linkedin.com/in/rafael-rodriguez-calvente/)
