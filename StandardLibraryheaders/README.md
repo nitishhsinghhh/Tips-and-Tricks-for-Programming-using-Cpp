@@ -43,4 +43,76 @@ The interface of C++ standard library is defined by the following collection of 
 |                          | `<exception>`                                                                              | Exception handling utilities                            |
 |                          | `<stacktrace>`   _(C++23)_                                                                           | Stacktrace library                               |
 |                          | `<stdexcept>`                                                                              | Standard exception objects                             |
-|                          | `<system_error>`        _(C++11)_                                                                | Defines std::error_code, a platform-dependent error
+|                          | `<system_error>`        _(C++11)_                                                                | Defines std::error_code, a platform-dependent error |
+| Strings library         | `<cctype>`                                                                                 | Functions to determine the category of narrow characters |
+|                         | `<charconv>` _(C++17)_                                                                               |  std::to_chars and std::from_chars             |
+|                         | `<cstring>`                                                                                | Various narrow character string handling functions    |
+|                         | `<cuchar>`  _(C++11)_                                                                               |  C-style Unicode character conversion functions |
+|                         | `<cwchar>`                                                                                 | Various wide and multibyte string handling functions  |
+|                         | `<cwctype>`                                                                                | Functions to determine the category of wide characters |
+|                         | `<format>`     _(C++20)_                                                                            | Formatting library including std::format      |
+|                         | `<string>`                                                                                 | std::basic_string class template                     |
+|                         | `<string_view>`      _(C++17)_                                                                      | std::basic_string_view class template         |
+| Containers library      | `<array>` _(C++11)_                                                                                 |  std::array container                          |
+|                         | `<deque>`                                                                                  | std::deque container                                 |
+|                         | `<flat_map>`  _(C++23)_                                                                             | std::flat_map and std::flat_multimap container adaptors |
+|                         | `<flat_set>`             _(C++23)_                                                                    |  std::flat_set and std::flat_multiset container adaptors |
+|                         | `<forward_list>`       _(C++11)_                                                                      | std::forward_list container                   |
+|                         | `<list>`                                                                                   | std::list container                                  |
+|                         | `<map>`                                                                                    | std::map and std::multimap associative containers    |
+|                         | `<mdspan>`  _(C++23)_                                                                                 |  std::mdspan view                              |
+|                         | `<queue>`                                                                                  | std::queue and std::priority_queue container adaptors |
+|                         | `<set>`                                                                                    | std::set and std::multiset associative containers    |
+|                         | `<span>` _(C++20)_                                                                                    |  std::span view                                |
+|                         | `<stack>`                                                                                  | std::stack container adaptor                         |
+|                         | `<unordered_map>` _(C++11)_                                                                            | std::unordered_map and std::unordered_multimap unordered associative containers |
+|                         | `<unordered_set>`  _(C++11)_                                                                          | std::unordered_set and std::unordered_multiset unordered associative containers |
+|                         | `<vector>`                                                                                 | std::vector container                                |
+| Iterators library       | `<iterator>`  _(C++23)_                                                                               | Range iterators                                      |
+| Ranges library          | `<generator>` _(C++20)_                                                                                |  std::generator class template                 |
+|                         | `<ranges>`                                                                                 |  Range access, primitives, requirements, utilities and adaptors |
+| Algorithms library      | `<algorithm>`                                                                              | Algorithms that operate on ranges                     |
+|                         | `<execution>`   _(C++17)_                                                                             | Predefined execution policies for parallel versions of the algorithms |
+| Numerics library        | `<bit>`     _(C++20)_                                                                                 | Bit manipulation functions                    |
+|                         | `<cfenv>`    _(C++11)_                                                                                | Floating-point environment access functions   |
+|                         | `<cmath>`                                                                                  | Common mathematics functions                         |
+|                         | `<complex>`   _(C++26)_                                                                               | Complex number type                                  |
+|                         | `<linalg>`     _(C++20)_                                                                              | Basic linear algebra algorithms               |
+|                         | `<numbers>`                                                                                | Math constants                                |
+|                         | `<numeric>`                                                                                | Numeric operations on values in ranges               |
+|                         | `<random>`    _(C++11)_                                                                               | Random number generators and distributions    |
+|                         | `<ratio>`            _(C++11)_                                                                        | Compile-time rational arithmetic              |
+|                         | `<valarray>`                                                                               | Class for representing and |
+| Localization library    | `<clocale>`                                                                                | C localization utilities                              |
+|                         | `<codecvt>`     _(C++11) (deprecated in C++17)(removed in C++26)_                           | Unicode conversion facilities |
+|                         | `<locale>`                                                                                 | Localization utilities                                |
+|                         | `<text_encoding>`       _(C++26)_                                                                     |  Text encoding identifications                  |
+| Input/output library    | `<cstdio>`                                                                                 | C-style input-output functions                        |
+|                         | `<fstream>`                                                                                | std::basic_fstream, std::basic_ifstream, std::basic_ofstream class templates and several typedefs |
+|                         | `<iomanip>`                                                                                | Helper functions to control the format of input and output |
+|                         | `<ios>`                                                                                    | std::ios_base class, std::basic_ios class template and several typedefs |
+|                         | `<iosfwd>`                                                                                 | Forward declarations of all classes in the input/output library |
+|                         | `<iostream>`                                                                               | Several standard stream objects                       |
+|                         | `<istream>`                                                                                | std::basic_istream class template and several typedefs |
+|                         | `<ostream>`                                                                                | std::basic_ostream, std::basic_iostream class templates and several typedefs |
+|                         | `<print>`            _(C++23)_                                                                        | Formatted output library including std::print  |
+|                         | `<spanstream>`        _(C++23)_                                                                       | std::basic_spanstream, std::basic_ispanstream, std::basic_ospanstream class templates and typedefs |
+|                         | `<sstream>`                                                                                | std::basic_stringstream, std::basic_istringstream, std::basic_ostringstream class templates and several typedefs |
+|                         | `<streambuf>`                                                                              | std::basic_streambuf class template                   |
+|                         | `<strstream>`                                                                              | (deprecated in C++98), std::strstream, std::istrstream, std::ostrstream |
+|                         | `<syncstream>`  _(C++20)_                                                                             | std::basic_osyncstream, std::basic_syncbuf, and typedefs |
+| Filesystem library      | `<filesystem>`         _(C++17)_                                                                      | std::path class and supporting functions       |
+| Regular Expressions library | `<regex>`              _(C++11)_                                                                  | Classes, algorithms and iterators to support regular expression processing |
+| Atomic Operations library | `<atomic>`                _(C++11)_                                                                | Atomic operations library                      |
+| Thread support library  | `<barrier>`                      _(C++20)_                                                            | Barriers                                       |
+|                         | `<condition_variable>`                _(C++11)_                                                       | Thread waiting conditions                      |
+|                         | `<future>`                                      _(C++11)_                                             | Primitives for asynchronous computations       |
+|                         | `<hazard_pointer>`                                         _(C++20)_                                 | Hazard pointers                                |
+|                         | `<latch>`                                                                                  | Latches                                        |
+|                         | `<latch>`     _(C++20)_                                                                              |  Latches                                        |
+|                         | `<mutex>`                                _(C++11)_                                                   |  Mutual exclusion primitives                    |
+|                         | `<rcu>`                                  _(C++26)_                                                   |  Read-copy update mechanisms                    |
+|                         | `<semaphore>`                            _(C++20)_                                                   |  Semaphores                                     |
+|                         | `<shared_mutex>`                       _(C++14)_                                                   |  Shared mutual exclusion primitives             |
+|                         | `<stop_token>`                           _(C++20)_                                                   |  Stop tokens for std::jthread                   |
+|                         | `<thread>`                            _(C++11)_                                                   |  std::thread class and supporting functions     |
