@@ -3,9 +3,9 @@ The interface of C++ standard library is defined by the following collection of 
 
 | Category                | Header(s)                                                                                   | Description                                           |
 |-------------------------|---------------------------------------------------------------------------------------------|-------------------------------------------------------|
-| Concepts library        | `<concepts>` _(C++20) _                                                                       |  Fundamental library concepts                         |
+| Concepts library        | `<concepts>` _(C++20)_                                                                       |  Fundamental library concepts                         |
 | Coroutines library      | `<coroutine>` _(C++20)_                                                                       |   Coroutine support library                           |
-|   Utilities library     | `<any>` _(C++17)  _                                                                           |      std::any class                                   |
+|   Utilities library     | `<any>` _(C++17)_                                                                           |      std::any class                                   |
 |                         | `<bitset>`                                                                                 | std::bitset class template                             |
 |                          | `<chrono>`  _(C++11)_                                                                               |  C++ time utilities                              |
 |                          | `<compare>` _(C++20)_                                                                              | Three-way comparison operator support           |
@@ -29,7 +29,7 @@ The interface of C++ standard library is defined by the following collection of 
 |                          | `<variant>` _(C++17)_                                                                               |  std::variant class template                     |
 |                          | `<version>`   _(C++20)_                                                                             | Supplies implementation-dependent library information |
 | Dynamic memory management | `<memory>`                                                                                 | High-level memory management utilities                 |
-|                          | `<memory_resource>`  _(C++17) _                                                                     |  Polymorphic allocators and memory resources     |
+|                          | `<memory_resource>`  _(C++17)_                                                                     |  Polymorphic allocators and memory resources     |
 |                          | `<new>`                                                                                    | Low-level memory management utilities                   |
 |                          | `<scoped_allocator>` _(C++11)_                                                                       |  Nested allocator class                          |
 | Numeric limits           | `<cfloat>`                                                                                 | Limits of floating-point types                         |
