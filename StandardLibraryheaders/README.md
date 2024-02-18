@@ -115,3 +115,33 @@ The interface of C++ standard library is defined by the following collection of 
 |                         | `<shared_mutex>`                       _(C++14)_                                                   |  Shared mutual exclusion primitives             |
 |                         | `<stop_token>`                           _(C++20)_                                                   |  Stop tokens for std::jthread                   |
 |                         | `<thread>`                            _(C++11)_                                                   |  std::thread class and supporting functions     |
+
+
+# C compatibility headers
+
+The C compatibility headers are a set of headers that provide interoperability between C and C++. For many of the C standard library headers of the form xxx.h, the C++ standard library provides an identically-named header and another header of the form cxxx. The headers of the form xxx.h are intended for use when interoperability with C is needed. When not writing code that needs to be compatible with C, one should use the cxxx headers.
+
+Here's a summary of the C compatibility headers and their descriptions:
+| C Header       | Corresponding C++ Header | Description                                                                                   |
+|----------------|--------------------------|-----------------------------------------------------------------------------------------------|
+| `<assert.h>`   | `<cassert>`              | Behaves the same as `<cassert>`                                                               |
+| `<ctype.h>`    | `<cctype>`               | Behaves as if each name from `<cctype>` is placed in the global namespace                    |
+| `<errno.h>`    | `<cerrno>`               | Behaves the same as `<cerrno>`                                                                |
+| `<fenv.h>`     | `<cfenv>`                | C++11, Behaves as if each name from `<cfenv>` is placed in the global namespace              |
+| `<float.h>`    | `<cfloat>`               | Behaves the same as `<cfloat>`                                                                |
+| `<inttypes.h>` | `<cinttypes>`            | C++11, Behaves as if each name from `<cinttypes>` is placed in the global namespace          |
+| `<limits.h>`   | `<climits>`              | Behaves the same as `<climits>`                                                               |
+| `<locale.h>`   | `<clocale>`              | Behaves as if each name from `<clocale>` is placed in the global namespace                   |
+| `<math.h>`     | `<cmath>`                | Behaves as if each name from `<cmath>` is placed in the global namespace (except some names) |
+| `<setjmp.h>`   | `<csetjmp>`              | Behaves as if each name from `<csetjmp>` is placed in the global namespace                   |
+| `<signal.h>`   | `<csignal>`              | Behaves as if each name from `<csignal>` is placed in the global namespace                   |
+| `<stdarg.h>`   | `<cstdarg>`              | Behaves as if each name from `<cstdarg>` is placed in the global namespace                   |
+| `<stddef.h>`   | `<cstddef>`              | Behaves as if each name from `<cstddef>` is placed in the global namespace                   |
+| `<stdint.h>`   | `<cstdint>`              | C++11, Behaves as if each name from `<cstdint>` is placed in the global namespace            |
+| `<stdio.h>`    | `<cstdio>`               | Behaves as if each name from `<cstdio>` is placed in the global namespace                    |
+| `<stdlib.h>`   | `<cstdlib>`              | Behaves as if each name from `<cstdlib>` is placed in the global namespace                   |
+| `<string.h>`   | `<cstring>`              | Behaves as if each name from `<cstring>` is placed in the global namespace                   |
+| `<time.h>`     | `<ctime>`                | Behaves as if each name from `<ctime>` is placed in the global namespace                     |
+| `<uchar.h>`    | `<cuchar>`               | C++11, Behaves as if each name from `<cuchar>` is placed in the global namespace             |
+| `<wchar.h>`    | `<cwchar>`               | Behaves as if each name from `<cwchar>` is placed in the global namespace                    |
+| `<wctype.h>`   | `<cwctype>`              | Behaves as if each name from `<cwctype>` is placed in the global namespace                   |
