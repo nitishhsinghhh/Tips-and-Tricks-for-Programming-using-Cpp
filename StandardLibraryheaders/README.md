@@ -41,6 +41,6 @@ The interface of C++ standard library is defined by the following collection of 
 | Error handling           | `<cassert>`                                                                                | Conditionally compiled macro that compares its argument to zero |
 |                          | `<cerrno>`                                                                                 | Macro containing the last error number                 |
 |                          | `<exception>`                                                                              | Exception handling utilities                            |
-|                          | `<stacktrace>`   _(C++23) _                                                                           | Stacktrace library                               |
+|                          | `<stacktrace>`   _(C++23)_                                                                           | Stacktrace library                               |
 |                          | `<stdexcept>`                                                                              | Standard exception objects                             |
-|                          | `<system_error>`        _(C++11)    _                                                                | Defines std::error_code, a platform-dependent error
+|                          | `<system_error>`        _(C++11)_                                                                | Defines std::error_code, a platform-dependent error
