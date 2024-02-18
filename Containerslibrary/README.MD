@@ -29,25 +29,29 @@ The Containers library comprises class templates and algorithms that enable prog
 | **Views**                      | span                  | A non-owning view over a contiguous sequence of objects (C++20)    |
 |                            | mdspan                | A multi-dimensional non-owning array view (C++23)                  |
 
-# Iterator invalidation
-Read-only methods never invalidate iterators or references. Methods which modify the contents of a container may invalidate iterators and/or references, as summarized in this table.
+# Iterator and Reference Invalidation in C++ Containers
 
-| Category                     | Container                  | After insertion, are... | After erasure, are... | Conditionally |
-|------------------------------|----------------------------|--------------------------|------------------------|---------------|
-| Sequence containers          | array                      | N/A                      | N/A                    |               |
-|                              | vector                     | No                       | N/A                    | Insertion changed capacity |
-|                              |                            | Yes                      | Yes                    | Before modified element(s) (for insertion only if capacity didn't change) |
-|                              |                            | No                       | No                     | At or after modified element(s) |
-|                              | deque                      | No                       | Yes                    | Modified first or last element |
-|                              |                            | Yes                      | Yes, except erased element(s) | Modified middle only |
-|                              | list                       | Yes                      | Yes, except erased element(s) |               |
-|                              | forward_list               | Yes                      | Yes, except erased element(s) |               |
-| Associative containers       | set                        | Yes                      | Yes, except erased element(s) |               |
-|                              | multiset                   | Yes                      | Yes, except erased element(s) |               |
-|                              | map                        | Yes                      | Yes, except erased element(s) |               |
-|                              | multimap                   | Yes                      | Yes, except erased element(s) |               |
-| Unordered associative containers | unordered_set            | No                       | Yes                    | N/A           |
-|                              | unordered_multiset          | No                       | Yes                    | N/A           |
-|                              | unordered_map               | No                       | Yes                      | Insertion caused rehash |
-|                              | unordered_multimap          | No                       | Yes                      | Insertion caused rehash |
-|                              |                            | Yes                      | Yes, except erased element(s) | No rehash |
+## Read-Only Methods
+Read-only methods, which do not modify the container's contents, never invalidate iterators or references.
+
+## Modification Methods
+Methods that modify the container's contents may invalidate iterators and references, depending on the specific container and the type of modification.
+
+## Sequence Containers
+### Array, Vector, Deque, List, and Forward List
+- After insertion, iterators and references may be invalidated, with specific conditions for validity before or after the modification.
+- After erasure, similar conditions apply for the validity of iterators and references.
+
+## Associative Containers
+### Set, Multiset, Map, and Multimap
+- After insertion or erasure, iterators and references are typically still valid, except for erased elements.
+
+## Unordered Associative Containers
+### Unordered Set, Unordered Multiset, Unordered Map, and Unordered Multimap
+- After insertion, iterators may be invalidated, especially if the insertion causes a rehash of the container. References, however, remain valid.
+- After erasure, iterators and references are usually still valid, except for erased elements.
+
+## Additional Information
+- Insertion refers to any method that adds elements to the container, while erasure refers to any method that removes elements from the container.
+- It provides examples of insertion and erasure methods for different containers.
+- An exception is noted for erasure of the last element in a deque, which invalidates the past-the-end iterator.
