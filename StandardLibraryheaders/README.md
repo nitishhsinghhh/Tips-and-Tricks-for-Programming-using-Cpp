@@ -145,3 +145,35 @@ Here's a summary of the C compatibility headers and their descriptions:
 | `<uchar.h>`    | `<cuchar>`               | C++11, Behaves as if each name from `<cuchar>` is placed in the global namespace             |
 | `<wchar.h>`    | `<cwchar>`               | Behaves as if each name from `<cwchar>` is placed in the global namespace                    |
 | `<wctype.h>`   | `<cwctype>`              | Behaves as if each name from `<cwctype>` is placed in the global namespace                   |
+## Special C compatibility headers
+The header <stdatomic.h> declares names which are also provided in the C standard library, and defines the _Atomic macro which is a keyword in C. Unlike other xxx.h headers, corresponding <cstdatomic> is not provided.
+
+| Category                      | Header(s)       | Description                                                                                         |
+|-------------------------------|-----------------|-----------------------------------------------------------------------------------------------------|
+| Special C Compatibility Header | `<stdatomic.h>` | C++23, Defines `_Atomic` and provides corresponding components in the C standard library             |
+
+## Empty C headers
+The headers <complex.h>, <ccomplex>, <tgmath.h>, and <ctgmath> do not contain any content from the C standard library and instead merely include other headers from the C++ standard library.
+| Category        | Header(s)      | Description                                                                                     |
+|-----------------|----------------|-------------------------------------------------------------------------------------------------|
+| Empty C Headers | `<ccomplex>`   | C++11 (deprecated in C++17)(removed in C++20), Simply includes the header `<complex>`           |
+|                 | `<complex.h>`  | C++11, Simply includes the header `<complex>`                                                   |
+|                 | `<ctgmath>`    | C++11 (deprecated in C++17)(removed in C++20), Simply includes the headers `<complex>` and `<cmath>` |
+|                 | `<tgmath.h>`   | C++11, Simply includes the headers `<complex>` and `<cmath>`                                    |
+
+
+
+## Meaningless C headers
+The headers <ciso646>, <cstdalign>, and <cstdbool> are meaningless in C++ because the macros they provide in C are language keywords in C++.
+| Category                   | Header(s)       | Description                                                                                   |
+|----------------------------|-----------------|-----------------------------------------------------------------------------------------------|
+| Meaningless C Headers      | `<ciso646>`     | (removed in C++20), Empty header. The macros that appear in iso646.h in C are keywords in C++ |
+|                            | `<cstdalign>`   | C++11 (deprecated in C++17)(removed in C++20), Defines one compatibility macro constant       |
+|                            | `<cstdbool>`    | C++11 (deprecated in C++17)(removed in C++20), Defines one compatibility macro constant       |
+| C Compatibility Headers    | `<iso646.h>`    | Has no effect                                                                                  |
+|                            | `<stdalign.h>`  | C++11, Defines one compatibility macro constant                                                |
+|                            | `<stdbool.h>`   | C++11, Defines one compatibility macro constant                                                |
+
+
+## Unsupported C headers
+The C headers <stdatomic.h>,(until C++23) <stdnoreturn.h>, and <threads.h> are not included in C++ and have no cxxx equivalents.
