@@ -28,10 +28,8 @@
 
 | Concept                   | Description                                                    |
 |---------------------------|----------------------------------------------------------------|
-| equality_comparable _(C++20)_       | Specifies that the operator == is an equivalence relation   |
-| equality_comparable_with _(C++20)_  | Specifies that the operator == is an equivalence relation for a specific type  |
-| totally_ordered _(C++20)_  | Specifies that the comparison operators on the type yield a total order |
-| totally_ordered_with _(C++20)_ | Specifies that the comparison operators on the type yield a total order for a specific type |
+| equality_comparable, equality_comparable_wit _(C++20)_       | Specifies that the operator == is an equivalence relation   |
+| totally_ordered, totally_ordered_with _(C++20)_  | Specifies that the comparison operators on the type yield a total order |
 
 ### Object concepts
 
@@ -46,8 +44,7 @@
 
 | Concept              | Description                                                |
 |----------------------|------------------------------------------------------------|
-| invocable _(C++20)_    | Specifies that a callable type can be invoked with a given set of argument types |
-| regular_invocable _(C++20)_ | Specifies that a callable type can be invoked with a given set of argument types and yields a regular type |
+| invocable, regular_invocable _(C++20)_    | Specifies that a callable type can be invoked with a given set of argument types |
 | predicate _(C++20)_    | Specifies that a callable type is a Boolean predicate       |
 | relation _(C++20)_     | Specifies that a callable type is a binary relation         |
 | equivalence_relation _(C++20)_ | Specifies that a relation imposes an equivalence relation |
@@ -323,6 +320,7 @@ template<class T>
     constructible_from<T, const T&> && convertible_to<const T&, T> &&
     constructible_from<T, const T> && convertible_to<const T, T>;
 ```
+
 ### Concept equality_comparable
 ```cpp
 template<class T, class U>
