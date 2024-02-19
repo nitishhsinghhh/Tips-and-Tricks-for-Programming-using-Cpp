@@ -1,11 +1,16 @@
 # C++ Standard Library headers
+The C++ standard library encompasses a comprehensive set of components and functionalities, including support for language features, concepts, memory management, metaprogramming, utilities, strings, containers, algorithms, numerics, time, localization, input/output, regular expressions, and thread management. Each category offers specific tools and resources for various aspects of C++ programming.
+
+
+
+
 The interface of C++ standard library is defined by the following collection of headers.
 
 | Category                | Header(s)                                                                                   | Description                                           |
 |-------------------------|---------------------------------------------------------------------------------------------|-------------------------------------------------------|
 | Concepts library        | `<concepts>` _(C++20)_                                                                       |  Fundamental library concepts                         |
 | Coroutines library      | `<coroutine>` _(C++20)_                                                                       |   Coroutine support library                           |
-|   Utilities library     | `<any>` _(C++17)_                                                                           |      std::any class                                   |
+| Utilities library       | `<any>` _(C++17)_                                                                           |      std::any class                                   |
 |                         | `<bitset>`                                                                                 | std::bitset class template                             |
 |                          | `<chrono>`  _(C++11)_                                                                               |  C++ time utilities                              |
 |                          | `<compare>` _(C++20)_                                                                              | Three-way comparison operator support           |
