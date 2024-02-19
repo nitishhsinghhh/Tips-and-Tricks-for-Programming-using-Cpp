@@ -312,7 +312,10 @@ template<class T>
 ```cpp
 template<class T>
   concept move_constructible = constructible_from<T, T> && convertible_to<T, T>;
-Concept copy_constructible
+```
+
+### Concept copy_constructible
+```cpp
 template<class T>
   concept copy_constructible =
     move_constructible<T> &&
