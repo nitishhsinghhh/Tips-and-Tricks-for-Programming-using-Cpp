@@ -1,8 +1,19 @@
 # C++ Standard Library headers
 The C++ standard library encompasses a comprehensive set of components and functionalities, including support for language features, concepts, memory management, metaprogramming, utilities, strings, containers, algorithms, numerics, time, localization, input/output, regular expressions, and thread management. Each category offers specific tools and resources for various aspects of C++ programming.
 
-
-
+- The concepts library in C++ provides components that allow programs to validate template arguments at compile time and perform function dispatch based on the properties of types.
+- The diagnostics library in C++ offers a consistent framework for reporting errors within a program, including predefined exception classes.
+- The memory management library in C++ offers components for managing memory, including smart pointers and scoped allocators (introduced in C++11).
+- The metaprogramming library includes features for use in templates and during constant evaluation, such as type traits, integer sequence (introduced in C++14), and rational arithmetic.
+- The general utilities library encompasses components utilized by other library elements, including a predefined storage allocator for dynamic storage management, as well as infrastructure components in C++ programs, such as tuples and function wrappers (introduced in C++11).
+- The strings library offers support for manipulating text represented as homogeneous sequences of characters, including char, char8_t (introduced in C++20), char16_t, char32_t (introduced in C++11), wchar_t, and other character-like types.
+- The containers, iterators, ranges (introduced in C++20), and algorithms libraries grant a C++ program access to a subset of the most commonly used algorithms and data structures.
+- The numerics library offers numeric algorithms and complex number components that enhance support for numeric processing. The valarray component provides support for n-at-a-time processing, potentially implemented as parallel operations on platforms that support such processing. Additionally, the random number component offers facilities for generating pseudo-random numbers (introduced in C++11).
+- The time library provides generally useful time utilities.
+- The localization library offers extended internationalization support for text processing.
+- The input/output library provides the iostream components, which serve as the primary mechanism for input and output in C++ programs. These components can be used with other elements of the library, particularly strings, locales, and iterators.
+- The regular expressions library offers functionality for regular expression matching and searching.
+- The thread support library provides components for creating and managing threads, including atomic operations, mutual exclusion, and inter-thread communication.
 
 The interface of C++ standard library is defined by the following collection of headers.
 
