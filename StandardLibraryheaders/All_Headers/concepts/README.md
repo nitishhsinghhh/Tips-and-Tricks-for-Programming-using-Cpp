@@ -28,35 +28,35 @@
 
 | Concept                   | Description                                                    |
 |---------------------------|----------------------------------------------------------------|
-| equality_comparable (C++20)       | Specifies that the operator == is an equivalence relation   |
-| equality_comparable_with (C++20)  | Specifies that the operator == is an equivalence relation for a specific type  |
-| totally_ordered (C++20)  | Specifies that the comparison operators on the type yield a total order |
-| totally_ordered_with (C++20) | Specifies that the comparison operators on the type yield a total order for a specific type |
+| equality_comparable _(C++20)_       | Specifies that the operator == is an equivalence relation   |
+| equality_comparable_with _(C++20)_  | Specifies that the operator == is an equivalence relation for a specific type  |
+| totally_ordered _(C++20)_  | Specifies that the comparison operators on the type yield a total order |
+| totally_ordered_with _(C++20)_ | Specifies that the comparison operators on the type yield a total order for a specific type |
 
 ### Object concepts
 
 | Concept          | Description                                          |
 |------------------|------------------------------------------------------|
-| movable (C++20)  | Specifies that an object of a type can be moved and swapped  |
-| copyable (C++20) | Specifies that an object of a type can be copied, moved, and swapped  |
-| semiregular (C++20) | Specifies that an object of a type can be copied, moved, swapped, and default constructed  |
-| regular (C++20) | Specifies that a type is regular, that is, it is both semiregular and equality_comparable  |
+| movable _(C++20)_  | Specifies that an object of a type can be moved and swapped  |
+| copyable _(C++20)_ | Specifies that an object of a type can be copied, moved, and swapped  |
+| semiregular _(C++20)_ | Specifies that an object of a type can be copied, moved, swapped, and default constructed  |
+| regular _(C++20)_ | Specifies that a type is regular, that is, it is both semiregular and equality_comparable  |
 
 ### Callable concepts
 
 | Concept              | Description                                                |
 |----------------------|------------------------------------------------------------|
-| invocable (C++20)    | Specifies that a callable type can be invoked with a given set of argument types |
-| regular_invocable (C++20) | Specifies that a callable type can be invoked with a given set of argument types and yields a regular type |
-| predicate (C++20)    | Specifies that a callable type is a Boolean predicate       |
-| relation (C++20)     | Specifies that a callable type is a binary relation         |
-| equivalence_relation (C++20) | Specifies that a relation imposes an equivalence relation |
-| strict_weak_order (C++20) | Specifies that a relation imposes a strict weak ordering   |
+| invocable _(C++20)_    | Specifies that a callable type can be invoked with a given set of argument types |
+| regular_invocable _(C++20)_ | Specifies that a callable type can be invoked with a given set of argument types and yields a regular type |
+| predicate _(C++20)_    | Specifies that a callable type is a Boolean predicate       |
+| relation _(C++20)_     | Specifies that a callable type is a binary relation         |
+| equivalence_relation _(C++20)_ | Specifies that a relation imposes an equivalence relation |
+| strict_weak_order _(C++20)_ | Specifies that a relation imposes a strict weak ordering   |
 
 ### Customization point objects
 | Concept          | Description                                          |
 |------------------|------------------------------------------------------|
-| ranges::swap (C++20) | Swaps the values of two objects (customization point object)  |
+| ranges::swap _(C++20)_ | Swaps the values of two objects (customization point object)  |
 
 ## Synopsis
 ```cpp
