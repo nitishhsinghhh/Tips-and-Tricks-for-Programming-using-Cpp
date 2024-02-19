@@ -161,8 +161,6 @@ The headers <complex.h>, <ccomplex>, <tgmath.h>, and <ctgmath> do not contain an
 |                 | `<ctgmath>`    | C++11 (deprecated in C++17)(removed in C++20), Simply includes the headers `<complex>` and `<cmath>` |
 |                 | `<tgmath.h>`   | C++11, Simply includes the headers `<complex>` and `<cmath>`                                    |
 
-
-
 ## Meaningless C headers
 The headers <ciso646>, <cstdalign>, and <cstdbool> are meaningless in C++ because the macros they provide in C are language keywords in C++.
 | Category                   | Header(s)       | Description                                                                                   |
@@ -176,4 +174,4 @@ The headers <ciso646>, <cstdalign>, and <cstdbool> are meaningless in C++ becaus
 
 
 ## Unsupported C headers
-The C headers <stdatomic.h>,(until C++23) <stdnoreturn.h>, and <threads.h> are not included in C++ and have no cxxx equivalents.
+The C headers <stdatomic.h>, (until C++23) <stdnoreturn.h>, and <threads.h> are not included in C++ and have no cxxx equivalents.
