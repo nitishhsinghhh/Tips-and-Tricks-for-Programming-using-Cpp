@@ -6,6 +6,15 @@ The `std::stack` class is a container adaptor that provides the functionality of
 
 This class template acts as a wrapper to the underlying container, offering a specific set of functions. The stack pushes and pops elements from the back of the underlying container, referred to as the top of the stack.
 
+```cpp
+std::stack
+// Defined in header <stack>
+template<
+    class T,
+    class Container = std::deque<T>
+> class stack;
+```
+
 ## std::stack Class
 
 ### Template Parameters
