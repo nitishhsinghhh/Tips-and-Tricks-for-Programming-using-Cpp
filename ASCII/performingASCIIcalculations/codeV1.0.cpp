@@ -34,20 +34,22 @@ the values of the parameters passed to the constructor. This allows the CharAdde
 // This class is responsible for adding two characters together
 class CharAdder {
 public:
-    char char1, char2;
-    CharAdder(char c1, char c2) : char1(c1), char2(c2) {}
-    int add() {
-        int num1 = char1 - '0';
-        int num2 = char2 - '0';
-        return num1 + num2;
-    }
+	CharAdder(char c1, char c2) : char1(c1), char2(c2) {}		// parameterized constructor
+	int add() {
+		int num1 = char1 - '0';
+		int num2 = char2 - '0';
+		return num1 + num2;
+	}
+private:
+	char char1, char2;
 };
 
 void main() {
-    CharAdder adder('3', '7');
-    int sum = adder.add();
-    std::cout << "The sum of " << adder.char1 << " and " << adder.char2 << " is " << sum << std::endl;
-    system("pause");
+	char c1 = '3', c2 = '7';
+	CharAdder adder(c1, c2);
+	int sum = adder.add();
+	std::cout << "The sum of " << c1 << " and " << c2 << " is " << sum << std::endl;
+	system("pause");
 }
 
 /*
