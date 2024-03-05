@@ -20,79 +20,91 @@ Additional Information:
 - Error messages are displayed for invalid input size and characters falling outside the specified range.
 **/
 
-#include <iostream>
+#include<iostream>
 #include <string>
 
-// This class is responsible for validating user input
 class InputValidator {
 public:
-    InputValidator(int num) : input_num(num) {}
-    bool validate() {
-        return input_num >= 1 && input_num <= 9;
-    }
-    int getNum() {
-        return input_num;
-    }
+	InputValidator(int num) : input_num(num) {}		// parameterized constructor
+	/**
+	The parameterized constructor is used in this case to initialize the private 
+	member variable input_num with the value passed as a parameter when an InputValidator 
+	object is created. This allows the user to specify the initial value for input_num 
+	when creating an object of the InputValidator class. In this specific scenario, the 
+	parameterized constructor is used to set the value that will be validated by the validate() method.
+	**/
+	bool validate() {
+		return input_num >= 1 && input_num <= 9;
+	}
+	int getNum() {
+		return input_num;
+	}
 private:
-    int input_num;
+	int input_num;
+	/**
+	In the InputValidator input_num is a private member variable. This means that
+	input_num can only be accessed and modified within the class itself and is not accessible
+	from outside the class. This encapsulation helps in maintaining the integrity of the 
+	class by preventing direct external access to the member variable.
+	**/
 };
 
 // This class is responsible for handling user input and output
 class InputHandler {
 public:
-    InputHandler() {}
-    void handle() {
-        std::string input_str;
-        std::cout << "Enter a number between 1 and 9, both included: ";
-        std::cin >> input_str;
+	InputHandler() {}
+	void handle() {
+		std::string input_str;
+		std::cout << "Enter a number between 1 and 9, both included: ";
+		std::cin >> input_str;
 
-        // If the input string size is 1, create an instance of InputValidator to validate the input
-        // Else the input string size is greater than 1, output an error message
-        if (input_str.length() == 1) {
-            char input_char = input_str[0];
-            InputValidator validator(input_char - '0');
-            if (validator.validate())
-                std::cout << "Valid input: " << validator.getNum() << std::endl;
-            else
-                std::cout << "Invalid input: " << input_char << std::endl;
-        }
-        else
-            std::cout << "Invalid input size: " << input_str.length() << std::endl;
-    }
+		// If the input string size is 1, create an instance of InputValidator to validate the input
+		// Else the input string size is greater than 1, output an error message
+		if (input_str.length() == 1) {
+			char input_char = input_str[0];
+			InputValidator validator(input_char - '0');
+			if (validator.validate())
+				std::cout << "Valid input: " << validator.getNum() << std::endl;
+			else
+				std::cout << "Invalid input: " << input_char << std::endl;
+		}
+		else
+			std::cout << "Invalid input size: " << input_str.length() << std::endl;
+	}
 };
 
 int main() {
-    std::cout << "Enter test case 1: input is '10'" << std::endl;
-    std::cout << "Expected output: Invalid input size: 2" << std::endl;
-    InputHandler handler1;
-    handler1.handle();
-    std::cout << std::endl;
+	std::cout << "Enter test case 1: input is '10'" << std::endl;
+	std::cout << "Expected output: Invalid input size: 2" << std::endl;
+	InputHandler handler1;
+	handler1.handle();
+	std::cout << std::endl;
 
-    std::cout << "Enter test case 2: input is '9'" << std::endl;
-    std::cout << "Expected output: Valid input: 9" << std::endl;
-    InputHandler handler2;
-    handler2.handle();
-    std::cout << std::endl;
+	std::cout << "Enter test case 2: input is '9'" << std::endl;
+	std::cout << "Expected output: Valid input: 9" << std::endl;
+	InputHandler handler2;
+	handler2.handle();
+	std::cout << std::endl;
 
-    std::cout << "Enter test case 3: input is '1'" << std::endl;
-    std::cout << "Expected output: Valid input: 1" << std::endl;
-    InputHandler handler3;
-    handler3.handle();
-    std::cout << std::endl;
+	std::cout << "Enter test case 3: input is '1'" << std::endl;
+	std::cout << "Expected output: Valid input: 1" << std::endl;
+	InputHandler handler3;
+	handler3.handle();
+	std::cout << std::endl;
 
-    std::cout << "Enter test case 4: input is '0'" << std::endl;
-    std::cout << "Expected output: Invalid input: 0" << std::endl;
-    InputHandler handler4;
-    handler4.handle();
-    std::cout << std::endl;
+	std::cout << "Enter test case 4: input is '0'" << std::endl;
+	std::cout << "Expected output: Invalid input: 0" << std::endl;
+	InputHandler handler4;
+	handler4.handle();
+	std::cout << std::endl;
 
-    std::cout << "Enter test case 5: input is 'J'" << std::endl;
-    std::cout << "Expected output: Invalid input: J" << std::endl;
-    InputHandler handler5;
-    handler5.handle();
-    std::cout << std::endl;
+	std::cout << "Enter test case 5: input is 'J'" << std::endl;
+	std::cout << "Expected output: Invalid input: J" << std::endl;
+	InputHandler handler5;
+	handler5.handle();
+	std::cout << std::endl;
 
-    system("pause");
+	system("pause");
 }
 
 /*
