@@ -34,8 +34,7 @@ with the value of the parameter s passed to the constructor. This allows the mem
 // Class to validate user input
 class InputValidator {
 public:
-	std::string input_str; // Store the input string for debugging
-	InputValidator(std::string s) : input_str(s) {} // Constructor to initialize input string
+	InputValidator(std::string s) : input_str(s) {} // parameterized Constructor to initialize input string
 	bool validate() {
 		if (input_str.empty())
 			return false;
@@ -47,12 +46,14 @@ public:
 		}
 		return input_num >= 1 && input_num < 3999; // Validate that input is between 1 and 3998
 	}
+private: 
+	std::string input_str; // Store the input string for debugging
 };
 
 // Class to add two character strings
 class CharAdder {
 public:
-	CharAdder(const std::string& c1, const std::string&c2) : char1(c1), char2(c2) {}
+	CharAdder(const std::string& c1, const std::string&c2) : char1(c1), char2(c2) {}	// parameterized Constructor
 	int add() {
 		int num1 = 0, num2 = 0;
 		for (char c : char1)
@@ -79,23 +80,25 @@ public:
 // Main function to run the program
 int main() {
 	UserInput userInput;
-	InputValidator inputValidator1(userInput.getInput("Enter first input between 0 to 3999, both excluded: "));
+	std::string input_str1 = userInput.getInput("Enter first input between 0 to 3999, both excluded: ");
+	InputValidator inputValidator1(input_str1);
 	if (inputValidator1.validate() != true) {
-		std::cout << "Invalid input: " << inputValidator1.input_str << std::endl;
+		std::cout << "Invalid input: " << input_str1 << std::endl;
 		system("pause");
 		return -1;
 	}
 
-	InputValidator inputValidator2(userInput.getInput("Enter second input between 0 to 3999, both excluded: "));
+	std::string input_str2 = userInput.getInput("Enter second input between 0 to 3999, both excluded: ");
+	InputValidator inputValidator2(input_str2);
 	if (inputValidator2.validate() != true) {
-		std::cout << "Invalid input: " << inputValidator2.input_str << std::endl;
+		std::cout << "Invalid input: " << input_str2 << std::endl;
 		system("pause");
 		return -1;
 	}
 
-	CharAdder adder(inputValidator1.input_str, inputValidator2.input_str);
+	CharAdder adder(input_str1, input_str2);
 	int sum = adder.add();
-	std::cout << "The sum of " << inputValidator1.input_str << " and " << inputValidator2.input_str << " is " << sum << std::endl;
+	std::cout << "The sum of " << input_str1 << " and " << input_str2 << " is " << sum << std::endl;
 	system("pause");
 	return 0;
 }
