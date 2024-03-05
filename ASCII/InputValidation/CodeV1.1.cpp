@@ -23,12 +23,13 @@ If the input is valid, it outputs the integer value of the input. If the input i
 // This class is responsible for validating user input
 class InputValidator {
 public:
-	InputValidator(std::string s) : input_str(s) {}
+	InputValidator(std::string s) : input_str(s) {}		// parameterized constructor
 	bool validate() {
 		if (input_str.empty())
 			return false;
 		for (char c : input_str)
-			if (c < '0' || c > '9') return false;
+			if (c < '0' || c > '9') 
+				return false;
 		int input_num = 0;
 		for (char c : input_str)
 			input_num = input_num * 10 + (c - '0');
@@ -41,13 +42,13 @@ public:
 		return input_num;
 	}
 private:
-	std::string input_str;
+	std::string input_str;		// private member variable
 };
 
 // This class is responsible for handling user input and output
 class InputHandler {
 public:
-	InputHandler() {}
+	InputHandler() {}		// Default Constructor
 	void handle() {
 		std::string input_str;
 		std::cout << "Enter a number between 1 and 3999: ";
