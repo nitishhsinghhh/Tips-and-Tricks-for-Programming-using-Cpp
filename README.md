@@ -19,7 +19,7 @@ Typically C++ source code files are given the suffix:
 
 - Compile:
 g++ firstCode.cpp -o firstCode <br>
-A compiler translates the C++ program into machine language code which it stores on the disk as a file with the extension .o (e.g. hello.o). A linker then links the object code with standard library routines that the program may use and creates an executable image which is also saved on disk, usually as a file with the file name without any extension (e.g. hello).
+A compiler translates the C++ program into machine language code which it stores on the disk as a file with the extension .o (e.g. firstCode.o). A linker then links the object code with standard library routines that the program may use and creates an executable image which is also saved on disk, usually as a file with the file name without any extension (e.g. firstCode).
 
 - Execute:
 ./firstCode <br>
