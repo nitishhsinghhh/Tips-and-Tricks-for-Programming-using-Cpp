@@ -3,7 +3,7 @@ Welcome to the GitHub repository! Here, you will find all the code and resources
 
 With a focus on practical solutions and real-world examples, my articles cover a wide range of topics related to **C++ programming**. From mastering the basics to tackling more advanced concepts, I provide tips and guidance to help developers of all skill levels achieve their goals.
 
-So, whether you're a seasoned developer or just starting out, this repository is the perfect place to find valuable resources and insights. Be sure to check out my latest articles on Medium, and don't hesitate to reach out if you have any questions or feedback. Together, let's build a stronger, more empowered tech community!
+So, whether you're a seasoned developer or just starting out, this repository is the perfect place to find valuable resources and insights. Together, let's build a stronger, more empowered tech community!
 
 I recommend reading the **[C++ FAQ Lite](https://isocpp.org/wiki/faq/templates)**
 
