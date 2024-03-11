@@ -7,12 +7,11 @@ The following chart contains all 128 ASCII decimal (dec), octal (oct), hexadecim
 ```CPP
 #include <iostream>
 // GCC 13.1: C++ 23
-int main()
-{
-    std::cout << "Printable ASCII [32..126]:\n";
-    for (char c{' '}; c <= '~'; ++c)
-        std::cout << c << ((c + 1) % 32 ? ' ' : '\n');
-    std::cout << '\n';
+int main() {
+	std::cout << "Printable ASCII [32..126]:\n";
+	for (char c{ ' ' }; c <= '~'; ++c)
+		std::cout << c << ((c + 1) % 32 ? ' ' : '\n');
+	std::cout << '\n';
 }
 ```
 ```
