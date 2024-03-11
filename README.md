@@ -5,17 +5,6 @@ With a focus on practical solutions and real-world examples, my articles cover a
 
 So, whether you're a seasoned developer or just starting out, this repository is the perfect place to find valuable resources and insights. Be sure to check out my latest articles on Medium, and don't hesitate to reach out if you have any questions or feedback. Together, let's build a stronger, more empowered tech community!
 
-1. **Use Standard Library:** C++ provides a rich standard library that includes containers, algorithms, and utilities. Familiarize yourself with libraries like STL (Standard Template Library) to leverage pre-implemented data structures and algorithms.
-2. **Memory Management:** Be mindful of memory allocation and deallocation. Consider using smart pointers, such as std::unique_ptr and std::shared_ptr, to automate memory management and prevent memory leaks.
-3. **Modern C++ Features:** Explore and utilize modern C++ features, such as lambdas, range-based for loops, and auto keyword, to write concise and expressive code.
-4. **Error Handling:** Implement robust error handling mechanisms using exceptions and standard error codes to gracefully handle runtime errors and failures.
-5. **Understand Pointers**: Gain a strong understanding of pointers, references, and memory manipulation to effectively work with memory addresses and optimize performance-critical code.
-6. **Best Practices:** Adhere to best practices, such as writing modular, reusable, and maintainable code, following naming conventions, and documenting your code for clarity and maintainability.
-7. **Debugging Tools:** Familiarize yourself with debugging tools like GDB, Visual Studio Debugger, or Xcode Debugger to efficiently debug and analyze your C++ programs.
-8. **Compiler Flags:** Learn to use compiler flags to enable warnings, optimize code, and ensure code portability across different platforms and compilers.
-9. **Performance Optimization:** Understand performance optimization techniques, including profiling tools and techniques, to identify and address bottlenecks in your code.
-10. **Community Resources:** Engage with the C++ community, participate in forums, read C++ blogs, and explore open-source C++ projects to learn from experienced developers and stay updated on best practices and industry trends.
-
 I recommend reading the **[C++ FAQ Lite](https://isocpp.org/wiki/faq/templates)**
 
 ## Please help by giving a star
