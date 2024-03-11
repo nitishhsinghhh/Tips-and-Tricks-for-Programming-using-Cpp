@@ -1,4 +1,5 @@
-# Welcome!
+# Tips and Tricks for Programming using Cpp
+
 Welcome to the GitHub repository! Here, you will find all the code and resources related to my [**Medium**](https://nitishhsinghhh.medium.com/) articles on practical tips for developers using **C++**. As a passionate advocate for empowering developers with up-to-date knowledge, I have created this repository to share my insights and expertise with the tech community.
 
 With a focus on practical solutions and real-world examples, my articles cover a wide range of topics related to **C++ programming**. From mastering the basics to tackling more advanced concepts, I provide tips and guidance to help developers of all skill levels achieve their goals.
