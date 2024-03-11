@@ -29,14 +29,14 @@ To compile and run these programs on your local machine, you'll need to have the
 3. Select the account or organization where you want to fork the repository.
 4. Wait for the forking process to complete.
 
-## Contents
+## Contents:
 - Tips
 - Computer Science Basics
 - Learning Resources
 - Problem Solving
 - Projects Ideas
 
-## Table 
+## Table of Contents: 
 
 |#| Title with Medium Article Link   | Solution | Comment |
 |---| ------------------------------------------------------------ | -------- | ------------------------------------------------------ |
