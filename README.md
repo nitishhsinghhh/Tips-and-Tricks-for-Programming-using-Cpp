@@ -5,7 +5,6 @@ With a focus on practical solutions and real-world examples, my articles cover a
 
 So, whether you're a seasoned developer or just starting out, this repository is the perfect place to find valuable resources and insights. Together, let's build a stronger, more empowered tech community!
 
-I recommend reading the **[C++ FAQ Lite](https://isocpp.org/wiki/faq/templates)**
 
 ## Please help by giving a star
 
