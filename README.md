@@ -15,12 +15,29 @@ Once you have forked the repository, you will have your own copy of the code and
 
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/8ea8a38f-c347-4dcd-8d18-0246e4da2c31)
 
+## How to Use
+To use these programs, you will need to have a C++ compiler installed on your computer. You can then download the program files from this repository and compile them using the compiler.
+
+Alternatively, you can also use an online C++ compiler to run these programs without needing to install a compiler on your computer.
+
 ## Getting Started
 To compile and run these programs on your local machine, you'll need to have the appropriate programming language and compiler installed. Here are the steps to get started:
 
 1. Clone this repository to your local machine using git clone.
 2. Navigate to the folder containing the program you want to run.
 3. Follow the instructions in the program's README file to compile and run the program.
+
+## Contributions
+If you have any suggestions for improvements or would like to add additional C++ programs to this repository, please feel free to create a pull request. We welcome contributions from the community to make this repository more useful for everyone.
+
+Contributions to this repository are welcome! If you'd like to contribute, please follow these guidelines:
+
+1. Fork this repository to your own GitHub account.
+2. Create a new branch for your changes using git checkout -b my-feature-branch
+3. Make your changes and commit them with a descriptive commit message.
+4. Push your changes to your forked repository with git push origin my-feature-branch
+5. Submit a pull request to this repository with a detailed description of your changes.
+
 
 ## To fork this repository, follow these steps:
 
@@ -87,21 +104,6 @@ To compile and run these programs on your local machine, you'll need to have the
 |45| [**Parse a string in C++**](https://medium.com/p/179688b061f4) | [**C++**](./OOP/SOLID/SRP/stringParsing.cpp) | The ArrayListManager class splits a string into substrings using a delimiter and returns a vector of strings, or an empty vector if the input string is empty. |
 
 
-## How to Use
-To use these programs, you will need to have a C++ compiler installed on your computer. You can then download the program files from this repository and compile them using the compiler.
-
-Alternatively, you can also use an online C++ compiler to run these programs without needing to install a compiler on your computer.
-
-## Contributions
-If you have any suggestions for improvements or would like to add additional C++ programs to this repository, please feel free to create a pull request. We welcome contributions from the community to make this repository more useful for everyone.
-
-Contributions to this repository are welcome! If you'd like to contribute, please follow these guidelines:
-
-1. Fork this repository to your own GitHub account.
-2. Create a new branch for your changes using git checkout -b my-feature-branch
-3. Make your changes and commit them with a descriptive commit message.
-4. Push your changes to your forked repository with git push origin my-feature-branch
-5. Submit a pull request to this repository with a detailed description of your changes.
 
 ## Contact
 Thank you for your suggestions! If you think there is anything to improve, please contact me at **me.singhnitish@yandex.com.**
