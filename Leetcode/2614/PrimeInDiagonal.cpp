@@ -22,20 +22,27 @@ private:
 	}
 };
 
-using namespace std;
-
-// Paste the Solution class code here
-
 int main() {
 	Solution sol;
 
-	// Example 1
+	// Test Case 1
 	std::vector<std::vector<int>> nums1 = { {1, 2, 3}, {5, 6, 7}, {9, 10, 11} };
-	std::cout << "Example 1:\nInput: [[1, 2, 3], [5, 6, 7], [9, 10, 11]]\nOutput: " << sol.diagonalPrime(nums1) << std::endl;
+	std::cout << "Test Case 1:\nInput: [[1, 2, 3], [5, 6, 7], [9, 10, 11]]\nOutput: " << sol.diagonalPrime(nums1) << std::endl;
 
-	// Example 2
-	vector<vector<int>> nums2 = { {1, 2, 3}, {5, 17, 7}, {9, 11, 10} };
-	std::cout << "\nExample 2:\nInput: [[1, 2, 3], [5, 17, 7], [9, 11, 10]]\nOutput: " << sol.diagonalPrime(nums2) << std::endl;
+	// Test Case 2
+	std::vector<std::vector<int>> nums2 = { {1, 2, 3}, {5, 17, 7}, {9, 11, 10} };
+	std::cout << "\nTest Case 2:\nInput: [[1, 2, 3], [5, 17, 7], [9, 11, 10]]\nOutput: " << sol.diagonalPrime(nums2) << std::endl;
 
 	return 0;
 }
+
+/**
+Output:
+Test Case 1:
+Input: [[1, 2, 3], [5, 6, 7], [9, 10, 11]]
+Output: 11
+
+Test Case 2:
+Input: [[1, 2, 3], [5, 17, 7], [9, 11, 10]]
+Output: 17
+**/
