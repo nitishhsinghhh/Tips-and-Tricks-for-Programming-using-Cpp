@@ -9,6 +9,21 @@ So, whether you're a seasoned developer or just starting out, this repository is
 ## How to Use
 To use these programs, you will need to have a C++ compiler installed on your computer. You can then download the program files from this repository and compile them using the compiler.
 
+C++ is a compiled language. That means that to get a program to run, you must first translate it from the human-readable form to something a machine can “understand.” That translation is done by a program called a compiler.
+
+Typically C++ source code files are given the suffix:
+1. .cpp (ex: firstCode.cpp) or
+2. .h (ex: std_lib_facilities.h).
+
+![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/assets/93253740/900ac352-6779-48de-9644-a069b0f0fef9)
+
+- Compile:
+g++ firstCode.cpp -o firstCode <br>
+A compiler translates the C++ program into machine language code which it stores on the disk as a file with the extension .o (e.g. hello.o). A linker then links the object code with standard library routines that the program may use and creates an executable image which is also saved on disk, usually as a file with the file name without any extension (e.g. hello).
+
+- Execute:
+./firstCode <br>
+The executable is loaded from the disk to memory and the computer’s CPU (Central Processing Unit) executes the program one instruction at a time.
 Alternatively, you can also use an online C++ compiler to run these programs without needing to install a compiler on your computer.
 
 ## Getting Started
