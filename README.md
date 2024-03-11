@@ -6,15 +6,6 @@ With a focus on practical solutions and real-world examples, my articles cover a
 
 So, whether you're a seasoned developer or just starting out, this repository is the perfect place to find valuable resources and insights. Together, let's build a stronger, more empowered tech community!
 
-
-## Please help by giving a star
-
-⭐ Please give this repository a star. It takes seconds and help thousands of developers! ⭐
-
-Once you have forked the repository, you will have your own copy of the code and resources to work with. You can make changes to the code, add new resources, and submit pull requests to contribute your changes back to the original repository.
-
-![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/8ea8a38f-c347-4dcd-8d18-0246e4da2c31)
-
 ## How to Use
 To use these programs, you will need to have a C++ compiler installed on your computer. You can then download the program files from this repository and compile them using the compiler.
 
@@ -103,7 +94,13 @@ Contributions to this repository are welcome! If you'd like to contribute, pleas
 |44| [**Factory Design Pattern — String Conversion**](https://nitishhsinghhh.medium.com/factory-design-pattern-a-flexible-approach-to-object-creation-757f89da6def) | [**C++**](./DesignPattern/CreationalDesignPattern/FactoryMethod/StringConversion.cpp) | This code implements a factory design pattern for string conversions. It includes five derived classes for converting strings to lowercase, uppercase, sentence case, capitalized case, and toggle case. |
 |45| [**Parse a string in C++**](https://medium.com/p/179688b061f4) | [**C++**](./OOP/SOLID/SRP/stringParsing.cpp) | The ArrayListManager class splits a string into substrings using a delimiter and returns a vector of strings, or an empty vector if the input string is empty. |
 
+## Please help by giving a star
 
+⭐ Please give this repository a star. It takes seconds and help thousands of developers! ⭐
+
+Once you have forked the repository, you will have your own copy of the code and resources to work with. You can make changes to the code, add new resources, and submit pull requests to contribute your changes back to the original repository.
+
+![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/8ea8a38f-c347-4dcd-8d18-0246e4da2c31)
 
 ## Contact
 Thank you for your suggestions! If you think there is anything to improve, please contact me at **me.singhnitish@yandex.com.**
