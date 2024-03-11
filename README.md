@@ -115,5 +115,5 @@ Contributions to this repository are welcome! If you'd like to contribute, pleas
 5. Submit a pull request to this repository with a detailed description of your changes.
 
 ## Contact
-If you have any questions or need help with this repository, please contact me at **me.singhnitish@yandex.com.**
+Thank you for your suggestions! If you think there is anything to improve, please contact me at **me.singhnitish@yandex.com.**
 
