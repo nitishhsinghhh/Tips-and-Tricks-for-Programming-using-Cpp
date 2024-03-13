@@ -4,8 +4,7 @@ algorithms that allow programmers to easily implement standard data structures l
 queues, lists, and stacks.
 
 ## Containers library
-The Containers library is a generic collection of class templates and algorithms that allow programmers to easily implement common data structures like queues, lists and stacks. There are two(until C++11)three(since C++11) classes of containers:
-
+The Containers library is a generic collection of class templates and algorithms that allow programmers to easily implement common data structures like queues, lists and stacks. There are two(until C++11) three (since C++11) classes of containers:
 - sequence containers,
 - associative containers, and
 - unordered associative containers, (since C++11)
