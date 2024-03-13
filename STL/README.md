@@ -99,16 +99,16 @@ access. Since random-access iterators encompass all of the characteristics of th
 iterators, vectors can use algorithms designed for other iterators as well.<br>
 The following code creates and uses an iterator with a vector:
 ```cpp
- vector<int> the_vector;
- vector<int>::iterator the_iterator;
- for( int i=0; i < 10; i++ )
- the_vector.push_back(i);
- int total = 0;
- the_iterator = the_vector.begin();
- while( the_iterator != the_vector.end() ) {
- total += *the_iterator;
- the_iterator++;
- }
- cout << "Total=" << total << endl;
+	vector<int> the_vector;
+	vector<int>::iterator the_iterator;
+	for (int i = 0; i < 10; i++)
+		the_vector.push_back(i);
+	int total = 0;
+	the_iterator = the_vector.begin();
+	while (the_iterator != the_vector.end()) {
+		total += *the_iterator;
+		the_iterator++;
+	}
+	cout << "Total=" << total << endl;
 ```
 Notice that you can access the elements of the container by dereferencing the iterator. 
