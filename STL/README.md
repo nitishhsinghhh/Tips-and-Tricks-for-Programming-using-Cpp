@@ -64,4 +64,16 @@ Views provide flexible facilities for interacting with one- or multi-dimensional
 | mdspan  | A multi-dimensional non-owning array view (C++23)                   |  
 
 
-
+The idea behind the C++ STL is that the hard part of using complex data structures has
+already been completed. If a programmer would like to use a stack of integers, all that she
+has to do is use this code:<br>
+```cpp
+stack<int> myStack;
+```
+With minimal effort, she can now push() and pop() integers onto this stack. Through the
+magic of C++ Templates, she could specify any data type, not just integers. The STL
+Stack class will provide generic functionality of a stack, regardless of the data in the
+stack.<br>
+In addition, the STL also provides a bunch of useful algorithms -- like searching, sorting,
+and general-purpose iterating algorithms -- that can be used on a variety of data
+structures. <br>
