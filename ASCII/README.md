@@ -11,6 +11,6 @@ However, even extended ASCII does not include enough code combinations to suppor
 
 ## Table of Contents:
 - [ASCII Chart](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/ASCIIChart)
-- [Input Validation using ASCII)(https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/InputValidation)
+- [Input Validation using ASCII](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/InputValidation)
 - [Add two characters](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/performingASCIIcalculations)
 - [Sorting and Comparison Operations](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/sortingComparisonOperations)
