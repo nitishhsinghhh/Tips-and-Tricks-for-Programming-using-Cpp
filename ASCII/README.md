@@ -10,7 +10,7 @@ Digital computers use a binary code that is arranged in groups of eight, rather 
 However, even extended ASCII does not include enough code combinations to support all written languages. Asian languages, for instance, require thousands of characters. This limitation gave rise to new encoding standards—Unicode and UCS (Universal Coded Character Set)—that can support all the principal written languages. Because it incorporates ASCII as its first 128 code combinations, Unicode (specifically UTF-8) is backward-compatible with ASCII while also representing many characters that ASCII cannot. Unicode, which was introduced in 1991, saw its usage jump sharply in the first decade of the 21st century, and it became the most common character-encoding system on the World Wide Web.
 
 ## Table of Contents:
-- (ASCII Chart)[https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/ASCIIChart]
-- (Input Validation using ASCII)[https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/InputValidation]
-- (Add two characters)[https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/performingASCIIcalculations]
-- (Sorting and Comparison Operations)[https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/sortingComparisonOperations]
+- [ASCII Chart](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/ASCIIChart)
+- [Input Validation using ASCII)(https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/InputValidation)
+- [Add two characters](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/performingASCIIcalculations)
+- [Sorting and Comparison Operations](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/ASCII/sortingComparisonOperations)
