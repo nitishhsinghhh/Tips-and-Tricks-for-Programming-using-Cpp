@@ -36,13 +36,13 @@ Associative containers implement sorted data structures that can be quickly sear
 | multimap                | Collection of key-value pairs, sorted by keys       |  
 
 ### Unordered associative containers (since C++11)
-Unordered associative containers implement unsorted (hashed) data structures that can be quickly searched (O(1) average, O(n) worst-case complexity).
+Unordered associative containers implement unsorted (hahe/shed) data structures that can be quickly searched (O(1) average, O(n) worst-case complexity).
 | Unordered Associative Container | Description                                       |  
 |---------------------------------|---------------------------------------------------|  
-| unordered_set (C++11)           | Collection of unique keys, hashed by keys         |  
-| unordered_map (C++11)           | Collection of key-value pairs, hashed by keys     |  
-| unordered_multiset (C++11)      | Collection of keys, hashed by keys                |  
-| unordered_multimap (C++11)      | Collection of key-value pairs, hashed by keys     |  
+| unordered_set (C++11)           | Collection of unique keys, hahe/shed by keys         |  
+| unordered_map (C++11)           | Collection of key-value pairs, hahe/shed by keys     |  
+| unordered_multiset (C++11)      | Collection of keys, hahe/shed by keys                |  
+| unordered_multimap (C++11)      | Collection of key-value pairs, hahe/shed by keys     |  
 
 ### Container adaptors
 Container adaptors provide a different interface for sequential containers.
@@ -65,15 +65,50 @@ Views provide flexible facilities for interacting with one- or multi-dimensional
 
 
 The idea behind the C++ STL is that the hard part of using complex data structures has
-already been completed. If a programmer would like to use a stack of integers, all that she
+already been completed. If a programmer would like to use a stack of integers, all that he/she
 has to do is use this code:<br>
 ```cpp
 stack<int> myStack;
 ```
-With minimal effort, she can now push() and pop() integers onto this stack. Through the
-magic of C++ Templates, she could specify any data type, not just integers. The STL
+With minimal effort, he/she can now push() and pop() integers onto this stack. Through the
+magic of C++ Templates, he/she could specify any data type, not just integers. The STL
 Stack class will provide generic functionality of a stack, regardless of the data in the
 stack.<br>
 In addition, the STL also provides a bunch of useful algorithms -- like searching, sorting,
 and general-purpose iterating algorithms -- that can be used on a variety of data
 structures. <br>
+
+## C++ Iterators
+Iterators are used to access members of the container classes, and can be used in a similar
+manner to pointers. For example, one might use an iterator to step through the elements
+of a vector. There are several different types of iterators:
+
+| Iterator Type          | Description                                                                                                      |  
+|------------------------|------------------------------------------------------------------------------------------------------------------|  
+| input_iterator         | Reads values with forward movement. These can be incremented, compared, and dereferenced.                        |  
+| output_iterator        | Writes values with forward movement. These can be incremented and dereferenced.                                 |  
+| forward_iterator       | Reads or writes values with forward movement. These combine the functionality of input and output iterators with the ability to store the iterator's value. |  
+| bidirectional_iterator | Reads and writes values with forward and backward movement. Similar to forward iterators, but can be incremented and decremented.              |  
+| random_iterator        | Reads and writes values with random access. These are powerful iterators, combining the functionality of bidirectional iterators with the ability to perform pointer arithmetic and comparisons. |  
+| reverse_iterator       | Either a random iterator or a bidirectional iterator that moves in reverse direction.                               |  
+
+Each of the container classes is associated with a type of iterator, and each of the STL
+algorithms uses a certain type of iterator. For example, vectors are associated with
+random-access iterators, which means that they can use algorithms that require random
+access. Since random-access iterators encompass all of the characteristics of the other
+iterators, vectors can use algorithms designed for other iterators as well.<br>
+The following code creates and uses an iterator with a vector:
+```cpp
+ vector<int> the_vector;
+ vector<int>::iterator the_iterator;
+ for( int i=0; i < 10; i++ )
+ the_vector.push_back(i);
+ int total = 0;
+ the_iterator = the_vector.begin();
+ while( the_iterator != the_vector.end() ) {
+ total += *the_iterator;
+ the_iterator++;
+ }
+ cout << "Total=" << total << endl;
+```
+Notice that you can access the elements of the container by dereferencing the iterator. 
