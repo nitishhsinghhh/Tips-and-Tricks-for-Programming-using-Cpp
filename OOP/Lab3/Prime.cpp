@@ -1,7 +1,6 @@
 // Program to find whether the given number is a prime or not.
 
 #include <iostream>
-using namespace std;
 
 class Solution {
 public:
@@ -18,13 +17,13 @@ public:
 int main() {
 	Solution oSolution;
 	int num = 0;
-	cout << "Enter the number: ";
-	cin >> num;
+	std::cout << "Enter the number: ";
+	std::cin >> num;
 	bool prime = oSolution.isPrime(num);
 	if (prime)
-		cout << num << " is a prime number." << endl;
+		std::cout << num << " is a prime number." << std::endl;
 	else
-		cout << num << " is not a prime number." << endl;
+		std::cout << num << " is not a prime number." << std::endl;
 	system("pause");
 
 	return 0;
