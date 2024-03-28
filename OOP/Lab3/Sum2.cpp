@@ -1,7 +1,6 @@
 // Program to display sum of series 1 + 3 + 5 + 7 + ... .. .
 
 #include <iostream>
-using namespace std;
 
 class Solution {
 public:
@@ -17,10 +16,10 @@ int main() {
 	int num;
 	int sum = 0;
 	Solution oSolution;
-	cout << "Enter the value of n: ";
-	cin >> num;
+	std::cout << "Enter the value of n: ";
+	std::cin >> num;
 	int res = oSolution.SumofSeries(num);
-	cout << "Sum is : " << res << endl;
+	std::cout << "Sum is : " << res << std::endl;
 	system("pause");
 	return 0;
 }
