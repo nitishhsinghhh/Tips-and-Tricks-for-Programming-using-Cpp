@@ -1,6 +1,6 @@
 # std::list
 
-```Cpp[]
+```CPP[]
 Defined in header <list>
 template<
     class T,
