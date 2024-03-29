@@ -24,7 +24,7 @@ std::forward_list meets the requirements of Container (except for the size membe
 
 ## Template parameters
 
-T	-	The type of the elements.
+T	-	The type of the elements.<br>
 The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type is a complete type and meets the requirements of Erasable, but many member functions impose stricter requirements.	(until C++17)
 The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type meets the requirements of Erasable, but many member functions impose stricter requirements. This container (but not its members) can be instantiated with an incomplete element type if the allocator satisfies the allocator completeness requirements.
 
