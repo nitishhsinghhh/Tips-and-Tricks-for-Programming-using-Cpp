@@ -1,6 +1,6 @@
 # std::list
 
-```CPP[]
+```CPP
 Defined in header <list>
 template<
     class T,
@@ -120,7 +120,7 @@ std::list meets the requirements of Container, AllocatorAwareContainer, Sequence
 
 ### Example 
 
-```cpp[]
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <list>
