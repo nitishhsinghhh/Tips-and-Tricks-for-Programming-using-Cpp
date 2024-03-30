@@ -60,41 +60,68 @@ However, depending on how you want to use your queue, there are better ways to b
 | (constructor)   | constructs the queue (public member function) |
 | (destructor)    | destructs the queue (public member function)   |
 | operator=       | assigns values to the container adaptor (public member function) |
+
 | Element Access  |                                          |
+|-------------|--------------------------------|
 | front           | access the first element (public member function) |
 | back            | access the last element (public member function) |
+
 | Capacity        |                                          |
+|-------------|--------------------------------|
 | empty           | checks whether the container adaptor is empty (public member function) |
 | size            | returns the number of elements (public member function) |
+
 | Modifiers       |                                          |
+|-------------|--------------------------------|
 | push            | inserts element at the end (public member function) |
-| push_range      |                                           |
-|                 | (C++23)                                   |
-|                 | inserts a range of elements at the end (public member function) |
-| emplace         |                                           |
-|                 | (C++11)                                   |
-|                 | constructs element in-place at the end (public member function) |
+| push_range      | (C++23)inserts a range of elements at the end (public member function) |
+| emplace         | (C++11) constructs element in-place at the end (public member function) |
 | pop             | removes the first element (public member function) |
-| swap            |                                           |
-|                 | (C++11)                                   |
-|                 | swaps the contents (public member function) |
+| swap            | (C++11) swaps the contents (public member function) |
+
 | Non-member Functions |                                     |
+|-------------|--------------------------------|
 | operator==      |                                           |
 | operator!=      |                                           |
 | operator<       |                                           |
-| operator<=      |                                           |
+| operator<=      |  (C++20)lexicographically compares the values of two queues (function template) |
 | operator>       |                                           |
 | operator>=      |                                           |
-| operator<=>     |                                           |
-|                 | (C++20)                                   |
-|                 | lexicographically compares the values of two queues (function template) |
-| std::swap(std::queue) |                                       |
-|                 | (C++11)                                   |
-|                 | specializes the std::swap algorithm (function template) |
+| operator<=>     | 
+| std::swap(std::queue) | (C++11) specializes the std::swap algorithm (function template) |
+
 | Helper Classes  |                                          |
-| std::uses_allocator<std::queue> |                               |
-|                 | (C++11)                                   |
-|                 | specializes the std::uses_allocator type trait (class template specialization) |
-| std::formatter<std::queue> |                                  |
-|                 | (C++23)                                   |
-|                 | formatting support for queue (class template specialization) |
+|-------------|--------------------------------|
+| std::uses_allocator<std::queue> | (C++11) specializes the std::uses_allocator type trait (class template specialization) |
+| std::formatter<std::queue> |  (C++23) formatting support for queue (class template specialization) |
+
+```cpp
+#include <cassert>
+#include <iostream>
+#include <queue>
+ 
+int main() {
+    std::queue<int> q;
+ 
+    q.push(0); // back pushes 0
+    q.push(1); // q = 0 1
+    q.push(2); // q = 0 1 2
+    q.push(3); // q = 0 1 2 3
+ 
+    assert(q.front() == 0);
+    assert(q.back() == 3);
+    assert(q.size() == 4);
+ 
+    q.pop(); // removes the front element, 0
+    assert(q.size() == 3);
+ 
+    // Print and remove all elements. Note that std::queue does not
+    // support begin()/end(), so a range-for-loop cannot be used.
+    std::cout << "q: ";
+    for (; !q.empty(); q.pop())
+        std::cout << q.front() << ' ';
+    std::cout << '\n';
+    assert(q.size() == 0);
+}
+// Output: q: 1 2 3
+```
