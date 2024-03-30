@@ -71,7 +71,7 @@ However, depending on how you want to use your queue, there are better ways to b
 | empty           | checks whether the container adaptor is empty (public member function) |
 | size            | returns the number of elements (public member function) |
 
-| Modifiers       |                                          |
+| Modifiers       |          Description                                |
 |-------------|--------------------------------|
 | push            | inserts element at the end (public member function) |
 | push_range      | (C++23)inserts a range of elements at the end (public member function) |
