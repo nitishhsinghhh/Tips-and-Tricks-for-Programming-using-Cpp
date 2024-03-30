@@ -61,12 +61,12 @@ However, depending on how you want to use your queue, there are better ways to b
 | (destructor)    | destructs the queue (public member function)   |
 | operator=       | assigns values to the container adaptor (public member function) |
 
-| Element Access  |                                          |
+| Element Access  |      Description                                    |
 |-------------|--------------------------------|
 | front           | access the first element (public member function) |
 | back            | access the last element (public member function) |
 
-| Capacity        |                                          |
+| Capacity        |      Description                                    |
 |-------------|--------------------------------|
 | empty           | checks whether the container adaptor is empty (public member function) |
 | size            | returns the number of elements (public member function) |
@@ -79,7 +79,7 @@ However, depending on how you want to use your queue, there are better ways to b
 | pop             | removes the first element (public member function) |
 | swap            | (C++11) swaps the contents (public member function) |
 
-| Non-member Functions |                                     |
+| Non-member Functions |       Description                              |
 |-------------|--------------------------------|
 | operator==      |                                           |
 | operator!=      |                                           |
@@ -90,7 +90,7 @@ However, depending on how you want to use your queue, there are better ways to b
 | operator<=>     | 
 | std::swap(std::queue) | (C++11) specializes the std::swap algorithm (function template) |
 
-| Helper Classes  |                                          |
+| Helper Classes  |        Description                                  |
 |-------------|--------------------------------|
 | std::uses_allocator<std::queue> | (C++11) specializes the std::uses_allocator type trait (class template specialization) |
 | std::formatter<std::queue> |  (C++23) formatting support for queue (class template specialization) |
