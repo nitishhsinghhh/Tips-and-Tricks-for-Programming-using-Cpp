@@ -18,35 +18,32 @@ struct ListNode {
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        if(head == NULL || head->next == NULL) return head;
-          
-        // Initialize pointers
-        ListNode *newHead = head->next;
-        ListNode *tmp = head;
-        ListNode *prev = NULL;
+        if(!head || !head->next) return head;
       
-        while(tmp != NULL && tmp->next != NULL){
+        ListNode *newHead = head->next;
+        ListNode *current = head;
+        ListNode *previous = nullptr;
+      
+        while(current && current->next){
             // store next node 
-            ListNode *next_node = tmp->next;
+            ListNode *next_node = current->next;
 
             // store the next node of the next node 
-            ListNode *second_next_node = tmp->next->next;
+            ListNode *second_next_node = current->next->next;
 
-            // ------swap pointers--------
-            // tmp's next node will point to tmp
-            next_node->next = tmp;
-            // tmp's next node will be linked to its previous node
-            if(prev){
-                prev->next = next_node;
+            // swap pointers
+            next_node->next = current;
+            // link to prev node 
+            if(previous){
+                previous->next = next_node;
             }
-            // now tmp will point to next of next node of tmp
-            tmp->next = second_next_node;
+            current->next = second_next_node;
 
             // store tmp as previous node for next iteration
-            prev = tmp;
-            
+            previous = current;
+
             // move tmp for next pair
-            tmp = tmp->next;
+            current = current->next;
         }
         
         return newHead;
@@ -64,7 +61,7 @@ int main() {
     ListNode *newHead = solution.swapPairs(head);
 
     // Output the modified list
-    while(newHead != NULL) {
+    while(newHead) {
         std::cout << newHead->val << " ";
         newHead = newHead->next;
     }
