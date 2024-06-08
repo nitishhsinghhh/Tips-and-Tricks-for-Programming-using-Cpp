@@ -20,3 +20,6 @@ Here's a concise explanation of the approach:
    - Return `newHead` which points to the new head of the swapped list.
 
 This method efficiently swaps adjacent nodes while preserving the overall structure of the linked list.
+
+      Time Complexity: O(n) where n is the number of nodes in the linked list.
+      Space Complexity: O(1) as operations are done in place.
