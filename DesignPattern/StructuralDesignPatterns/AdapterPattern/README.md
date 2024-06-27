@@ -3,7 +3,9 @@ Adapter Pattern is a structural design pattern used to make two incompatible int
 
 ## Adapter Pattern example in C++ Design Patterns
 ### Problem Statement
+```
 Suppose you have a legacy printer class that only understands commands in uppercase, and a modern computer class that sends commands in lowercase. You need to make the modern computer work with the legacy printer without modifying the existing printer class.
+```
 
 ### Implementation of the Adapter Pattern in C++ Design Patterns:
 It defines three classes:
