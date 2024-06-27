@@ -6,7 +6,7 @@ The Gang of Four (GoF) book "Design Patterns: Elements of Reusable Object-Orient
 
 Here's a brief overview of the three main categories of design patterns:
 
-1. Creational Patterns: 
+# 1. Creational Patterns: 
 These patterns focus on object creation mechanisms, providing flexibility in creating objects while hiding the creation logic. Examples include Factory Method, Abstract Factory, Singleton, Builder, and Prototype patterns.
 2. Structural Patterns: 
 Structural patterns deal with the composition of classes and objects to form larger structures. They help in building relationships between objects and classes to form a cohesive system. Examples include Adapter, Bridge, Composite, Decorator, Facade, Flyweight, and Proxy patterns.
