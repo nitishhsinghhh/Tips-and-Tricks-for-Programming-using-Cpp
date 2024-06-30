@@ -23,6 +23,8 @@ public:
 	T top() {
 		if (!isEmpty())
 			return elements.back();
+		else
+			 throw std::out_of_range("Stack<>::top: empty stack");
 	}
 
 	int size() {
