@@ -34,7 +34,7 @@ int equalizeArray(std::vector<int> arr) {
 }
 ```
 
-Let's try to optmnise the solution approach 
+Let's explore ways to optimize the solution approach.
 ```cpp
 int equalizeArray(std::vector<int> arr) {
     std::unordered_map<int, int> frequencyMap;
