@@ -16,7 +16,7 @@ To solve this problem, we can follow these steps:
 
 ## Detailed Solution
 Let's implement the above approach in C++:
-```
+```cpp
 int equalizeArray(std::vector<int> arr) {
     std::unordered_map<int, int> mp;
     
