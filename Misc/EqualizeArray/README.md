@@ -66,7 +66,7 @@ int equalizeArray(std::vector<int> arr) {
   ```cpp
   arr.size() - most_frequent->second
   ```
-  where most_frequent->second gives the frequency of the most frequent element.
+  where ```most_frequent->second``` gives the frequency of the most frequent element.
 
 - Main Function:
   The main function handles input and output operations. It reads the array size and elements, calls the equalizeArray function to get the result, and writes the result to the output.
