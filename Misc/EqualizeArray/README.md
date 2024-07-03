@@ -18,19 +18,35 @@ To solve this problem, we can follow these steps:
 Let's implement the above approach in C++:
 ```cpp
 int equalizeArray(std::vector<int> arr) {
-    std::unordered_map<int, int> mp;
+    std::unordered_map<int, int> frequencyMap;
     
     // Count the frequency of each element
     for (auto a : arr) 
-        mp[a]++;
+        frequencyMap[a]++;
     
     // Find the most frequent element
-    auto most_frequent = std::max_element(mp.begin(), mp.end(), 
+    auto most_frequent = std::max_element(frequencyMap.begin(),frequencyMap.end(), 
     [] (const std::pair<int, int> & a, const std::pair<int, int> & b) {
         return a.second < b.second; });
     
     // Calculate the minimum deletions required
     return arr.size() - most_frequent->second;
+}
+```
+
+Let's try to optmnise the solution approach 
+```cpp
+int equalizeArray(std::vector<int> arr) {
+    std::unordered_map<int, int> frequencyMap;
+    int maxFrequency = 0;
+
+    // Count the frequency of each element and track the maximum frequency
+    for (int num : arr) {
+        frequencyMap[num]++;
+        maxFrequency = max(frequencyMap[num], maxFrequency);
+    }
+
+    return arr.size() - maxFrequency;
 }
 ```
 
