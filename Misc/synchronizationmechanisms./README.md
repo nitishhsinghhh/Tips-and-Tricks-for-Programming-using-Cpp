@@ -38,12 +38,12 @@ private:
     std::condition_variable cond_var_;
 };
 ```
-Processes
-The processes (functions) are defined to perform their respective tasks and use the ThreadSafeQueue for communication:
 
-Process A: Produces output and pushes it to queue_ab.
-Process B: Waits for input from queue_ab, processes it, and pushes the result to queue_bc.
-Process C: Waits for input from queue_bc, processes it, and prints the result.
+### Processes
+The processes (functions) are defined to perform their respective tasks and use the ThreadSafeQueue for communication:
+- Process A: Produces output and pushes it to queue_ab.
+- Process B: Waits for input from queue_ab, processes it, and pushes the result to queue_bc.
+- Process C: Waits for input from queue_bc, processes it, and prints the result.
 
 ```Cpp
 
@@ -67,7 +67,7 @@ void process_c(ThreadSafeQueue<std::string>& input_queue) {
     std::cout << output << std::endl;
 }
 ```
-Main Function
+### Main Function
 The main function sets up the queues for inter-thread communication and starts the threads for each process:
 
 ```Cpp
