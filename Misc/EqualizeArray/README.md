@@ -62,7 +62,11 @@ int equalizeArray(std::vector<int> arr) {
   compares the frequencies of elements.
 
 - Calculating Minimum Deletions:
-  The minimum deletions required to equalize the array are calculated as arr.size() - most_frequent->second, where most_frequent->second gives the frequency of the most frequent element.
+  The minimum deletions required to equalize the array are calculated as
+  ```cpp
+  arr.size() - most_frequent->second
+  ```
+  where most_frequent->second gives the frequency of the most frequent element.
 
 - Main Function:
   The main function handles input and output operations. It reads the array size and elements, calls the equalizeArray function to get the result, and writes the result to the output.
