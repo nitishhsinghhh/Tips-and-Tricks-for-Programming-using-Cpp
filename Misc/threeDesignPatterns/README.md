@@ -1,4 +1,4 @@
-# three major design patterns with real-life coding examples in C++
+# Three major design patterns with real-life coding examples in C++
 
 1. **Singleton Pattern:** The Singleton Pattern ensures that a class has only one instance and provides a global point of access to it.
 2. **Observer Pattern:** The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
