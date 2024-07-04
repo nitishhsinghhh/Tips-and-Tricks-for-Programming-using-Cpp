@@ -7,20 +7,15 @@
 - **Singleton Pattern**<br>
 Real-life Example: Database Connection Pool: Ensures only one instance of the connection pool is created to manage database connections.
 
+`DatabaseConnectionPool.h`
 ```cpp
+#pragma once
+
 #include <iostream>
 
 class DatabaseConnectionPool {
-private:
-    static DatabaseConnectionPool* instance;
-
-    // private constructor to prevent instantiation
-    DatabaseConnectionPool() {
-        std::cout << "DatabaseConnectionPool created" << std::endl;
-    }
-
 public:
-    // static method to get the single instance of the class
+    // Public method to get the single instance of the class
     static DatabaseConnectionPool* getInstance() {
         if (instance == nullptr) {
             instance = new DatabaseConnectionPool();
@@ -31,12 +26,30 @@ public:
     void getConnection() {
         std::cout << "Returning a database connection" << std::endl;
     }
-};
 
+private:
+    // Private constructor to prevent instantiation
+    DatabaseConnectionPool() {
+        std::cout << "DatabaseConnectionPool Created" << std::endl;
+    }
+
+    // Delete copy constructor and assignment operator to prevent copying
+    DatabaseConnectionPool(const DatabaseConnectionPool&) = delete;
+    DatabaseConnectionPool& operator=(const DatabaseConnectionPool&) = delete;
+
+    // Static member to hold the single instance of the class
+    static DatabaseConnectionPool* instance;
+};
+```
+
+`DatabaseConnectionPool.cpp`
+```cpp
 // Initialize the static member
 DatabaseConnectionPool* DatabaseConnectionPool::instance = nullptr;
+```
 
-// Usage
+// Usage main file
+```cpp
 int main() {
     DatabaseConnectionPool* pool = DatabaseConnectionPool::getInstance();
     pool->getConnection();
