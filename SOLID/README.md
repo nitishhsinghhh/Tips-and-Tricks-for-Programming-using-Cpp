@@ -7,7 +7,7 @@ This comprehensive guide will delve deep into the world of SOLID design principl
 ## The Five SOLID Principles
 Before we dive in, let’s briefly introduce the five SOLID principles:
 
-1 Single Responsibility Principle (SRP): A class should have only one reason to change, meaning it should have a single responsibility. 
+1. Single Responsibility Principle (SRP): A class should have only one reason to change, meaning it should have a single responsibility.
 2. Open-Closed Principle (OCP): Software entities (e.g., classes, modules) should be open for extension but closed for modification.
 3. Liskov Substitution Principle (LSP): Subtypes must be substitutable for their base types without altering the correctness of the program.
 4. Interface Segregation Principle (ISP): Clients should not be forced to depend on interfaces they do not use.
