@@ -69,9 +69,8 @@ int main() {
 }
 ```
 
-## Explanation
+### Explanation
 1. Length Check: The function starts by checking if the lengths of the two strings are the same. If not, it immediately returns false, as they cannot have the same characters.
 2. Character Counting: We use a single std::unordered_map called charCount to count the frequency of each character in str1. For each character in str1, we increment its count in the map.
 3. Character Decrementing: For each character in str2, we decrement its count in the map. If both strings have the same characters in the same quantities, all counts in the map should be zero after this step.
-
-Validation: We iterate through the map to check if all counts are zero. If any count is not zero, the function returns false; otherwise, it returns true.
+4. Validation: We iterate through the map to check if all counts are zero. If any count is not zero, the function returns false; otherwise, it returns true.
