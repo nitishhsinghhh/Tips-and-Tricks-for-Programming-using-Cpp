@@ -45,6 +45,8 @@ private:
 `DatabaseConnectionPool.cpp`
 ```cpp
 // Initialize the static member
+#include "DatabaseConnectionPool.h"
+
 DatabaseConnectionPool* DatabaseConnectionPool::instance = nullptr;
 ```
 
