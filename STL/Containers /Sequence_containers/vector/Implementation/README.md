@@ -1,4 +1,4 @@
-# Vector Class Implementation and Usage
+# [Vector Class Implementation and Usage](https://blog.devgenius.io/implementing-a-vector-container-data-structure-in-c-using-templates-79b247784fc8)
 
 ## Overview
 
