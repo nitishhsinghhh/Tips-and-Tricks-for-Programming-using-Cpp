@@ -1,5 +1,6 @@
 #include <iostream>
 
+// Definition of ListNode structure
 struct ListNode {
 	int val;
 	ListNode *next;
@@ -15,10 +16,10 @@ struct ListNode {
 	ListNode(int x, ListNode *next, ListNode *prev) : val(x), next(next), prev(prev) {}
 
 	// Destructor
-    ~ListNode() {
-        // Delete the next node in the list
-        delete next; // This will recursively delete the entire list
-    }
+    	~ListNode() {
+		// Delete the next node in the list
+		delete next; // This will recursively delete the entire list
+	}
 };
 
 int main() {
