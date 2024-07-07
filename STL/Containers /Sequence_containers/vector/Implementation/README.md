@@ -11,7 +11,7 @@ This repository contains a custom implementation of a vector class in C++. The v
 
 ## VectorClass Implementation
 
-### Header File [VectorClass.h](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/blob/main/STL/Containers%20/Sequence_containers/vector/Implementation/UseVector.cpp)
+### Header File ([VectorClass.h](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/blob/main/STL/Containers%20/Sequence_containers/vector/Implementation/UseVector.cpp))
 
 The `VectorClass` template class is implemented in the header file. Here are the main components of the class:
 
@@ -37,7 +37,7 @@ The `VectorClass` template class is implemented in the header file. Here are the
     - `bool empty() const`: Checks whether the vector is empty.
     - `void insertAt(const T& val, int index)`: Adds an element at any index in the vector.
 
-### Source File (`[UseVector.cpp](.\UseVector.cpp)`)
+### Source File ([UseVector.cpp](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/blob/main/STL/Containers%20/Sequence_containers/vector/Implementation/UseVector.cpp))
 
 The `UseVector.cpp` file demonstrates the usage of the `VectorClass` with `std::string` type. Here are the main steps:
 
