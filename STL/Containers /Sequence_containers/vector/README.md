@@ -76,8 +76,8 @@ This directory contains various tips, tricks, and implementations for using the 
 
 ## Table of Contents
 
-1. [**Capacity**](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Capacity%20)
-2. [**Element Access**](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Element_Access)
-3. [**Implementation**](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Implementation)
-4. [**Iterators**](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Iterators)
-5. [**Modifiers**](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Modifiers%20)
+1. [**Capacity**](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Capacity%20): Managing capacity in C++ vector involves using functions like **empty(), size(), max_size(), reserve(), capacity(), and shrink_to_fit()** to query and adjust its memory usage efficiently.
+2. [**Element Access**](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Element_Access): Element access in a C++ vector is achieved through methods like **at(), operator[], front(), back(), and data()** for retrieving and modifying elements efficiently, with options for bounds checking.
+3. [**Implementation**](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Implementation): A custom C++ VectorClass implementation demonstrates dynamic array capabilities including resizing, element access, insertion, and deletion, with examples provided in VectorClass.h and UseVector.cpp.
+4. [**Iterators**](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Iterators): Iterators in a C++ vector include **begin(), end(), rbegin(), and rend()** for forward and reverse traversal, facilitating element access and manipulation.
+5. [**Modifiers**](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Modifiers%20): Modifiers in a C++ vector include functions like **clear(), insert(), emplace(), erase(), push_back(), pop_back(), resize(), and swap()**, enabling efficient addition, removal, and modification of elements.
