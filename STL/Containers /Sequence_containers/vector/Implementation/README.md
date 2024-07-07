@@ -11,7 +11,7 @@ This repository contains a custom implementation of a vector class in C++. The v
 
 ## VectorClass Implementation
 
-### Header File (`[VectorClass.h](./VectorClass.h)`)
+### Header File (`[VectorClass.h](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/blob/main/STL/Containers%20/Sequence_containers/vector/Implementation/UseVector.cpp)`)
 
 The `VectorClass` template class is implemented in the header file. Here are the main components of the class:
 
