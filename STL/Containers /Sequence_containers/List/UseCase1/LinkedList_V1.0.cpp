@@ -4,12 +4,24 @@ struct ListNode {
 	int val;
 	ListNode *next;
 	ListNode *prev;
+
+	// Default constructor
 	ListNode() : val(0), next(nullptr), prev(nullptr) {}
+
+	// Constructor with a value
 	ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}
+
+	// Constructor with value, next pointer, and prev pointer
 	ListNode(int x, ListNode *next, ListNode *prev) : val(x), next(next), prev(prev) {}
+
+	// Destructor
+    ~ListNode() {
+        // Delete the next node in the list
+        delete next; // This will recursively delete the entire list
+    }
 };
 
-void main() {
+int main() {
 	// Create nodes for the linked list
 	ListNode *node1 = new ListNode(1);
 	ListNode *node2 = new ListNode(2);
@@ -17,7 +29,7 @@ void main() {
 	ListNode *node4 = new ListNode(4);
 	ListNode *node5 = new ListNode(5);
 
-	// Link the nodes together
+	// Linking nodes
 	node1->next = node2;
 	node2->prev = node1;
 	node2->next = node3;
@@ -27,31 +39,28 @@ void main() {
 	node4->next = node5;
 	node5->prev = node4;
 
-	// Traverse the linked list forwards
+	// Traversing the list forward
 	ListNode *current = node1;
 	while (current != nullptr) {
 		std::cout << current->val << " ";
 		current = current->next;
 	}
-
 	std::cout << std::endl;
 
-	// Traverse the linked list backwards
+	// Traversing the list backward
 	current = node5;
 	while (current != nullptr) {
 		std::cout << current->val << " ";
 		current = current->prev;
 	}
-
 	std::cout << std::endl;
 
-	delete node1;
-	delete node2;
-	delete node3;
-	delete node4;
-	delete node5;
+	// Cleaning up allocated memory
+    	delete node1; // This will trigger the destructor and delete the entire list
 
 	system("pause");
+
+	return 0;
 }
 
 /*
