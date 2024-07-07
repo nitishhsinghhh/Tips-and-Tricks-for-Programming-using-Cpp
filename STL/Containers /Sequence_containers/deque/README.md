@@ -21,7 +21,7 @@ The storage of a deque is automatically expanded and contracted as needed. Expan
 
 The complexity (efficiency) of common operations on deques is as follows:
 
-Random access - constant O(1).
+Random access - constant O(1).<br>
 Insertion or removal of elements at the end or beginning - constant O(1).<br>
 Insertion or removal of elements - linear O(n).<br>
 std::deque meets the requirements of Container, AllocatorAwareContainer, SequenceContainer and ReversibleContaine<br>
