@@ -66,4 +66,18 @@ Accessing and modifying elements within the vector container is one of its key s
 
 ## Element Access
 
-Accessing and modifying elements within the vector container is one of its key strengths.Here are several methods that can be used to access and manipulate elements based on their positions within the vector. 
+Accessing and modifying elements within the vector container is one of its key strengths.Here are several methods that can be used to access and manipulate elements based on their positions within the vector.
+
+# Tips and Tricks for Programming using C++ STL
+
+## Sequence Containers: `vector`
+
+This directory contains various tips, tricks, and implementations for using the `vector` container from the C++ Standard Template Library (STL). The content is organized into different sections to help you understand and utilize `vector` more effectively.
+
+## Table of Contents
+
+1. [Capacity](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Capacity%20))
+2. [Element Access](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Element_Access)
+3. [Implementation](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Implementation)
+4. [Iterators](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Iterators)
+5. [Modifiers](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Modifiers%20)
