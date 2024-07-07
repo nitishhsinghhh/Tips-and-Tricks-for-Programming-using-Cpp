@@ -1,4 +1,4 @@
-# VectorClass Implementation and Usage
+# Vector Class Implementation and Usage
 
 ## Overview
 
