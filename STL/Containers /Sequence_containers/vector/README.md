@@ -76,7 +76,7 @@ This directory contains various tips, tricks, and implementations for using the 
 
 ## Table of Contents
 
-1. [Capacity](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Capacity%20))
+1. [Capacity](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Capacity%20)
 2. [Element Access](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Element_Access)
 3. [Implementation](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Implementation)
 4. [Iterators](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/STL/Containers%20/Sequence_containers/vector/Iterators)
