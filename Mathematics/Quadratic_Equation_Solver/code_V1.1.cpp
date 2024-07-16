@@ -2,7 +2,7 @@
  * @file quadratic_equation_solver.cpp
  * @brief This program solves a quadratic equation based on user input.
  * @author Nitish Singh
- * @date January 3, 2024
+ * @date January 3, 2024 || Updated on July 16, 2024
  */
 
 #include <iostream>
