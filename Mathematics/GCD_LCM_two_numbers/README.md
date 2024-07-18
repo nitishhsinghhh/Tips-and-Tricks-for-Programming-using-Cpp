@@ -8,8 +8,8 @@ The Greatest Common Divisor (GCD) of two integers is the largest integer that di
 
 ### Euclidean Algorithm
 
-1. If \( b = 0 \), then \( \text{GCD}(a, b) = a \).
-2. Otherwise, \( \text{GCD}(a, b) = \text{GCD}(b, a \% b) \).
+1. If \( b = 0 \), then ({GCD}(a, b) = a \).
+2. Otherwise, ({GCD}(a, b) = {GCD}(b, a \% b) \).
 
 This algorithm is based on the principle that the GCD of two numbers also divides their difference. It repetitively replaces the larger number by its remainder when divided by the smaller number until one of the numbers becomes zero.
 
@@ -17,11 +17,11 @@ This algorithm is based on the principle that the GCD of two numbers also divide
 
 The Least Common Multiple (LCM) of two integers is the smallest positive integer that is divisible by both numbers. The relationship between GCD and LCM is given by:
 
-\[ \text{LCM}(a, b) \times \text{GCD}(a, b) = |a \times b| \]
+[{LCM}(a, b) * {GCD}(a, b) = |a * b|]
 
 From the above relation, we can derive the LCM if we know the GCD:
 
-\[ \text{LCM}(a, b) = \frac{|a \times b|}{\text{GCD}(a, b)} \]
+[{LCM}(a, b) = {|a * b|}/{{GCD}(a, b)]
 
 ## Implementation in the Program
 
@@ -45,7 +45,7 @@ Let's go through the example provided in the program:
     - Since the second parameter is now zero, the GCD is 4.
 3. **LCM Calculation**:
     - Using the GCD found above, the LCM is calculated as:
-    - \( \text{LCM}(8, 12) = \frac{|8 \times 12|}{4} = \frac{96}{4} = 24 \).
+    - ({LCM}(8, 12) = {|8 * 12|}/{4} = {96}/{4} = 24).
 
 Thus, the output will correctly display:
 - GCD of 8 and 12 is: 4
