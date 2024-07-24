@@ -9,7 +9,7 @@ A segmentation fault is an error that occurs when a program violates memory acce
 ### Common Causes of Segmentation Faults
 
 1. **Accessing Out-of-Bounds Array Index**:
-    ```ccpp
+    ```cpp
     #include <stdio.h>
      
     int main(void)
