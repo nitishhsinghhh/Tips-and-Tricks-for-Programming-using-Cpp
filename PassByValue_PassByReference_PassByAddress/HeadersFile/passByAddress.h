@@ -1,4 +1,4 @@
-```cpp
+
 #pragma once
 
 #include <iostream>
@@ -8,4 +8,4 @@ class passByAddress {
 public:
 	int smallest_element(const std::vector<int>* vec);
 };
-```
+
