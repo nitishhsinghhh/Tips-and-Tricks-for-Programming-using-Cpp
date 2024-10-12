@@ -86,7 +86,7 @@ static std::unique_ptr<SearchAlgorithmBase> createSearchAlgorithm(SearchAlgorith
 ```
 This allows for flexibility in selecting the desired algorithm at runtime.
 
-### Usage
+## Usage
 
 To use the code:
 
@@ -113,7 +113,7 @@ std::cout << "Linear Search Result: " << linearResult << std::endl;
 std::cout << "Binary Search Result: " << binaryResult << std::endl;
 ```
 
-#### Compilation
+## Compilation
 
 To compile and run the code, follow these steps:
 
@@ -130,11 +130,11 @@ bash
 ./search
 ```
 
-#### Contributing
+## Contributing
 
 Contributions are welcome! If you have any suggestions or improvements, feel free to open an issue or submit a pull request.
 
-#### License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 ```
