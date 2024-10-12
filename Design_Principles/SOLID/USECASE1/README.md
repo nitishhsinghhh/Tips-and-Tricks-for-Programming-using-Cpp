@@ -133,3 +133,10 @@ bash
 #### Contributing
 
 Contributions are welcome! If you have any suggestions or improvements, feel free to open an issue or submit a pull request.
+
+#### License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+```
+This `README.md` follows a clear structure and includes all necessary details for understanding, using, and contributing to the code in the repository.
+```
