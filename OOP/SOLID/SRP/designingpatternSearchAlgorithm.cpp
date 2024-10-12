@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 // Define an enumeration for search algorithms
 enum class SearchAlgorithm {
