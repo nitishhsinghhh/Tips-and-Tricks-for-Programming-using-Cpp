@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
-#include<string>
+#include <string>
+
+using std::cout;
+using std::endl;
 
 template<typename T>
 class Stack {
@@ -11,7 +14,7 @@ public:
 		elements.push_back(element);
 	}
 
-	bool isEmpty() {
+	bool isEmpty() const {
 		return elements.empty();
 	}
 
@@ -20,30 +23,29 @@ public:
 			elements.pop_back();
 	}
 
-	T top() {
+	T top() const {
 		if (!isEmpty())
 			return elements.back();
 		else
-			 throw std::out_of_range("Stack<>::top: empty stack");
+			throw std::out_of_range("Stack<>::top: empty stack");
 	}
 
-	int size() {
+	int size() const {
 		return elements.size();
 	}
 };
 
-void main() {
-
-	// integer Stack
+int main() {
+	// Integer Stack
 	Stack<int> MyStack;
 	MyStack.push(10);
 	MyStack.push(20);
 	MyStack.push(30);
 
-	std::cout << "Top element: " << MyStack.top() << std::endl;
+	cout << "Top element: " << MyStack.top() << endl;
 	MyStack.pop();
-	std::cout << "Top element after pop: " << MyStack.top() << std::endl;
-	std::cout << "Stack size: " << MyStack.size() << std::endl;
+	cout << "Top element after pop: " << MyStack.top() << endl;
+	cout << "Stack size: " << MyStack.size() << endl;
 
 	// String Stack
 	Stack<std::string> MyStringStack;
@@ -51,24 +53,23 @@ void main() {
 	MyStringStack.push("20.00");
 	MyStringStack.push("30.00");
 
-	std::cout << "Top element string: " << MyStringStack.top() << std::endl;
+	cout << "Top element string: " << MyStringStack.top() << endl;
 	MyStringStack.pop();
-	std::cout << "Top element string after pop: " << MyStringStack.top() << std::endl;
-	std::cout << "Stack size: " << MyStack.size() << std::endl;
+	cout << "Top element string after pop: " << MyStringStack.top() << endl;
+	cout << "Stack size: " << MyStringStack.size() << endl;
 
-	// double stack
+	// Double Stack
 	Stack<double> MyDoubleStack;
 	MyDoubleStack.push(10.05);
 	MyDoubleStack.push(20.08);
 	MyDoubleStack.push(30.09);
 
-	std::cout << "Top element: " << MyDoubleStack.top() << std::endl;
+	cout << "Top element double: " << MyDoubleStack.top() << endl;
 	MyDoubleStack.pop();
-	std::cout << "Top element after pop: " << MyDoubleStack.top() << std::endl;
-	std::cout << "Stack size: " << MyDoubleStack.size() << std::endl;
+	cout << "Top element double after pop: " << MyDoubleStack.top() << endl;
+	cout << "Stack size: " << MyDoubleStack.size() << endl;
 
-	system("pause");
-
+	return 0;
 }
 
 /*
@@ -78,8 +79,7 @@ Stack size: 2
 Top element string: 30.00
 Top element string after pop: 20.00
 Stack size: 2
-Top element: 30.09
-Top element after pop: 20.08
+Top element double: 30.09
+Top element double after pop: 20.08
 Stack size: 2
-Press any key to continue . . .
 */
