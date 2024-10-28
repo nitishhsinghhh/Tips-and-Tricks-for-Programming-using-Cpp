@@ -1,43 +1,65 @@
 #include <iostream>
 #include <deque>
+#include <optional>
 
 class DequeStack {
 private:
 	std::deque<int> stack;
+
 public:
 	void push(int data) {
 		stack.push_back(data);
 	}
+
 	void pop() {
 		if (!stack.empty()) {
 			stack.pop_back();
 		}
 	}
-	int peek() {
+
+	[[nodiscard]] std::optional<int> peek() const {
+		// Use optional to handle the empty case safely
 		if (!stack.empty()) {
 			return stack.back();
 		}
-		return -1; // Or throw an exception
+		return std::nullopt;
 	}
-	bool isEmpty() {
+
+	[[nodiscard]] bool isEmpty() const {
 		return stack.empty();
 	}
 };
 
-void main() {
+int main() {
 	DequeStack stack;
 	stack.push(10);
 	stack.push(20);
 	stack.push(30);
-	std::cout << "Peek: " << stack.peek() << std::endl;
+
+	// Peek at the top element
+	if (auto top = stack.peek(); top.has_value()) {
+		std::cout << "Peek: " << *top << std::endl;
+	} else {
+		std::cout << "Stack is empty" << std::endl;
+	}
+
 	stack.pop();
-	std::cout << "Peek after pop: " << stack.peek() << std::endl;
+
+	// Peek after pop
+	if (auto top = stack.peek(); top.has_value()) {
+		std::cout << "Peek after pop: " << *top << std::endl;
+	} else {
+		std::cout << "Stack is empty" << std::endl;
+	}
+
+	// Check if stack is empty
 	std::cout << "Is empty? " << (stack.isEmpty() ? "Yes" : "No") << std::endl;
-	system("pause");
+
+	return 0;
 }
+
 /*
-Top element: 50
-Top element after pop: 40
-Stack size: 2
-Press any key to continue . . .
+Peek: 30
+Peek after pop: 20
+Is empty? No
 */
