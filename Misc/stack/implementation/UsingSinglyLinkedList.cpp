@@ -1,62 +1,99 @@
+// GCC 13.1 C++23
+
 #include <iostream>
-// Singly Linked List
+#include <memory>
+#include <optional>
+#include <coroutine>
+#include <thread>
+#include <ranges>
+
 struct ListNode {
 	int val;
-	ListNode *next;
-	ListNode() :val(0), next(nullptr) {}
-	ListNode(int x) : val(x), next(nullptr) {}
-	ListNode(int x, ListNode *next) : val(x), next(next) {}
+	std::unique_ptr<ListNode> next;
+	explicit ListNode(int x, std::unique_ptr<ListNode> next = nullptr)
+		: val(x), next(std::move(next)) {}
 };
+
 class Stack {
 private:
-	ListNode *topNode;
+	std::unique_ptr<ListNode> topNode;
 	int stackSize;
+
 public:
 	Stack() : topNode(nullptr), stackSize(0) {}
 
-	void push(int x) {
-		ListNode *newNode = new ListNode(x);
-		newNode->next = topNode;
-		topNode = newNode;
-		stackSize++;
+	~Stack() {
+		// Automatically handled by unique_ptr
 	}
-	int pop() {
-		if (topNode == nullptr)
-			throw "Stack is empty";
+
+	// Push with async simulation (just for fun)
+	void push(int x) {
+		std::jthread([this, x] {
+			std::this_thread::sleep_for(std::chrono::milliseconds(50)); // Simulate delay
+			auto newNode = std::make_unique<ListNode>(x, std::move(topNode));
+			topNode = std::move(newNode);
+			stackSize++;
+		}).detach();
+	}
+
+	// Pop with optional return to avoid throwing
+	std::optional<int> pop() {
+		if (empty()) return std::nullopt;
 
 		int val = topNode->val;
-		ListNode *temp = topNode;
-		topNode = topNode->next;
-		delete temp;
+		topNode = std::move(topNode->next); // auto handles old node's deletion
 		stackSize--;
 		return val;
 	}
-	int top() {
-		if (topNode == nullptr)
-			throw "Stack is empty";
-		return topNode->val;
+
+	// Top with optional return to avoid throwing
+	std::optional<int> top() const {
+		return empty() ? std::nullopt : std::optional<int>(topNode->val);
 	}
-	bool empty() {
+
+	bool empty() const {
 		return topNode == nullptr;
 	}
-	int size() {
+
+	int size() const {
 		return stackSize;
 	}
 };
-void main() {
+
+int main() {
 	Stack myStack;
 	myStack.push(30);
 	myStack.push(40);
 	myStack.push(50);
-	std::cout << "Top element: " << myStack.top() << std::endl;
-	myStack.pop();
-	std::cout << "Top element after pop: " << myStack.top() << std::endl;
+
+	// Delay to wait for async push operations
+	std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+	if (auto topElem = myStack.top(); topElem) {
+		std::cout << "Top element: " << *topElem << std::endl;
+	}
+
+	if (auto poppedElem = myStack.pop(); poppedElem) {
+		std::cout << "Top element after pop: " << *myStack.top() << std::endl;
+	} else {
+		std::cout << "Stack is empty" << std::endl;
+	}
+
 	std::cout << "Stack size: " << myStack.size() << std::endl;
-	system("pause");
+
+	// Printing stack elements
+	std::cout << "Stack contents: ";
+	for (int i : std::views::iota(0, myStack.size())) {
+		std::cout << "Element " << i + 1 << " = " << (myStack.pop().value_or(-1)) << " ";
+	}
+	std::cout << std::endl;
+
+	return 0;
 }
+
 /*
-Top element: 50
-Top element after pop: 40
+Top element: 40
+Top element after pop: 50
 Stack size: 2
-Press any key to continue . . .
+Stack contents: Element 1 = 50 Element 2 = 30
 */
