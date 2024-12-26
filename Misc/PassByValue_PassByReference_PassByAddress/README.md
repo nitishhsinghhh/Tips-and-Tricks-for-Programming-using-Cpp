@@ -1,5 +1,5 @@
 # Understanding Function Argument Passing in C++
-In C++, functions can receive arguments in three ways: by value, by reference, and by address. Each method has its own use cases and implications, which can affect performance and behavior, especially when dealing with large data structures like vectors. Let's explore these concepts using the smallest_element function as an example.
+In C++, functions can receive arguments in three main ways: by value, by reference, and by address. Each method has its own use cases and implications, which can affect performance and behavior, especially when dealing with large data structures like vectors. Let's explore these concepts using the smallest_element function as an example.
 
 ## The Problem with Pass by Value
 Consider the following function that finds the smallest element in a vector:
