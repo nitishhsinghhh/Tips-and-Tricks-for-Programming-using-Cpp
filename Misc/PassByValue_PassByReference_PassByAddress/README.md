@@ -1,5 +1,5 @@
 # Understanding Function Argument Passing in C++
-In C++, functions can receive arguments in three main ways: by value, by reference, and by address. Each method has its own use cases and implications, which can affect performance and behavior, especially when dealing with large data structures like vectors. Let's explore these concepts using the smallest_element function as an example.
+In C++, functions can receive arguments in three standard ways: by value, by reference, and by address. Each method has its own use cases and implications, which can affect performance and behavior, especially when dealing with large data structures like vectors. Let's explore these concepts using the smallest_element function as an example.
 
 ## The Problem with Pass by Value
 Consider the following function that finds the smallest element in a vector:
@@ -67,7 +67,6 @@ int smallest_element(vector<int>* vec) {
     return smallest_val;
 }
 ```
-
 ### Key Points:
 1. A pointer holds the memory address of a variable.
 2. Pointers can be null, unlike references.
@@ -78,3 +77,13 @@ int smallest_element(vector<int>* vec) {
 2. Pass by Reference: Passes an alias to the original variable. Efficient and allows direct modification.
 3. Pass by Address: Uses pointers to pass the memory address of variables. Provides visibility and control over modifications.
 Understanding these methods and their implications helps in writing efficient and effective C++ code, especially when dealing with large data structures or performance-critical applications.
+
+# Advanced concepts
+The advanced techniques give developers more control over resource management, function behavior, and performance optimizations, but they require a deeper understanding of C++ and its features. They also introduce more complexity and, in some cases, can complicate debugging if not used carefully. Some of these are
+
+- **Pass by Const Reference:** Pass objects by reference, but prevent modification.
+- **Pass by R-Value Reference:** Move resources from temporary objects to avoid unnecessary copies.
+- **Pass by Array:** Arrays decay to pointers when passed, and the size isn't known within the function.
+- **Pass by Function Pointer:** Pass a pointer to a function to allow dynamic behavior or callbacks.
+- **Pass by Lambda or Callable Object:** Pass a lambda or callable object for flexible, inline behavior.
+
