@@ -5,14 +5,18 @@ In C++, functions can receive arguments in three ways: by value, by reference, a
 Consider the following function that finds the smallest element in a vector:
 
 ```cpp
+// GCC 13.1 C++23
+
 #include <iostream>
 #include <vector>
 
-int smallest_element(std::vector<int> vec) {
+using std::vector;
+using std::min;
+
+int smallest_element(vector<int> vec) {
     auto smallest_val = vec[0];
     for (auto x : vec) 
-        smallest_val = std::min(smallest_val, x);
-    
+        smallest_val = min(smallest_val, x);
     return smallest_val;
 }
 ```
@@ -22,15 +26,19 @@ Here, the vector vec is passed by value. This means a copy of the vector is made
 To improve efficiency, we can pass the vector by reference. This allows the function to operate directly on the original vector without making a copy:
 
 ```cpp
+// GCC 13.1 C++23
+
 #include <iostream>
 #include <vector>
 
+using std::vector;
+using std::min; 
+
 // pass a reference:
-int smallest_element(std::vector<int>& vec) {
+int smallest_element(vector<int>& vec) {
     auto smallest_val = vec[0];
     for (auto x : vec) 
-        smallest_val = std::min(smallest_val, x);
-    
+        smallest_val = min(smallest_val, x);
     return smallest_val;
 }
 ```
@@ -43,15 +51,19 @@ int smallest_element(std::vector<int>& vec) {
 Alternatively, we can pass the vector by address using pointers. This method also allows the function to modify the original vector:
 
 ```cpp
+// GCC 13.1 C++23
+
 #include <iostream>
 #include <vector>
 
+using std::vector;
+using std::min;
+
 // pass a pointer instead:
-int smallest_element(std::vector<int>* vec) {
+int smallest_element(vector<int>* vec) {
     auto smallest_val = (*vec)[0];
     for (auto x : *vec) 
-        smallest_val = std::min(smallest_val, x);
-    
+        smallest_val = min(smallest_val, x);
     return smallest_val;
 }
 ```
