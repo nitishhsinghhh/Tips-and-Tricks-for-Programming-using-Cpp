@@ -4,7 +4,10 @@ Software design patterns provide a structured approach to solving common design 
 
 The Gang of Four (GoF) book "Design Patterns: Elements of Reusable Object-Oriented Software" introduced 23 classic software design patterns, which are categorized into three main groups: creational, structural, and behavioral patterns. Each pattern addresses a specific design problem and provides a blueprint for implementing an effective solution.
 
-Here's a brief overview of the three main categories of design patterns:
+Here's a brief overview of the three main categories of design patterns: <bk>
+
+![image](https://github.com/user-attachments/assets/675fefbb-f5bf-4192-9758-9ffa09212a31)
+
 
 1. **Creational Patterns:** <br>
 These patterns focus on object creation mechanisms, providing flexibility in creating objects while hiding the creation logic. Examples include Factory Method, Abstract Factory, Singleton, Builder, and Prototype patterns.
