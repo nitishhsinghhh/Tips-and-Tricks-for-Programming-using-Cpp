@@ -1,8 +1,12 @@
 # Understanding Function Argument Passing in C++
 In C++, functions can receive arguments in three standard ways: by value, by reference, and by address. Each method has its own use cases and implications, which can affect performance and behavior, especially when dealing with large data structures like vectors. Let's explore these concepts using the smallest_element function as an example.
+![data_flow](https://github.com/user-attachments/assets/2c005691-542a-4170-8aa8-98cb70fdf452)
 
-## The Problem with Pass by Value
+
+## The Problem with Pass by Value (aka Pass-By-Copy)
 Consider the following function that finds the smallest element in a vector:
+![value_machine](https://github.com/user-attachments/assets/c2424ba8-aad5-4d84-8ef6-778f32890f32)
+
 
 ```cpp
 #include <algorithm>
@@ -47,6 +51,8 @@ Here, the vector vec is passed by value. This means a copy of the vector is made
 
 ## Pass by Reference
 To improve efficiency, we can pass the vector by reference. This allows the function to operate directly on the original vector without making a copy:
+![reference_machine](https://github.com/user-attachments/assets/4262e8bf-9b22-484f-8a9a-a79374e9b72f)
+
 
 ```cpp
 // GCC 13.1 C++23
@@ -95,8 +101,10 @@ int main() {
 1. A reference is an alias for another variable, not a pointer or a copy.
 2. References must be initialized when declared and cannot be null.
 
-## Pass by Address
+## Pass by Address  (aka Pass-By-pointer)
 Alternatively, we can pass the vector by address using pointers. This method also allows the function to modify the original vector:
+![pointer_machine](https://github.com/user-attachments/assets/49ead60a-8299-452d-9ab4-eaec89b2b8d2)
+
 
 ```cpp
 // GCC 13.1 C++23
