@@ -5,7 +5,7 @@ In C++, functions can receive arguments in three standard ways: by value, by ref
 
 
 ## The Problem with Pass by Value (aka Pass-By-Copy)
-Consider the following function that finds the smallest element in a vector:
+Consider the following function that finds the smallest element in a vector:  <bk>
 ![value_machine](https://github.com/user-attachments/assets/c2424ba8-aad5-4d84-8ef6-778f32890f32)
 
 
@@ -51,7 +51,7 @@ int main() {
 Here, the vector vec is passed by value. This means a copy of the vector is made each time the function is called, which is inefficient for large vectors.
 
 ## Pass by Reference
-To improve efficiency, we can pass the vector by reference. This allows the function to operate directly on the original vector without making a copy:
+To improve efficiency, we can pass the vector by reference. This allows the function to operate directly on the original vector without making a copy: <bk>
 ![reference_machine](https://github.com/user-attachments/assets/4262e8bf-9b22-484f-8a9a-a79374e9b72f)
 
 
@@ -103,7 +103,7 @@ int main() {
 2. References must be initialized when declared and cannot be null.
 
 ## Pass by Address  (aka Pass-By-pointer)
-Alternatively, we can pass the vector by address using pointers. This method also allows the function to modify the original vector:
+Alternatively, we can pass the vector by address using pointers. This method also allows the function to modify the original vector: <bk>
 ![pointer_machine](https://github.com/user-attachments/assets/49ead60a-8299-452d-9ab4-eaec89b2b8d2)
 
 
