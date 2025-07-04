@@ -5,19 +5,42 @@ In C++, functions can receive arguments in three standard ways: by value, by ref
 Consider the following function that finds the smallest element in a vector:
 
 ```cpp
-// GCC 13.1 C++23
-
+#include <algorithm>
+#include <chrono>
 #include <iostream>
 #include <vector>
 
+using std::cout;
+using std::endl;
 using std::vector;
-using std::min;
 
+/**
+ * @brief Finds the smallest element in a vector of integers.
+ * @param vec The vector of integers to search.
+ * @return The smallest integer in the vector.
+ */
 int smallest_element(vector<int> vec) {
     auto smallest_val = vec[0];
-    for (auto x : vec) 
-        smallest_val = min(smallest_val, x);
+    for (int x : vec)
+        smallest_val = std::min(smallest_val, x);
     return smallest_val;
+}
+
+int main() {
+    vector<int> vec;
+    for (int i = 0; i < 1000000; ++i)
+        vec.push_back(rand());
+
+    auto start = std::chrono::high_resolution_clock::now();
+    int res = smallest_element(vec);
+    auto end = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double> duration = end - start;
+
+    cout << "Smallest element: " << res << endl;
+    cout << "Time taken: " << duration.count() << " seconds" << endl;
+
+    return 0;
 }
 ```
 Here, the vector vec is passed by value. This means a copy of the vector is made each time the function is called, which is inefficient for large vectors.
@@ -30,16 +53,41 @@ To improve efficiency, we can pass the vector by reference. This allows the func
 
 #include <iostream>
 #include <vector>
+#include <algorithm> 
+#include <chrono> 
 
+using std::cout;
+using std::endl;
 using std::vector;
-using std::min; 
 
-// pass a reference:
-int smallest_element(vector<int>& vec) {
+/**
+ * @brief Finds the smallest element in a vector of integers.
+ * @param vec A constant reference to the vector of integers.
+ * @return The smallest integer in the vector.
+ */
+int smallest_element(const vector<int>& vec) {
     auto smallest_val = vec[0];
     for (auto x : vec) 
-        smallest_val = min(smallest_val, x);
+        smallest_val = std::min(smallest_val, x);
+    
     return smallest_val;
+}
+
+int main() {
+    vector<int> vec;
+    for (int i = 0; i < 1000000; ++i) 
+        vec.push_back(rand());
+
+    auto start = std::chrono::high_resolution_clock::now();
+    int res = smallest_element(vec);
+    auto end = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double> duration = end - start;
+    
+    cout << "Smallest element: " << res << endl;
+    cout << "Time taken: " << duration.count() << " seconds" << endl;
+
+    return 0;
 }
 ```
 
@@ -55,16 +103,40 @@ Alternatively, we can pass the vector by address using pointers. This method als
 
 #include <iostream>
 #include <vector>
+#include <algorithm> 
+#include <chrono>
 
+using std::cout;
+using std::endl;
 using std::vector;
-using std::min;
 
-// pass a pointer instead:
+/**
+ * @brief Finds the smallest element in a vector of integers using a pointer.
+ * @param vec A pointer to the vector of integers.
+ * @return The smallest integer in the vector.
+ */
 int smallest_element(vector<int>* vec) {
     auto smallest_val = (*vec)[0];
-    for (auto x : *vec) 
-        smallest_val = min(smallest_val, x);
+    for (auto x : *vec)
+        smallest_val = std::min(smallest_val, x);
     return smallest_val;
+}
+
+int main() {
+    vector<int> vec;
+    for (int i = 0; i < 1000000; ++i) 
+        vec.push_back(rand());
+
+    auto start = std::chrono::high_resolution_clock::now();
+    int res = smallest_element(&vec);
+    auto end = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double> duration = end - start;
+    
+    cout << "Smallest element: " << res << endl;
+    cout << "Time taken: " << duration.count() << " seconds" << endl;
+
+    return 0;
 }
 ```
 ### Key Points:
