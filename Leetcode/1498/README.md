@@ -159,7 +159,15 @@ Refactoring your C++ solution using SOLID principles means improving the design 
 #include <algorithm>
 using namespace std;
 
-class PowerCalculator {
+// Interface for PowerCalculator
+class IPowerCalculator {
+public:
+    virtual int getPower(int index) const = 0;
+    virtual ~IPowerCalculator() = default;
+};
+
+// Concrete implementation of PowerCalculator
+class PowerCalculator : public IPowerCalculator {
     const int MOD = 1e9 + 7;
     vector<int> powers;
 
@@ -170,25 +178,34 @@ public:
             powers[i] = (powers[i - 1] * 2) % MOD;
     }
 
-    int getPower(int index) const {
+    int getPower(int index) const override {
         return powers[index];
     }
 };
 
-class SubsequenceCounter {
+// Interface for SubsequenceCounter
+class ISubsequenceCounter {
+public:
+    virtual int countValidSubsequences(vector<int>& nums, int target) = 0;
+    virtual ~ISubsequenceCounter() = default;
+};
+
+// Concrete implementation of SubsequenceCounter
+class SubsequenceCounter : public ISubsequenceCounter {
     const int MOD = 1e9 + 7;
+    IPowerCalculator* powerCalc;
 
 public:
-    int countValidSubsequences(vector<int>& nums, int target) {
+    SubsequenceCounter(IPowerCalculator* calculator) : powerCalc(calculator) {}
+
+    int countValidSubsequences(vector<int>& nums, int target) override {
         sort(nums.begin(), nums.end());
         int n = nums.size();
-        PowerCalculator powerCalc(n);
-
         int left = 0, right = n - 1, result = 0;
 
         while (left <= right) {
             if (nums[left] + nums[right] <= target) {
-                result = (result + powerCalc.getPower(right - left)) % MOD;
+                result = (result + powerCalc->getPower(right - left)) % MOD;
                 ++left;
             } else {
                 --right;
@@ -199,10 +216,12 @@ public:
     }
 };
 
+// Solution class using interfaces
 class Solution {
 public:
     int numSubseq(vector<int>& nums, int target) {
-        SubsequenceCounter counter;
+        PowerCalculator powerCalc(nums.size());
+        SubsequenceCounter counter(&powerCalc);
         return counter.countValidSubsequences(nums, target);
     }
 };
