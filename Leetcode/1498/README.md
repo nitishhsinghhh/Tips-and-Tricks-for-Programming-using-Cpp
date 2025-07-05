@@ -1,5 +1,11 @@
 # Number of Subsequences That Satisfy the Given Sum Condition
 
+# Topics
+- Array
+- Two Pointers
+- Binary Search
+- Sorting
+
 ## Problem Summary
 You are given:
 
