@@ -288,3 +288,5 @@ int main() {
 | vector<int> | A dynamic array that can grow or shrink | vector<int>& nums |
 | sort() | Sorts the array in increasing order | sort(nums.begin(), nums.end()) |
 | power[i] = power[i - 1] * 2 % mod | Precomputes powers of 2 modulo mod | Used in the for loop |
+
+Leetocde Solution of the [problem](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/solutions/6899323/c-optimized-approach-sort-two-pointer-te-snrb/). 
