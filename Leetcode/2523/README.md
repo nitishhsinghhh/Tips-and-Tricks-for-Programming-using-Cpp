@@ -1,7 +1,11 @@
 # [Closest Prime Numbers in Range](https://leetcode.com/problems/closest-prime-numbers-in-range/description/)
 
-# Basic Solution: Using isPrime
-## Step-by-Step Explanation:
+## Topics
+- Math
+- Number Theory
+
+## Basic Solution: Using isPrime
+### Step-by-Step Explanation:
 1. **Check if a Number is Prime:**
     - We use the isPrime function to determine if a number is prime.
     - This function checks divisibility from 2 up to the square root of the number.
@@ -64,8 +68,8 @@ public:
     }
 };
 ```
-# Optimized Solution: Using Sieve of Eratosthenes
-## Step-by-Step Explanation:
+## Optimized Solution: Using Sieve of Eratosthenes
+### Step-by-Step Explanation:
 1. **Mark Non-Prime Numbers:**
     - We use the Sieve of Eratosthenes algorithm to mark non-prime numbers in a boolean array.
     - This algorithm iterates through each number starting from 2 and marks its multiples as non-prime.
@@ -121,7 +125,7 @@ public:
     }
 };
 ```
-# Refactored code
+## Refactored code
 1. **Interface Segregation:** The PrimeFinder interface allows for different implementations of prime-finding algorithms.
 2. **Modularity:** The code is modular, making it easy to extend or modify individual components.
 3. **Testing:** The ClosestPrimesFinderTest class provides a way to validate the functionality, ensuring reliability.
@@ -254,7 +258,7 @@ int main() {
     return 0;
 }
 ```
-# Unified Table: C++ Libraries, Usage, and Application Context
+## Unified Table: C++ Libraries, Usage, and Application Context
 
 | **Library**     | **Purpose**                                      | **Used In**                  | **Application Context**                                                        | **Test Case Example**             |
 |------------------|--------------------------------------------------|-------------------------------|----------------------------------------------------------------------------------|-----------------------------------|
