@@ -113,3 +113,135 @@ int main() {
 }
 
 ```
+To improve memory management in your C++ program, especially when working with dynamic memory (like linked lists), it's important to free the memory you've allocated using new. Otherwise, your program will leak memory over time.
+```
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+/**
+ * Definition for singly-linked list.
+ */
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode dummy(0);
+        ListNode* current = &dummy;
+        int carry = 0;
+
+        while (l1 || l2 || carry) {
+            int sum = carry;
+            if (l1) {
+                sum += l1->val;
+                l1 = l1->next;
+            }
+            if (l2) {
+                sum += l2->val;
+                l2 = l2->next;
+            }
+
+            carry = sum / 10;
+            current->next = new ListNode(sum % 10);
+            current = current->next;
+        }
+
+        return dummy.next;
+    }
+};
+
+// Helper function to create a linked list from a vector
+ListNode* createList(const std::vector<int>& digits) {
+    ListNode dummy(0);
+    ListNode* current = &dummy;
+    for (int digit : digits) {
+        current->next = new ListNode(digit);
+        current = current->next;
+    }
+    return dummy.next;
+}
+
+// Helper function to compare two linked lists
+bool areEqual(ListNode* l1, ListNode* l2) {
+    while (l1 && l2) {
+        if (l1->val != l2->val) return false;
+        l1 = l1->next;
+        l2 = l2->next;
+    }
+    return l1 == nullptr && l2 == nullptr;
+}
+
+// Helper function to print a linked list
+void printList(ListNode* head) {
+    while (head) {
+        std::cout << head->val;
+        if (head->next) std::cout << " -> ";
+        head = head->next;
+    }
+    std::cout << std::endl;
+}
+
+// Add a Helper Function to Free a Linked List
+void deleteList(ListNode* head) {
+    while (head) {
+        ListNode* temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
+
+
+int main() {
+    Solution sol;
+
+    // Test Case 1
+    ListNode* l1 = createList({2, 4, 3});
+    ListNode* l2 = createList({5, 6, 4});
+    ListNode* expected1 = createList({7, 0, 8});
+    ListNode* result1 = sol.addTwoNumbers(l1, l2);
+    assert(areEqual(result1, expected1));
+    std::cout << "Test Case 1 Passed: ";
+    printList(result1);
+    deleteList(l1);
+    deleteList(l2);
+    deleteList(expected1);
+    deleteList(result1);
+
+    // Test Case 2
+    l1 = createList({0});
+    l2 = createList({0});
+    ListNode* expected2 = createList({0});
+    ListNode* result2 = sol.addTwoNumbers(l1, l2);
+    assert(areEqual(result2, expected2));
+    std::cout << "Test Case 2 Passed: ";
+    printList(result2);
+    deleteList(l1);
+    deleteList(l2);
+    deleteList(expected2);
+    deleteList(result2);
+
+    // Test Case 3
+    l1 = createList({9, 9, 9, 9, 9, 9, 9});
+    l2 = createList({9, 9, 9, 9});
+    ListNode* expected3 = createList({8, 9, 9, 9, 0, 0, 0, 1});
+    ListNode* result3 = sol.addTwoNumbers(l1, l2);
+    assert(areEqual(result3, expected3));
+    std::cout << "Test Case 3 Passed: ";
+    printList(result3);
+    deleteList(l1);
+    deleteList(l2);
+    deleteList(expected3);
+    deleteList(result3);
+
+    std::cout << "All test cases passed successfully!" << std::endl;
+    return 0;
+}
+
+```
