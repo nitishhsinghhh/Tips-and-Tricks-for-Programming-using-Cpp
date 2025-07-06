@@ -114,7 +114,7 @@ int main() {
 
 ```
 To improve memory management in your C++ program, especially when working with dynamic memory (like linked lists), it's important to free the memory you've allocated using new. Otherwise, your program will leak memory over time.
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
