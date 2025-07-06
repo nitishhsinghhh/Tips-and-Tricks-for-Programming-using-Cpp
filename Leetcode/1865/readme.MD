@@ -22,7 +22,7 @@ We use a **hash map** (unordered_map) to store the frequency of elements in nums
 
 ---
 
-## 🧠 Code Explanation
+## Code Explanation
 
 ``` cpp
 #include <vector>
