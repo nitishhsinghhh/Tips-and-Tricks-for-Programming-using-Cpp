@@ -1,30 +1,30 @@
-# 📘 Understanding the Optimized `FindSumPairs` C++ Class
+# Understanding the Optimized FindSumPairs C++ Class
 
-This document explains the optimized implementation of the `FindSumPairs` class in C++. The class is designed to efficiently support two operations:
+This document explains the optimized implementation of the FindSumPairs class in C++. The class is designed to efficiently support two operations:
 
-1. `add(index, val)`: Adds a value to an element in the second array.
-2. `count(tot)`: Counts the number of pairs `(i, j)` such that `nums1[i] + nums2[j] == tot`.
-
----
-
-## ✅ Problem Constraints
-
-- `1 <= nums1.length <= 1000`
-- `1 <= nums2.length <= 10^5`
-
-Due to the large size of `nums2`, we need an efficient way to perform the `count()` operation.
+1. add(index, val): Adds a value to an element in the second array.
+2. count(tot): Counts the number of pairs (i, j) such that nums1[i] + nums2[j] == tot.
 
 ---
 
-## 🚀 Optimized Approach
+## Problem Constraints
 
-We use a **hash map** (`unordered_map`) to store the frequency of elements in `nums2`. This allows us to compute the count in **O(n)** time instead of **O(n * m)**.
+- 1 <= nums1.length <= 1000
+- 1 <= nums2.length <= 10^5
+
+Due to the large size of nums2, we need an efficient way to perform the count() operation.
+
+---
+
+## Optimized Approach
+
+We use a **hash map** (unordered_map) to store the frequency of elements in nums2. This allows us to compute the count in **O(n)** time instead of **O(n * m)**.
 
 ---
 
 ## 🧠 Code Explanation
 
-```cpp
+``` cpp
 #include <vector>
 #include <unordered_map>
 using namespace std;
@@ -67,3 +67,4 @@ public:
         return res;
     }
 };
+```
