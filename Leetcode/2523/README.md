@@ -21,6 +21,7 @@ public:
      * @param number The number to check.
      * @return True if the number is prime, otherwise false.
      */
+
     bool isPrime(int number) {
         if (number <= 1)
             return false;
