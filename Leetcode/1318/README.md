@@ -2,8 +2,8 @@
 
 # Topics
 - Bit Manipulation
-
-'''cpp []
+  
+```C++ []
 #include <iostream>
 class Solution {
 public:
