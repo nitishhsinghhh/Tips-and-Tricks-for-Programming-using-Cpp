@@ -67,7 +67,7 @@ Press any key to continue . . .
 
 # Refactored Code Using SOLID Principles
 
-``c++ []
+```c++ []
 #include <iostream>
 #include <memory>
 #include <vector>
