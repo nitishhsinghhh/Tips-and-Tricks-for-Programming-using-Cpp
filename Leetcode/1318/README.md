@@ -1,3 +1,9 @@
+# Minimum Flips to Make a OR b Equal to c
+
+# Topics
+- Bit Manipulation
+
+'''cpp
 #include <iostream>
 class Solution {
 public:
@@ -57,3 +63,4 @@ Input: a = 1, b = 2, c = 3
 Output: 0
 Press any key to continue . . .
 */
+```
