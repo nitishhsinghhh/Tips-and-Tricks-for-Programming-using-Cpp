@@ -3,7 +3,7 @@
 # Topics
 - Bit Manipulation
 
-''' cpp
+'''cpp []
 #include <iostream>
 class Solution {
 public:
