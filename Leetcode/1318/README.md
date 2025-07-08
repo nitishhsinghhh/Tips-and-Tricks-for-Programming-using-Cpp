@@ -3,7 +3,7 @@
 # Topics
 - Bit Manipulation
 
-'''cpp
+''' cpp
 #include <iostream>
 class Solution {
 public:
@@ -63,4 +63,5 @@ Input: a = 1, b = 2, c = 3
 Output: 0
 Press any key to continue . . .
 */
+
 ```
