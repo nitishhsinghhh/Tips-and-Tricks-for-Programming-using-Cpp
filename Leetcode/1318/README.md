@@ -131,7 +131,7 @@ public:
             int result = calculator->calculateMinFlips(a, b, c);
             std::cout << "Input: a = " << a << ", b = " << b << ", c = " << c << "\n";
             std::cout << "Expected: " << expected << ", Got: " << result << "\n";
-            std::cout << (result == expected ? "Passed" : " Failed") << "\n\n";
+            std::cout << (result == expected ? "Passed" : "Failed") << "\n\n";
         }
     }
 };
