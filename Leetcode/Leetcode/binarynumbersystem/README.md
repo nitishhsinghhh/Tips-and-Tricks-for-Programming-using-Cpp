@@ -24,11 +24,11 @@ Let's take some examples to make that sink.<br>
 
 Let's represent some odd decimal numbers in Binary:-<br>
 
-Decimal |  Binary
-   3    |   11
-   5    |  101
-   9	| 1001
-   15   | 1111
+| Decimal |  Binary |
+|   3    |   11 |
+|   5    |  101 |
+|   9	| 1001  |
+|   15   | 1111 |
 
 
 Do you see that the rightmost bit is 1 for all the odd numbers? Similarly, the rightmost bit is 0 for all even numbers. It makes sense right? Since the last bit contributes 1 which is an odd number.<br>
