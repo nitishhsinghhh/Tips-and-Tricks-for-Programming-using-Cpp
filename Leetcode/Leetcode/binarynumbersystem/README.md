@@ -1,5 +1,7 @@
 # Understanding how numbers are stored in the computer using only 0 and 1
 
+In the number system, each number is represented by its base. If the base is 2 it is a binary number, if the base is 8 it is an octal number, if the base is 10, then it is called decimal number system and if the base is 16, it is part of the hexadecimal number system.
+
 The day-to-day system of writing numbers is called decimal. It uses 10 digits (0 to 9) to represent any number. When we write a number in decimal, each digit is multiplied by a power of 10, which is it's distance from the rightmost bit. <br>
 For example, 89 = (8 * 10^1) + (9 * 10^0).
 
