@@ -176,13 +176,11 @@ Also, if you want to know, how an integer is represented in your programming lan
 For example, C++ integer is of 32 bits. So, if I want to know all the bits of a number 'n', I can run the following code. I believe that the code will be similar in other programming languages with minor changes.
 
 ```c++ []
-void printTwosComplementRepresentation(int n)
-{
+void printTwosComplementRepresentation(int n) {
 	// We start from 31 and go to 0.
-	for (int i = 31; i >= 0; --i)
-	{
+	for (int i = 31; i >= 0; --i) {
 	    if ((1 << i) & n)   // Check if the ith bit is set or not 
-	        std::cout << 1 ;
+		std::cout << 1 ;
 	    else std::cout << 0 ;
 	}
 }
