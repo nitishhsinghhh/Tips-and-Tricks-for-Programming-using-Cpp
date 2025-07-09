@@ -9,20 +9,20 @@ A computer only knows 0's and 1's. That's why we need to represent numbers in bi
 
 Let's do some simple calculations:-
 
-i) What does (101) represent in binary?
-A. (101) = (1 * 2^2) + (0 * 2^1) + (1 * 2^0) = (4) + (0) + (1) = 5.
+i) What does (101) represent in binary? <br>
+A. (101) = (1 * 2^2) + (0 * 2^1) + (1 * 2^0) = (4) + (0) + (1) = 5.<br>
 
-ii) What does (111) represent in binary?
-A. (111) = (1 * 2^2) + (1 * 2^1) + (1 * 2^0) = (4) + (2) + (1) = 7.
+ii) What does (111) represent in binary?<br>
+A. (111) = (1 * 2^2) + (1 * 2^1) + (1 * 2^0) = (4) + (2) + (1) = 7.<br>
 
-Hope, this was clear. Also, when we say that a bit is set, it means that the bit is 1. To set a bit means to make it 1.
+Hope, this was clear. Also, when we say that a bit is set, it means that the bit is 1. To set a bit means to make it 1.<br>
 
-Now, let's put our newly gained knowledge to use.
+Now, let's put our newly gained knowledge to use.<br>
 
 Notice that, since 2 is an even number, all powers of 2 will contribute an even number, except the rightmost bit, which contributes 1. Hence, in every odd number, the last bit will be set.
-Let's take some examples to make that sink.
+Let's take some examples to make that sink.<br>
 
-Let's represent some odd decimal numbers in Binary:-
+Let's represent some odd decimal numbers in Binary:-<br>
 
 Decimal |  Binary
    3    |   11
@@ -31,7 +31,7 @@ Decimal |  Binary
    15   | 1111
 
 
-Do you see that the rightmost bit is 1 for all the odd numbers? Similarly, the rightmost bit is 0 for all even numbers. It makes sense right? Since the last bit contributes 1 which is an odd number.
+Do you see that the rightmost bit is 1 for all the odd numbers? Similarly, the rightmost bit is 0 for all even numbers. It makes sense right? Since the last bit contributes 1 which is an odd number.<br>
 
 Hopefully everything was clear upto this point.
 
