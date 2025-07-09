@@ -1,13 +1,13 @@
 # Understanding how numbers are stored in the computer using only 0 and 1
 
-The day-to-day system of writing numbers is called decimal. It uses 10 digits (0 to 9) to represent any number. When we write a number in decimal, each digit is multiplied by a power of 10, which is it's distance from the rightmost bit.
+The day-to-day system of writing numbers is called decimal. It uses 10 digits (0 to 9) to represent any number. When we write a number in decimal, each digit is multiplied by a power of 10, which is it's distance from the rightmost bit. <br>
 For example, 89 = (8 * 10^1) + (9 * 10^0).
 
 In a similar way, we can write all numbers using only 0 and 1, and multiplying each digit by
-a power of 2, which is it's distance from the rightmost bit.
+a power of 2, which is it's distance from the rightmost bit. <br>
 A computer only knows 0's and 1's. That's why we need to represent numbers in binary.
 
-Let's do some simple calculations:-
+Let's do some simple calculations:-<br>
 
 i) What does (101) represent in binary? <br>
 A. (101) = (1 * 2^2) + (0 * 2^1) + (1 * 2^0) = (4) + (0) + (1) = 5.<br>
