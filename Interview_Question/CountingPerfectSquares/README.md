@@ -453,7 +453,6 @@ Why Use final and override Consistently?
 - **override**
 Ensures that a method is actually overriding a virtual method from the base class.
 Helps catch bugs at compile time if the base method signature changes or is misspelled.
-
 **Use override on all overridden methods in derived classes.**
 
 - **final**
@@ -463,3 +462,30 @@ Signals that a class or method is not intended to be extended.
 - Use final when:
 You want to lock down a class (e.g., BinarySearchSquareRoot) because it has no reason to be subclassed.
 You want to prevent overriding of a method in derived classes.
+
+## Use const & noexcept
+
+- When to Use const
+1. Member Functions
+Use const when a member function does not modify the object’s state.
+```cpp
+int calculate(int n) const; // Good: doesn't modify any member variables
+```
+2. Function Parameters
+Use const for:
+    - Pointers or references to objects that shouldn't be modified.
+    - Large objects passed by reference to avoid copying.
+    ```cpp
+    void process(const std::string& name); // avoids copying and protects input
+    ```
+
+- When to Use noexcept
+Use noexcept when a function is **guaranteed not to throw exceptions**. This:
+
+- Helps the compiler optimize
+- Improves code clarity
+- Enables better exception safety guarantees
+```
+int calculate(int n) const noexcept; // Safe: no exceptions thrown
+```
+
