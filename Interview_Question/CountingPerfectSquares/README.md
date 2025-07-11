@@ -485,7 +485,7 @@ Use noexcept when a function is **guaranteed not to throw exceptions**. This:
 - Helps the compiler optimize
 - Improves code clarity
 - Enables better exception safety guarantees
-```
+```cpp
 int calculate(int n) const noexcept; // Safe: no exceptions thrown
 ```
 
