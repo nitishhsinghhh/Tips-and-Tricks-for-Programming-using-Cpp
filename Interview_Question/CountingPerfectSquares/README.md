@@ -323,3 +323,143 @@ int main() {
     return 0;
 }
 ```
+
+Here is the complete modern C++ code, applying the following modern C++ principles:
+
+- Interface-based design
+- Smart pointers (std::unique_ptr)
+- override, final, [[nodiscard]], noexcept
+- Unit test class
+
+```cpp
+#include <iostream>
+#include <cassert>
+#include <memory>
+
+// Interface for square root calculation
+class ISquareRootCalculator {
+public:
+    [[nodiscard]] virtual int calculate(int n) const noexcept = 0;
+    virtual ~ISquareRootCalculator() = default;
+};
+
+// Concrete implementation using binary search
+class BinarySearchSquareRoot final : public ISquareRootCalculator {
+public:
+    [[nodiscard]] int calculate(int n) const noexcept override {
+        if (n == 0 || n == 1) return n;
+        int low = 1, high = n, ans = 0;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (mid <= n / mid) {
+                ans = mid;
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return ans;
+    }
+};
+
+// Class to count perfect squares
+class PerfectSquareCounter final {
+private:
+    std::unique_ptr<ISquareRootCalculator> sqrtCalculator;
+
+public:
+    explicit PerfectSquareCounter(std::unique_ptr<ISquareRootCalculator> calculator)
+        : sqrtCalculator(std::move(calculator)) {}
+
+    [[nodiscard]] int count(int a, int b) const noexcept {
+        int start = sqrtCalculator->calculate(a);
+        if (start * start < a) start++;
+
+        int end = sqrtCalculator->calculate(b);
+        int res = (end - start) + 1;
+        return res > 0 ? res : 0;
+    }
+};
+
+// Unit test class
+class PerfectSquareCounterTests final {
+public:
+    void runAllTests() {
+        testCountInRange();
+        testNoPerfectSquares();
+        testSinglePerfectSquare();
+        testEdgeCases();
+        std::cout << "✅ All unit tests passed!" << std::endl;
+    }
+
+private:
+    class MockSquareRootCalculator final : public ISquareRootCalculator {
+    public:
+        [[nodiscard]] int calculate(int n) const noexcept override {
+            if (n == 4) return 2;
+            if (n == 16) return 4;
+            if (n == 5) return 2;
+            if (n == 15) return 3;
+            if (n == 1) return 1;
+            if (n == 2 || n == 3) return 1;
+            return 0;
+        }
+    };
+
+    void testCountInRange() {
+        auto mock = std::make_unique<MockSquareRootCalculator>();
+        PerfectSquareCounter counter(std::move(mock));
+        assert(counter.count(4, 16) == 3); // 4, 9, 16
+    }
+
+    void testNoPerfectSquares() {
+        auto mock = std::make_unique<MockSquareRootCalculator>();
+        PerfectSquareCounter counter(std::move(mock));
+        assert(counter.count(2, 3) == 0); // none
+    }
+
+    void testSinglePerfectSquare() {
+        auto mock = std::make_unique<MockSquareRootCalculator>();
+        PerfectSquareCounter counter(std::move(mock));
+        assert(counter.count(1, 1) == 1); // only 1
+    }
+
+    void testEdgeCases() {
+        auto mock = std::make_unique<MockSquareRootCalculator>();
+        PerfectSquareCounter counter(std::move(mock));
+        assert(counter.count(5, 15) == 1); // only 9
+    }
+};
+
+// Main function
+int main() {
+    auto sqrtCalc = std::make_unique<BinarySearchSquareRoot>();
+    PerfectSquareCounter counter(std::move(sqrtCalc));
+
+    int a = 4, b = 16;
+    std::cout << "Number of perfect squares between " << a << " and " << b << ": "
+              << counter.count(a, b) << std::endl;
+
+    PerfectSquareCounterTests tests;
+    tests.runAllTests();
+
+    return 0;
+}
+```
+
+ ## Use override and final consistently
+
+Why Use final and override Consistently?
+- **override**
+Ensures that a method is actually overriding a virtual method from the base class.
+Helps catch bugs at compile time if the base method signature changes or is misspelled.
+
+**Use override on all overridden methods in derived classes.**
+
+- **final**
+Prevents further inheritance or overriding.
+Signals that a class or method is not intended to be extended.
+
+- Use final when:
+You want to lock down a class (e.g., BinarySearchSquareRoot) because it has no reason to be subclassed.
+You want to prevent overriding of a method in derived classes.
