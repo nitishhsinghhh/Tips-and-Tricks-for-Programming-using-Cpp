@@ -52,3 +52,40 @@ int main() {
     return 0;
 }
 ```
+To solve the problem of counting perfect squares between two integers a and b without using built-in libraries like <cmath>, we can implement our own versions of sqrt and rounding functions.
+```cpp
+#include <iostream>
+
+// Function to compute integer square root using binary search
+int integerSqrt(int n) {
+    if (n == 0 || n == 1) return n;
+    int low = 1, high = n, ans = 0;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (mid <= n / mid) {
+            ans = mid;
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return ans;
+}
+
+// Function to count perfect squares between a and b
+int squares(int a, int b) {
+    int start = integerSqrt(a);
+    if (start * start < a) start++; // simulate ceil(sqrt(a))
+
+    int end = integerSqrt(b); // simulate floor(sqrt(b))
+
+    int res = (end - start) + 1;
+    return res > 0 ? res : 0;
+}
+
+int main() {
+    int a = 4, b = 16;
+    std::cout << "Number of perfect squares between " << a << " and " << b << ": " << squares(a, b) << std::endl;
+    return 0;
+}
+```
