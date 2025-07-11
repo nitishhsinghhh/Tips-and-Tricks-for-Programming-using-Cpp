@@ -206,3 +206,120 @@ int main() {
     return 0;
 }
 ```
+To incorporate smart pointers into your C++ code, we’ll use std::unique_ptr from the <memory> header. This ensures proper memory management and avoids manual delete calls, aligning with modern C++ best practices.
+
+```cpp
+#include <iostream>
+#include <cassert>
+#include <memory> // For smart pointers
+
+// Interface for square root calculation
+class ISquareRootCalculator {
+public:
+    virtual int calculate(int n) const = 0;
+    virtual ~ISquareRootCalculator() = default;
+};
+
+// Concrete implementation using binary search
+class BinarySearchSquareRoot : public ISquareRootCalculator {
+public:
+    int calculate(int n) const override {
+        if (n == 0 || n == 1) return n;
+        int low = 1, high = n, ans = 0;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (mid <= n / mid) {
+                ans = mid;
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return ans;
+    }
+};
+
+// Class to count perfect squares
+class PerfectSquareCounter {
+private:
+    std::unique_ptr<ISquareRootCalculator> sqrtCalculator;
+
+public:
+    PerfectSquareCounter(std::unique_ptr<ISquareRootCalculator> calculator)
+        : sqrtCalculator(std::move(calculator)) {}
+
+    int count(int a, int b) const {
+        int start = sqrtCalculator->calculate(a);
+        if (start * start < a) start++;
+
+        int end = sqrtCalculator->calculate(b);
+        int res = (end - start) + 1;
+        return res > 0 ? res : 0;
+    }
+};
+
+// Unit test class
+class PerfectSquareCounterTests {
+public:
+    void runAllTests() {
+        testCountInRange();
+        testNoPerfectSquares();
+        testSinglePerfectSquare();
+        testEdgeCases();
+        std::cout << "✅ All unit tests passed!" << std::endl;
+    }
+
+private:
+    class MockSquareRootCalculator : public ISquareRootCalculator {
+    public:
+        int calculate(int n) const override {
+            if (n == 4) return 2;
+            if (n == 16) return 4;
+            if (n == 5) return 2;
+            if (n == 15) return 3;
+            if (n == 1) return 1;
+            if (n == 2 || n == 3) return 1;
+            return 0;
+        }
+    };
+
+    void testCountInRange() {
+        auto mock = std::make_unique<MockSquareRootCalculator>();
+        PerfectSquareCounter counter(std::move(mock));
+        assert(counter.count(4, 16) == 3); // 4, 9, 16
+    }
+
+    void testNoPerfectSquares() {
+        auto mock = std::make_unique<MockSquareRootCalculator>();
+        PerfectSquareCounter counter(std::move(mock));
+        assert(counter.count(2, 3) == 0); // none
+    }
+
+    void testSinglePerfectSquare() {
+        auto mock = std::make_unique<MockSquareRootCalculator>();
+        PerfectSquareCounter counter(std::move(mock));
+        assert(counter.count(1, 1) == 1); // only 1
+    }
+
+    void testEdgeCases() {
+        auto mock = std::make_unique<MockSquareRootCalculator>();
+        PerfectSquareCounter counter(std::move(mock));
+        assert(counter.count(5, 15) == 1); // only 9
+    }
+};
+
+// Main function
+int main() {
+    auto sqrtCalc = std::make_unique<BinarySearchSquareRoot>();
+    PerfectSquareCounter counter(std::move(sqrtCalc));
+
+    int a = 4, b = 16;
+    std::cout << "Number of perfect squares between " << a << " and " << b << ": "
+              << counter.count(a, b) << std::endl;
+
+    PerfectSquareCounterTests tests;
+    tests.runAllTests();
+
+    return 0;
+}
+```
