@@ -45,7 +45,6 @@ int equalizeArray(std::vector<int> arr) {
         frequencyMap[num]++;
         maxFrequency = max(frequencyMap[num], maxFrequency);
     }
-
     return arr.size() - maxFrequency;
 }
 ```
