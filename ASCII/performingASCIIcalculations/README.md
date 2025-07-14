@@ -11,8 +11,8 @@
 
 This project demonstrates a simple C++ application that performs addition of numeric character strings. It includes two versions:
 
-1. **[Basic Version](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/blob/main/ASCII/performingASCIIcalculations/code/codeV1.0.cpp)**: Adds two hardcoded character digits.
-2. **[Extended Version](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/blob/main/ASCII/performingASCIIcalculations/code/codeV1.1.cpp)**: Accepts user input, validates it, and performs addition.
+1. **Basic Version**: Adds two hardcoded character digits.
+2. **Extended Version**: Accepts user input, validates it, and performs addition.
 
 ---
 
