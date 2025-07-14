@@ -11,8 +11,8 @@
 
 This project demonstrates a simple C++ application that performs addition of numeric character strings. It includes two versions:
 
-1. **[Basic Version](/codeV1.0.cpp)**: Adds two hardcoded character digits.
-2. **[Extended Version](/codeV1.1.cpp)**: Accepts user input, validates it, and performs addition.
+1. **[Basic Version](../codeV1.0.cpp)**: Adds two hardcoded character digits.
+2. **[Extended Version](../codeV1.1.cpp)**: Accepts user input, validates it, and performs addition.
 
 ---
 
