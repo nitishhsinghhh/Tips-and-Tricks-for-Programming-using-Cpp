@@ -35,6 +35,16 @@ Handles user interaction by:
 
 ---
 
-## 🧪 Sample Output
+### Valid Input Example
+Enter first input between 0 to 3999, both excluded: 1234
+Enter second input between 0 to 3999, both excluded: 4321
+The sum of 1234 and 4321 is 5555
 
-### ✅ Valid Input
+## Invalid Input Examples
+### Non-numeric input:
+Enter first input between 0 to 3999, both excluded: abc
+Invalid input: abc
+
+### Out-of-range input:
+Enter first input between 0 to 3999, both excluded: 4000
+Invalid input: 4000
