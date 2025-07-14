@@ -1,38 +1,40 @@
-# CharAdder
+# CharAdder Application
 
-## Author
+## 👨‍💻 Author
 **Nitish Singh**  
-📅 **Date:** February 12, 2024  
+📅 **Date:** December 29, 2023  
 📧 **Email:** me.singhnitish@yandex.com
 
 ---
 
-## 📘 Problem Statement
+## 📌 Overview
 
-The `CharAdder` class is designed to add two characters that represent numeric digits. It converts the characters to their integer equivalents and returns their sum.
+This project demonstrates a simple C++ application that performs addition of numeric character strings. It includes two versions:
 
----
-
-## 🛠️ Solution Overview
-
-- The `CharAdder` class accepts two characters as input.
-- It converts these characters to integers using ASCII arithmetic.
-- The `add()` method returns the sum of the two numeric values.
-- The `main` function demonstrates the usage by adding `'3'` and `'7'`.
+1. **[Basic Version](.../code/codeV1.0.cpp)**: Adds two hardcoded character digits.
+2. **[Extended Version](.../code/codeV1.1.cpp)**: Accepts user input, validates it, and performs addition.
 
 ---
 
-## 🧱 Class Structure
+## 🧩 Components
 
-### `CharAdder`
+### 1. `InputValidator`  
+Validates that the input string:
+- Contains only numeric characters.
+- Represents a number between **1 and 3998** (inclusive).
 
-| Member        | Type   | Description                                      |
-|---------------|--------|--------------------------------------------------|
-| `char1`       | `char` | First character input                            |
-| `char2`       | `char` | Second character input                           |
-| `CharAdder()` | ctor   | Parameterized constructor to initialize members  |
-| `add()`       | `int`  | Returns the sum of `char1` and `char2` as ints   |
+### 2. `CharAdder`  
+Adds two numeric strings by:
+- Converting each character to its integer value.
+- Summing the resulting integers.
 
-**Constructor Explanation:**
-```cpp
-CharAdder(char c1, char c2) : char1(c1), char2(c2) {}
+### 3. `UserInput`  
+Handles user interaction by:
+- Prompting the user for input.
+- Returning the entered string.
+
+---
+
+## 🧪 Sample Output
+
+### ✅ Valid Input
