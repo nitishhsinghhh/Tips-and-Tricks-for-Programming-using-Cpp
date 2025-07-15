@@ -68,7 +68,7 @@ int main() {
     return 0;
 }
 ```
-### Let's further imrpove upon this
+### Let's further improve upon this
 ```cpp
 #include <iostream>
 #include <string>
