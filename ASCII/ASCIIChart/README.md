@@ -4,6 +4,39 @@ The following chart contains all 128 ASCII decimal (dec), octal (oct), hexadecim
 
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/assets/93253740/f257abee-7cc9-4038-b2ab-61c59c202745)
 
+## What the Chart Shows
+The chart is organized into four columns per row, and each column contains:
+
+- dec: Decimal value (base 10)
+- oct: Octal value (base 8)
+- hex: Hexadecimal value (base 16)
+- ch: Character (symbol or control code)
+Each row shows four such entries, so you can see all 128 ASCII codes from 0 to 127.
+
+## Types of Characters in ASCII
+
+###  Control Characters (0–31 and 127)
+These are non-printable characters used for control in text streams:
+
+- 0 (NUL): Null
+- 7 (BEL): Bell (triggers a beep)
+- 8 (BS): Backspace
+- 9 (HT): Horizontal Tab
+- 10 (LF): Line Feed (newline)
+- 13 (CR): Carriage Return
+- 27 (ESC): Escape
+- 127 (DEL): Delete
+These are useful in low-level programming, terminal control, and communication protocols.
+
+### . Printable Characters (32–126)
+These include:
+
+- Space (32)
+- Digits: 48–57 → '0' to '9'
+- Uppercase letters: 65–90 → 'A' to 'Z'
+- Lowercase letters: 97–122 → 'a' to 'z'
+- Symbols: 33–47, 58–64, 91–96, 123–126 → like !, @, [, }, etc.
+
 ```CPP
 // GCC 13.1: C++ 23
 #include <iostream>
