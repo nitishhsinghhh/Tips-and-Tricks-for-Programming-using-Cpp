@@ -7,10 +7,37 @@ The following chart contains all 128 ASCII decimal (dec), octal (oct), hexadecim
 ## What the Chart Shows
 The chart is organized into four columns per row, and each column contains:
 
-- dec: Decimal value (base 10)
-- oct: Octal value (base 8)
-- hex: Hexadecimal value (base 16)
-- ch: Character (symbol or control code)
+### 1. Decimal (`dec`)
+- **Base 10** number system (0–9)
+- This is the standard numbering system used in everyday life.
+- Example: `65` in decimal represents the character `'A'`.
+
+### 2. Octal (`oct`)
+- **Base 8** number system (0–7)
+- Commonly used in older computing systems and Unix file permissions.
+- Example: `101` in octal is equal to `65` in decimal, which is `'A'` in ASCII.
+
+### 3. Hexadecimal (`hex`)
+- **Base 16** number system (0–9 and A–F)
+- Widely used in programming and debugging due to its compact binary representation.
+- Example: `41` in hexadecimal is equal to `65` in decimal, which is `'A'` in ASCII.
+
+Conversion Example
+
+| Format      | Value | ASCII Character |
+|-------------|-------|-----------------|
+| Decimal     | 65    | `'A'`           |
+| Octal       | 101   | `'A'`           |
+| Hexadecimal | 41    | `'A'`           |
+
+### 🧠 Why It Matters
+Understanding these formats is essential for:
+- Debugging memory and binary data
+- Working with low-level system code
+- Encoding and decoding data
+- Interpreting ASCII tables and character sets
+
+### ch: Character (symbol or control code)
 Each row shows four such entries, so you can see all 128 ASCII codes from 0 to 127.
 
 ## Types of Characters in ASCII
