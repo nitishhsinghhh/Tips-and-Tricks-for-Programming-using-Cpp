@@ -3,14 +3,20 @@
 ```cpp
 #include <iostream>
 
-void main() {
-	int number = -100;
-	if (number < 0)
-		std::cout << "The given number is negative." << std::endl;
-	else
-		std::cout << "The given number is positive." << std::endl;
+/**
+ * @brief Main function to check if a number is positive or negative.
+ * 
+ * @return int Returns 0 upon successful execution.
+ */
+int main() {
+    int number = -100;
 
-	system("pause");
+    if (number < 0)
+        std::cout << "The given number is negative." << std::endl;
+    else
+        std::cout << "The given number is positive." << std::endl;
+
+    return 0;
 }
 ```
 
@@ -18,16 +24,22 @@ void main() {
 ```cpp
 #include <iostream>
 
-void main() {
-	int number;
-	std::cout << "Please give the number to be tested." << std::endl;
-	std::cin >> number;
-	if (number < 0)
-		std::cout << "The given number is negative." << std::endl;
-	else
-		std::cout << "The given number is positive." << std::endl;
+/**
+ * @brief Main function to check if a number is positive or negative.
+ * 
+ * @return int Returns 0 upon successful execution.
+ */
+int main() {
+    int number;
+    std::cout << "Please give the number to be tested." << std::endl;
+    std::cin >> number;
 
-	system("pause");
+    if (number < 0)
+        std::cout << "The given number is negative." << std::endl;
+    else
+        std::cout << "The given number is positive." << std::endl;
+
+    return 0;
 }
 ```
 
@@ -36,19 +48,24 @@ void main() {
 #include <iostream>
 #include <string>
 
-void main() {
-	int number;
-	std::cout << "Please give the number to be tested." << std::endl;
-	std::cin >> number;
-	std::string boolVal = "";
-	(number % 2 == 0) ? boolVal = "even" : boolVal = "odd";
+/**
+ * @brief Main function to check if a number is even or odd and positive or negative.
+ * 
+ * @return int Returns 0 upon successful execution.
+ */
+int main() {
+    int number;
+    std::cout << "Please give the number to be tested." << std::endl;
+    std::cin >> number;
 
-	if (number < 0)
-		std::cout << "The given number is negative and is " << boolVal << " number." << std::endl;
-	else
-		std::cout << "The given number is positive and is " << boolVal << " number." << std::endl;
+    std::string boolVal = (number % 2 == 0) ? "even" : "odd";
 
-	system("pause");
+    if (number < 0)
+        std::cout << "The given number is negative and is " << boolVal << " number." << std::endl;
+    else
+        std::cout << "The given number is positive and is " << boolVal << " number." << std::endl;
+
+    return 0;
 }
 ```
 ### Let's further imrpove upon this
@@ -56,19 +73,28 @@ void main() {
 #include <iostream>
 #include <string>
 
-void main() {
-	int number;
-	std::cout << "Please give the number to be tested." << std::endl;
-	std::cin >> number;
-	std::string res = "";
-	std::string boolVal = "";	
-	if (number < 0)
-		res = res.append("The given number is negative and is ");
-	else
-		res = res.append("The given number is positive and is ");
-	(number % 2 == 0) ? res.append("even.") : res.append("odd.");
-	std::cout << res << std::endl;
-	system("pause");
+/**
+ * @brief Main function to check if a number is positive/negative and even/odd.
+ * 
+ * @return int Returns 0 upon successful execution.
+ */
+int main() {
+    int number;
+    std::cout << "Please give the number to be tested." << std::endl;
+    std::cin >> number;
+
+    std::string res;
+
+    if (number < 0)
+        res.append("The given number is negative and is ");
+    else
+        res.append("The given number is positive and is ");
+
+    res.append((number % 2 == 0) ? "even." : "odd.");
+
+    std::cout << res << std::endl;
+
+    return 0;
 }
 ```
 
@@ -81,20 +107,25 @@ void main() {
 #include <iostream>
 #include <string>
 
-// Function to determine if a number is even or odd using the ternary operator
+/**
+ * @brief Determines if a number is even or odd.
+ * 
+ * @param num The integer number to check.
+ * @return std::string "Even" if the number is even, otherwise "Odd".
+ */
 std::string checkEvenOdd(int num) {
-	return (num % 2 == 0) ? "Even" : "Odd";
+    return (num % 2 == 0) ? "Even" : "Odd";
 }
 
 int main() {
-	int number = 7;
+    int number = 7;
 
-	// Call the function and return the result using the ternary operator
-	std::string result = checkEvenOdd(number);
+    // Call the function and return the result using the ternary operator
+    std::string result = checkEvenOdd(number);
 
-	std::cout << "The number " << number << " is " << result << "." << std::endl;
+    std::cout << "The number " << number << " is " << result << "." << std::endl;
 
-	return 0;
+    return 0;
 }
 ```
 
@@ -103,52 +134,79 @@ int main() {
 #include <iostream>
 #include <string>
 
-// Function to determine if a number is even or odd using the ternary operator
+/**
+ * @brief Determines if a number is even or odd.
+ * 
+ * @param num The integer number to check.
+ * @return std::string "Even" if the number is even, otherwise "Odd".
+ */
 std::string checkEvenOdd(int num) {
-	return (num % 2 == 0) ? "Even" : "Odd";
+    return (num % 2 == 0) ? "Even" : "Odd";
 }
 
+/**
+ * @brief Main function to take user input and display whether the number is even or odd.
+ * 
+ * @return int Returns 0 upon successful execution.
+ */
 int main() {
-	int number;
+    int number;
 
-	std::cout << "Please enter the number." << std::endl;
-	std::cin >> number;
+    std::cout << "Please enter the number: ";
+    std::cin >> number;
 
-	// Call the function and return the result using the ternary operator
-	std::string result = checkEvenOdd(number);
+    std::string result = checkEvenOdd(number);
 
-	std::cout << "The number " << number << " is " << result << "." << std::endl;
+    std::cout << "The number " << number << " is " << result << "." << std::endl;
 
-	return 0;
+    return 0;
 }
 ```
 - Let's include OOP
 ```cpp
-class Solution
-{
-public:
-	Solution(int num) : _num(num) {}	// Constrctor
+#include <iostream>
+#include <string>
 
-	// Function to determine if a number is even or odd using the ternary operator
-	std::string checkEvenOdd() {
-		return (_num % 2 == 0) ? "Even" : "Odd";
-	}
+/**
+ * @class Solution
+ * @brief A class to determine if a number is even or odd.
+ */
+class Solution {
+public:
+    /**
+     * @brief Constructor to initialize the number.
+     * @param num The integer number to be checked.
+     */
+    Solution(int num) : _num(num) {}
+
+    /**
+     * @brief Checks whether the number is even or odd.
+     * @return A string "Even" if the number is even, otherwise "Odd".
+     */
+    std::string checkEvenOdd() {
+        return (_num % 2 == 0) ? "Even" : "Odd";
+    }
+
 private:
-	int _num;
+    int _num;  ///< The number to be checked.
 };
 
+/**
+ * @brief Main function to take user input and display whether the number is even or odd.
+ * @return 0 on successful execution.
+ */
 int main() {
-	int number;
+    int number;
 
-	std::cout << "Please enter the number." << std::endl;
-	std::cin >> number;
+    std::cout << "Please enter the number: ";
+    std::cin >> number;
 
-	Solution oSolution(number);
-	// Call the function and return the result using the ternary operator
-	std::string result = oSolution.checkEvenOdd();
-	std::cout << "The number " << number << " is " << result << "." << std::endl;
+    Solution oSolution(number);
+    std::string result = oSolution.checkEvenOdd();
 
-	return 0;
+    std::cout << "The number " << number << " is " << result << "." << std::endl;
+
+    return 0;
 }
 ```
 ### Using Copy Constructor
@@ -156,37 +214,52 @@ int main() {
 #include <iostream>
 #include <string>
 
+/**
+ * @class Solution
+ * @brief A class to determine if a number is even or odd.
+ */
 class Solution {
 public:
-	Solution(const int& num) : _num(num) {} // Constructor
-	Solution(const Solution& other) : _num(other._num) {}
+    /**
+     * @brief Constructor to initialize the number.
+     * @param num The integer to be evaluated.
+     */
+    Solution(const int& num) : _num(num) {}
 
-	// Function to determine if a number is even or odd using the ternary
-	// operator
-	std::string checkEvenOdd() { return (_num % 2 == 0) ? "Even" : "Odd"; }
+    /**
+     * @brief Copy constructor.
+     * @param other Another Solution object to copy from.
+     */
+    Solution(const Solution& other) : _num(other._num) {}
+
+    /**
+     * @brief Checks whether the number is even or odd.
+     * @return A string "Even" if the number is even, otherwise "Odd".
+     */
+    std::string checkEvenOdd() {
+        return (_num % 2 == 0) ? "Even" : "Odd";
+    }
 
 private:
-	int _num;
+    int _num; ///< The number to be evaluated.
 };
 
 int main() {
-	int number;
+    int number;
 
-	std::cout << "Please enter the number." << std::endl;
-	std::cin >> number;
+    std::cout << "Please enter the number: ";
+    std::cin >> number;
 
-	Solution oSolution(number);
-	Solution oSolution1 = oSolution; // Using the copy constructor
+    Solution oSolution(number);
+    Solution oSolution1 = oSolution; // Using the copy constructor
 
-	std::string result = oSolution1.checkEvenOdd();
-	std::cout << "The number " << number << " is " << result << "."
-		<< std::endl;
+    std::string result = oSolution1.checkEvenOdd();
+    std::cout << "The number " << number << " is " << result << "." << std::endl;
 
-	result = oSolution.checkEvenOdd();
-	std::cout << "The number " << number << " is " << result << "."
-		<< std::endl;
+    result = oSolution.checkEvenOdd();
+    std::cout << "The number " << number << " is " << result << "." << std::endl;
 
-	return 0;
+    return 0;
 }
 ```
 ### Positive, Negative and Even Odd fucntion
@@ -194,47 +267,67 @@ int main() {
 #include <iostream>
 #include <string>
 
+/**
+ * @class Solution
+ * @brief A class to evaluate properties of an integer such as even/odd and sign.
+ */
 class Solution {
 public:
-	Solution(const int& num) : _num(num) {} // Constructor
-	Solution(const Solution& other) : _num(other._num) {}
+    /**
+     * @brief Constructor to initialize the number.
+     * @param num The integer to be evaluated.
+     */
+    Solution(const int& num) : _num(num) {}
 
-	// Function to determine if a number is even or odd using the ternary operator
-	std::string checkEvenOdd() { return (_num % 2 == 0) ? "Even" : "Odd"; }
+    /**
+     * @brief Copy constructor.
+     * @param other Another Solution object to copy from.
+     */
+    Solution(const Solution& other) : _num(other._num) {}
 
-	// Function to check if the number is positive, negative, or zero
-	std::string checkPositiveNegativeZero() {
-		if (_num > 0) 
-			return "Positive";
-		else if (_num < 0) 
-			return "Negative";
-		else 
-			return "Zero";
-	}
+    /**
+     * @brief Checks whether the number is even or odd.
+     * @return A string "Even" if the number is even, otherwise "Odd".
+     */
+    std::string checkEvenOdd() {
+        return (_num % 2 == 0) ? "Even" : "Odd";
+    }
+
+    /**
+     * @brief Determines if the number is positive, negative, or zero.
+     * @return A string "Positive", "Negative", or "Zero" based on the number's value.
+     */
+    std::string checkPositiveNegativeZero() {
+        if (_num > 0)
+            return "Positive";
+        else if (_num < 0)
+            return "Negative";
+        else
+            return "Zero";
+    }
 
 private:
-	int _num;
+    int _num; ///< The number to be evaluated.
 };
 
 int main() {
-	int number;
+    int number;
 
-	std::cout << "Please enter the number." << std::endl;
-	std::cin >> number;
+    std::cout << "Please enter the number." << std::endl;
+    std::cin >> number;
 
-	Solution oSolution(number);
-	Solution oSolution1 = oSolution; // Using the copy constructor
+    Solution oSolution(number);
+    Solution oSolution1 = oSolution; // Using the copy constructor
 
-	std::string var;
-	std::string result = oSolution1.checkEvenOdd();
-	std::cout << "The number " << number << " is " << result << "." << std::endl;
+    std::string result = oSolution1.checkEvenOdd();
+    std::cout << "The number " << number << " is " << result << "." << std::endl;
 
-	result = oSolution.checkEvenOdd();
-	std::cout << "The number " << number << " is " << result << "." << std::endl;
+    result = oSolution.checkEvenOdd();
+    std::cout << "The number " << number << " is " << result << "." << std::endl;
 
-	std::string posNegZero = oSolution.checkPositiveNegativeZero();
-	std::cout << "The number " << number << " is " << posNegZero << "." << std::endl;
+    std::string posNegZero = oSolution.checkPositiveNegativeZero();
+    std::cout << "The number " << number << " is " << posNegZero << "." << std::endl;
 
-	return 0;
+    return 0;
 }
 ```
