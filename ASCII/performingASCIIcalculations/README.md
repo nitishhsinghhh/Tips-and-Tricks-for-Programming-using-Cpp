@@ -1,8 +1,9 @@
 # CharAdder Application
 
-## 👨‍💻 Author
+## Author
 **Nitish Singh** 
-**Email:** me.singhnitish@yandex.com
+**Email:** 
+**me.singhnitish@yandex.com**
 
 ---
 
