@@ -58,6 +58,23 @@ Contributions to this repository are welcome! If you'd like to contribute, pleas
 - Problem Solving
 - Projects Ideas
 
+## Code Documentation Style: Doxygen
+This repository follows **Doxygen-style comments** to document all major classes, functions, and modules. Doxygen is a powerful tool that generates structured documentation from annotated C++ source code, making it easier for developers to understand and contribute to the project.
+
+---
+### 📌 Commonly Used Doxygen Tags
+
+| Tag        | Description |
+|------------|-------------|
+| `@brief`   | A short summary of the function/class/module. |
+| `@details` | A more detailed explanation, if needed. |
+| `@param`   | Describes each parameter of a function. |
+| `@return`  | Describes the return value of a function. |
+| `@note`    | Additional notes or important information. |
+| `@warning` | Highlights potential issues or important caveats. |
+| `@see`     | References to related functions or documentation. |
+---
+
 
 ## Please help by giving a star
 
