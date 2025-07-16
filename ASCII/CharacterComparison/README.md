@@ -1,7 +1,7 @@
 
 # Character Comparison Using ASCII in C++
 
-## 🧠 Concept
+## Concept
 
 In C++, characters are internally represented by their **ASCII values**. This means you can compare characters using relational operators (`<`, `>`, `==`, etc.) just like numbers.
 
@@ -19,7 +19,7 @@ This is useful in:
 
 ---
 
-## ✅ Example Program: Compare Two Characters
+## Compare Two Characters
 
 ```cpp
 /**
@@ -131,3 +131,150 @@ int main() {
 }
 
 ```
+# C++ Program: Case Check, Letter Match, and Alphabetical Order
+```cpp
+/**
+ * @file CaseInsensitiveCharCompare.cpp
+ * @brief Compares two alphabetic characters case-insensitively using SOLID principles.
+ * @date May 3, 2024
+ * @author 
+ * Nitish Singh
+ */
+
+#include <iostream>
+#include <cctype>
+#include <string>
+
+/**
+ * @interface IValidator
+ * @brief Interface for validating character input.
+ */
+class IValidator {
+public:
+    virtual bool isValid(char ch) const = 0;
+    virtual ~IValidator() = default;
+};
+
+/**
+ * @class AlphaValidator
+ * @brief Validates if a character is an alphabetic letter.
+ */
+class AlphaValidator : public IValidator {
+public:
+    bool isValid(char ch) const override {
+        return std::isalpha(static_cast<unsigned char>(ch));
+    }
+};
+
+/**
+ * @interface IComparer
+ * @brief Interface for comparing two characters.
+ */
+class IComparer {
+public:
+    virtual void compare(char ch1, char ch2) const = 0;
+    virtual ~IComparer() = default;
+};
+
+/**
+ * @interface IPrinter
+ * @brief Interface for printing character information.
+ */
+class IPrinter {
+public:
+    virtual void printCase(char ch) const = 0;
+    virtual void printMatch(bool match) const = 0;
+    virtual void printOrder(char ch1, char ch2) const = 0;
+    virtual void printError() const = 0;
+    virtual ~IPrinter() = default;
+};
+
+/**
+ * @class ConsolePrinter
+ * @brief Prints character details and comparison results to the console.
+ */
+class ConsolePrinter : public IPrinter {
+public:
+    void printCase(char ch) const override {
+        std::cout << "Character '" << ch << "' is "
+                  << (std::isupper(ch) ? "uppercase" : "lowercase") << ".\n";
+    }
+
+    void printMatch(bool match) const override {
+        if (match)
+            std::cout << "Both characters represent the same letter (case-insensitive).\n";
+        else
+            std::cout << "The characters are different letters.\n";
+    }
+
+    void printOrder(char ch1, char ch2) const override {
+        if (std::tolower(ch1) < std::tolower(ch2))
+            std::cout << "'" << ch2 << "' comes after '" << ch1 << "' in the alphabet.\n";
+        else
+            std::cout << "'" << ch2 << "' comes before '" << ch1 << "' in the alphabet.\n";
+    }
+
+    void printError() const override {
+        std::cout << "Both inputs must be alphabetic letters.\n";
+    }
+};
+
+/**
+ * @class CaseInsensitiveComparer
+ * @brief Compares two characters ignoring case and delegates output.
+ */
+class CaseInsensitiveComparer : public IComparer {
+private:
+    const IValidator& validator;
+    const IPrinter& printer;
+
+public:
+    CaseInsensitiveComparer(const IValidator& val, const IPrinter& prn)
+        : validator(val), printer(prn) {}
+
+    void compare(char ch1, char ch2) const override {
+        if (!validator.isValid(ch1) || !validator.isValid(ch2)) {
+            printer.printError();
+            return;
+        }
+
+        printer.printCase(ch1);
+        printer.printCase(ch2);
+
+        bool match = std::tolower(ch1) == std::tolower(ch2);
+        printer.printMatch(match);
+
+        if (!match) {
+            printer.printOrder(ch1, ch2);
+        }
+    }
+};
+
+/**
+ * @brief Main function to run the character comparison.
+ * @return int Exit status.
+ */
+int main() {
+    char ch1, ch2;
+
+    std::cout << "Enter first character: ";
+    std::cin >> ch1;
+
+    std::cout << "Enter second character: ";
+    std::cin >> ch2;
+
+    AlphaValidator validator;
+    ConsolePrinter printer;
+    CaseInsensitiveComparer comparer(validator, printer);
+
+    comparer.compare(ch1, ch2);
+
+    return 0;
+}
+
+```
+## Applications
+- Sorting strings (e.g., dictionary order)
+- Case-sensitive filters
+- Custom character-based logic in games or parsers\
+- Comparing user input for validation
