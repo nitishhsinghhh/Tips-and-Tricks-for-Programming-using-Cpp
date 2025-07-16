@@ -59,7 +59,7 @@ Contributions to this repository are welcome! If you'd like to contribute, pleas
 - Projects Ideas
 
 ## Code Documentation Style: Doxygen
-This repository follows **Doxygen-style comments** to document all major classes, functions, and modules. Doxygen is a powerful tool that generates structured documentation from annotated C++ source code, making it easier for developers to understand and contribute to the project.
+This repository follows **[Doxygen-style comments](https://www.doxygen.nl/manual/docblocks.html)** to document all major classes, functions, and modules. Doxygen is a powerful tool that generates structured documentation from annotated C++ source code, making it easier for developers to understand and contribute to the project.
 
 ---
 ### 📌 Commonly Used Doxygen Tags
