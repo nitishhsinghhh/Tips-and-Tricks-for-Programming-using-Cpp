@@ -118,3 +118,9 @@ int main() {
     return 0;
 }
 ```
+
+## Real-World Applications:
+- Game development: Detecting key presses for movement (WASD, arrows).
+- Terminal tools: Handling shortcuts like Ctrl+C, Enter, Backspace.
+- Custom input systems: Building your own text editor or command shell.
+- Accessibility tools: Mapping keys to actions for users with special needs.
