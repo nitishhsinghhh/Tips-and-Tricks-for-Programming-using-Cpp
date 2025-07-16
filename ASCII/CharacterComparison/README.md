@@ -133,17 +133,7 @@ int main() {
 ```
 # C++ Program: Case Check, Letter Match, and Alphabetical Order
 ```cpp
-/**
- * @file CaseInsensitiveCharCompare.cpp
- * @brief Compares two alphabetic characters case-insensitively using SOLID principles.
- * @date May 3, 2024
- * @author 
- * Nitish Singh
- */
-
 #include <iostream>
-#include <cctype>
-#include <string>
 
 /**
  * @interface IValidator
@@ -157,23 +147,13 @@ public:
 
 /**
  * @class AlphaValidator
- * @brief Validates if a character is an alphabetic letter.
+ * @brief Validates if a character is an alphabetic letter (A-Z or a-z).
  */
 class AlphaValidator : public IValidator {
 public:
     bool isValid(char ch) const override {
-        return std::isalpha(static_cast<unsigned char>(ch));
+        return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z');
     }
-};
-
-/**
- * @interface IComparer
- * @brief Interface for comparing two characters.
- */
-class IComparer {
-public:
-    virtual void compare(char ch1, char ch2) const = 0;
-    virtual ~IComparer() = default;
 };
 
 /**
@@ -197,7 +177,7 @@ class ConsolePrinter : public IPrinter {
 public:
     void printCase(char ch) const override {
         std::cout << "Character '" << ch << "' is "
-                  << (std::isupper(ch) ? "uppercase" : "lowercase") << ".\n";
+                  << ((ch >= 'A' && ch <= 'Z') ? "uppercase" : "lowercase") << ".\n";
     }
 
     void printMatch(bool match) const override {
@@ -208,7 +188,10 @@ public:
     }
 
     void printOrder(char ch1, char ch2) const override {
-        if (std::tolower(ch1) < std::tolower(ch2))
+        char lower1 = toLower(ch1);
+        char lower2 = toLower(ch2);
+
+        if (lower1 < lower2)
             std::cout << "'" << ch2 << "' comes after '" << ch1 << "' in the alphabet.\n";
         else
             std::cout << "'" << ch2 << "' comes before '" << ch1 << "' in the alphabet.\n";
@@ -217,6 +200,21 @@ public:
     void printError() const override {
         std::cout << "Both inputs must be alphabetic letters.\n";
     }
+
+private:
+    char toLower(char ch) const {
+        return (ch >= 'A' && ch <= 'Z') ? (ch + 32) : ch;
+    }
+};
+
+/**
+ * @interface IComparer
+ * @brief Interface for comparing two characters.
+ */
+class IComparer {
+public:
+    virtual void compare(char ch1, char ch2) const = 0;
+    virtual ~IComparer() = default;
 };
 
 /**
@@ -227,6 +225,10 @@ class CaseInsensitiveComparer : public IComparer {
 private:
     const IValidator& validator;
     const IPrinter& printer;
+
+    char toLower(char ch) const {
+        return (ch >= 'A' && ch <= 'Z') ? (ch + 32) : ch;
+    }
 
 public:
     CaseInsensitiveComparer(const IValidator& val, const IPrinter& prn)
@@ -241,7 +243,7 @@ public:
         printer.printCase(ch1);
         printer.printCase(ch2);
 
-        bool match = std::tolower(ch1) == std::tolower(ch2);
+        bool match = toLower(ch1) == toLower(ch2);
         printer.printMatch(match);
 
         if (!match) {
@@ -271,7 +273,6 @@ int main() {
 
     return 0;
 }
-
 ```
 ## Applications
 - Sorting strings (e.g., dictionary order)
