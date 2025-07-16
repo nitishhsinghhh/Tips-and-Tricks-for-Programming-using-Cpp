@@ -111,7 +111,7 @@ int main() {
 
 # Sorting and Converting Strings with Overflow Handling
 
-```cpp/**
+```cpp
  * @file StringSortAndCompare.cpp
  * @author Nitish Singh
  * @brief Sorts and converts two strings to integers, then outputs the smallest and largest.
@@ -254,7 +254,7 @@ int main() {
 
 # Full User Input with Long Integer Support
 
-```cpp/**
+```cpp
  * @file StringToLongConverter.cpp
  * @author Nitish Singh
  * @brief Converts two input strings to long integers and determines the smallest and largest.
