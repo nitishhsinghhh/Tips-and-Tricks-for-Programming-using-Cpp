@@ -15,33 +15,33 @@ This project demonstrates a simple C++ application that performs addition of num
 /**
  * @file CharAdder.cpp
  * @author Nitish Singh
- * @brief Adds two numeric characters and outputs their sum.
+ * @brief A simple program to add two numeric characters.
  * @details
- * This program demonstrates a simple class `CharAdder` that takes two characters
- * representing digits ('0' to '9'), converts them to integers, adds them, and
- * displays the result. The program assumes valid numeric character input.
- *
- * @email me.singhnitish@yandex.com
+ * This program defines a class `CharAdder` that takes two characters as input,
+ * converts them to integers assuming they represent digits, and returns their sum.
+ * The main function demonstrates the usage of this class.
  */
 
 #include <iostream>
 
 /**
  * @class CharAdder
- * @brief Adds two character digits by converting them to integers.
+ * @brief A class to add two numeric characters.
+ *
+ * This class takes two characters representing digits ('0' to '9') and adds their integer values.
  */
 class CharAdder {
 public:
     /**
-     * @brief Constructor to initialize the two characters.
-     * @param c1 First character digit.
-     * @param c2 Second character digit.
+     * @brief Constructor to initialize the characters.
+     * @param c1 First character.
+     * @param c2 Second character.
      */
     CharAdder(char c1, char c2) : char1(c1), char2(c2) {}
 
     /**
      * @brief Adds the numeric values of the two characters.
-     * @return The integer sum of the two characters.
+     * @return Sum of the numeric values.
      */
     int add() {
         int num1 = char1 - '0';
@@ -50,13 +50,13 @@ public:
     }
 
 private:
-    char char1; ///< First character digit
-    char char2; ///< Second character digit
+    char char1; ///< First character
+    char char2; ///< Second character
 };
 
 /**
- * @brief Main function to demonstrate the CharAdder class.
- * @return int Exit status.
+ * @brief Main function demonstrating the use of CharAdder.
+ * @return Exit status.
  */
 int main() {
     char c1 = '3', c2 = '7';
@@ -69,23 +69,17 @@ int main() {
 ```
 2. **Extended Version (v1.1)**: Accepts user input, validates it, and performs addition
 ```cpp
-/*
 /**
- * @file CharAdderApp.cpp
+ * @file InputAdder.cpp
  * @author Nitish Singh
  * @date December 29, 2023
- * @brief Validates user input, adds two character strings, and outputs the sum.
+ * @brief A program to validate and add two numeric character strings.
+ * 
  * @details
  * This program demonstrates a simple application that:
- * - Validates user input using the InputValidator class.
- * - Adds two numeric strings using the CharAdder class.
- * - Handles user interaction via the UserInput class.
- * 
- * The program ensures that both inputs are numeric and within the range [1, 3998].
- * It then converts the strings to integers and prints their sum.
- * 
- * @note Roman numeral support is not included.
- * @email me.singhnitish@yandex.com
+ * - Validates user input to ensure it is numeric and within the range [1, 3998]
+ * - Adds two validated numeric strings
+ * - Outputs the result
  */
 
 #include <iostream>
@@ -93,7 +87,7 @@ int main() {
 
 /**
  * @class InputValidator
- * @brief Validates if a string contains only digits and is within the range [1, 3998].
+ * @brief Validates that a string contains only digits and is within a specific numeric range.
  */
 class InputValidator {
 public:
@@ -105,7 +99,7 @@ public:
 
     /**
      * @brief Validates the input string.
-     * @return true if the string is numeric and within range, false otherwise.
+     * @return true if the string is numeric and between 1 and 3998, false otherwise.
      */
     bool validate() {
         if (input_str.empty())
@@ -126,7 +120,7 @@ private:
 
 /**
  * @class CharAdder
- * @brief Adds two numeric strings after converting them to integers.
+ * @brief Adds two numeric strings by converting them to integers.
  */
 class CharAdder {
 public:
@@ -151,8 +145,7 @@ public:
     }
 
 private:
-    std::string char1; ///< First numeric string
-    std::string char2; ///< Second numeric string
+    std::string char1, char2; ///< The two numeric strings
 };
 
 /**
@@ -162,48 +155,8 @@ private:
 class UserInput {
 public:
     /**
-     * @brief Prompts the user and reads input.
-     * @param message The message to display to the user.
-     * @return The input string entered by the user.
-     */
-    std::string getInput(std::string message) {
-        std::string input;
-        std::cout << message;
-        std::cin >> input;
-        return input;
-    }
-};
-
-/**
- * @brief Main function to run the program.
- * @return int Exit status.
- */
-int main() {
-    UserInput userInput;
-
-    std::string input_str1 = userInput.getInput("Enter first input between 0 to 3999, both excluded: ");
-    InputValidator inputValidator1(input_str1);
-    if (!inputValidator1.validate()) {
-        std::cout << "Invalid input: " << input_str1 << std::endl;
-        system("pause");
-        return -1;
-    }
-
-    std::string input_str2 = userInput.getInput("Enter second input between 0 to 3999, both excluded: ");
-    InputValidator inputValidator2(input_str2);
-    if (!inputValidator2.validate()) {
-        std::cout << "Invalid input: " << input_str2 << std::endl;
-        system("pause");
-        return -1;
-    }
-
-    CharAdder adder(input_str1, input_str2);
-    int sum = adder.add();
-    std::cout << "The sum of " << input_str1 << " and " << input_str2 << " is " << sum << std::endl;
-
-    system("pause");
-    return 0;
-}
+     * @brief Prompts the user and retrieves input.
+     * @param message
 ```
 ---
 
