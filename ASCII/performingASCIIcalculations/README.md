@@ -72,6 +72,7 @@ int main() {
 /**
  * @file InputAdder.cpp
  * @author Nitish Singh
+ * @date December 29, 2023
  * @brief A program to validate and add two numeric character strings.
  * 
  * @details
@@ -155,7 +156,47 @@ class UserInput {
 public:
     /**
      * @brief Prompts the user and retrieves input.
-     * @param message
+     * @param message The prompt message.
+     * @return The user input as a string.
+     */
+    std::string getInput(std::string message) {
+        std::string input;
+        std::cout << message;
+        std::cin >> input;
+        return input;
+    }
+};
+
+/**
+ * @brief Main function to run the input validation and addition program.
+ * @return Exit status.
+ */
+int main() {
+    UserInput userInput;
+
+    std::string input_str1 = userInput.getInput("Enter first input between 0 to 3999, both excluded: ");
+    InputValidator inputValidator1(input_str1);
+    if (!inputValidator1.validate()) {
+        std::cout << "Invalid input: " << input_str1 << std::endl;
+        system("pause");
+        return -1;
+    }
+
+    std::string input_str2 = userInput.getInput("Enter second input between 0 to 3999, both excluded: ");
+    InputValidator inputValidator2(input_str2);
+    if (!inputValidator2.validate()) {
+        std::cout << "Invalid input: " << input_str2 << std::endl;
+        system("pause");
+        return -1;
+    }
+
+    CharAdder adder(input_str1, input_str2);
+    int sum = adder.add();
+    std::cout << "The sum of " << input_str1 << " and " << input_str2 << " is " << sum << std::endl;
+
+    system("pause");
+    return 0;
+}
 ```
 ---
 
