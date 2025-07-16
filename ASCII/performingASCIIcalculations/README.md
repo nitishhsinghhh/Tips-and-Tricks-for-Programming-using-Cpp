@@ -72,7 +72,6 @@ int main() {
 /**
  * @file InputAdder.cpp
  * @author Nitish Singh
- * @date December 29, 2023
  * @brief A program to validate and add two numeric character strings.
  * 
  * @details
