@@ -1,9 +1,7 @@
 # CharAdder Application
 
-## Author
-**Nitish Singh** 
-**Email:** 
-**me.singhnitish@yandex.com**
+**Author: Nitish Singh** <br>
+**Email: me.singhnitish@yandex.com**
 
 ---
 
