@@ -1,7 +1,13 @@
 # ASCII (American Standard Code for Information Interchange)
 ASCII (American Standard Code for Information Interchange) is the most common character encoding format for text data in computers and on the internet. In standard ASCII-encoded data, there are unique values for 128 alphabetic, numeric or special additional characters and control codes. ASCII, a standard data-encoding format for electronic communication between computers. ASCII assigns standard numeric values to letters, numerals, punctuation marks, and other characters used in computers.
 
+## ASCII: The Language That Taught Computers to Talk
+Imagine a time when computers couldn’t understand each other—each one speaking its own private language. That was the world before ASCII (American Standard Code for Information Interchange) came along. Introduced in the early days of computing, ASCII became the universal translator, allowing machines to communicate using a shared set of characters.
+
+At its core, ASCII is a clever system that assigns a unique number to each letter, digit, punctuation mark, and control command. Using just seven bits—a string of 0s and 1s—it could represent 128 different characters. For example, the binary code 1010000 stands for an uppercase P, while 1110000 means lowercase p. This simple yet powerful idea revolutionized electronic communication.
+
 Before ASCII was developed, different makes and models of computers could not communicate with one another. Each computer manufacturer represented alphabets, numerals, and other characters in its own way.
+
 
 ASCII was originally developed for teleprinters, or teletypewriters, but it eventually found wide application in personal computers (PCs), beginning with IBM’s first PC, in 1981. ASCII uses seven-digit [**binary numbers**](https://en.wikipedia.org/wiki/Binary_number)—i.e., numbers consisting of various sequences of 0’s and 1’s. Since there are 128 different possible combinations of seven 0’s and 1’s, the code can represent 128 different characters. The binary sequence 1010000, for example, represents an uppercase P, while the sequence 1110000 represents a lowercase p.
 
