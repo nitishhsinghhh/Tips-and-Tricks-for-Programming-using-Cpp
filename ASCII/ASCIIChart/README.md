@@ -30,7 +30,7 @@ Conversion Example
 | Octal       | 101   | `'A'`           |
 | Hexadecimal | 41    | `'A'`           |
 
-### 🧠 Why It Matters
+### Why It Matters?
 Understanding these formats is essential for:
 - Debugging memory and binary data
 - Working with low-level system code
