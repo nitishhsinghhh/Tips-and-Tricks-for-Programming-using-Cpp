@@ -1,4 +1,4 @@
-# 🧪 Software Testing Methodologies Guide: A High-Level Overview
+# Software Testing Methodologies Guide: A High-Level Overview
 
 As a software engineer, writing code is just one part of the job. What's really important is making sure that the code works well, runs efficiently, and doesn't have any bugs. To do this, we need to test the code thoroughly. Testing helps us make sure the program behaves as expected, even when things get tricky.
 
