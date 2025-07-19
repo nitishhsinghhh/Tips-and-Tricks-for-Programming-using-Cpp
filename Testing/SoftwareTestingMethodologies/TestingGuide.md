@@ -10,20 +10,20 @@ To ensure our solution works properly, we'll go over the different testing techn
 
 ---
 
-## 🔢 The Problem: Prime Subtraction for Strictly Increasing Sequences
+## The Problem: Prime Subtraction for Strictly Increasing Sequences
 
 The problem we're solving involves an array of numbers, and the goal is to make the sequence strictly increasing by subtracting prime numbers from each element. The basic idea is to subtract the largest prime number from each element, but only if it doesn't make the sequence non-increasing.
 
 To solve this efficiently, we will use a sieve algorithm to generate a list of prime numbers. Then, we apply prime subtraction to the array, making sure the sequence becomes strictly increasing, all while keeping the algorithm's time complexity manageable.
 
-### 🛠️ Our Approach to the Solution
+### Approach to the Solution
 
 - **Generating Primes**: First, we create a list of all prime numbers up to the largest number in the array using the Sieve of Eratosthenes. This helps us quickly find all the primes we need.
 - **Subtracting Primes**: For each number in the array, we calculate how much it needs to change to be smaller than the previous number (or from 0 for the first number). Then, we subtract the largest prime that keeps the sequence strictly increasing.
 
 ---
 
-## 💻 C++ Implementation
+## C++ Implementation
 
 ```cpp
 class Solution {
@@ -64,7 +64,7 @@ public:
 };
 ```
 
-# 🧪 Testing the Solution: A Comprehensive Approach
+# Testing the Solution: A Comprehensive Approach
 
 As we proceed with testing, we aim to cover a variety of scenarios—from basic functionality to edge cases and performance under load. Here's how we approach it:
 
