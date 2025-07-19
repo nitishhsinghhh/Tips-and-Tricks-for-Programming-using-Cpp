@@ -1,3 +1,81 @@
+# Designing a HashMap without Built-in Libraries
+
+Hash maps are powerful data structures that enable efficient data retrieval by associating keys with corresponding values. In this article, we'll explore the implementation of a basic hash map in C++.
+
+---
+
+## HashMap Overview
+
+Hash maps are commonly used to store key-value pairs. They provide:
+
+- **Fast lookups**
+- **Efficient updates**
+- **Reliable deletions**
+
+We'll explore the `put()`, `get()`, and `remove()` methods, each of which utilizes a hash function to compute the index where data should be stored or retrieved.
+
+---
+
+## Structuring the Hash Map
+
+The hash map uses a **linked list** structure for handling collisions. Each node (defined in a `ListNode` struct) stores:
+
+- A `key`
+- A `value`
+- A `next` pointer (to link to the next node in case of collision)
+
+### MyHashMap Class
+
+The `MyHashMap` class includes:
+
+- A `vector<ListNode*>` to represent hash buckets
+- A private `hash()` function
+- Public methods: `put()`, `get()`, and `remove()`
+
+---
+
+## Initialization
+
+The constructor initializes:
+
+- A fixed-size array of buckets (10,000 slots)
+- Each slot initially holds `nullptr`
+
+---
+
+## Inserting Elements
+
+The `put()` method:
+
+- Computes the hash of the key
+- Traverses the linked list at the computed index
+- Updates value if key exists, or adds a new node if key is new
+
+---
+
+## Retrieving Values
+
+The `get()` method:
+
+- Computes the hash of the key
+- Traverses the bucket list to find the matching key
+- Returns the value, or `-1` if the key isn’t found
+
+---
+
+## Removing Elements
+
+The `remove()` method:
+
+- Computes the hash of the key
+- Searches for and deletes the node containing the key
+- Updates the linked list pointers to unlink the deleted node
+
+---
+
+## C++ Implementation
+
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -117,3 +195,5 @@ int main() {
     cout << "All test cases passed!" << endl;
     return 0;
 }
+
+```
