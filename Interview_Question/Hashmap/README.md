@@ -1,16 +1,16 @@
-# 🧠 Mastering Hashmap in C++: Quick Guide to Efficient Mapping
+# Mastering Hashmap in C++: Quick Guide to Efficient Mapping
 
-## 🚀 Introduction
+## Introduction
 
 Hashmaps in C++ are data structures that allow you to store key-value pairs with fast retrieval using hash functions. In this guide, you'll learn the fundamentals of hashmaps and how to leverage them for high-performance applications.
 
 ---
 
-## 📌 What Is a Hashmap?
+## What Is a Hashmap?
 
 A **hashmap** implements an associative array—mapping unique keys to values with efficient lookup. 
 
-### ⚡ Efficiency
+### Efficiency
 
 - Average-case time complexity for lookup, insert, delete: **O(1)**
 - Compared to arrays and linked lists: **Much faster**
