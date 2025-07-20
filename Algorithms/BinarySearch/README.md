@@ -40,6 +40,86 @@ The Binary Search Algorithm can be implemented in the following two ways:
 **Auxiliary Space:** 
 - O(1), If the recursive call stack is considered then the auxiliary space will be O(logN).
 
+# CPP code exmaple 
+
+```cpp
+/**
+ * @file binary_search.cpp
+ * @author Nitish Singh
+ * @email me.singhnitish@yandex.com
+ * @brief Demonstrates the use of the Binary Search algorithm in C++.
+ * @date 2025
+ *
+ * @details
+ * Binary Search is a divide-and-conquer algorithm used to efficiently find the position
+ * of a target value in a sorted array. This implementation first sorts the input array
+ * and then applies binary search to check whether a given key exists.
+ * 
+ * The program runs two test cases and prints the corresponding results.
+ */
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+/**
+ * @brief Performs binary search on a sorted array to find the index of a given key.
+ * 
+ * @param nums The sorted vector of integers.
+ * @param search_key The value to search for.
+ * @return int Index of the element if found; otherwise, -1.
+ */
+int binary_search(std::vector<int>& nums, int search_key) {
+    int ans_index = -1;
+    int left = 0, right = nums.size() - 1, mid;
+
+    while (left <= right) {
+        mid = left + (right - left) / 2;
+
+        if (nums[mid] == search_key) {
+            ans_index = mid;
+            break;
+        }
+        else if (nums[mid] < search_key)
+            left = mid + 1;
+        else
+            right = mid - 1;
+    }
+
+    return ans_index;
+}
+
+/**
+ * @brief Main function to demonstrate binary search.
+ * 
+ * @return int Exit status.
+ */
+int main() {
+    std::vector<int> numbers = {4, 6, 7, 12, 9, 3, 6, 7};
+    int search_key = 6;
+    int res;
+
+    // Sort the input array before performing binary search
+    std::sort(numbers.begin(), numbers.end());
+
+    // Test case 1: Search for 6
+    res = binary_search(numbers, search_key);
+    if (res == -1)
+        std::cout << "Test Case 1: Element is not found\n";
+    else
+        std::cout << "Test Case 1: Element has been found\n";
+
+    // Test case 2: Search for 5
+    res = binary_search(numbers, 5);
+    if (res == -1)
+        std::cout << "Test Case 2: Element is not found\n";
+    else
+        std::cout << "Test Case 2: Element has been found\n";
+
+    return 0;
+}
+```
+
 **Advantages of Binary Search:**
 - Binary search is faster than linear search, especially for large arrays.
 - More efficient than other searching algorithms with a similar time complexity, such as interpolation search or exponential search.
@@ -58,75 +138,135 @@ The Binary Search Algorithm can be implemented in the following two ways:
 ### Implementation of Recursive  Binary Search Algorithm:
 
 ```cpp
+/**
+ * @file binary_search_class_main.cpp
+ * @brief Demonstrates Binary Search using a class-based implementation in C++.
+ * @author Nitish Singh
+ * @date 2025
+ *
+ * @details
+ * This program defines a BinarySearch class containing a method to perform binary search
+ * on a sorted array. It checks whether a given element exists in the array and prints
+ * its index or an appropriate message if not found.
+ */
+
 #include <iostream>
 #include <vector>
+
+/**
+ * @class BinarySearch
+ * @brief A class that encapsulates binary search functionality.
+ */
 class BinarySearch {
 public:
-	int search(const std::vector<int>& arr, int x) {
-		int l = 0, r = arr.size() - 1;
-		while (r >= l) {
-			int mid = l + (r - l) / 2;
-			if (arr[mid] == x)
-				return mid;
-			if (arr[mid] > x)
-				r = mid - 1;
-			else
-				l = mid + 1;
-		}
-		return -1;
-	}
+    /**
+     * @brief Searches for a target value in a sorted vector using binary search.
+     * 
+     * @param arr A sorted vector of integers.
+     * @param x The target value to search for.
+     * @return int The index of the target if found, else -1.
+     */
+    int search(const std::vector<int>& arr, int x) {
+        int l = 0, r = arr.size() - 1;
+        while (r >= l) {
+            int mid = l + (r - l) / 2;
+            if (arr[mid] == x)
+                return mid;
+            if (arr[mid] > x)
+                r = mid - 1;
+            else
+                l = mid + 1;
+        }
+        return -1;
+    }
 };
 
+/**
+ * @brief The main function to test the BinarySearch class.
+ * 
+ * @return int Exit status of the program.
+ */
 int main() {
-	std::vector<int> arr{ 2, 3, 4, 10, 40 };
-	int x = 10;
-	BinarySearch bs;
-	int result = bs.search(arr, x);
-	if (result == -1)
-		std::cout << "Element is not present in array";
-	else
-		std::cout << "Element is present at index " << result;
-	std::cout << std::endl;
-	return 0;
+    std::vector<int> arr{2, 3, 4, 10, 40};  // Sorted input array
+    int x = 10;  // Element to be searched
+
+    BinarySearch bs;
+    int result = bs.search(arr, x);
+
+    if (result == -1)
+        std::cout << "Element is not present in array";
+    else
+        std::cout << "Element is present at index " << result;
+
+    std::cout << std::endl;
+    return 0;
 }
 ```
 
 ### Implementation of Iterative  Binary Search Algorithm: 
 
 ```cpp
+/**
+ * @file binary_search_class_iterative.cpp
+ * @brief Implements Binary Search using a class in C++ (Iterative method).
+ * @author Nitish Singh
+ * @date 2025
+ *
+ * @details
+ * This program demonstrates how to use the Binary Search algorithm inside a class-based structure.
+ * It performs an efficient search for an element in a sorted array and returns the index if found.
+ */
+
 #include <iostream>
 #include <vector>
 
+/**
+ * @class BinarySearch
+ * @brief A class that encapsulates an iterative binary search algorithm.
+ */
 class BinarySearch {
 public:
-	int search(const std::vector<int>& arr, int x) {
-		int l = 0, r = arr.size() - 1;
-		while (l <= r) {
-			int m = l + (r - l) / 2;
+    /**
+     * @brief Performs binary search on a sorted vector to find the target value.
+     * 
+     * @param arr A sorted vector of integers.
+     * @param x The target value to search for.
+     * @return int The index of the target if found, else -1.
+     */
+    int search(const std::vector<int>& arr, int x) {
+        int l = 0, r = arr.size() - 1;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
 
-			if (arr[m] == x)
-				return m;
-			if (arr[m] < x)
-				l = m + 1;
-			else
-				r = m - 1;
-		}
-		return -1;
-	}
+            if (arr[m] == x)
+                return m;
+            if (arr[m] < x)
+                l = m + 1;
+            else
+                r = m - 1;
+        }
+        return -1;
+    }
 };
 
+/**
+ * @brief Main function to test the BinarySearch class.
+ * 
+ * @return int Exit status.
+ */
 int main() {
-	std::vector<int> arr{ 2, 3, 4, 10, 40 };
-	int x = 10;
-	BinarySearch bs;
-	int result = bs.search(arr, x);
-	if (result == -1)
-		std::cout << "Element is not present in array";
-	else
-		std::cout << "Element is present at index " << result;
-	std::cout << std::endl;
-	system("pause");
-	return 0;
+    std::vector<int> arr{2, 3, 4, 10, 40};  // Sorted input array
+    int x = 10;  // Element to search
+
+    BinarySearch bs;
+    int result = bs.search(arr, x);
+
+    if (result == -1)
+        std::cout << "Element is not present in array\n";
+    else
+        std::cout << "Element is present at index " << result << '\n';
+
+    return 0;
 }
 ```
 # Edge Cases
@@ -196,58 +336,101 @@ valuetofind: the target value which we have
 Returns :
 true if an element equal to valuetofind is found, else false.
 ```
-### C++ code example 1
+### Vector Search with Sorting and Binary Search in C++
 
 ```cpp
+/**
+ * @file vector_search.cpp
+ * @brief Demonstrates class-based vector operations: sorting and binary search in C++.
+ * @author Nitish Singh
+ *
+ * @details
+ * This program defines a class `VectorSearch` that:
+ * - Stores a vector of integers.
+ * - Sorts the vector using `std::sort`.
+ * - Searches for a value using `std::binary_search`.
+ * 
+ * It also includes a demonstration in `main()` using hardcoded values.
+ */
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
+/**
+ * @class VectorSearch
+ * @brief A class to encapsulate vector operations: sorting and binary search.
+ */
 class VectorSearch {
 private:
-	std::vector<int> vec;
+	std::vector<int> vec;  ///< Internal vector to operate on
 
 public:
+	/**
+	 * @brief Constructor to initialize the vector.
+	 * @param v Input vector of integers.
+	 */
 	VectorSearch(const std::vector<int>& v) : vec(v) {}
 
+	/**
+	 * @brief Displays the contents of the vector.
+	 */
 	void show() {
 		for (int i : vec)
-			std::cout << i << ",";
+			std::cout << i << " ";
 	}
 
+	/**
+	 * @brief Sorts the vector in ascending order.
+	 */
 	void sortVector() {
 		std::sort(vec.begin(), vec.end());
 	}
 
+	/**
+	 * @brief Performs binary search on the sorted vector.
+	 * @param key The value to search for.
+	 * @return true if the key is found, false otherwise.
+	 */
 	bool binarySearch(int key) {
 		return std::binary_search(vec.begin(), vec.end(), key);
 	}
 };
 
+/**
+ * @brief Main function to demonstrate the use of VectorSearch class.
+ * @return int Exit status.
+ */
 int main() {
 	std::vector<int> vec = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 };
-	std::cout << "The vector is : ";
+
+	std::cout << "The original vector is: ";
 	VectorSearch vectorSearch(vec);
 	vectorSearch.show();
 
-	std::cout << "\n\nLet's say we want to search for 2 in the vector. So, we first sort the vector";
+	std::cout << "\n\nSorting the vector before performing binary search...";
 	vectorSearch.sortVector();
-	std::cout << "\n\nThe vector after sorting is : ";
+
+	std::cout << "\n\nThe sorted vector is: ";
 	vectorSearch.show();
 
-	std::cout << "\n\nNow, we do the binary search";
+	std::cout << "\n\nBinary Search for element 2:";
 	if (vectorSearch.binarySearch(2))
-		std::cout << "\nElement found in the vector";
+		std::cout << "\n✅ Element found in the vector.";
 	else
-		std::cout << "\nElement not found in the vector";
+		std::cout << "\n❌ Element not found in the vector.";
 
-	std::cout << "\n\nNow, say we want to search for 10";
+	std::cout << "\n\nBinary Search for element 10:";
 	if (vectorSearch.binarySearch(10))
-		std::cout << "\nElement found in the vector \n";
+		std::cout << "\n✅ Element found in the vector.\n";
 	else
-		std::cout << "\nElement not found in the vector \n";
+		std::cout << "\n❌ Element not found in the vector.\n";
 
-	system("pause");
+	// Portable alternative to system("pause")
+	std::cout << "\nPress Enter to exit...";
+	std::cin.get();
+	std::cin.get();  // one for leftover newline, one to pause
+
 	return 0;
 }
 ```
@@ -268,35 +451,33 @@ Element not found in the vector
 ```
 
 ### C++ code example 2
-// GCC 13.1 (C++ 23)
-
 ```cpp
 #include <algorithm>
 #include <iostream>
 #include <vector>
 
+/**
+ * @brief Entry point of the program.
+ * 
+ * Initializes a sorted vector (`haystack`) and a set of target values (`needles`),
+ * then performs binary search on each needle and prints the result.
+ * 
+ * @return int Exit code of the program.
+ */
 int main() {
-	std::vector<int> haystack{ 1, 3, 4, 5, 9 };
-	std::vector<int> needles{ 1, 2, 3 };
+	std::vector<int> haystack{ 1, 3, 4, 5, 9 };  ///< Sorted vector to search in
+	std::vector<int> needles{ 1, 2, 3 };         ///< Elements to search for in haystack
 
 	for (const auto needle : needles) {
 		std::cout << "Searching for " << needle << '\n';
+
+		// Perform binary search
 		if (std::binary_search(haystack.begin(), haystack.end(), needle))
 			std::cout << "Found " << needle << '\n';
 		else
 			std::cout << "No dice!\n";
 	}
 }
-```
-
-Output:
-```
-Searching for 1
-Found 1
-Searching for 2
-no dice!
-Searching for 3
-Found 3
 ```
 
 
@@ -320,41 +501,70 @@ There are certain problem scenarios where it can be challenging to determine if 
 [Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)<br>
 
 ```cpp
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <algorithm>
+
+/**
+ * @class Solution
+ * @brief Provides a method to find the minimum number of days required to make m bouquets from flowers.
+ */
 class Solution {
-	bool isValid(vector<int>& bloomDay, int m, int k, int mid) {
+private:
+    /**
+     * @brief Checks whether it is possible to make 'm' bouquets by day 'mid'.
+     * 
+     * @param bloomDay Vector representing bloom days of flowers.
+     * @param m Number of bouquets to make.
+     * @param k Number of flowers required in each bouquet.
+     * @param mid The day being tested as the maximum bloom day.
+     * @return true If it is possible to make m bouquets by day 'mid'.
+     * @return false Otherwise.
+     */
+    bool isValid(const std::vector<int>& bloomDay, int m, int k, int mid) {
+        int count = 0, size = 0;
+        for (int day : bloomDay) {
+            size = (day <= mid) ? size + 1 : 0;
+            if (size == k) {
+                count++;
+                size = 0;
+            }
+            if (count == m)
+                return true;
+        }
+        return false;
+    }
 
-		int count = 0, size = 0;
-		for (int i = 0; i < bloomDay.size(); i++) {
-			size = (bloomDay[i] <= mid) ? size + 1 : 0;
-			if (size == k) size = 0, count++;
-			if (count == m)
-				return true;
-		}
-
-		return false;
-	}
 public:
-	int minDays(vector<int>& bloomDay, int m, int k) {
-		if (bloomDay.size() == 0 || m == 0 || k == 0) return 0;
-		if (m * k > bloomDay.size()) return -1;
+    /**
+     * @brief Finds the minimum number of days required to make 'm' bouquets of size 'k'.
+     * 
+     * @param bloomDay A vector containing the days each flower blooms.
+     * @param m Number of bouquets required.
+     * @param k Number of flowers per bouquet.
+     * @return int Minimum number of days needed to fulfill the requirement, or -1 if impossible.
+     */
+    int minDays(std::vector<int>& bloomDay, int m, int k) {
+        if (bloomDay.empty() || m == 0 || k == 0) return 0;
+        if (static_cast<long long>(m) * k > bloomDay.size()) return -1;
 
-		int l = INT_MAX, r = INT_MIN;
-		for (int i = 0; i < bloomDay.size(); i++) {
-			l = min(l, bloomDay[i]);
-			r = max(r, bloomDay[i]);
-		}
+        int l = INT_MAX, r = INT_MIN;
+        for (int day : bloomDay) {
+            l = std::min(l, day);
+            r = std::max(r, day);
+        }
 
-		while (l <= r) {
-			int mid = l + (r - l) / 2;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (isValid(bloomDay, m, k, mid))
+                r = mid - 1;
+            else
+                l = mid + 1;
+        }
 
-			if (isValid(bloomDay, m, k, mid))
-				r = mid - 1;
-			else
-				l = mid + 1;
-		}
-
-		return l;
-	}
+        return l;
+    }
 };
 ```
 
@@ -415,30 +625,47 @@ public:
 [First Bad Version](https://leetcode.com/problems/first-bad-version/)<br>
 
 ```cpp
+/**
+ * @file next_greatest_letter.cpp
+ * @brief Finds the smallest character in a sorted array that is greater than the target character.
+ * @details
+ * If no character is strictly greater than the target, the function wraps around and returns the first element.
+ * This is a binary search-based solution with O(log n) time complexity.
+ */
+
+#include <vector>
+
+using namespace std;
+
+/**
+ * @class Solution
+ * @brief Implements binary search to find the next greatest letter.
+ */
 class Solution {
 public:
-	char nextGreatestLetter(vector<char>& letters, char target) {
+    /**
+     * @brief Returns the smallest character in letters that is strictly greater than target.
+     * 
+     * @param letters A vector of sorted characters (in non-decreasing order).
+     * @param target The target character.
+     * @return char The next greatest character, with wrap-around logic.
+     */
+    char nextGreatestLetter(vector<char>& letters, char target) {
+        int n = letters.size();
+        int l = 0, r = n - 1;
 
-		int n = letters.size();
-		int l = 0, r = n - 1;
+        // Binary search for the smallest character > target
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            if (letters[m] <= target)
+                l = m + 1;
+            else
+                r = m - 1;
+        }
 
-		if (target >= letters[n - 1] || target < letters[0])
-			return letters[0];
-
-		int m = 0;
-		while (l <= r) {
-			m = l + (r - l) / 2;
-
-			if (m > 0 && (target >= letters[m - 1] && target < letters[m]))
-				return letters[m];
-			else if (target >= letters[m])
-				l = m + 1;
-			else
-				r = m - 1;
-		}
-
-		return letters[m];
-	}
+        // If all characters are <= target, wrap around to the first character
+        return letters[l % n];
+    }
 };
 ```
 
@@ -449,22 +676,61 @@ public:
 [Find Right Interval](https://leetcode.com/problems/find-right-interval/)<br>
 
 ```cpp
+/**
+ * @file time_map.cpp
+ * @brief Implements a TimeMap class that stores key-value pairs with timestamps and supports time-based retrievals.
+ * @details
+ * Each key can store multiple values associated with increasing timestamps.
+ * The `get` function returns the value with the greatest timestamp less than or equal to the given timestamp.
+ * Uses:
+ * - `unordered_map` to map keys to an ordered `map` of {timestamp → value}
+ * - Efficient O(log n) retrieval using `upper_bound` and `prev`
+ */
+
+#include <unordered_map>
+#include <map>
+#include <string>
+
+using namespace std;
+
+/**
+ * @class TimeMap
+ * @brief A class to store time-based key-value pairs and retrieve them efficiently.
+ */
 class TimeMap {
-unordered_map<string, map<int, string>>hm;
+private:
+    unordered_map<string, map<int, string>> hm; ///< Maps key → map<timestamp, value>
+
 public:
-	/** Initialize your data structure here. */
-	TimeMap() {
+    /**
+     * @brief Initializes the TimeMap data structure.
+     */
+    TimeMap() {}
 
-	}
+    /**
+     * @brief Stores the key with the given value and timestamp.
+     * 
+     * @param key The string key to be stored.
+     * @param value The value associated with the key.
+     * @param timestamp The time at which the value is set.
+     */
+    void set(string key, string value, int timestamp) {
+        hm[key][timestamp] = value;
+    }
 
-	void set(string key, string value, int timestamp) {
-		hm[key].insert({ timestamp, value });
-	}
-
-	string get(string key, int timestamp) {
-		auto it = hm[key].upper_bound(timestamp);
-		return (it == hm[key].begin()) ? "" : prev(it)->second;
-	}
+    /**
+     * @brief Retrieves the value for a given key at or before the provided timestamp.
+     * 
+     * @param key The string key whose value is to be retrieved.
+     * @param timestamp The maximum timestamp allowed.
+     * @return string The most recent value at or before the given timestamp; empty string if none exists.
+     */
+    string get(string key, int timestamp) {
+        auto it = hm[key].upper_bound(timestamp);  // first element > timestamp
+        if (it == hm[key].begin())
+            return "";
+        return prev(it)->second;  // move one step back to get <= timestamp
+    }
 };
 ```
 
@@ -472,40 +738,77 @@ public:
 [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)<br>
 
 ```cpp
+/**
+ * @file find_median_sorted_arrays.cpp
+ * @brief Efficiently finds the median of two sorted arrays using binary search partitioning.
+ * @author 
+ * @date 2025
+ *
+ * @details
+ * This solution uses binary search on the smaller array to partition both arrays into two halves
+ * such that all elements in the left half are less than or equal to all elements in the right half.
+ * Time Complexity: O(log(min(n, m)))
+ */
+
+#include <vector>
+#include <climits>
+#include <algorithm>
+
+using namespace std;
+
+/**
+ * @class Solution
+ * @brief Contains method to find the median of two sorted arrays.
+ */
 class Solution {
 public:
-	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+    /**
+     * @brief Finds the median of two sorted arrays.
+     * 
+     * @param nums1 First sorted array.
+     * @param nums2 Second sorted array.
+     * @return double Median value.
+     */
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        int m = nums2.size();
 
-		int n = nums1.size();
-		int m = nums2.size();
+        // Ensure nums1 is the smaller array
+        if (n > m)
+            return findMedianSortedArrays(nums2, nums1);
 
-		if (n > m)
-			return findMedianSortedArrays(nums2, nums1);
+        int k = (n + m - 1) / 2;  // Left partition size
+        int l = 0;
+        int r = min(k, n);
 
-		int k = (n + m - 1) / 2;
+        // Binary search on the smaller array to find the correct partition
+        while (l < r) {
+            int mid1 = l + (r - l) / 2;
+            int mid2 = k - mid1;
 
-		int l = 0;
-		int r = min(k, n);
+            if (nums1[mid1] > nums2[mid2])
+                r = mid1;
+            else
+                l = mid1 + 1;
+        }
 
-		while (l < r) {
-			int mid1 = l + (r - l) / 2;
-			int mid2 = k - mid1;
+        // Compute the left max (a)
+        int a = max(
+            l >= 1 ? nums1[l - 1] : INT_MIN,
+            k >= l ? nums2[k - l] : INT_MIN
+        );
 
-			if (nums1[mid1] > nums2[mid2])
-				r = mid1;
-			else
-				l = mid1 + 1;
-		}
+        // If total length is odd, return the middle value
+        if ((n + m) % 2 != 0)
+            return a;
 
-		/* if (n+m) is odd, the median is the larger one between nums1[l-1] and nums2[k-l] */
-		int a = max(l >= 1 ? nums1[l - 1] : INT_MIN, k >= l ? nums2[k - l] : INT_MIN);
-		if ((n + m) % 2 != 0)
-			return a;
+        // Compute the right min (b) for even total length
+        int b = min(
+            l < n ? nums1[l] : INT_MAX,
+            k - l + 1 < m ? nums2[k - l + 1] : INT_MAX
+        );
 
-		/* in case (n+m) is even, take the average of mid 2 elements */
-		int b = min(l < n ? nums1[l] : INT_MAX, k - l + 1 < m ? nums2[k - l + 1] : INT_MAX);
-
-		return (a + b) / 2.0;
-	}
+        return (a + b) / 2.0;
+    }
 };
 ```
