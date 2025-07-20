@@ -176,7 +176,7 @@ int main() {
 }
 ```
 
-### Brute Force Algorithm to Find Prime Numbers in a Given Range Using C Plus Plus
+### Brute Force Algorithm to Find Prime Numbers in a Given Range
 
 ```cpp
 #include <iostream>
