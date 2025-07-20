@@ -341,7 +341,8 @@ true if an element equal to valuetofind is found, else false.
 ```cpp
 /**
  * @file vector_search.cpp
- * @brief Demonstrates class-based vector operations: sorting and binary search in C++.
+ * @brief Demonstrates class-based vector operations: sorting and binary search
+ * in C++.
  * @author Nitish Singh
  *
  * @details
@@ -349,13 +350,13 @@ true if an element equal to valuetofind is found, else false.
  * - Stores a vector of integers.
  * - Sorts the vector using `std::sort`.
  * - Searches for a value using `std::binary_search`.
- * 
+ *
  * It also includes a demonstration in `main()` using hardcoded values.
  */
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 /**
  * @class VectorSearch
@@ -363,38 +364,36 @@ true if an element equal to valuetofind is found, else false.
  */
 class VectorSearch {
 private:
-	std::vector<int> vec;  ///< Internal vector to operate on
+    std::vector<int> vec; ///< Internal vector to operate on
 
 public:
-	/**
-	 * @brief Constructor to initialize the vector.
-	 * @param v Input vector of integers.
-	 */
-	VectorSearch(const std::vector<int>& v) : vec(v) {}
+    /**
+     * @brief Constructor to initialize the vector.
+     * @param v Input vector of integers.
+     */
+    VectorSearch(const std::vector<int>& v) : vec(v) {}
 
-	/**
-	 * @brief Displays the contents of the vector.
-	 */
-	void show() {
-		for (int i : vec)
-			std::cout << i << " ";
-	}
+    /**
+     * @brief Displays the contents of the vector.
+     */
+    void show() {
+        for (int i : vec)
+            std::cout << i << " ";
+    }
 
-	/**
-	 * @brief Sorts the vector in ascending order.
-	 */
-	void sortVector() {
-		std::sort(vec.begin(), vec.end());
-	}
+    /**
+     * @brief Sorts the vector in ascending order.
+     */
+    void sortVector() { std::sort(vec.begin(), vec.end()); }
 
-	/**
-	 * @brief Performs binary search on the sorted vector.
-	 * @param key The value to search for.
-	 * @return true if the key is found, false otherwise.
-	 */
-	bool binarySearch(int key) {
-		return std::binary_search(vec.begin(), vec.end(), key);
-	}
+    /**
+     * @brief Performs binary search on the sorted vector.
+     * @param key The value to search for.
+     * @return true if the key is found, false otherwise.
+     */
+    bool binarySearch(int key) {
+        return std::binary_search(vec.begin(), vec.end(), key);
+    }
 };
 
 /**
@@ -402,52 +401,37 @@ public:
  * @return int Exit status.
  */
 int main() {
-	std::vector<int> vec = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 };
+    std::vector<int> vec = {1, 5, 8, 9, 6, 7, 3, 4, 2, 0};
 
-	std::cout << "The original vector is: ";
-	VectorSearch vectorSearch(vec);
-	vectorSearch.show();
+    std::cout << "The original vector is: ";
+    VectorSearch vectorSearch(vec);
+    vectorSearch.show();
 
-	std::cout << "\n\nSorting the vector before performing binary search...";
-	vectorSearch.sortVector();
+    std::cout << "\n\nSorting the vector before performing binary search...";
+    vectorSearch.sortVector();
 
-	std::cout << "\n\nThe sorted vector is: ";
-	vectorSearch.show();
+    std::cout << "\n\nThe sorted vector is: ";
+    vectorSearch.show();
 
-	std::cout << "\n\nBinary Search for element 2:";
-	if (vectorSearch.binarySearch(2))
-		std::cout << "\n✅ Element found in the vector.";
-	else
-		std::cout << "\n❌ Element not found in the vector.";
+    std::cout << "\n\nBinary Search for element 2:";
+    if (vectorSearch.binarySearch(2))
+        std::cout << "\n✅ Element found in the vector.";
+    else
+        std::cout << "\n❌ Element not found in the vector.";
 
-	std::cout << "\n\nBinary Search for element 10:";
-	if (vectorSearch.binarySearch(10))
-		std::cout << "\n✅ Element found in the vector.\n";
-	else
-		std::cout << "\n❌ Element not found in the vector.\n";
+    std::cout << "\n\nBinary Search for element 10:";
+    if (vectorSearch.binarySearch(10))
+        std::cout << "\n✅ Element found in the vector.\n";
+    else
+        std::cout << "\n❌ Element not found in the vector.\n";
 
-	// Portable alternative to system("pause")
-	std::cout << "\nPress Enter to exit...";
-	std::cin.get();
-	std::cin.get();  // one for leftover newline, one to pause
+    // Portable alternative to system("pause")
+    std::cout << "\nPress Enter to exit...";
+    std::cin.get();
+    std::cin.get(); // one for leftover newline, one to pause
 
-	return 0;
+    return 0;
 }
-```
-
-Output
-```
-The vector is : 1,5,8,9,6,7,3,4,2,0,
-
-Let's say we want to search for 2 in the vector. So, we first sort the vector
-
-The vector after sorting is : 0,1,2,3,4,5,6,7,8,9,
-
-Now, we do the binary search
-Element found in the vector
-
-Now, say we want to search for 10
-Element not found in the vector
 ```
 
 ### C++ code example 2
@@ -458,25 +442,26 @@ Element not found in the vector
 
 /**
  * @brief Entry point of the program.
- * 
- * Initializes a sorted vector (`haystack`) and a set of target values (`needles`),
- * then performs binary search on each needle and prints the result.
- * 
+ *
+ * Initializes a sorted vector (`haystack`) and a set of target values
+ * (`needles`), then performs binary search on each needle and prints the
+ * result.
+ *
  * @return int Exit code of the program.
  */
 int main() {
-	std::vector<int> haystack{ 1, 3, 4, 5, 9 };  ///< Sorted vector to search in
-	std::vector<int> needles{ 1, 2, 3 };         ///< Elements to search for in haystack
+    std::vector<int> haystack{1, 3, 4, 5, 9}; ///< Sorted vector to search in
+    std::vector<int> needles{1, 2, 3}; ///< Elements to search for in haystack
 
-	for (const auto needle : needles) {
-		std::cout << "Searching for " << needle << '\n';
+    for (const auto needle : needles) {
+        std::cout << "Searching for " << needle << '\n';
 
-		// Perform binary search
-		if (std::binary_search(haystack.begin(), haystack.end(), needle))
-			std::cout << "Found " << needle << '\n';
-		else
-			std::cout << "No dice!\n";
-	}
+        // Perform binary search
+        if (std::binary_search(haystack.begin(), haystack.end(), needle))
+            std::cout << "Found " << needle << '\n';
+        else
+            std::cout << "No dice!\n";
+    }
 }
 ```
 
