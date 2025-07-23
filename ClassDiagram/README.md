@@ -49,8 +49,6 @@ Arrange classes logically:
 
 ## Breakdown of our Diagram
 
-https://gist.github.com/nitishhsinghhh/ada68f8aec93fa93b44ac99580ef6070
-
 - ConversionType (Enum)
   - Used to select the conversion type.
   - Not a class, but shown for completeness.
