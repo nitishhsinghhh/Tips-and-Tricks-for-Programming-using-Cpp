@@ -21,7 +21,8 @@ Start by listing all the classes involved in your system. For [our example](http
 For each class, list its attributes (variables) and methods (functions).
 
 Example:
-```Class: StringConversion
+```
+Class: StringConversion
 -----------------------
 + convertString(input: string): string
 ```
