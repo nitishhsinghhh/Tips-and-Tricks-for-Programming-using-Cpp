@@ -1,9 +1,18 @@
-//Here is an example of a merge sort algorithm in C++ that uses the divide and conquer approach to sort an array:
-
 #include <iostream>
 #include <vector>
 using namespace std;
 
+/**
+ * @brief Merges two sorted subarrays of arr[].
+ * 
+ * The first subarray is arr[left..mid], and the second is arr[mid+1..right].
+ * This function merges them into a single sorted array.
+ * 
+ * @param arr  Reference to the array to be sorted.
+ * @param left Starting index of the first subarray.
+ * @param mid  Ending index of the first subarray.
+ * @param right Ending index of the second subarray.
+ */
 void merge(vector<int>& arr, int left, int mid, int right) {
     vector<int> temp(right - left + 1);
     int i = left, j = mid + 1, k = 0;
@@ -32,6 +41,16 @@ void merge(vector<int>& arr, int left, int mid, int right) {
     }
 }
 
+/**
+ * @brief Sorts an array using the merge sort algorithm.
+ * 
+ * Recursively divides the array into two halves, sorts them,
+ * and then merges the sorted halves.
+ * 
+ * @param arr Reference to the array to be sorted.
+ * @param left Starting index of the portion to sort.
+ * @param right Ending index of the portion to sort.
+ */
 void mergeSort(vector<int>& arr, int left, int right) {
     if (left < right) {
         int mid = left + (right - left) / 2;
@@ -41,6 +60,14 @@ void mergeSort(vector<int>& arr, int left, int right) {
     }
 }
 
+/**
+ * @brief Main function to demonstrate merge sort.
+ * 
+ * Initializes an array of integers, sorts it using mergeSort,
+ * and prints the sorted array.
+ * 
+ * @return int Exit status code.
+ */
 int main() {
     vector<int> arr = { 7, 5, 3, 9, 2, 8, 4, 1, 6 };
     int n = arr.size();
@@ -52,14 +79,3 @@ int main() {
     cout << endl;
     return 0;
 }
-
-/* 
-This program uses a merge sort algorithm to sort an array of integers. The merge function takes three indices that 
-divide the array into two subarrays and merges the subarrays into a sorted array. It creates a temporary array to \
-store the sorted elements, compares the elements in the two subarrays, and copies them into the temporary array in sorted 
-order. The mergeSort function uses the divide and conquer approach to sort the array. It repeatedly divides the array in 
-half until it reaches subarrays of size 1, and then merges the subarrays back together in sorted order using the merge function. 
-The main function initializes an array of integers and calls the mergeSort function on the entire array, printing the sorted 
-array to the console.
-*/
-
