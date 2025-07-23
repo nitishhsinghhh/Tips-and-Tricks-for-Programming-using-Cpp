@@ -11,7 +11,7 @@ Classes
 Start by listing all the classes involved in your system. For [our example](https://blog.devgenius.io/factory-method-in-c-design-patterns-85214330cc25):
 
 - StringConversion (abstract base class)
-- UpperCaseConversion, LowerCaseConversion, CapitalizeConversion (concrete classes)
+- UpperCaseConversion, LowerCaseConversion, CapitalizeConversion, SentenceCase, ToggleCase (concrete classes)
 - StringConversionFactory (factory class)
 - Client (user class)
 - ConversionType (enum)
@@ -48,31 +48,9 @@ Arrange classes logically:
 - Label methods clearly: Include parameters and return types.
 - Use access modifiers: + for public, - for private, # for protected.
 
-## Breakdown of our Diagram
+## Breakdown of our UML Class Diagram for String Conversion Factory Pattern
 
-- ConversionType (Enum)
-  - Used to select the conversion type.
-  - Not a class, but shown for completeness.
-
-- StringConversion (Abstract Class)
-  - Defines the interface: convertString()
-  - Parent of all conversion classes
-
-- Concrete Classes
-  - UpperCaseConversion, LowerCaseConversion, CapitalizeConversion
-  - Inherit from StringConversion
-  - Implement convertString() differently
-- StringConversionFactory
-  - Static method: createStringConversion(type)
-  - Returns an object of a subclass based on ConversionType
-
-- Client
-  - Uses the factory to get a conversion object
-  - Calls convertString() on the object
-
-# UML Class Diagram for String Conversion Factory Pattern
-
-This document outlines the entities (classes) and their relationships, which together form a UML Class Diagram for the String Conversion Factory Pattern described in the provided article.
+This outlines the entities (classes) and their relationships, which together form a UML Class Diagram for the String Conversion Factory Pattern described in the provided article.
 
 ---
 
@@ -99,6 +77,16 @@ Here's a breakdown of the key classes involved in the design pattern:
     * **Attributes:** None.
     * **Methods:**
         * `convertString()`: Implements the conversion logic to capitalize the first letter of each word in a string.
+     
+* **`SentenceCase`** (Concrete Class)
+    * **Attributes:** None.
+    * **Methods:**
+        * `convertString()`: Implements the conversion logic to capitalize the first letter of each sentence and make the rest lowercase.
+
+  * **`ToggleCase`** (Concrete Class)
+    * **Attributes:** None.
+    * **Methods:**
+        * `convertString()`: Implements the conversion logic to Convert uppercase letters to lowercase and vice versa..
 
 * **`StringConversionFactory`** (Factory Class)
     * **Attributes:** None.
