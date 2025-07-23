@@ -142,5 +142,3 @@ These relationships define how the classes interact within the pattern:
 
 * **`ConversionType`**: This is an enumeration, not a class, used to specify the type of string conversion desired when interacting with the `StringConversionFactory`. It defines the discrete options (e.g., UP, DOWN, CAPITALIZE).
 
-<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/97ba34cf-8a16-4310-9732-75bfb7e437ee" />
-
