@@ -5,39 +5,50 @@ using namespace std;
 /**
  * @brief Calculates the number of coins needed to make change for a given amount using a greedy algorithm.
  * 
- * This function tries to make change by always picking the largest coin denomination
- * possible at each step (greedy strategy). It may not work correctly for all coin systems
- * unless the coin denominations are canonical (like US coins).
+ * This function implements a greedy strategy to compute the minimum number of coins
+ * required to make the given amount using the largest denominations first.
  * 
- * @param coins A vector of available coin denominations, assumed to be sorted in increasing order.
- * @param amount The total amount to make change for.
- * @return A vector representing the number of each coin used (same order as input),
- *         or {-1} if exact change cannot be made.
+ * @param coins A vector of available coin denominations, sorted in increasing order.
+ * @param amount The total amount (in cents) to make change for.
+ * @return std::vector<int> A vector representing the number of each coin used (in the same order as input),
+ *         or {-1} if it is not possible to make exact change.
+ * 
+ * @note This algorithm works correctly only for canonical coin systems (e.g., US coins). 
+ *       For arbitrary denominations, it may not yield the optimal solution.
+ * 
+ * @see https://en.wikipedia.org/wiki/Greedy_algorithm
  */
 vector<int> coinChange(vector<int>& coins, int amount) {
     vector<int> result(coins.size(), 0);
+
+    // Iterate from the largest coin to the smallest
     for (int i = coins.size() - 1; i >= 0; i--) {
         while (amount >= coins[i]) {
             amount -= coins[i];
             result[i]++;
         }
     }
+
+    // If exact change can't be made
     if (amount > 0) {
         return { -1 };
     }
+
     return result;
 }
 
 /**
- * @brief Main function to accept user input and print the result of the coin change operation.
+ * @brief Main function to execute the coin change program.
  * 
- * Prompts the user to enter an amount and prints how many coins of each denomination
- * are needed to make that amount using the greedy algorithm.
+ * Reads an amount from user input and calculates the minimum number of coins
+ * required to make that amount using the greedy algorithm.
  * 
- * @return int Exit status of the program.
+ * The program uses US coin denominations: 1, 5, 10, and 25 cents.
+ * 
+ * @return int Exit code (0 = success).
  */
 int main() {
-    vector<int> coins = { 1, 5, 10, 25 };
+    vector<int> coins = { 1, 5, 10, 25 }; ///< US coin denominations (in cents)
     int amount;
 
     cout << "Enter the amount to make change for: ";
