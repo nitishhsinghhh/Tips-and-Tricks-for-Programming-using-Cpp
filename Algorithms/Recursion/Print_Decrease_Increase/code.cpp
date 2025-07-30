@@ -1,61 +1,88 @@
-// The program prints a number first in decreasing order and then in increasing order using recursion.
 #include <iostream>
-class PrintDecreaseIncrease{
-    private:
-        int n;
-        //function to print decrease increase using recursion
-        void pdi(int &n){
-            if(n==0) return;
-            std::cout<<n<<std::endl;
-            pdi(--n);
-            std::cout<<++n<<std::endl;
-        }
-    public:
-        // constructor 
-        PrintDecreaseIncrease(int num): n(num) {}
-        // function to call pdi() function
-        void printPDI(){
-            std::cout<<"Print Decrease & Increase:\n";
-            // call the pdi() function 
-            pdi(n);
-        }
+
+/**
+ * @class PrintDecreaseIncrease
+ * @brief A class to print numbers in decreasing and then increasing order using recursion.
+ */
+class PrintDecreaseIncrease {
+private:
+    int n;
+
+    /**
+     * @brief Recursive function to print numbers in decreasing and then increasing order.
+     * 
+     * @param n Reference to the number to be printed.
+     */
+    void pdi(int &n) {
+        if (n == 0) return;
+        std::cout << n << std::endl;
+        pdi(--n);
+        std::cout << ++n << std::endl;
+    }
+
+public:
+    /**
+     * @brief Constructor to initialize the class with a number.
+     * 
+     * @param num The number to start the recursive printing from.
+     */
+    PrintDecreaseIncrease(int num) : n(num) {}
+
+    /**
+     * @brief Public method to invoke the recursive print function.
+     */
+    void printPDI() {
+        std::cout << "Print Decrease & Increase:\n";
+        pdi(n);
+    }
 };
+
+/**
+ * @brief Main function to handle user input and run the program.
+ * 
+ * @return int Returns 0 on successful execution.
+ */
 int main() {
     int inputNumber;
-    // Handling non-positive input value
-    do{
+
+    // Handle non-positive input values
+    do {
         std::cout << "Enter a number: ";
         std::cin >> inputNumber;
-        if(inputNumber <= 0){
-            std::cout<<"Please give positive number as input!\n";
+        if (inputNumber <= 0) {
+            std::cout << "Please give positive number as input!\n";
         }
-    }while(inputNumber <= 0);
-    // creating object of PrintDecreaseIncrease class
+    } while (inputNumber <= 0);
+
+    // Create object of PrintDecreaseIncrease class
     PrintDecreaseIncrease obj(inputNumber);
-    // calling printPDI() method 
+
+    // Call the print function
     obj.printPDI();
+
     return 0;
 }
-/*
-====================OUTPUT SECTION========================
-Input: n = 4
-Output: 4
-        3
-        2
-        1
-        1
-        2
-        3
-        4
------------------
-Input: 2
-Output: 2
-        1
-        1
-        2
------------------
-Input: 1
-Output: 1
-        1
-==========================================================
-*/
+
+/**
+ * ==================== OUTPUT SECTION ==========================
+ * Input: n = 4
+ * Output: 4
+ *         3
+ *         2
+ *         1
+ *         1
+ *         2
+ *         3
+ *         4
+ * -----------------
+ * Input: 2
+ * Output: 2
+ *         1
+ *         1
+ *         2
+ * -----------------
+ * Input: 1
+ * Output: 1
+ *         1
+ * ==============================================================
+ */
