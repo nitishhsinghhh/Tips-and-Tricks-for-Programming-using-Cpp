@@ -1,25 +1,40 @@
-// Here is an example of a recursive algorithm in C++ that calculates the factorial of a given number:
 #include <iostream>
 using namespace std;
 
+/**
+ * @brief Calculates the factorial of a non-negative integer using recursion.
+ * @param n The number to calculate factorial of.
+ * @return The factorial of n.
+ */
 int factorial(int n) {
-    if (n == 0) {
+    if (n == 0)
         return 1;
-    } else {
-        return n * factorial(n-1);
-    }
+    return n * factorial(n - 1);
 }
 
 int main() {
     int n;
     cout << "Enter a number to calculate its factorial: ";
     cin >> n;
-    cout << n << "! = " << factorial(n) << endl;
+
+    if (n < 0) {
+        cout << "Factorial is not defined for negative numbers." << endl;
+    } else {
+        cout << n << "! = " << factorial(n) << endl;
+    }
+
     return 0;
 }
-/*
-This program uses a recursive approach to calculate the factorial of a given number. The factorial function takes an 
-integer n as input and recursively calls itself with n-1 until it reaches the base case of n=0, at which point it returns 1. 
-The final result is the product of n and the factorial of n-1. The main function takes input for the number to calculate 
-the factorial of and calls the factorial function on that number, printing the result to the console.
-*/
+/**
+==================== PROGRAM DESCRIPTION =====================
+This program uses a recursive function to calculate the factorial
+of a given non-negative integer.
+Example Input/Output:
+Input: 5
+Output: 5! = 120
+Input: 0
+Output: 0! = 1
+Input: -3
+Output: Factorial is not defined for negative numbers.
+===============================================================
+**/
