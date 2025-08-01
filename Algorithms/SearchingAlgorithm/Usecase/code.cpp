@@ -1,46 +1,65 @@
-// Here is an example of a binary search algorithm in C++ that searches for a number in a sorted array:
-
 #include <iostream>
 using namespace std;
 
+/**
+ * @brief Performs binary search on a sorted array to find the target element.
+ *
+ * This recursive function searches for the element 'x' within the subarray 
+ * defined by the indices 'left' and 'right'. If found, it returns the index
+ * of the element. If not found, it returns -1.
+ *
+ * @param arr[] The sorted array to search in.
+ * @param left The starting index of the current subarray.
+ * @param right The ending index of the current subarray.
+ * @param x The target element to search for.
+ * @return int The index of the element if found; otherwise, -1.
+ */
 int binarySearch(int arr[], int left, int right, int x) {
     if (right >= left) {
         int mid = left + (right - left) / 2;
-        // If element is present at the middle itself
+
+        // Check if the middle element is the target
         if (arr[mid] == x) {
             return mid;
         }
-        // If element is smaller than mid, search left subarray
+
+        // If target is smaller than mid, search the left subarray
         if (arr[mid] > x) {
             return binarySearch(arr, left, mid - 1, x);
         }
-        // If element is larger than mid, search right subarray
+
+        // If target is larger than mid, search the right subarray
         return binarySearch(arr, mid + 1, right, x);
     }
-    // If element is not present in array
+
+    // Element not found
     return -1;
 }
 
+/**
+ * @brief Main function to demonstrate binary search.
+ *
+ * Initializes a sorted array and prompts the user to enter a number to search.
+ * The binary search is performed using the binarySearch() function.
+ * The result is printed to the console.
+ *
+ * @return int Exit code.
+ */
 int main() {
     int arr[] = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
     int n = sizeof(arr) / sizeof(arr[0]);
     int x;
+
     cout << "Enter a number to search: ";
     cin >> x;
+
     int result = binarySearch(arr, 0, n - 1, x);
+
     if (result == -1) {
         cout << "Element not found." << endl;
     } else {
         cout << "Element found at index " << result << "." << endl;
     }
+
     return 0;
 }
-/* This program uses a binary search algorithm to search for a given number in a sorted array. The binarySearch function 
-takes an array, the left and right indices of the subarray to search, and the number to search for. It repeatedly divides 
-the search space in half by calculating the middle index, and checks if the middle element is the desired element. If it 
-is, the function returns the index. If it is smaller than the desired element, the function calls itself on the right half
-of the subarray. If it is larger, the function calls itself on the left half of the subarray. The function continues to 
-divide the subarray in half until the element is found or the subarray is empty. The main function initializes a sorted 
-array and takes input for the number to search for. It calls the binarySearch function on the entire array and prints 
-the index of the element if it is found, or a message indicating it is not found.
-*/
