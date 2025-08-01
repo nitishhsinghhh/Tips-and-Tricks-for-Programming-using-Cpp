@@ -183,3 +183,37 @@ int main() {
 }
 ```
 
+## Modern C++ with std::string
+```cpp
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+
+using std::string;
+
+string reverseEachWord(const string& input) {
+    std::stringstream ss(input);
+    string word, result;
+
+    while (ss >> word) {
+        reverse(word.begin(), word.end());
+        result += word + ' ';
+    }
+
+    // Remove trailing space
+    if (!result.empty()) result.pop_back();
+
+    return result;
+}
+
+int main() {
+    string sentence = "My name is Nitish";
+    string reversed = reverseEachWord(sentence);
+    std::cout << reversed << std::endl; // Output: yM eman si hsitiN
+    return 0;
+}
+```
+}
+```
+
