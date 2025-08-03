@@ -1,4 +1,4 @@
-# STL Containers - Build System
+# STL Containers - MAKEFILE
 
 This project provides a demonstration of how to build and run STL Containers in C++ using a local development setup. The source code and build scripts are located in the following directory on the user's machine:
 
