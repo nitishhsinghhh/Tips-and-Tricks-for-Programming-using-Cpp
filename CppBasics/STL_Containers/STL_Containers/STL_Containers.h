@@ -285,17 +285,130 @@ private:
     size_t head, tail, count, capacity;
     
 public:
-    explicit CircularBuffer(size_t size);
+    explicit CircularBuffer(size_t size) : buffer(size), head(0), tail(0), count(0), capacity(size) {
+        if (size == 0) {
+            throw std::invalid_argument("CircularBuffer size must be greater than 0");
+        }
+    }
     
-    void push(const T& item);
-    void push(T&& item);
-    T pop();
+    // Push with bounds checking
+    void push(const T& item) {
+        if (full()) {
+            throw std::overflow_error("CircularBuffer is full - cannot push more elements");
+        }
+        buffer[tail] = item;
+        tail = (tail + 1) % capacity;
+        ++count;
+    }
     
+    void push(T&& item) {
+        if (full()) {
+            throw std::overflow_error("CircularBuffer is full - cannot push more elements");
+        }
+        buffer[tail] = std::move(item);
+        tail = (tail + 1) % capacity;
+        ++count;
+    }
+    
+    // Push with overwrite (circular behavior)
+    void push_overwrite(const T& item) {
+        buffer[tail] = item;
+        tail = (tail + 1) % capacity;
+        if (full()) {
+            head = (head + 1) % capacity; // Overwrite oldest element
+        } else {
+            ++count;
+        }
+    }
+    
+    void push_overwrite(T&& item) {
+        buffer[tail] = std::move(item);
+        tail = (tail + 1) % capacity;
+        if (full()) {
+            head = (head + 1) % capacity; // Overwrite oldest element
+        } else {
+            ++count;
+        }
+    }
+    
+    // Pop with bounds checking
+    T pop() {
+        if (empty()) {
+            throw std::underflow_error("CircularBuffer is empty - cannot pop elements");
+        }
+        T result = std::move(buffer[head]);
+        head = (head + 1) % capacity;
+        --count;
+        return result;
+    }
+    
+    // Peek methods for front and back (non-modifying)
+    const T& front() const {
+        if (empty()) {
+            throw std::underflow_error("CircularBuffer is empty - cannot access front element");
+        }
+        return buffer[head];
+    }
+    
+    T& front() {
+        if (empty()) {
+            throw std::underflow_error("CircularBuffer is empty - cannot access front element");
+        }
+        return buffer[head];
+    }
+    
+    const T& back() const {
+        if (empty()) {
+            throw std::underflow_error("CircularBuffer is empty - cannot access back element");
+        }
+        size_t back_index = (tail == 0) ? capacity - 1 : tail - 1;
+        return buffer[back_index];
+    }
+    
+    T& back() {
+        if (empty()) {
+            throw std::underflow_error("CircularBuffer is empty - cannot access back element");
+        }
+        size_t back_index = (tail == 0) ? capacity - 1 : tail - 1;
+        return buffer[back_index];
+    }
+    
+    // Bounds-checked element access
+    const T& at(size_t index) const {
+        if (index >= count) {
+            throw std::out_of_range("Index out of range for CircularBuffer");
+        }
+        return buffer[(head + index) % capacity];
+    }
+    
+    T& at(size_t index) {
+        if (index >= count) {
+            throw std::out_of_range("Index out of range for CircularBuffer");
+        }
+        return buffer[(head + index) % capacity];
+    }
+    
+    // Unchecked element access (for performance when bounds are known)
+    const T& operator[](size_t index) const {
+        return buffer[(head + index) % capacity];
+    }
+    
+    T& operator[](size_t index) {
+        return buffer[(head + index) % capacity];
+    }
+    
+    // Clear all elements
+    void clear() {
+        head = tail = count = 0;
+    }
+    
+    // Status methods
     bool empty() const { return count == 0; }
     bool full() const { return count == capacity; }
     size_t size() const { return count; }
+    size_t max_size() const { return capacity; }
     
-    // Iterator support
+    // Iterator support with bounds checking
     class iterator {
     private:
         CircularBuffer* buffer;
@@ -310,16 +423,115 @@ public:
         
         iterator(CircularBuffer* buf, size_t idx) : buffer(buf), index(idx) {}
         
-        T& operator*() { return buffer->buffer[(buffer->head + index) % buffer->capacity]; }
-        iterator& operator++() { ++index; return *this; }
-        iterator operator++(int) { iterator temp = *this; ++(*this); return temp; }
+        T& operator*() { 
+            if (index >= buffer->count) {
+                throw std::out_of_range("Iterator out of range");
+            }
+            return buffer->buffer[(buffer->head + index) % buffer->capacity]; 
+        }
         
-        bool operator==(const iterator& other) const { return index == other.index; }
-        bool operator!=(const iterator& other) const { return !(*this == other); }
+        const T& operator*() const { 
+            if (index >= buffer->count) {
+                throw std::out_of_range("Iterator out of range");
+            }
+            return buffer->buffer[(buffer->head + index) % buffer->capacity]; 
+        }
+        
+        T* operator->() { 
+            if (index >= buffer->count) {
+                throw std::out_of_range("Iterator out of range");
+            }
+            return &buffer->buffer[(buffer->head + index) % buffer->capacity]; 
+        }
+        
+        const T* operator->() const { 
+            if (index >= buffer->count) {
+                throw std::out_of_range("Iterator out of range");
+            }
+            return &buffer->buffer[(buffer->head + index) % buffer->capacity]; 
+        }
+        
+        iterator& operator++() { 
+            if (index >= buffer->count) {
+                throw std::out_of_range("Iterator increment out of range");
+            }
+            ++index; 
+            return *this; 
+        }
+        
+        iterator operator++(int) { 
+            iterator temp = *this; 
+            ++(*this); 
+            return temp; 
+        }
+        
+        bool operator==(const iterator& other) const { 
+            return buffer == other.buffer && index == other.index; 
+        }
+        
+        bool operator!=(const iterator& other) const { 
+            return !(*this == other); 
+        }
     };
     
+    class const_iterator {
+    private:
+        const CircularBuffer* buffer;
+        size_t index;
+        
+    public:
+        using iterator_category = std::forward_iterator_tag;
+        using value_type = T;
+        using difference_type = std::ptrdiff_t;
+        using pointer = const T*;
+        using reference = const T&;
+        
+        const_iterator(const CircularBuffer* buf, size_t idx) : buffer(buf), index(idx) {}
+        
+        const T& operator*() const { 
+            if (index >= buffer->count) {
+                throw std::out_of_range("Const iterator out of range");
+            }
+            return buffer->buffer[(buffer->head + index) % buffer->capacity]; 
+        }
+        
+        const T* operator->() const { 
+            if (index >= buffer->count) {
+                throw std::out_of_range("Const iterator out of range");
+            }
+            return &buffer->buffer[(buffer->head + index) % buffer->capacity]; 
+        }
+        
+        const_iterator& operator++() { 
+            if (index >= buffer->count) {
+                throw std::out_of_range("Const iterator increment out of range");
+            }
+            ++index; 
+            return *this; 
+        }
+        
+        const_iterator operator++(int) { 
+            const_iterator temp = *this; 
+            ++(*this); 
+            return temp; 
+        }
+        
+        bool operator==(const const_iterator& other) const { 
+            return buffer == other.buffer && index == other.index; 
+        }
+        
+        bool operator!=(const const_iterator& other) const { 
+            return !(*this == other); 
+        }
+    };
+    
+    // Iterator access methods
     iterator begin() { return iterator(this, 0); }
     iterator end() { return iterator(this, count); }
+    const_iterator begin() const { return const_iterator(this, 0); }
+    const_iterator end() const { return const_iterator(this, count); }
+    const_iterator cbegin() const { return const_iterator(this, 0); }
+    const_iterator cend() const { return const_iterator(this, count); }
 };
 
 // Thread-safe container wrapper
