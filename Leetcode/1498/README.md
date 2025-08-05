@@ -72,25 +72,56 @@ Some valid groups:
 
 Here's a clean and efficient C++ solution to solve the problem of counting valid subsequences where the sum of the smallest and largest number is less than or equal to the target:
 ```C++ []
+#include <vector>
+#include <algorithm>
+
+/**
+ * @class Solution
+ * @brief Provides a method to count the number of valid subsequences where the sum of the minimum and maximum
+ *        elements is less than or equal to a given target.
+ */
 class Solution {
 public:
-    int numSubseq(vector<int>& nums, int target) {
-        sort(nums.begin(), nums.end());  // Step 1
+    /**
+     * @brief Counts the number of non-empty subsequences such that the sum of the minimum and maximum element
+     *        is less than or equal to the given target.
+     * 
+     * @param nums A vector of integers representing the input array.
+     * @param target The target sum for the minimum and maximum elements of the subsequences.
+     * @return The number of valid subsequences modulo 10^9 + 7.
+     * 
+     * This function sorts the input and uses a two-pointer approach to efficiently compute
+     * the number of valid subsequences. Powers of 2 are precomputed to determine the number
+     * of subsets between two pointers.
+     */
+    int numSubseq(std::vector<int>& nums, int target) {
+        // Step 1: Sort the input array
+        std::sort(nums.begin(), nums.end());
 
-        int size = nums.size(), mod = 1e9 + 7;
-        vector<int> power(size, 1);  // Step 2
-        for (int i = 1; i < size; ++i)
+        int size = nums.size();
+        const int mod = 1e9 + 7;
+
+        // Step 2: Precompute powers of 2 modulo mod
+        std::vector<int> power(size, 1);
+        for (int i = 1; i < size; ++i) {
             power[i] = power[i - 1] * 2 % mod;
+        }
 
-        int low = 0, high = size - 1, res = 0;
-        while (low <= high) {  // Step 3
-            if (nums[low] + nums[high] > target) 
-                high--;  // Try a smaller number
-            else {
+        int low = 0, high = size - 1;
+        int res = 0;
+
+        // Step 3: Use two pointers to find valid min-max combinations
+        while (low <= high) {
+            if (nums[low] + nums[high] > target) {
+                // If the sum exceeds target, move the right pointer to the left
+                --high;
+            } else {
+                // All subsequences between low and high are valid
                 res = (res + power[high - low]) % mod;
-                low++;  // Try next bigger number
+                ++low;
             }
         }
+
         return res;
     }
 };
