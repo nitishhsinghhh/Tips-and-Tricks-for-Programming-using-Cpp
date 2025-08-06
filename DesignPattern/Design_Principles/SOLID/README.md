@@ -29,27 +29,67 @@ Let’s explore an example to demonstrate SRP in action. We’ll create a simple
 #include <iostream>
 #include <vector>
 
+/**
+ * @class Employee
+ * @brief Represents an employee with a name, base salary, bonus, and calculated salary.
+ */
 class Employee {
 public:
+    /**
+     * @brief Constructs an Employee object.
+     * @param name Name of the employee.
+     * @param baseSalary The base salary of the employee.
+     * @param bonus The bonus awarded to the employee.
+     */
     Employee(const std::string& name, double baseSalary, double bonus)
         : name(name), baseSalary(baseSalary), bonus(bonus), salary(0) {}
 
+    /**
+     * @brief Gets the base salary of the employee.
+     * @return The base salary.
+     */
     double getBaseSalary() const { return baseSalary; }
+
+    /**
+     * @brief Gets the bonus of the employee.
+     * @return The bonus amount.
+     */
     double getBonus() const { return bonus; }
+
+    /**
+     * @brief Sets the final salary of the employee.
+     * @param salary The calculated salary to set.
+     */
     void setSalary(double salary) { this->salary = salary; }
+
+    /**
+     * @brief Gets the calculated salary of the employee.
+     * @return The final salary.
+     */
     double getSalary() const { return salary; }
 
 private:
-    std::string name;
-    double baseSalary;
-    double bonus;
-    double salary;
+    std::string name;   ///< Name of the employee.
+    double baseSalary;  ///< Base salary of the employee.
+    double bonus;       ///< Bonus awarded to the employee.
+    double salary;      ///< Calculated salary after adding bonus.
 };
 
+/**
+ * @class PayrollSystem
+ * @brief Manages payroll calculation and reporting for a group of employees.
+ */
 class PayrollSystem {
 public:
+    /**
+     * @brief Constructs the PayrollSystem with a list of employees.
+     * @param employees Vector of Employee objects.
+     */
     PayrollSystem(const std::vector<Employee>& employees) : employees(employees) {}
 
+    /**
+     * @brief Calculates the final salary for each employee by adding base salary and bonus.
+     */
     void calculateSalaries() {
         for (auto& employee : employees) {
             double salary = employee.getBaseSalary() + employee.getBonus();
@@ -57,6 +97,9 @@ public:
         }
     }
 
+    /**
+     * @brief Generates a report of employee salaries.
+     */
     void generatePayrollReport() {
         for (const auto& employee : employees) {
             std::cout << "Employee Salary: " << employee.getSalary() << std::endl;
@@ -64,9 +107,13 @@ public:
     }
 
 private:
-    std::vector<Employee> employees;
+    std::vector<Employee> employees; ///< List of employees in the payroll system.
 };
 
+/**
+ * @brief Entry point of the program.
+ * @return Exit code.
+ */
 int main() {
     std::vector<Employee> employees = {
         Employee("Alice", 50000, 2000),
