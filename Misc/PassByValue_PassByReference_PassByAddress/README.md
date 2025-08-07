@@ -25,7 +25,7 @@ using std::vector;
  * @param vec The vector of integers to search.
  * @return The smallest integer in the vector.
  */
-int smallest_element(vector<int> vec) {
+int smallest_element(vector<int> vec) {        // // Deep copy happens here
     auto smallest_val = vec[0];
     for (int x : vec)
         smallest_val = std::min(smallest_val, x);
@@ -48,8 +48,63 @@ int main() {
 
     return 0;
 }
+
+/*
+large_vec is passed by value, invoking the copy constructor and creating a deep copy: 
+std::vector<int> vec = large_vec;
+*/
 ```
 Here, the vector vec is passed by value. This means a copy of the vector is made each time the function is called, which is inefficient for large vectors.
+
+## Simulating Deep Copy with 1 Million Elements
+```cpp []
+#include <iostream>
+#include <vector>
+
+// Custom class to track copy constructor and destructor calls
+class MyInt {
+    int value;
+public:
+    MyInt(int val) : value(val) {}
+
+    // Copy constructor
+    MyInt(const MyInt& other) : value(other.value) {
+        std::cout << "Copy constructor called for " << value << std::endl;
+    }
+
+    // Destructor
+    ~MyInt() {
+        std::cout << "Destructor called for " << value << std::endl;
+    }
+
+    // Getter for value
+    int getValue() const {
+        return value;
+    }
+};
+
+// Function passed by value (causes deep copy of entire vector)
+int sum(std::vector<MyInt> vec) {
+    int total = 0;
+    for (const auto& item : vec)
+        total += item.getValue();
+    return total;
+}
+
+int main() {
+    std::vector<MyInt> large_vec;
+    
+    // Only use a few elements for demo — change to 1,000,000 for full test
+    for (int i = 0; i < 5; ++i)
+        large_vec.emplace_back(i + 1);
+
+    std::cout << "Calling sum...\n";
+    int result = sum(large_vec);
+    std::cout << "Sum: " << result << std::endl;
+
+    return 0;
+}
+```
 
 ## Pass by Reference
 To improve efficiency, we can pass the vector by reference. This allows the function to operate directly on the original vector without making a copy: <bk>
