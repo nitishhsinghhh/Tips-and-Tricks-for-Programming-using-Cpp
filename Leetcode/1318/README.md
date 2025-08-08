@@ -2,7 +2,6 @@
 
 # Topics
 - Bit Manipulation
-  
 ```C++ []
 #include <iostream>
 
