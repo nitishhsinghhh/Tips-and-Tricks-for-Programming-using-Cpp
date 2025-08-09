@@ -33,22 +33,45 @@ Here is the C++ implementation of the described approach:
 #include <iostream>
 #include <cmath>
 
-// Function to count perfect squares between a and b
+/**
+ * @brief Counts the number of perfect squares within a given range [a, b].
+ *
+ * This function finds the first integer whose square is greater than or equal to `a` 
+ * and the last integer whose square is less than or equal to `b`. It then computes 
+ * how many integers in this range produce perfect squares within [a, b].
+ *
+ * @param a The lower bound of the range (inclusive).
+ * @param b The upper bound of the range (inclusive).
+ * @return int The number of perfect squares between a and b.
+ */
 int squares(int a, int b) {
-    // Calculate the start and end points
+    // Calculate the first integer whose square is >= a
     int start = std::ceil(std::sqrt(a));
+
+    // Calculate the last integer whose square is <= b
     int end = std::floor(std::sqrt(b));
     
-    // Calculate the number of perfect squares
+    // Calculate the count of perfect squares in range
     int res = (end - start) + 1;
     
     // Ensure the result is non-negative
     return std::max(0, res);
 }
 
+/**
+ * @brief Entry point of the program.
+ *
+ * Demonstrates the use of the squares() function by counting the perfect 
+ * squares in the range [4, 16].
+ *
+ * @return int Exit status code (0 for success).
+ */
 int main() {
     int a = 4, b = 16;
-    std::cout << "Number of perfect squares between " << a << " and " << b << ": " << squares(a, b) << std::endl;
+
+    std::cout << "Number of perfect squares between "
+              << a << " and " << b << ": " << squares(a, b) << std::endl;
+
     return 0;
 }
 ```
@@ -56,13 +79,23 @@ To solve the problem of counting perfect squares between two integers a and b wi
 ```cpp
 #include <iostream>
 
-// Function to compute integer square root using binary search
+/**
+ * @brief Computes the integer square root of a number using binary search.
+ *
+ * This function returns the floor value of the square root of `n`.
+ * For example:
+ * - integerSqrt(10) = 3
+ * - integerSqrt(16) = 4
+ *
+ * @param n The number whose integer square root is to be computed.
+ * @return int The largest integer `x` such that `x*x <= n`.
+ */
 int integerSqrt(int n) {
     if (n == 0 || n == 1) return n;
     int low = 1, high = n, ans = 0;
     while (low <= high) {
         int mid = low + (high - low) / 2;
-        if (mid <= n / mid) {
+        if (mid <= n / mid) { // Avoids overflow compared to (mid * mid <= n)
             ans = mid;
             low = mid + 1;
         } else {
@@ -72,20 +105,39 @@ int integerSqrt(int n) {
     return ans;
 }
 
-// Function to count perfect squares between a and b
+/**
+ * @brief Counts the number of perfect squares within a given range [a, b].
+ *
+ * This function uses integer square root logic to avoid floating-point
+ * operations. It adjusts the starting value to simulate ceil(sqrt(a))
+ * and the ending value to simulate floor(sqrt(b)).
+ *
+ * @param a The lower bound of the range (inclusive).
+ * @param b The upper bound of the range (inclusive).
+ * @return int The number of perfect squares between a and b (inclusive).
+ */
 int squares(int a, int b) {
     int start = integerSqrt(a);
-    if (start * start < a) start++; // simulate ceil(sqrt(a))
+    if (start * start < a) start++; // Simulate ceil(sqrt(a))
 
-    int end = integerSqrt(b); // simulate floor(sqrt(b))
+    int end = integerSqrt(b); // Simulate floor(sqrt(b))
 
     int res = (end - start) + 1;
     return res > 0 ? res : 0;
 }
 
+/**
+ * @brief Entry point of the program.
+ *
+ * Demonstrates the usage of the squares() function by counting
+ * the perfect squares in the range [4, 16].
+ *
+ * @return int Exit status code (0 for success).
+ */
 int main() {
     int a = 4, b = 16;
-    std::cout << "Number of perfect squares between " << a << " and " << b << ": " << squares(a, b) << std::endl;
+    std::cout << "Number of perfect squares between "
+              << a << " and " << b << ": " << squares(a, b) << std::endl;
     return 0;
 }
 ```
@@ -95,22 +147,44 @@ int main() {
 #include <iostream>
 #include <cassert>
 
-// Interface for square root calculation
+/**
+ * @brief Interface for square root calculation strategies.
+ *
+ * This abstract interface defines a method to calculate the integer
+ * square root of a given number. Implementations may use different
+ * algorithms (e.g., binary search, Newton's method, etc.).
+ */
 class ISquareRootCalculator {
 public:
+    /**
+     * @brief Calculates the integer square root of a number.
+     *
+     * @param n The input number (non-negative integer).
+     * @return int The largest integer x such that x*x <= n.
+     */
     virtual int calculate(int n) const = 0;
+
+    /// Virtual destructor for proper cleanup of derived classes.
     virtual ~ISquareRootCalculator() = default;
 };
 
-// Concrete implementation using binary search
+/**
+ * @brief Concrete implementation of ISquareRootCalculator using binary search.
+ *
+ * This class finds the floor of the square root of an integer using
+ * an iterative binary search approach.
+ */
 class BinarySearchSquareRoot : public ISquareRootCalculator {
 public:
+    /**
+     * @copydoc ISquareRootCalculator::calculate
+     */
     int calculate(int n) const override {
         if (n == 0 || n == 1) return n;
         int low = 1, high = n, ans = 0;
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (mid <= n / mid) {
+            if (mid <= n / mid) { // Avoids overflow
                 ans = mid;
                 low = mid + 1;
             } else {
@@ -121,27 +195,53 @@ public:
     }
 };
 
-// Class to count perfect squares
+/**
+ * @brief Class to count perfect squares within a given range.
+ *
+ * This class depends on an ISquareRootCalculator instance to compute
+ * integer square roots, making it flexible for testing and swapping
+ * different algorithms.
+ */
 class PerfectSquareCounter {
 private:
-    const ISquareRootCalculator& sqrtCalculator;
+    const ISquareRootCalculator& sqrtCalculator; ///< Square root calculation strategy.
 
 public:
+    /**
+     * @brief Constructs a PerfectSquareCounter with the given square root calculator.
+     * @param calculator Reference to an ISquareRootCalculator instance.
+     */
     PerfectSquareCounter(const ISquareRootCalculator& calculator) : sqrtCalculator(calculator) {}
 
+    /**
+     * @brief Counts the number of perfect squares between a and b (inclusive).
+     *
+     * @param a The lower bound of the range (inclusive).
+     * @param b The upper bound of the range (inclusive).
+     * @return int The count of perfect squares in the range.
+     */
     int count(int a, int b) const {
         int start = sqrtCalculator.calculate(a);
-        if (start * start < a) start++;
+        if (start * start < a) start++; // Simulate ceil(sqrt(a))
 
-        int end = sqrtCalculator.calculate(b);
+        int end = sqrtCalculator.calculate(b); // floor(sqrt(b))
+
         int res = (end - start) + 1;
         return res > 0 ? res : 0;
     }
 };
 
-// Unit test class
+/**
+ * @brief Unit test suite for PerfectSquareCounter.
+ *
+ * Contains multiple test cases using a mock square root calculator
+ * to verify correctness without depending on actual sqrt implementation.
+ */
 class PerfectSquareCounterTests {
 public:
+    /**
+     * @brief Runs all unit tests for PerfectSquareCounter.
+     */
     void runAllTests() {
         testCountInRange();
         testNoPerfectSquares();
@@ -151,10 +251,13 @@ public:
     }
 
 private:
+    /**
+     * @brief Mock implementation of ISquareRootCalculator for controlled testing.
+     */
     class MockSquareRootCalculator : public ISquareRootCalculator {
     public:
         int calculate(int n) const override {
-            // Simple mock logic for controlled testing
+            // Simple deterministic mock logic
             if (n == 4) return 2;
             if (n == 16) return 4;
             if (n == 5) return 2;
@@ -165,24 +268,28 @@ private:
         }
     };
 
+    /// Tests counting perfect squares within a range containing multiple squares.
     void testCountInRange() {
         MockSquareRootCalculator mock;
         PerfectSquareCounter counter(mock);
         assert(counter.count(4, 16) == 3); // 4, 9, 16
     }
 
+    /// Tests range containing no perfect squares.
     void testNoPerfectSquares() {
         MockSquareRootCalculator mock;
         PerfectSquareCounter counter(mock);
-        assert(counter.count(2, 3) == 0); // none
+        assert(counter.count(2, 3) == 0);
     }
 
+    /// Tests a range containing exactly one perfect square.
     void testSinglePerfectSquare() {
         MockSquareRootCalculator mock;
         PerfectSquareCounter counter(mock);
-        assert(counter.count(1, 1) == 1); // only 1
+        assert(counter.count(1, 1) == 1);
     }
 
+    /// Tests edge case ranges with only one square inside.
     void testEdgeCases() {
         MockSquareRootCalculator mock;
         PerfectSquareCounter counter(mock);
@@ -190,13 +297,21 @@ private:
     }
 };
 
-// Main function
+/**
+ * @brief Entry point of the program.
+ *
+ * Demonstrates the PerfectSquareCounter with a binary search
+ * square root calculator and runs unit tests.
+ *
+ * @return int Exit code (0 for success).
+ */
 int main() {
     BinarySearchSquareRoot sqrtCalc;
     PerfectSquareCounter counter(sqrtCalc);
 
     int a = 4, b = 16;
-    std::cout << "Number of perfect squares between " << a << " and " << b << ": "
+    std::cout << "Number of perfect squares between "
+              << a << " and " << b << ": "
               << counter.count(a, b) << std::endl;
 
     // Run unit tests
