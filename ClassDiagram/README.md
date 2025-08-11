@@ -1,5 +1,5 @@
 # What Is a Class Diagram?
-A class diagram is a type of UML (Unified Modeling Language) diagram that shows the static structure of a system. It includes:
+A class diagram is a type of Unified Modeling Language (UML) diagram that shows the static structure of a system. It includes:
 
 Classes
 - Attributes and methods
@@ -21,11 +21,11 @@ Start by listing all the classes involved in your system. For [our example](http
 For each class, list its attributes (variables) and methods (functions).
 
 Example:
-```
+
 Class: StringConversion
 -----------------------
 + convertString(input: string): string
-```
+
 
 ### Step 3: Determine Relationships
 Use arrows to show how classes relate:
@@ -58,75 +58,75 @@ This outlines the entities (classes) and their relationships, which together for
 
 Here's a breakdown of the key classes involved in the design pattern:
 
-* **`StringConversion`** (Abstract Base Class/Interface)
+* **StringConversion** (Abstract Base Class/Interface)
     * **Attributes:** None, as it's an interface defining behavior.
     * **Methods:**
-        * `convertString()`: A pure virtual (abstract) method that concrete subclasses must implement.
+        * convertString(): A pure virtual (abstract) method that concrete subclasses must implement.
 
-* **`UppercaseConversion`** (Concrete Class)
+* **UppercaseConversion** (Concrete Class)
     * **Attributes:** None.
     * **Methods:**
-        * `convertString()`: Implements the conversion logic to make a string uppercase.
+        * convertString(): Implements the conversion logic to make a string uppercase.
 
-* **`LowercaseConversion`** (Concrete Class)
+* **LowercaseConversion** (Concrete Class)
     * **Attributes:** None.
     * **Methods:**
-        * `convertString()`: Implements the conversion logic to make a string lowercase.
+        * convertString(): Implements the conversion logic to make a string lowercase.
 
-* **`CapitalizeConversion`** (Concrete Class)
+* **CapitalizeConversion** (Concrete Class)
     * **Attributes:** None.
     * **Methods:**
-        * `convertString()`: Implements the conversion logic to capitalize the first letter of each word in a string.
+        * convertString(): Implements the conversion logic to capitalize the first letter of each word in a string.
      
-* **`SentenceCase`** (Concrete Class)
+* **SentenceCase** (Concrete Class)
     * **Attributes:** None.
     * **Methods:**
-        * `convertString()`: Implements the conversion logic to capitalize the first letter of each sentence and make the rest lowercase.
+        * convertString(): Implements the conversion logic to capitalize the first letter of each sentence and make the rest lowercase.
 
-  * **`ToggleCase`** (Concrete Class)
+  * **ToggleCase** (Concrete Class)
     * **Attributes:** None.
     * **Methods:**
-        * `convertString()`: Implements the conversion logic to Convert uppercase letters to lowercase and vice versa..
+        * convertString(): Implements the conversion logic to Convert uppercase letters to lowercase and vice versa..
 
-* **`StringConversionFactory`** (Factory Class)
+* **StringConversionFactory** (Factory Class)
     * **Attributes:** None.
     * **Methods:**
-        * `createStringConversion(ConversionType type)`: A static method responsible for creating and returning the appropriate `StringConversion` object based on the given `ConversionType`.
+        * createStringConversion(ConversionType type): A static method responsible for creating and returning the appropriate StringConversion object based on the given ConversionType.
 
-* **`Client`** (Client Class)
+* **Client** (Client Class)
     * **Attributes:**
-        * `conversionType`: Stores the desired `ConversionType`.
-        * `stringConversion`: A pointer or smart pointer to a `StringConversion` object, allowing the client to interact with various conversion types through a common interface.
+        * conversionType: Stores the desired ConversionType.
+        * stringConversion: A pointer or smart pointer to a StringConversion object, allowing the client to interact with various conversion types through a common interface.
     * **Methods:**
-        * `BuildStringConversion(ConversionType type)`: Sets the desired conversion type and obtains the corresponding `StringConversion` object from the factory.
-        * `convertAndPrint(const std::string& text)`: (Implied usage) Utilizes the obtained `StringConversion` object to perform and print the conversion.
+        * BuildStringConversion(ConversionType type): Sets the desired conversion type and obtains the corresponding StringConversion object from the factory.
+        * convertAndPrint(const std::string& text): (Implied usage) Utilizes the obtained StringConversion object to perform and print the conversion.
 ---
 
 ## Relationships
 
 These relationships define how the classes interact within the pattern:
 
-* **Inheritance/Generalization** (between `StringConversion` and its concrete implementations):
-    * `UppercaseConversion` **inherits from** `StringConversion`.
-    * `LowercaseConversion` **inherits from** `StringConversion`.
-    * `CapitalizeConversion` **inherits from** `StringConversion`.
-    * **UML Notation:** Represented by a solid line with a hollow triangle arrowhead pointing from the subclass (`UppercaseConversion`, `LowercaseConversion`, `CapitalizeConversion`) to the superclass (`StringConversion`).
+* **Inheritance/Generalization** (between StringConversion and its concrete implementations):
+    * UppercaseConversion **inherits from** StringConversion.
+    * LowercaseConversion **inherits from** StringConversion.
+    * CapitalizeConversion **inherits from** StringConversion.
+    * **UML Notation:** Represented by a solid line with a hollow triangle arrowhead pointing from the subclass (UppercaseConversion, LowercaseConversion, CapitalizeConversion) to the superclass (StringConversion).
 
-* **Association/Dependency** (between `StringConversionFactory` and `StringConversion`, including its concrete implementations):
-    * `StringConversionFactory` **creates** objects that conform to the `StringConversion` interface. This implies a dependency on `StringConversion` and an implicit understanding of its concrete subclasses for creation. The `createStringConversion` method returns a `StringConversion*`.
-    * **UML Notation:** Often shown as a dashed arrow (dependency) from `StringConversionFactory` to `StringConversion`, indicating that the factory's operation depends on the `StringConversion` interface.
+* **Association/Dependency** (between StringConversionFactory and StringConversion, including its concrete implementations):
+    * StringConversionFactory **creates** objects that conform to the StringConversion interface. This implies a dependency on StringConversion and an implicit understanding of its concrete subclasses for creation. The createStringConversion method returns a StringConversion*.
+    * **UML Notation:** Often shown as a dashed arrow (dependency) from StringConversionFactory to StringConversion, indicating that the factory's operation depends on the StringConversion interface.
 
-* **Association/Dependency** (between `Client` and `StringConversionFactory`):
-    * The `Client` **uses** `StringConversionFactory` to obtain `StringConversion` objects, decoupling the client from the concrete creation logic.
-    * **UML Notation:** Represented by a dashed arrow (dependency) pointing from `Client` to `StringConversionFactory`.
+* **Association/Dependency** (between Client and StringConversionFactory):
+    * The Client **uses** StringConversionFactory to obtain StringConversion objects, decoupling the client from the concrete creation logic.
+    * **UML Notation:** Represented by a dashed arrow (dependency) pointing from Client to StringConversionFactory.
 
-* **Association** (between `Client` and `StringConversion`):
-    * The `Client` **has a** `StringConversion` object, meaning it holds a reference to an instance of the `StringConversion` interface to perform conversions. This is a "uses-a" relationship where the client interacts with the abstract interface.
-    * **UML Notation:** Depicted as a solid line from `Client` to `StringConversion`.
+* **Association** (between Client and StringConversion):
+    * The Client **has a** StringConversion object, meaning it holds a reference to an instance of the StringConversion interface to perform conversions. This is a "uses-a" relationship where the client interacts with the abstract interface.
+    * **UML Notation:** Depicted as a solid line from Client to StringConversion.
 
 ---
 
 ## Enum
 
-* **`ConversionType`**: This is an enumeration, not a class, used to specify the type of string conversion desired when interacting with the `StringConversionFactory`. It defines the discrete options (e.g., UP, DOWN, CAPITALIZE).
+* **ConversionType**: This is an enumeration, not a class, used to specify the type of string conversion desired when interacting with the StringConversionFactory. It defines the discrete options (e.g., UP, DOWN, CAPITALIZE).
 
