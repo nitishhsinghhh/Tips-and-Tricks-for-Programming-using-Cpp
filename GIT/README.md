@@ -1,3 +1,11 @@
+# The Birth of Git (April 2005)
+Linus Torvalds, creator of Linux, designed Git to meet very strict requirements:
+1. Speed – It should handle huge repositories like the Linux kernel efficiently.
+2. Distributed – Every developer should have the complete history locally.
+3. Integrity – Every file and commit should be checksummed (via SHA-1) to prevent corruption or tampering.
+4. Strong Branching/Merging – Creating and merging branches should be fast and safe.
+Linus developed the first version of Git in just 10 days in April 2005. He initially managed it himself, but soon handed maintenance to Junio C Hamano, who still leads the project today.
+
 # Understanding Git: A Comprehensive Guide
 
 Imagine writing a story in a notebook. Every day you tweak chapters, correct spelling, or revise the ending. Wouldn’t it be magical to revisit every version you've ever created? That’s exactly what Git does—for your code.
