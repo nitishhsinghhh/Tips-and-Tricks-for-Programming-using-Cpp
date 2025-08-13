@@ -1,7 +1,4 @@
-# Segmentation Fault in C++
-Segmentation faults in C++ occur when a program attempts to access a memory location it does not have permission to access. Generally, this error occurs when memory access is violated and is a type of general protection fault. Segfaults are the abbreviation for segmentation faults.
-
-## Table of Contents
+# Table of Contents
 - [Causes of Segmentation Fault in C++](#causes-of-segmentation-fault-in-c)
 - [Common Segmentation Fault Scenarios](#common-segmentation-fault-scenarios)
   1. [Modifying a String Literal](#1-modifying-a-string-literal)
@@ -14,7 +11,9 @@ Segmentation faults in C++ occur when a program attempts to access a memory loca
 - [How to Identify the Cause of Segmentation Faults in C++](#how-to-identify-the-cause-of-segmentation-faults-in-c)
 - [How to Fix Segmentation Faults](#how-to-fix-segmentation-faults)
 - [Conclusion](#conclusion)
-
+  
+# Segmentation Fault in C++
+Segmentation faults in C++ occur when a program attempts to access a memory location it does not have permission to access. Generally, this error occurs when memory access is violated and is a type of general protection fault. Segfaults are the abbreviation for segmentation faults.
 ## Causes of Segmentation Fault in C++
 
 A program has access to specific regions of memory while it is running. The stack is used to hold the local variables for each function, and memory can also be allocated at runtime and saved on the heap (referred to as the "free store" in C++). A segmentation fault occurs when a program tries to:
