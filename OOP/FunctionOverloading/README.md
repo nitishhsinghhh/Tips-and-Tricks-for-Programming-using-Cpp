@@ -2,8 +2,6 @@
 
 ## Table of Contents
 
-## Table of Contents
-
 1. [Function Overloading in C++](#1-function-overloading-in-c)
 2. [Conditions for Function Overloading Parameters](#2-conditions-for-function-overloading-parameters)  
    - [2.1 Different Parameter Types](#21-parameters-should-have-different-types)  
@@ -216,19 +214,7 @@ void k(int x = 10) { }
   	- When you declare it once with x = 5, the compiler stores that as the only allowed default for this parameter.
   	- Giving a different default (x = 10) in the definition is seen as a conflicting redeclaration of the same function.
 
-
-
-
-
-
-
-
-
-
-
-
-
-## How Function Overloading Works
+## 4. How Function Overloading Works
 
 Function overloading in C++ operates based on the following rules:
 
