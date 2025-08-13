@@ -6,17 +6,16 @@
 
 1. [Function Overloading in C++](#1-function-overloading-in-c)
 2. [Conditions for Function Overloading Parameters](#2-conditions-for-function-overloading-parameters)  
-   2.1 [Different Parameter Types](#21-parameters-should-have-different-types)  
-   2.2 [Different Number of Parameters](#22-parameters-should-have-a-different-number)  
-   2.3 [Different Sequence of Parameters](#23-parameters-should-have-a-different-sequence-of-parameters)  
-   2.4 [Parameters with Default Values](#24-parameters-with-default-values)  
+   - [2.1 Different Parameter Types](#21-parameters-should-have-different-types)  
+   - [2.2 Different Number of Parameters](#22-parameters-should-have-a-different-number)  
+   - [2.3 Different Sequence of Parameters](#23-parameters-should-have-a-different-sequence-of-parameters)  
+   - [2.4 Parameters with Default Values](#24-parameters-with-default-values)  
 3. [Important Notes About Default Parameters in Overloading](#3-important-notes-about-default-parameters-in-overloading)  
-   3.1 [USE CASE 1 — Function Overloading Ambiguity Caused by Default Parameters](#31-use-case-1-function-overloading-ambiguity-caused-by-default-parameters)  
-   3.2 [USE CASE 2 — Conflicting Default Arguments in Overloads](#32-use-case-2-conflicting-default-arguments-in-overloads)  
-   3.3 [USE CASE 3 — Multiple Overloads Becoming Ambiguous with Defaults](#33-use-case-3-multiple-overloads-becoming-ambiguous-with-defaults)  
-   3.4 [USE CASE 4 — Conflicts Between Inline Definition and Separate Declaration](#34-use-case-4-conflicts-between-inline-definition-and-separate-declaration)  
+   - [3.1 USE CASE 1 — Function Overloading Ambiguity Caused by Default Parameters](#31-use-case-1-function-overloading-ambiguity-caused-by-default-parameters)  
+   - [3.2 USE CASE 2 — Conflicting Default Arguments in Overloads](#32-use-case-2-conflicting-default-arguments-in-overloads)  
+   - [3.3 USE CASE 3 — Multiple Overloads Becoming Ambiguous with Defaults](#33-use-case-3-multiple-overloads-becoming-ambiguous-with-defaults)  
+   - [3.4 USE CASE 4 — Conflicts Between Inline Definition and Separate Declaration](#34-use-case-4-conflicts-between-inline-definition-and-separate-declaration)  
 4. [How Function Overloading Works](#4-how-function-overloading-works)
-
 
 ## 1. Function Overloading in C++
 Function overloading is a feature of object-oriented programming that allows multiple functions to have the same name but different parameters. This concept enables a function to perform different tasks based on the input parameters. Function overloading is considered an example of polymorphism in C++.
@@ -29,7 +28,7 @@ Key points about function overloading:
 ## 2. Conditions for Function Overloading Parameters
 
 Parameters for function overloading should adhere to one or more of the following conditions:
-- Parameters should have different types
+### 2.1 Parameters should have different types
   - Example: 
     - `add(int a, int b)`
     - `add(double a, double b)`
@@ -52,7 +51,7 @@ int main() {
 	return 0;
 }
 ```
-### 2.1 Parameters should have a different number
+### 2.2 Parameters should have a different number
   - Example:
     - `add(int a, int b)`
     - `add(int a, int b, int c)`
@@ -75,7 +74,7 @@ int main() {
 	return 0;
 }
 ```
-### 2.2 Parameters should have a different sequence of parameters
+### 2.3 Parameters should have a different sequence of parameters
   - Example:
     - `add(int a, double b)`
     - `add(double a, int b)`
@@ -99,7 +98,7 @@ int main() {
 }
 ```
 
-### 2.3 Parameters with Default Values
+### 2.4 Parameters with Default Values
 Default parameters can affect overload resolution and sometimes cause ambiguity.
 ```Cpp
 #include <iostream>
