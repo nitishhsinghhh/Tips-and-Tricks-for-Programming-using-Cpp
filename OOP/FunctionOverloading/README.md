@@ -9,10 +9,10 @@
    - [2.3 Different Sequence of Parameters](#23-parameters-should-have-a-different-sequence-of-parameters)  
    - [2.4 Parameters with Default Values](#24-parameters-with-default-values)  
 3. [Important Notes About Default Parameters in Overloading](#3-important-notes-about-default-parameters-in-overloading)  
-   - [3.1 USE CASE 1 — Function Overloading Ambiguity Caused by Default Parameters](#31-use-case-1-function-overloading-ambiguity-caused-by-default-parameters)  
-   - [3.2 USE CASE 2 — Conflicting Default Arguments in Overloads](#32-use-case-2-conflicting-default-arguments-in-overloads)  
-   - [3.3 USE CASE 3 — Multiple Overloads Becoming Ambiguous with Defaults](#33-use-case-3-multiple-overloads-becoming-ambiguous-with-defaults)  
-   - [3.4 USE CASE 4 — Conflicts Between Inline Definition and Separate Declaration](#34-use-case-4-conflicts-between-inline-definition-and-separate-declaration)  
+   - [3.1 Function Overloading Ambiguity Caused by Default Parameters](#31-function-overloading-ambiguity-caused-by-default-parameters)  
+   - [3.2 Conflicting Default Arguments in Overloads](#32-conflicting-default-arguments-in-overloads)  
+   - [3.3 Multiple Overloads Becoming Ambiguous with Defaults](#33-multiple-overloads-becoming-ambiguous-with-defaults)  
+   - [3.4 Conflicts Between Inline Definition and Separate Declaration](#34-conflicts-between-inline-definition-and-separate-declaration)  
 4. [How Function Overloading Works](#4-how-function-overloading-works)
 
 ## 1. Function Overloading in C++
