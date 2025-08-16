@@ -1,3 +1,4 @@
+Why? Because digits on the left (higher place values) contribute more to the overall number than digits on the right. So changing a 6 in the thousands place is far more impactful than changing one in the units place.
 # Greedy Approaches to Maximum 69 Number
 
 ## Table of Contents
@@ -8,14 +9,14 @@
 4. [Solution](#4-solution)  
   4.1 [Classic String-Based Solution](#41-classic-string-based-solution)  
   4.2 [Compact Trick-Based Solution](#42-compact-trick-based-solution)  
-  4.3 [CPP17 Version Using find](#43-cpp17-version-using-find)  
-  4.4 [Lambda-Based Modular Solution](#44-lambda-based-modular-solution)  
+  4.3 [CPP seventeen Compact Version Using find](#43-cpp-seventeen-compact-version-using-find)
+  4.4 [Lambda-Based Modular Solution](#44-lambda-based-modular-solution)  
   4.5 [Pure Math-Based Solution](#45-pure-math-based-solution)  
   4.6 [Bit Manipulation](#46-bit-manipulation)  
-5. [Interview Perspective](#5-interview-perspective)  
-6. [Generalized C++ Solution](#6-generalized-c-solution)  
-7. [Support for Bidirectional Transformation](#7-support-for-bidirectional-transformation)  
-8. [Suggested Generalizations](#8-suggested-generalizations)
+6. [Interview Perspective](#5-interview-perspective)  
+7. [Generalized C++ Solution](#6-generalized-c-solution)  
+8. [Support for Bidirectional Transformation](#7-support-for-bidirectional-transformation)  
+9. [Suggested Generalizations](#8-suggested-generalizations)
     
 # 1. First Thought Process
 The moment you read the prompt—“You are given a positive integer consisting only of digits 6 and 9. You can change at most one digit (6 to 9 or 9 to 6) to get the maximum number possible”—your brain immediately goes:
@@ -32,7 +33,6 @@ The moment you read the prompt—“You are given a positive integer consisting 
 # 3. Why This Is Greedy:
 A greedy algorithm makes the best possible decision at each step without worrying about future consequences. In this case, the greedy insight is:
 `To maximize the number, flip the most significant '6' to a '9'.`
-Why? Because digits on the left (higher place values) contribute more to the overall number than digits on the right. So changing a 6 in the thousands place is far more impactful than changing one in the units place.
 
 # 4. Solution
 
@@ -70,7 +70,7 @@ public:
 };
 ```
 Uses a clever inline assignment inside the if condition.
-## 4.3 CPP17 Compact Version Using find
+## 4.3 CPP seventeen Compact Version Using find
 ```C++ []
 class Solution {
 public:
