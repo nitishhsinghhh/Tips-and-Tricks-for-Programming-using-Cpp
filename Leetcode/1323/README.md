@@ -17,26 +17,26 @@
 7. [Support for Bidirectional Transformation](#7-support-for-bidirectional-transformation)  
 8. [Suggested Generalizations](#8-suggested-generalizations)
     
-# First Thought Process
+# 1. First Thought Process
 The moment you read the prompt—“You are given a positive integer consisting only of digits 6 and 9. You can change at most one digit (6 to 9 or 9 to 6) to get the maximum number possible”—your brain immediately goes:
 `
 "Okay, I need to find the first '6' and flip it to '9'. That should give me the biggest possible number."`
 
-# Natural First Steps
+# 2. Natural First Steps
 - Convert the number to a string: Makes it easy to inspect and modify each digit.
 - Loop through the string: Check each digit one by one.
 - Find the first '6': As soon as you see it, change it to '9'.
 - Break the loop: Only one change allowed.
 - Convert back to integer: Return the modified number.
 
-# Why This Is Greedy:
+# 3. Why This Is Greedy:
 A greedy algorithm makes the best possible decision at each step without worrying about future consequences. In this case, the greedy insight is:
 `To maximize the number, flip the most significant '6' to a '9'.`
 Why? Because digits on the left (higher place values) contribute more to the overall number than digits on the right. So changing a 6 in the thousands place is far more impactful than changing one in the units place.
 
-# Solution
+# 4. Solution
 
-## Classic String-Based Solution
+## 4.1 Classic String-Based Solution
 ```C++ []
 class Solution {
 public:
@@ -56,7 +56,7 @@ Simple, readable, and effective.
 
 Now that we’ve seen the classic approach, let’s explore a more compact trick using inline assignment.
 
-## Compact Trick-Based Solution
+## 4.2 Compact Trick-Based Solution
 ```C++ []
 class Solution {
 public:
@@ -70,7 +70,7 @@ public:
 };
 ```
 Uses a clever inline assignment inside the if condition.
-## C++17 Compact Version Using find and Inline Initializer
+## 4.3 C++17 Compact Version Using find and Inline Initializer
 ```C++ []
 class Solution {
 public:
@@ -85,7 +85,7 @@ public:
 ```
 Elegant use of inline initializer and find.
 
-## Lambda-Based Modular Solution
+## 4.4 Lambda-Based Modular Solution
 ```C++ []
 class Solution {
 public:
@@ -104,7 +104,7 @@ public:
 ```
 Great for modularity and reuse.
 
-## Pure Math-Based Solution 
+## 4.5 Pure Math-Based Solution 
 ```C++ []
 class Solution {
 public:
@@ -122,7 +122,7 @@ public:
 ```
 This avoids string conversion entirely.
 
-## Bit Manipulation 
+## 4.6 Bit Manipulation 
 Bit manipulation isn’t ideal for digit-level operations, but you can still use it for arithmetic optimizations.
 ```C++ []
 class Solution {
@@ -168,15 +168,15 @@ But digits like '6' and '9' are not directly represented in binary as separate e
 `Whether you go with strings for clarity or math for performance, the key insight is the same: Flip the most significant '6' to a '9'—and do it once.`
 
 
-# Interview Perspective:
+# 5. Interview Perspective:
 
-- Greedy Algorithm Thinking
+- 5.1 Greedy Algorithm Thinking
     - You’re applying a greedy strategy: change the leftmost '6' to '9' for maximum impact.
     - This shows you understand digit significance — leftmost digits affect the number more than rightmost ones.
-- String Manipulation
+- 5.2 String Manipulation
     - You convert the number to a string to easily access and modify digits.
     - Demonstrates comfort with type conversion and string traversal.
-- Adding maxChanges as a parameter
+- 5.3 Adding maxChanges as a parameter
     - Adding maxChanges as a parameter shows foresight and flexibility. 
     - You’re not hardcoding logic — you’re designing for scalability.
 
@@ -199,7 +199,7 @@ int maximum69Number(int num, int maxChanges = 1) {
 The idea is to maximize the number if it's positive, minimize it if it's negative, and leave it unchanged if it's zero.
 
 
-## Generalized C++ Solution
+## 6. Generalized C++ Solution
 ```C++ []
 #include <iostream>
 #include <string>
@@ -254,7 +254,7 @@ int main() {
 }
 ```
 
-## Support for Bidirectional Transformation 
+## 7. Support for Bidirectional Transformation 
 Instead of hardcoding '6' → '9' for positive and '9' → '6' for negative, allow the caller to specify: 
 - Which digit to change 
 - What to change it to
@@ -316,7 +316,7 @@ int main() {
 }
 ```
 
-## Suggested Generalizations
+## 8. Suggested Generalizations
 - Support for Any Base
 - Transform All Occurrences
 Allow the user to specify whether to transform all matching digits or just up to maxChanges
