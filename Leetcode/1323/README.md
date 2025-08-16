@@ -1,4 +1,3 @@
-Why? Because digits on the left (higher place values) contribute more to the overall number than digits on the right. So changing a 6 in the thousands place is far more impactful than changing one in the units place.
 # Greedy Approaches to Maximum 69 Number
 
 ## Table of Contents
@@ -32,6 +31,8 @@ The moment you read the prompt—“You are given a positive integer consisting 
 # 3. Why This Is Greedy:
 A greedy algorithm makes the best possible decision at each step without worrying about future consequences. In this case, the greedy insight is:
 `To maximize the number, flip the most significant '6' to a '9'.`
+
+Why? Because digits on the left (higher place values) contribute more to the overall number than digits on the right. So changing a 6 in the thousands place is far more impactful than changing one in the units place.
 
 # 4. Solution
 
