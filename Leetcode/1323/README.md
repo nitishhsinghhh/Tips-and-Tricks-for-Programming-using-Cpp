@@ -8,7 +8,7 @@
 4. [Solution](#4-solution)  
   4.1 [Classic String-Based Solution](#41-classic-string-based-solution)  
   4.2 [Compact Trick-Based Solution](#42-compact-trick-based-solution)  
-  4.3 [C++17 Version Using `find`](#43-c17-version-using-find)  
+  4.3 [CPP17 Version Using `find`](#43-cpp17-version-using-find)  
   4.4 [Lambda-Based Modular Solution](#44-lambda-based-modular-solution)  
   4.5 [Pure Math-Based Solution](#45-pure-math-based-solution)  
   4.6 [Bit Manipulation](#46-bit-manipulation)  
@@ -70,7 +70,7 @@ public:
 };
 ```
 Uses a clever inline assignment inside the if condition.
-## 4.3 C++17 Compact Version Using find and Inline Initializer
+## 4.3 CPP17 Compact Version Using find and Inline Initializer
 ```C++ []
 class Solution {
 public:
