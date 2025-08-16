@@ -2,21 +2,20 @@ Why? Because digits on the left (higher place values) contribute more to the ove
 # Greedy Approaches to Maximum 69 Number
 
 ## Table of Contents
-
 1. [First Thought Process](#1-first-thought-process)  
 2. [Natural First Steps](#2-natural-first-steps)  
 3. [Why This Is Greedy](#3-why-this-is-greedy)  
 4. [Solution](#4-solution)  
   4.1 [Classic String-Based Solution](#41-classic-string-based-solution)  
   4.2 [Compact Trick-Based Solution](#42-compact-trick-based-solution)  
-  4.3 [CPP seventeen Compact Version Using find](#43-cpp-seventeen-compact-version-using-find)
-  4.4 [Lambda-Based Modular Solution](#44-lambda-based-modular-solution)  
+  4.3 [CPP seventeen Compact Version Using find](#43-cpp-seventeen-compact-version-using-find)  
+  4.4 [Lambda-Based Modular Solution](#44-lambda-based-modular-solution)  
   4.5 [Pure Math-Based Solution](#45-pure-math-based-solution)  
   4.6 [Bit Manipulation](#46-bit-manipulation)  
-6. [Interview Perspective](#5-interview-perspective)  
-7. [Generalized C++ Solution](#6-generalized-c-solution)  
-8. [Support for Bidirectional Transformation](#7-support-for-bidirectional-transformation)  
-9. [Suggested Generalizations](#8-suggested-generalizations)
+5. [Interview Perspective](#5-interview-perspective)  
+6. [Generalized C++ Solution](#6-generalized-c-solution)  
+7. [Support for Bidirectional Transformation](#7-support-for-bidirectional-transformation)  
+8. [Suggested Generalizations](#8-suggested-generalizations)
     
 # 1. First Thought Process
 The moment you read the prompt—“You are given a positive integer consisting only of digits 6 and 9. You can change at most one digit (6 to 9 or 9 to 6) to get the maximum number possible”—your brain immediately goes:
