@@ -70,7 +70,7 @@ public:
 };
 ```
 Uses a clever inline assignment inside the if condition.
-## 4.3 CPP17 Compact Version Using find and Inline Initializer
+## 4.3 CPP17 Compact Version Using find
 ```C++ []
 class Solution {
 public:
