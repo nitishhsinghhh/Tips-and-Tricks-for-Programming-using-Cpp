@@ -107,7 +107,6 @@ Great for modularity and reuse.
 ## 4.5 Pure Math-Based Solution 
 ```C++ []
 class Solution {
-public:
     int maximum69Number(int num) {
         int temp = num, pos = -1, power = 0;
         while (temp) {
@@ -183,6 +182,7 @@ But digits like '6' and '9' are not directly represented in binary as separate e
 ```C++ []
 int maximum69Number(int num, int maxChanges = 1) {
     string numberStr = to_string(num);
+public:
     int changes = 0;
     for (int digitIndex = 0; digitIndex < numberStr.size(); ++digitIndex) {
         if (numberStr[digitIndex] == '6') {
@@ -195,11 +195,9 @@ int maximum69Number(int num, int maxChanges = 1) {
 ```
 [Default Parameter](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/tree/main/OOP/FunctionOverloading#3-important-notes-about-default-parameters-in-overloading): If the caller doesn't provide a value for maxChanges, then use 1 by default.
 
+## 6. Generalized C++ Solution
 **Can you think about how the implementation logic changes if the number is negative?**
 The idea is to maximize the number if it's positive, minimize it if it's negative, and leave it unchanged if it's zero.
-
-
-## 6. Generalized C++ Solution
 ```C++ []
 #include <iostream>
 #include <string>
