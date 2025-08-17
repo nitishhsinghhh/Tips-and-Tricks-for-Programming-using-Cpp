@@ -9,12 +9,14 @@
   4.2 [Compact Trick-Based Solution](#42-compact-trick-based-solution)  
   4.3 [CPP seventeen Compact Version Using find](#43-cpp-seventeen-compact-version-using-find)  
   4.4 [Lambda-Based Modular Solution](#44-lambda-based-modular-solution)  
+    4.4.1 [using a function pointer](#441-using-a-function-pointer)  
   4.5 [Pure Math-Based Solution](#45-pure-math-based-solution)  
   4.6 [Bit Manipulation](#46-bit-manipulation)  
 5. [Interview Perspective](#5-interview-perspective)  
 6. [Generalized C++ Solution](#6-generalized-c-solution)  
 7. [Support for Bidirectional Transformation](#7-support-for-bidirectional-transformation)  
 8. [Suggested Generalizations](#8-suggested-generalizations)
+
     
 # 1. First Thought Process
 The moment you read the prompt—“You are given a positive integer consisting only of digits 6 and 9. You can change at most one digit (6 to 9 or 9 to 6) to get the maximum number possible”—your brain immediately goes:
@@ -103,6 +105,37 @@ public:
 };
 ```
 Great for modularity and reuse.
+
+## 4.4.1 using a function pointer
+```Cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Solution {
+public:
+    // Define a static function that modifies the string
+    static bool change(string& s) {
+        for (char& c : s) {
+            if (c == '6') {
+                c = '9';
+                return true;
+            }
+        }
+        return false;
+    }
+
+    int maximum69Number(int num) {
+        // Function pointer to the change function
+        bool (*funcPtr)(string&) = &Solution::change;
+
+        string s = to_string(num);
+        funcPtr(s);   // call via function pointer
+        return stoi(s);
+    }
+};
+```
+
 
 ## 4.5 Pure Math-Based Solution 
 ```C++ []
