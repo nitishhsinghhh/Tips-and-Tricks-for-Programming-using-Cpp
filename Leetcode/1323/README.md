@@ -6,12 +6,11 @@
 3. [Why This Is Greedy](#3-why-this-is-greedy)  
 4. [Solution](#4-solution)  
   4.1 [Classic String-Based Solution](#41-classic-string-based-solution)  
-  4.2 [Compact Trick-Based Solution](#42-compact-trick-based-solution)  
-  4.3 [CPP seventeen Compact Version Using find](#43-cpp-seventeen-compact-version-using-find)  
-  4.4 [Lambda-Based Modular Solution](#44-lambda-based-modular-solution)  
-    4.4.1 [using a function pointer](#441-using-a-function-pointer)  
-  4.5 [Pure Math-Based Solution](#45-pure-math-based-solution)  
-  4.6 [Bit Manipulation](#46-bit-manipulation)  
+  4.2 [CPP seventeen Compact Version Using find](#42-cpp-seventeen-compact-version-using-find)  
+  4.3 [Lambda-Based Modular Solution](#43-lambda-based-modular-solution)  
+    4.3.1 [using a function pointer](#431-using-a-function-pointer)  
+  4.4 [Pure Math-Based Solution](#44-pure-math-based-solution)  
+  4.5 [Bit Manipulation](#45-bit-manipulation)  
 5. [Interview Perspective](#5-interview-perspective)  
 6. [Generalized C++ Solution](#6-generalized-c-solution)  
 7. [Support for Bidirectional Transformation](#7-support-for-bidirectional-transformation)  
@@ -58,7 +57,6 @@ Simple, readable, and effective.
 
 Now that we’ve seen the classic approach, let’s explore a more compact trick using inline assignment.
 
-## 4.2 Compact Trick-Based Solution
 ```C++ []
 class Solution {
 public:
@@ -72,7 +70,7 @@ public:
 };
 ```
 Uses a clever inline assignment inside the if condition.
-## 4.3 CPP seventeen Compact Version Using find
+## 4.2 CPP seventeen Compact Version Using find
 ```C++ []
 class Solution {
 public:
@@ -87,7 +85,7 @@ public:
 ```
 Elegant use of inline initializer and find.
 
-## 4.4 Lambda-Based Modular Solution
+## 4.3 Lambda-Based Modular Solution
 ```C++ []
 class Solution {
 public:
@@ -106,7 +104,7 @@ public:
 ```
 Great for modularity and reuse.
 
-## 4.4.1 using a function pointer
+## 4.3.1 using a function pointer
 ```Cpp
 #include <iostream>
 #include <string>
@@ -137,7 +135,7 @@ public:
 ```
 
 
-## 4.5 Pure Math-Based Solution 
+## 4.4 Pure Math-Based Solution 
 ```C++ []
 class Solution {
     int maximum69Number(int num) {
@@ -154,7 +152,7 @@ class Solution {
 ```
 This avoids string conversion entirely.
 
-## 4.6 Bit Manipulation 
+## 4.5 Bit Manipulation 
 Bit manipulation isn’t ideal for digit-level operations, but you can still use it for arithmetic optimizations.
 ```C++ []
 class Solution {
