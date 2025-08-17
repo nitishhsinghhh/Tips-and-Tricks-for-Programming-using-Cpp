@@ -148,8 +148,7 @@ int main() {
 	fibonacci::FibFunc fPtr = &fibonacci::fibByValueStatic;
 	std::cout << fPtr(10) << std::endl;
 	 
-	fibonacci obj;
 	fibonacci::MemberFibFunc memberPtr = &fibonacci::fibByValue;
-	std::cout << (obj.*memberPtr)(11) << std::endl;
+	std::cout << (fib.*memberPtr)(11) << std::endl;
 }
 ```
