@@ -25,6 +25,8 @@ public:
     static int fibByValueStatic(int num);     // Static, pass by value
     int fibByRef(const int& num);             // Non-static, pass by reference
     int fibByPointer(int* num);               // Non-static, pass by pointer
+	typedef int (*FibFunc)(int);			  // Function pointer to static function
+    typedef int (fibonacci::* MemberFibFunc)(int);	// Function pointer to non-static member function
 };
 ```
 
@@ -141,5 +143,13 @@ int main() {
     // Non-static pass by pointer
     int numPtr = 7;
     std::cout << fib.fibByPointer(&numPtr) << std::endl;
+
+	// Assign function address to pointer
+	fibonacci::FibFunc fPtr = &fibonacci::fibByValueStatic;
+	std::cout << fPtr(10) << std::endl;
+	 
+	fibonacci obj;
+	fibonacci::MemberFibFunc memberPtr = &fibonacci::fibByValue;
+	std::cout << (obj.*memberPtr)(11) << std::endl;
 }
 ```
