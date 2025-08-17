@@ -26,17 +26,6 @@ public:
     int fibByRef(const int& num);             // Non-static, pass by reference
     int fibByPointer(int* num);               // Non-static, pass by pointer
 };
-
-
-# Class Structure Overview
-```Cpp
-class fibonacci {
-public:
-    int fibByValue(int num);                  // Non-static, pass by value
-    static int fibByValueStatic(int num);     // Static, pass by value
-    int fibByRef(const int& num);             // Non-static, pass by reference
-    int fibByPointer(int* num);               // Non-static, pass by pointer
-};
 ```
 
 ## Static vs Non-Static Functions
