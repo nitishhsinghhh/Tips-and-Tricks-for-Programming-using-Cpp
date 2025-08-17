@@ -143,6 +143,8 @@ int main() {
 
 
 ## 4.4 Pure Math-Based Solution 
+For production-like environments, this solution might be more performant and less memory-intensive.
+
 ```C++ []
 class Solution {
     int maximum69Number(int num) {
@@ -161,6 +163,8 @@ This avoids string conversion entirely.
 
 ## 4.5 Bit Manipulation 
 Bit manipulation isn’t ideal for digit-level operations, but you can still use it for arithmetic optimizations.
+**Bit twiddling here is more of an exercise—don’t use it in real code.**
+
 ```C++ []
 class Solution {
 public:
@@ -219,8 +223,8 @@ But digits like '6' and '9' are not directly represented in binary as separate e
 
 ```C++ []
 int maximum69Number(int num, int maxChanges = 1) {
-    string numberStr = to_string(num);
 public:
+    string numberStr = to_string(num);
     int changes = 0;
     for (int digitIndex = 0; digitIndex < numberStr.size(); ++digitIndex) {
         if (numberStr[digitIndex] == '6') {
