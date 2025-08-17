@@ -108,12 +108,12 @@ Great for modularity and reuse.
 ```Cpp
 #include <iostream>
 #include <string>
-using namespace std;
+
+using std::cout;
 
 class Solution {
 public:
-    // Define a static function that modifies the string
-    static bool change(string& s) {
+    static bool change(std::string& s) {
         for (char& c : s) {
             if (c == '6') {
                 c = '9';
@@ -125,13 +125,20 @@ public:
 
     int maximum69Number(int num) {
         // Function pointer to the change function
-        bool (*funcPtr)(string&) = &Solution::change;
+        bool (*funcPtr)(std::string&) = &Solution::change;
 
-        string s = to_string(num);
-        funcPtr(s);   // call via function pointer
-        return stoi(s);
+        std::string s = std::to_string(num);
+        funcPtr(s);   
+        return std::stoi(s);
     }
 };
+
+int main() {
+    Solution sol;
+    cout << sol.maximum69Number(9669) << '\n'; // Expected: 9969
+    cout << sol.maximum69Number(9996) << '\n'; // Expected: 9999
+    cout << sol.maximum69Number(9999) << '\n'; // Expected: 9999
+}
 ```
 
 
@@ -346,6 +353,8 @@ int main() {
 ```
 
 ## 8. Suggested Generalizations
+**skip this if you only care about the interview**
+
 - Support for Any Base
 - Transform All Occurrences
 Allow the user to specify whether to transform all matching digits or just up to maxChanges
