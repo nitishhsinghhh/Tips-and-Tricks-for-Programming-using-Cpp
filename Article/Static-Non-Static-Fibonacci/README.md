@@ -152,3 +152,44 @@ int main() {
 	std::cout << (fib.*memberPtr)(11) << std::endl;
 }
 ```
+## Modern Guidance (C++11 and beyond)
+Prefer std::function or lambdas instead of raw function pointers when you need flexibility.
+Safer, more expressive, can bind member functions and captures.
+
+```Cpp
+#include <functional>
+
+fibonacci fib;
+std::function<int(int)> f = [&](int n){ return fib.fibByValue(n); };
+std::cout << f(7);
+
+```
+
+## When a Normal Function Call is Enough
+- Use a plain function call when:
+- The logic is fixed (you know at compile time which function will be called).
+- There is no need for runtime switching between different behaviors.
+- Readability and performance are top priority (direct calls are the fastest).
+
+## When Function Pointers Are Useful
+- Callback Mechanism
+	- Pass a function as a parameter to another function.
+   	- Example: sorting with a custom comparison.
+ 	```Cpp
+	void runFib(int n, int (*fibFunc)(int)) {
+	 	std::cout << fibFunc(n) << std::endl;
+	}
+	runFib(6, fibonacci::fibByValueStatic);
+  ```
+- Runtime Decision / Strategy Pattern
+- Polymorphism Alternative (lighter than inheritance/virtual)
+Instead of making a base class with virtual functions, you can just pass a function pointer if all you need is one behavior swap.
+- Interfacing with C APIs / Callbacks
+Libraries like POSIX threads, qsort(), or graphics toolkits expect function pointers.
+
+## Rule of Thumb
+Normal function → Best when you know exactly which function to call (clarity + speed).
+Function pointer / std::function → Best when you want to decide later (runtime) which function to call, or need to pass behavior around (callbacks, strategies, event systems).
+
+
+
