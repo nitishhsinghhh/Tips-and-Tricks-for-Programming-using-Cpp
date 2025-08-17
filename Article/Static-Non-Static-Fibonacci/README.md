@@ -1,6 +1,33 @@
 # Understanding Static vs Non-Static and Parameter Passing in C++ with Fibonacci
 In C++, understanding how functions behave depending on their static/non-static nature and how parameters are [passed—by value, reference, or pointer](https://nitishhsinghhh.medium.com/pass-by-value-and-pass-by-reference-in-c-15c4393eb675)—is crucial for writing efficient and maintainable code. Let's explore these concepts using a simple Fibonacci class.
 
+# Understanding Static vs Non-Static and Parameter Passing in C++ with Fibonacci
+
+## Table of Contents
+1. [Class Structure Overview](#class-structure-overview)  
+2. [Static vs Non-Static Functions](#static-vs-non-static-functions)  
+   - [Non-Static Functions](#non-static-functions)  
+   - [Static Functions](#static-functions)  
+   - [Common Error](#common-error)  
+3. [Parameter Passing Techniques](#parameter-passing-techniques)  
+   - [Pass by Value](#pass-by-value)  
+   - [Pass by Reference](#pass-by-reference)  
+   - [Pass by Pointer](#pass-by-pointer)  
+4. [Fibonacci Function Implementations](#fibonacci-function-implementations)  
+   - [Incorrect Version: Recursive Call for Pointer Version](#incorrect-version-recursive-call-for-pointer-version)  
+5. [Sample Usage in main()](#sample-usage-in-main)  
+
+# Class Structure Overview
+```Cpp
+class fibonacci {
+public:
+    int fibByValue(int num);                  // Non-static, pass by value
+    static int fibByValueStatic(int num);     // Static, pass by value
+    int fibByRef(const int& num);             // Non-static, pass by reference
+    int fibByPointer(int* num);               // Non-static, pass by pointer
+};
+
+
 # Class Structure Overview
 ```Cpp
 class fibonacci {
