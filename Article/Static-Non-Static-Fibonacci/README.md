@@ -1,0 +1,127 @@
+# Understanding Static vs Non-Static and Parameter Passing in C++ with Fibonacci
+In C++, understanding how functions behave depending on their static/non-static nature and how parameters are [passed—by value, reference, or pointer](https://nitishhsinghhh.medium.com/pass-by-value-and-pass-by-reference-in-c-15c4393eb675)—is crucial for writing efficient and maintainable code. Let's explore these concepts using a simple Fibonacci class.
+
+# Class Structure Overview
+```Cpp
+class fibonacci {
+public:
+    int fibByValue(int num);                  // Non-static, pass by value
+    static int fibByValueStatic(int num);     // Static, pass by value
+    int fibByRef(const int& num);             // Non-static, pass by reference
+    int fibByPointer(int* num);               // Non-static, pass by pointer
+};
+```
+
+## Static vs Non-Static Functions
+### Non-Static Functions
+- Belong to an instance of a class.
+- Require an object to be created before calling.
+Example:
+```Cpp
+fibonacci fib;
+fib.fibByValue(5);
+```
+### Static Functions
+- Belong to the class itself, not any object.
+- Can be called directly using the class name.
+Example:
+```Cpp
+fibonacci::fibByValueStatic(5);
+```
+### Common Error
+Trying to call a non-static function like this:
+```CPP
+fibonacci::fibByValue(5); // Error: needs an object
+```
+
+## Parameter Passing Techniques
+
+### Pass by Value
+ 
+- A copy of the value is passed.
+- Changes inside the function do not affect the original variable.
+- Simple and safe, but can be inefficient for large objects.
+```Cpp
+int fibonacci::fibByValue(int num);
+```
+
+### Pass by Reference
+ 
+- Passes a reference to the original variable.
+- Efficient for large objects.
+- const ensures the function doesn't modify the original value.
+- Cannot bind non-const reference to temporary values (e.g., num - 1).
+
+```Cpp
+int fibonacci::fibByRef(const int& num);
+```
+
+### Pass by Pointer
+ 
+- Passes the address of the variable.
+- Allows modification of the original value (unless const is used).
+- Requires careful memory handling.
+```Cpp
+int fibonacci::fibByPointer(int* num);
+```
+
+## Fibonacci Function Implementations
+```Cpp
+int fibonacci::fibByValue(int num) {
+	if (num == 1 || num == 2)
+		return 1;
+	else
+		return fibonacci::fibByValue(num - 1) + fibonacci::fibByValue(num - 2);
+}
+ 
+int fibonacci::fibByValueStatic(int num) {
+	if (num == 1 || num == 2)
+		return 1;
+	else
+		return fibonacci::fibByValueStatic(num - 1) + fibonacci::fibByValueStatic(num - 2);
+}
+ 
+int fibonacci::fibByRef(const int& num) {
+	if (num == 1 || num == 2)
+		return 1;
+	else
+		return fibonacci::fibByRef(num - 1) + fibonacci::fibByRef(num - 2);
+}
+ 
+int fibonacci::fibByPointer(int* num) {
+	if (*num == 1 || *num == 2)
+		return 1;
+	else {
+ 
+		int n1 = *num - 1;
+		int n2 = *num - 2;
+		return fibonacci::fibByPointer(&n1) + fibonacci::fibByPointer(&n2);
+	}
+}
+```
+
+### Incorrect Version: Recursive Call for Pointer Version
+```Cpp
+return fibonacci::fibByPointer(&(*(num - 1))) + fibonacci::fibByPointer(&(*(num - 2)));
+```
+
+## Sample Usage in main()
+```Cpp
+int main() {
+    fibonacci fib;
+ 
+    // Non-static pass by value
+    std::cout << fib.fibByValue(5) << std::endl;
+ 
+    // Static pass by value
+    std::cout << fibonacci::fibByValueStatic(5) << std::endl;
+ 
+    // Non-static pass by reference
+    int numRef = 6;
+    std::cout << fib.fibByRef(numRef) << std::endl;
+ 
+    // Non-static pass by pointer
+    int numPtr = 7;
+    std::cout << fib.fibByPointer(&numPtr) << std::endl;
+}
+```
