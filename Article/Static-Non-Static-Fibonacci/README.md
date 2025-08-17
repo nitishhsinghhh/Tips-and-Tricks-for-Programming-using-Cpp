@@ -25,12 +25,14 @@ In C++, understanding how functions behave depending on their static/non-static 
 ```Cpp
 class fibonacci {
 public:
-    int fibByValue(int num);                  // Non-static, pass by value
-    static int fibByValueStatic(int num);     // Static, pass by value
-    int fibByRef(const int& num);             // Non-static, pass by reference
-    int fibByPointer(int* num);               // Non-static, pass by pointer
-	typedef int (*FibFunc)(int);			  // Function pointer to static function
+    int fibByValue(int num);                  		// Non-static, pass by value
+    static int fibByValueStatic(int num);     		// Static, pass by value
+    int fibByRef(const int& num);             		// Non-static, pass by reference
+    int fibByPointer(int* num);               		// Non-static, pass by pointer
+	typedef int (*FibFunc)(int);			  		// Function pointer to static function
     typedef int (fibonacci::* MemberFibFunc)(int);	// Function pointer to non-static member function
+	static void runFib(int n, FibFunc fibFunc);		// Callback Function
+
 };
 ```
 
@@ -122,6 +124,10 @@ int fibonacci::fibByPointer(int* num) {
 }
 // We create new local integers for recursion because directly decrementing the pointer would lead to invalid memory access.
 
+void fibonacci::runFib(int n, FibFunc fibFunc) {
+    std::cout << "Callback Result: " << fibFunc(n) << std::endl;
+}
+
 ```
 
 ### Incorrect Version: Recursive Call for Pointer Version
@@ -154,6 +160,8 @@ int main() {
 	 
 	fibonacci::MemberFibFunc memberPtr = &fibonacci::fibByValue;
 	std::cout << (fib.*memberPtr)(11) << std::endl;
+
+	fibonacci::runFib(6, fibonacci::fibByValueStatic);
 }
 ```
 ## Modern Guidance (C++11 and beyond)
