@@ -19,10 +19,6 @@ In C++, understanding how functions behave depending on their static/non-static 
 6. [Modern Guidance (C++11 and beyond)](#modern-guidance-c11-and-beyond)  
 7. [When a Normal Function Call is Enough](#when-a-normal-function-call-is-enough)  
 8. [When Function Pointers Are Useful](#when-function-pointers-are-useful)  
-   - [Callback Mechanism](#callback-mechanism)  
-   - [Runtime Decision / Strategy Pattern](#runtime-decision--strategy-pattern)  
-   - [Polymorphism Alternative](#polymorphism-alternative-lighter-than-inheritancevirtual)  
-   - [Interfacing with C APIs / Callbacks](#interfacing-with-c-apis--callbacks)  
 9. [Rule of Thumb](#rule-of-thumb)  
 
 # Class Structure Overview
