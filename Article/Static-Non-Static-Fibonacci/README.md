@@ -114,6 +114,8 @@ int fibonacci::fibByPointer(int* num) {
 		return fibonacci::fibByPointer(&n1) + fibonacci::fibByPointer(&n2);
 	}
 }
+// We create new local integers for recursion because directly decrementing the pointer would lead to invalid memory access.
+
 ```
 
 ### Incorrect Version: Recursive Call for Pointer Version
