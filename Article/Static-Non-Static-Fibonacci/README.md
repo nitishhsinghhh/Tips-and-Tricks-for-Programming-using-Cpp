@@ -169,13 +169,36 @@ Prefer std::function or lambdas instead of raw function pointers when you need f
 Safer, more expressive, can bind member functions and captures.
 
 ```Cpp
+#include <iostream>
 #include <functional>
 
-fibonacci fib;
-std::function<int(int)> f = [&](int n){ return fib.fibByValue(n); };
-std::cout << f(7);
+class Fibonacci {
+public:
+    static int fib(int n) {
+        if (n <= 1) return n;
+        return fib(n - 1) + fib(n - 2);
+    }
+};
 
+// Functor that calls Fibonacci
+struct FibFunctor {
+    int operator()(int n) const {
+        return Fibonacci::fib(n);
+    }
+};
+
+void runFib(int n, std::function<int(int)> cb) {
+    std::cout << "Result: " << cb(n) << std::endl;
+}
+
+int main() {
+    runFib(6, FibFunctor());      // using functor
+}
 ```
+**### What is a Functor in C++?**
+- A functor (function object) is any object that can be used like a function.
+- This is possible because it overloads the function call operator operator().
+- So, instead of writing a free function, you make a class/struct that behaves like a function.
 
 ## When a Normal Function Call is Enough
 - Use a plain function call when:
@@ -202,6 +225,5 @@ Libraries like POSIX threads, qsort(), or graphics toolkits expect function poin
 ## Rule of Thumb
 Normal function → Best when you know exactly which function to call (clarity + speed).
 Function pointer / std::function → Best when you want to decide later (runtime) which function to call, or need to pass behavior around (callbacks, strategies, event systems).
-
 
 
