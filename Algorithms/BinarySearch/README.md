@@ -40,6 +40,25 @@ The Binary Search Algorithm can be implemented in the following two ways:
 **Auxiliary Space:** 
 - O(1), If the recursive call stack is considered then the auxiliary space will be O(logN).
 
+## Understand the algorithm
+- We are performing a binary search between left = 0 and right = x.
+- At each iteration, We compute mid = (left + right)/2 and check whether mid * mid equals x.
+- Depending on the result, We shrink the search space to either the left half or the right half.
+
+**Size of the search space**
+- Initially, the search space is of size 𝑥(from 0 to 𝑥).
+- After the first iteration, the search space is halved: size 𝑥/2
+- After the second iteration, it is halved again: size 𝑥/4.
+- After 𝑘 iterations, the search space size is 𝑥/(2^𝑘).
+
+**When does the search stop?**
+- The loop continues until the search space reduces to size 1 (i.e., left > right).
+- So we need: 𝑥/(2^𝑘) ≤ 1
+- Solving for 𝑘:
+                2^𝑘 ≥ 𝑥         ⇒ 𝑘 ≥ log2(𝑥)
+
+Total Time Complexity = 𝑂(log𝑥)
+
 # CPP code exmaple 
 
 ```cpp
