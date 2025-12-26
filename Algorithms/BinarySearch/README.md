@@ -135,6 +135,37 @@ int main() {
 - Used for searching in computer graphics such as algorithms for ray tracing or texture mapping.
 - Can be used for searching a database.
 
+## Meaning of "Monotonically"
+- In mathematics and computer science, monotonic means something changes in one direction only — it either always increases or always decreases, but never reverses.
+- For binary search:
+    - The search space (the interval between left and right) always decreases in size at each step.
+    - It never grows back or oscillates; it shrinks steadily until it becomes empty or reaches the answer.
+
+### Binary Search and Monotonicity
+- Binary search works because the condition you’re testing is monotonic.
+- A monotonic function or predicate is one that changes in only one direction: once it becomes true (or false), it stays that way for the rest of the domain.
+
+Formally:
+Increasing: 𝑓(𝑎) ≤ 𝑓(𝑏) whenever 𝑎 < 𝑏.
+Decreasing: 𝑓(𝑎) ≥ 𝑓(𝑏) whenever 𝑎 < 𝑏.
+
+### In our mySqrt example
+- We’re searching for the largest integer mid such that mid * mid ≤ x.
+- The function 𝑓(𝑚𝑖𝑑)=𝑚𝑖𝑑^2 is monotonically increasing for non-negative integers.
+- That monotonicity guarantees:
+    - If 𝑚𝑖𝑑^2 > 𝑥, then all larger values will also be too large
+    - If 𝑚𝑖𝑑^2 < 𝑥, then all smaller values will also be too small.
+- This property allows binary search to safely discard half of the search space each step.
+
+So yes — binary search relies on the fact that the function (or condition) being checked is monotonic. In our case, 𝑚𝑖𝑑^2 is a monotonically increasing function.
+
+### Comparison with Linear Search
+
+| Algorithm      | Worst-case Time | Best-case Time | Space |
+|----------------|-----------------|----------------|-------|
+| Linear search  | O(n)            | O(1)           | O(1)  |
+| Binary search  | O(log n)        | O(1)           | O(1)  |
+
 ### Implementation of Recursive  Binary Search Algorithm:
 
 ```cpp
@@ -415,15 +446,15 @@ int main() {
 
     std::cout << "\n\nBinary Search for element 2:";
     if (vectorSearch.binarySearch(2))
-        std::cout << "\n✅ Element found in the vector.";
+        std::cout << "\n Element found in the vector.";
     else
-        std::cout << "\n❌ Element not found in the vector.";
+        std::cout << "\n Element not found in the vector.";
 
     std::cout << "\n\nBinary Search for element 10:";
     if (vectorSearch.binarySearch(10))
-        std::cout << "\n✅ Element found in the vector.\n";
+        std::cout << "\n Element found in the vector.\n";
     else
-        std::cout << "\n❌ Element not found in the vector.\n";
+        std::cout << "\n Element not found in the vector.\n";
 
     // Portable alternative to system("pause")
     std::cout << "\nPress Enter to exit...";
@@ -797,3 +828,17 @@ public:
     }
 };
 ```
+
+## Two Pointers: The General Pattern
+Maintain two indices (or bounds) over a sequence/number line—typically i and j—and move them based on some condition to converge on the answer.
+Common variants:
+- Opposite ends (e.g., sorted array pair-sum: move i up or j down).
+- Sliding window (e.g., subarray with sum/property: move right to expand, left to shrink).
+- Partitioning (e.g., Dutch flag, Lomuto/Hoare partition in quicksort).
+- Same-direction pointers (e.g., slow/fast cycle detection).
+
+## Binary Search as a Special Case of Two Pointers
+Binary search maintains two pointers (left, right) bounding the candidate space and moves them based on a monotone predicate. The only difference vs. classic two-pointers is how the next step is chosen:
+
+- Two-pointers normally move one end (e.g., left++ or right--) based on comparisons.
+- Binary search moves one end after probing the midpoint (mid = (left + right)/2)—still two pointers; the midpoint is just a probe strategy that halves the search space each iteration.
