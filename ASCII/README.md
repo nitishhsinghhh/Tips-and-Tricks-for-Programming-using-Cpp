@@ -18,7 +18,7 @@ However, even extended ASCII does not include enough code combinations to suppor
 ## Table of Contents:
 - [ASCII Chart](./ASCIIChart)
 - [Input Validation using ASCII](./InputValidation)
-- [Add two characters](./performingASCIIcalculations)
-- [Sorting and Comparison Operations](./sortingComparisonOperations)
+- [Performing ASCII calculations](./PerformingASCIIcalculations)
+- [Sorting and Comparison Operations](./SortingComparisonOperations)
 - [Character Comparison Using ASCII](./CharacterComparison)
 - [Keyboard Input Mapping](./KeyboardInputMapping)
