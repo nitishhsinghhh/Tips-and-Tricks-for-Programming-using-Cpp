@@ -411,7 +411,7 @@ int main() {
 | Input Type               | Hardcoded   | Hardcoded            | User input               |
 | Data Type Used           | int         | int                  | long                     |
 | Sorting                  | Yes         | Yes                  | Yes                      |
-| Overflow Handling        | ❌          | ✅ (INT_MAX)         | ✅ (LONG_MAX)            |
-| Non-Numeric Validation   | ❌          | ✅                   | ✅                       |
-| Exception Handling       | ❌          | ✅ (basic)           | ✅ (full try-catch)      |
-| User Guidance / Notes    | ❌          | ✅ (int size info)   | ✅ (long size info)      |
+| Overflow Handling        | No          | Yes (INT_MAX)         | Yes (LONG_MAX)            |
+| Non-Numeric Validation   | No           | Yes                   | Yes                      |
+| Exception Handling       | No           |Yes (basic)           | Yes (full try-catch)      |
+| User Guidance / Notes    | No           | Yes (int size info)   | Yes (long size info)      |
