@@ -55,7 +55,7 @@ These are non-printable characters used for control in text streams:
 - 127 (DEL): Delete
 These are useful in low-level programming, terminal control, and communication protocols.
 
-### . Printable Characters (32–126)
+### Printable Characters (32–126)
 These include:
 
 - Space (32)
@@ -91,4 +91,161 @@ Printable ASCII [32..126]:
   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ?
 @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _
 ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
+```
+
+# ASCII Chart Generator in C++
+This program prints the complete ASCII chart for codes [0..127], showing: 
+- Decimal (dec)
+- Octal (oct)
+- Hexadecimal (hex)
+- Character (ch) or control name
+
+## Version 1: Basic Printer
+This version simply prints the ASCII chart for codes [0–127]. It’s straightforward and ideal for beginners.
+
+```Cpp
+// GCC 13.1: C++23
+#include <iostream>
+#include <iomanip>
+#include <map>
+
+std::string controlCharName(int code) {
+    static std::map<int, std::string> names = {
+        {0,"NUL"},{1,"SOH"},{2,"STX"},{3,"ETX"},{4,"EOT"},{5,"ENQ"},{6,"ACK"},{7,"BEL"},
+        {8,"BS"},{9,"TAB"},{10,"LF"},{11,"VT"},{12,"FF"},{13,"CR"},{14,"SO"},{15,"SI"},
+        {16,"DLE"},{17,"DC1"},{18,"DC2"},{19,"DC3"},{20,"DC4"},{21,"NAK"},{22,"SYN"},{23,"ETB"},
+        {24,"CAN"},{25,"EM"},{26,"SUB"},{27,"ESC"},{28,"FS"},{29,"GS"},{30,"RS"},{31,"US"},
+        {127,"DEL"}
+    };
+    return names[code];
+}
+
+int main() {
+    std::cout << "ASCII Chart [0..127]\n";
+    std::cout << std::setw(7) << "Dec" << " | "
+              << std::setw(7) << "Oct" << " | "
+              << std::setw(7) << "Hex" << " | "
+              << std::setw(7) << "Char" << "\n";
+    std::cout << "------------------------------------------------------\n";
+
+    for (int i = 0; i <= 127; ++i) {
+        std::cout << std::setw(7) << i << " | "
+                  << std::setw(7) << std::oct << i << " | "
+                  << std::setw(7) << std::hex << std::uppercase << i << " | ";
+
+        if (i < 32 || i == 127) {
+            std::cout << std::setw(7) << controlCharName(i);
+        } else {
+            std::cout << std::setw(7) << static_cast<char>(i);
+        }
+
+        std::cout << std::dec << std::nouppercase << "\n"; // reset formatting
+    }
+
+    std::cout << "------------------------------------------------------\n";
+    std::cout << "Chart complete.\n";
+}
+```
+## Version 2: Tested Printer
+This version adds an interface, implementation, and test class. It uses assert to verify that each row matches the expected output. This is more advanced and demonstrates OOP + unit testing concepts.
+```cpp
+#include <iostream>
+#include <iomanip>
+#include <memory>
+#include <sstream>
+#include <cassert>
+#include <map>
+
+using std::endl;
+using std::cout;
+using std::string;
+using std::stringstream;
+using std::setw;
+using std::oct;
+using std::hex;
+using std::dec;
+using std::uppercase;
+using std::unique_ptr;
+using std::make_unique;
+using std::nouppercase;
+
+// Interface
+class IConverter {
+public:
+    virtual string convert(int decimal) = 0;
+    virtual ~IConverter() = default;
+};
+
+// Implementation
+class NumberConverter : public IConverter {
+public:
+    string convert(int decimal) override {
+        stringstream ss;
+        ss << setw(7) << decimal << " | "
+           << setw(7) << oct << decimal << " | "
+           << setw(7) << hex << uppercase << decimal << " | ";
+
+        if (decimal < 32 || decimal == 127) {
+            ss << setw(7) << controlCharName(decimal);
+        } else {
+            ss << setw(7) << static_cast<char>(decimal);
+        }
+
+        ss << dec << nouppercase; // reset formatting
+        return ss.str();
+    }
+
+    static string controlCharName(int code) {
+        static std::map<int, string> names = {
+            {0,"NUL"},{1,"SOH"},{2,"STX"},{3,"ETX"},{4,"EOT"},{5,"ENQ"},{6,"ACK"},{7,"BEL"},
+            {8,"BS"},{9,"TAB"},{10,"LF"},{11,"VT"},{12,"FF"},{13,"CR"},{14,"SO"},{15,"SI"},
+            {16,"DLE"},{17,"DC1"},{18,"DC2"},{19,"DC3"},{20,"DC4"},{21,"NAK"},{22,"SYN"},{23,"ETB"},
+            {24,"CAN"},{25,"EM"},{26,"SUB"},{27,"ESC"},{28,"FS"},{29,"GS"},{30,"RS"},{31,"US"},
+            {127,"DEL"}
+        };
+        return names[code];
+    }
+};
+
+// Test class
+class ConverterTest {
+public:
+    void runAsciiTest() {
+        unique_ptr<IConverter> converter = make_unique<NumberConverter>();
+
+        cout << setw(7) << "Dec" << " | "
+             << setw(7) << "Oct" << " | "
+             << setw(7) << "Hex" << " | "
+             << setw(7) << "Char" << endl;
+        cout << "------------------------------------------------------" << endl;
+
+        for (int i = 0; i <= 127; i++) {
+            string result = converter->convert(i);
+            cout << result << endl;
+
+            // Build exact expected string using same logic
+            stringstream expected;
+            expected << setw(7) << i << " | "
+                     << setw(7) << oct << i << " | "
+                     << setw(7) << hex << uppercase << i << " | ";
+            if (i < 32 || i == 127) {
+                expected << setw(7) << NumberConverter::controlCharName(i);
+            } else {
+                expected << setw(7) << static_cast<char>(i);
+            }
+            expected << dec << nouppercase;
+
+            assert(result == expected.str());
+        }
+
+        cout << "------------------------------------------------------" << endl;
+        cout << "All ASCII conversion tests passed successfully!" << endl;
+    }
+};
+
+int main() {
+    ConverterTest test;
+    test.runAsciiTest();
+    return 0;
+}
 ```
