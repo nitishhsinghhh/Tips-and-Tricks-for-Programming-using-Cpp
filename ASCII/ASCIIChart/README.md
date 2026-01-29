@@ -156,47 +156,34 @@ This version adds an interface, implementation, and test class. It uses assert t
 #include <cassert>
 #include <map>
 
-using std::endl;
-using std::cout;
-using std::string;
-using std::stringstream;
-using std::setw;
-using std::oct;
-using std::hex;
-using std::dec;
-using std::uppercase;
-using std::unique_ptr;
-using std::make_unique;
-using std::nouppercase;
-
 // Interface
 class IConverter {
 public:
-    virtual string convert(int decimal) = 0;
+    virtual std::string convert(int decimal) = 0;
     virtual ~IConverter() = default;
 };
 
 // Implementation
 class NumberConverter : public IConverter {
 public:
-    string convert(int decimal) override {
-        stringstream ss;
-        ss << setw(7) << decimal << " | "
-           << setw(7) << oct << decimal << " | "
-           << setw(7) << hex << uppercase << decimal << " | ";
+    std::string convert(int decimal) override {
+        std::stringstream ss;
+        ss << std::setw(7) << decimal << " | "
+           << std::setw(7) << std::oct << decimal << " | "
+           << std::setw(7) << std::hex << std::uppercase << decimal << " | ";
 
         if (decimal < 32 || decimal == 127) {
-            ss << setw(7) << controlCharName(decimal);
+            ss << std::setw(7) << controlCharName(decimal);
         } else {
-            ss << setw(7) << static_cast<char>(decimal);
+            ss << std::setw(7) << static_cast<char>(decimal);
         }
 
-        ss << dec << nouppercase; // reset formatting
+        ss << std::dec << std::nouppercase; // reset formatting
         return ss.str();
     }
 
-    static string controlCharName(int code) {
-        static std::map<int, string> names = {
+    static std::string controlCharName(int code) {
+        static std::map<int, std::string> names = {
             {0,"NUL"},{1,"SOH"},{2,"STX"},{3,"ETX"},{4,"EOT"},{5,"ENQ"},{6,"ACK"},{7,"BEL"},
             {8,"BS"},{9,"TAB"},{10,"LF"},{11,"VT"},{12,"FF"},{13,"CR"},{14,"SO"},{15,"SI"},
             {16,"DLE"},{17,"DC1"},{18,"DC2"},{19,"DC3"},{20,"DC4"},{21,"NAK"},{22,"SYN"},{23,"ETB"},
@@ -211,35 +198,35 @@ public:
 class ConverterTest {
 public:
     void runAsciiTest() {
-        unique_ptr<IConverter> converter = make_unique<NumberConverter>();
+        std::unique_ptr<IConverter> converter = std::make_unique<NumberConverter>();
 
-        cout << setw(7) << "Dec" << " | "
-             << setw(7) << "Oct" << " | "
-             << setw(7) << "Hex" << " | "
-             << setw(7) << "Char" << endl;
-        cout << "------------------------------------------------------" << endl;
+        std::cout << std::setw(7) << "Dec" << " | "
+                  << std::setw(7) << "Oct" << " | "
+                  << std::setw(7) << "Hex" << " | "
+                  << std::setw(7) << "Char" << std::endl;
+        std::cout << "------------------------------------------------------" << std::endl;
 
         for (int i = 0; i <= 127; i++) {
-            string result = converter->convert(i);
-            cout << result << endl;
+            std::string result = converter->convert(i);
+            std::cout << result << std::endl;
 
             // Build exact expected string using same logic
-            stringstream expected;
-            expected << setw(7) << i << " | "
-                     << setw(7) << oct << i << " | "
-                     << setw(7) << hex << uppercase << i << " | ";
+            std::stringstream expected;
+            expected << std::setw(7) << i << " | "
+                     << std::setw(7) << std::oct << i << " | "
+                     << std::setw(7) << std::hex << std::uppercase << i << " | ";
             if (i < 32 || i == 127) {
-                expected << setw(7) << NumberConverter::controlCharName(i);
+                expected << std::setw(7) << NumberConverter::controlCharName(i);
             } else {
-                expected << setw(7) << static_cast<char>(i);
+                expected << std::setw(7) << static_cast<char>(i);
             }
-            expected << dec << nouppercase;
+            expected << std::dec << std::nouppercase;
 
             assert(result == expected.str());
         }
 
-        cout << "------------------------------------------------------" << endl;
-        cout << "All ASCII conversion tests passed successfully!" << endl;
+        std::cout << "------------------------------------------------------" << std::endl;
+        std::cout << "All ASCII conversion tests passed successfully!" << std::endl;
     }
 };
 
