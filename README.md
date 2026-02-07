@@ -6,6 +6,49 @@ The articles cover a wide range of **C++ programming** topics, from basic concep
 
 No matter your skill level, this repository is a great place to learn and grow. Let’s work together to build a stronger, more knowledgeable tech community!
 
+## Repository Structure
+
+This repository is organized by core C++ and Computer Science topics.
+Each folder focuses on a specific concept or learning area.
+```
+.
+├── Algorithms
+│   └── Binary Search and other algorithmic patterns
+├── ASCII
+│   └── ASCII-based logic and pattern problems
+├── Article
+│   └── Concept-based articles (e.g., Static vs Non-Static, Fibonacci)
+├── ClassDiagram
+│   └── UML and class diagram examples
+├── CommunityResources
+│   └── Learning notes and senior developer insights
+├── CppBasics
+│   └── Core C++ fundamentals
+│       └── STL_Containers
+├── DesignPattern
+│   └── Common software design patterns in C++
+├── GIT
+│   └── Git commands, workflows, and best practices
+├── Interview_Question
+│   └── Frequently asked C++ interview questions
+├── Leetcode
+│   └── Problem-solving practice and solutions
+├── Misc
+│   └── Miscellaneous C++ utilities and experiments
+├── OOP
+│   └── Object-Oriented Programming concepts
+├── STL
+│   └── STL usage and internal behavior
+├── SystemDesign
+│   └── System design concepts and notes
+├── Testing
+│   └── Software testing methodologies
+├── Working Application
+│   └── End-to-end C++ applications
+├── LICENSE.md
+└── README.md
+```
+
 ## How to use it
 
 Everything below is an outline, and you should tackle the items in order from top to bottom.
