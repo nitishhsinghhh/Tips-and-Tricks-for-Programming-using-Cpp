@@ -6,6 +6,10 @@ The articles cover a wide range of **C++ programming** topics, from basic concep
 
 No matter your skill level, this repository is a great place to learn and grow. Let’s work together to build a stronger, more knowledgeable tech community!
 
+I'm using GitHub's special markdown flavor, including tasks lists to track progress.
+- [More about GitHub-flavored markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown)
+
+
 ## What You’ll Find Here
 - Hands-on C++ examples from beginner to advanced.
 - STL internals & custom implementations:
