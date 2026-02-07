@@ -6,9 +6,49 @@ The articles cover a wide range of **C++ programming** topics, from basic concep
 
 No matter your skill level, this repository is a great place to learn and grow. Let’s work together to build a stronger, more knowledgeable tech community!
 
-I'm using GitHub's special markdown flavor, including tasks lists to track progress.
-- [More about GitHub-flavored markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown)
+## How to use it
 
+Everything below is an outline, and you should tackle the items in order from top to bottom.
+
+I'm using GitHub's special markdown flavor, including tasks lists to track progress.
+  - [More about GitHub-flavored markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown)
+
+### If you don't want to use git
+
+On this page, click the Code button near the top, then click "Download ZIP". Unzip the file and you can work with the text files.
+
+If you're open in a code editor that understands markdown, you'll see everything formatted nicely.
+
+![How to download the repo as a zip file](https://d3j2pkmjtin6ou.cloudfront.net/how-to-download-as-zip.png)
+
+### If you're comfortable with git
+
+Create a new branch so you can check items like this, just put an x in the brackets: [x]
+
+1. ***Fork the GitHub repo:*** `https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp` by clicking on the Fork button.
+
+    ![Fork the GitHub repo](https://d3j2pkmjtin6ou.cloudfront.net/fork-button.png)
+
+1. Clone to your local repo:
+
+    ```bash
+      git clone https://github.com/<YOUR_GITHUB_USERNAME>/Tips-and-Tricks-for-Programming-using-Cpp.git
+      cd Tips-and-Tricks-for-Programming-using-Cpp
+
+      git remote add upstream https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp.git
+      git remote set-url --push upstream DISABLE  # prevent accidental pushes to original repo
+    ```
+
+1. Mark all boxes with X after you completed your changes:
+
+    ```bash
+      git commit -am "Marked personal progress"
+      git pull upstream main   # keep your fork up-to-date with the original repository
+      git push                # pushes changes to your fork
+    ```
+
+
+**[⬆ back to top](#Tips-and-Tricks-for-Programming-using-Cpp)**
 
 ## What You’ll Find Here
 - Hands-on C++ examples from beginner to advanced.
@@ -44,6 +84,8 @@ A compiler translates the C++ program into machine language code which it stores
 ./firstCode <br>
 The executable is loaded from the disk to memory and the computer’s CPU (Central Processing Unit) executes the program one instruction at a time.
 Alternatively, you can also use an online C++ compiler to run these programs without needing to install a compiler on your computer.
+
+**[⬆ back to top](#Tips-and-Tricks-for-Programming-using-Cpp)**
 
 ## Getting Started
 To compile and run these programs on your local machine, you'll need to have the appropriate programming language and compiler installed. Here are the steps to get started:
@@ -109,4 +151,6 @@ Once you have forked the repository, you will have your own copy of the code and
 
 ## Contact
 Thank you for your suggestions! If you think there is anything to improve, please contact me at **me.singhnitish@yandex.com.**
+
+**[⬆ back to top](#Tips-and-Tricks-for-Programming-using-Cpp)**
 
