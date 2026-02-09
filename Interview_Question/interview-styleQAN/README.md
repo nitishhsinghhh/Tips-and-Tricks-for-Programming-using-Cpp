@@ -1,4 +1,4 @@
-#  What is the difference between compile-time and runtime polymorphism in C++?
+# What is the difference between compile-time and runtime polymorphism in C++?
 
 - Compile-time polymorphism is achieved via function overloading and operator overloading. The decision of which function to call is made at compile time.
 - Runtime polymorphism is achieved via virtual functions and inheritance. The function call is resolved at runtime using vtable and vptr mechanisms
