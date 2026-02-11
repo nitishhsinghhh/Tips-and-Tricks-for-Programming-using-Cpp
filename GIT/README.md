@@ -30,9 +30,9 @@ Git's power lies in its distributed nature. Every user has their own complete co
 
 | Storage Area           | Description                                                                                 |
 |--------------------    |---------------------------------------------------------------------------------------------|
-| **Working Directory**  | Where you edit your files. Git doesn't track changes here unless you stage them.         |
-| **Staging Area**       | Use `git add` to move changes here. Git starts tracking these updates.                   |
-| **Local Repository**   | After running `git commit`, changes are safely stored here. View history with `git log`. |
+| **Working Directory**  | Where you edit your files. Git doesn't track changes here unless you stage them.            |
+| **Staging Area**       | Use `git add` to move changes here. Git starts tracking these updates.                      |
+| **Local Repository**   | After running `git commit`, changes are safely stored here. View history with `git log`.    |
 
 ## Essential Git Commands
 
@@ -62,11 +62,11 @@ Explore graphical interfaces that simplify Git workflows:
 
 ## GIT Cheat Sheet
 
-<img width="1100" height="1075" alt="image" src="https://github.com/user-attachments/assets/d9b16ec0-608e-4d7e-bced-218482ab7c7d" />
+<img width="1100" height="1075" alt="image" src="https://github.com/user-attachments/assets/d9b16ec0-608e-4d7e-bced-218482ab7c7d"/>
 
 ## Git Workflow
 
-<img width="800" height="962" alt="image" src="https://github.com/user-attachments/assets/602658d3-90b0-4bae-a2ba-9b7f9bfa3bd8" />
+<img width="800" height="962" alt="image" src="https://github.com/user-attachments/assets/602658d3-90b0-4bae-a2ba-9b7f9bfa3bd8"/>
 
 ## How Git Works Under the Hood
 
@@ -77,6 +77,7 @@ Git doesn’t just track file changes—it tracks snapshots of your entire proje
 - Merkle Tree Structure: Git’s internal data structure resembles a Merkle tree, allowing fast comparisons and secure version tracking.
 
 ## Key Concepts
+
 | Concept       | Description                                                       |
 |---------------|-------------------------------------------------------------------|
 | Commit        | A snapshot of your project at a point in time                     |
