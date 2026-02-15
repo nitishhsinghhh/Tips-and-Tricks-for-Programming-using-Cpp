@@ -34,11 +34,10 @@ int fibonacci::fibByValueStatic(int num) {
 }
 
 int fibonacci::fibByRef(const int& num) {
-    if (num == 1 || num == 2) {
+    if (num == 1 || num == 2)
         return 1;
-    } else {
+    else 
         return fibonacci::fibByRef(num - 1) + fibonacci::fibByRef(num - 2);
-    }
 }
 
 int fibonacci::fibByPointer(int* num) {
