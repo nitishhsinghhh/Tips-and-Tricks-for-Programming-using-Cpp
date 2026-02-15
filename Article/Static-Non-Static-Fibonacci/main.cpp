@@ -19,11 +19,10 @@ public:
 // --- Implementation ---
 
 int fibonacci::fibByValue(int num) {
-    if (num == 1 || num == 2) {
+    if (num == 1 || num == 2) 
         return 1;
-    } else {
+    else
         return fibonacci::fibByValue(num - 1) + fibonacci::fibByValue(num - 2);
-    }
 }
 
 int fibonacci::fibByValueStatic(int num) {
