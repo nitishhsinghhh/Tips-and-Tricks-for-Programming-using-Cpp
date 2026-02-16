@@ -1,8 +1,6 @@
 #include <iostream>
 #include <cassert>
 
-// --- Your Functions ---
-
 bool isPowerOfTwo(int n) {
     if (n <= 0) 
         return false;
@@ -27,8 +25,6 @@ bool isPowerOfK(int n, int k) {
         n /= k;
     return n == 1;
 }
-
-// --- Test Suite ---
 
 void testPowerOfTwo() {
     // Positive cases
