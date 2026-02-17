@@ -1,44 +1,16 @@
-# Understanding the Optimized FindSumPairs C++ Class
-
-This document explains the optimized implementation of the FindSumPairs class in C++. The class is designed to efficiently support two operations:
-
-1. add(index, val): Adds a value to an element in the second array.
-2. count(tot): Counts the number of pairs (i, j) such that nums1[i] + nums2[j] == tot.
-
----
-
-## Problem Constraints
-
-- 1 <= nums1.length <= 1000
-- 1 <= nums2.length <= 10^5
-
-Due to the large size of nums2, we need an efficient way to perform the count() operation.
-
----
-
-## Optimized Approach
-
-We use a **hash map** (unordered_map) to store the frequency of elements in nums2. This allows us to compute the count in **O(n)** time instead of **O(n * m)**.
-
----
-
-## Code Explanation
-
-``` cpp
 #include <iostream>
 #include <vector>
 #include <unordered_map>
 #include <cassert>
-using namespace std;
 
 class FindSumPairs {
 private:
-    vector<int> nums1;
-    vector<int> nums2;
-    unordered_map<int, int> freqMap;
+    std::vector<int> nums1;
+    std::vector<int> nums2;
+    std::unordered_map<int, int> freqMap;
 
 public:
-    FindSumPairs(vector<int>& nums1, vector<int>& nums2) {
+    FindSumPairs(std::vector<int>& nums1, std::vector<int>& nums2) {
         this->nums1 = nums1;
         this->nums2 = nums2;
         for (int num : nums2) {
@@ -68,8 +40,8 @@ public:
 };
 
 int main() {
-    vector<int> nums1 = {1, 2, 3};
-    vector<int> nums2 = {3, 4, 5};
+    std::vector<int> nums1 = {1, 2, 3};
+    std::vector<int> nums2 = {3, 4, 5};
 
     FindSumPairs obj(nums1, nums2);
 
@@ -84,8 +56,6 @@ int main() {
     obj.add(2, -2); // nums2 becomes {3, 5, 3}
     assert(obj.count(5) == 2); // (2+3, 3+2)
 
-    cout << "All tests passed successfully!" << endl;
+    std::cout << "All tests passed successfully!" << std::endl;
     return 0;
 }
-
-```
