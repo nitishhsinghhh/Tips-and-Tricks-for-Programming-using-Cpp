@@ -530,7 +530,7 @@ int main() {
     auto res5 = dt.transformWithMap("696969", digitMap, -1);
     assert(res5.transformed == "969696");
 
-    std::cout << "All enhanced tests passed successfully!" << std::endl;
+    std::cout << "All tests cases passed successfully!" << std::endl;
     return 0;
 }
 ```
