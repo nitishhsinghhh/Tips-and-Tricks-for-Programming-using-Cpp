@@ -68,7 +68,8 @@ public:
     int maximum69Number(int& originalNumber) { 
         string numberStr = to_string(originalNumber);
         for (char& digit : numberStr)
-            if (digit == '6' && (digit = '9')) break;
+            if (digit == '6' && (digit = '9')) 
+                break;
 
         return stoi(numberStr);
     }
