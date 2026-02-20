@@ -13,7 +13,9 @@ void runTest(
     RecursiveSubtractionSolution& recursiveSolution,
     IterativeWhileLoopSolution& iterativeSolution,
     OptimizedModuloSolution& optimizedSolution
-) {
+) 
+
+{
     int result1 = recursiveSolution.countOperations(num1, num2);
     int result2 = iterativeSolution.countOperations(num1, num2);
     int result3 = optimizedSolution.countOperations(num1, num2);
