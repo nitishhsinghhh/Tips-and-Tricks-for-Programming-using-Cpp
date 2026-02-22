@@ -38,15 +38,15 @@ For each group (subsequence), you check:
 - What is the largest number in the group?
 Then check:
 
-```
+```txt
 smallest + largest ≤ target
-
 ```
+
 If it is, then this group is valid.
 
 ## Why modulo 1,000,000,007?
 
-When counting all valid groups, the number can get very large. To keep it manageable and avoid overflow, we return the result modulo 
+When counting all valid groups, the number can get very large. To keep it manageable and avoid overflow, we return the result modulo
 10^9 + 7, which is a common trick in programming.
 
 ### Example
@@ -349,10 +349,10 @@ int main() {
 
 ## Table of C++ Concepts and STL Used
 
-| Concept / API | Description | Example in Code |
-|---------------|-------------|-----------------|
-| vector<int> | A dynamic array that can grow or shrink | vector<int>& nums |
-| sort() | Sorts the array in increasing order | sort(nums.begin(), nums.end()) |
-| power[i] = power[i - 1] * 2 % mod | Precomputes powers of 2 modulo mod | Used in the for loop |
+| Concept / API                     | Description                             | Example in Code                |
+|---------------                    |-------------                            |-----------------               |
+| vector<int>                       | A dynamic array that can grow or shrink | vector<int>& nums              |
+| sort()                            | Sorts the array in increasing order     | sort(nums.begin(), nums.end()) |
+| power[i] = power[i - 1] * 2 % mod | Precomputes powers of 2 modulo mod      | Used in the for loop           |
 
-Leetocde Solution of the [problem](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/solutions/6899323/c-optimized-approach-sort-two-pointer-te-snrb/). 
+Leetocde Solution of the [problem](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/solutions/6899323/c-optimized-approach-sort-two-pointer-te-snrb/).
