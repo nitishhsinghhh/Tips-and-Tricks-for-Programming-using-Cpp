@@ -28,7 +28,7 @@ public:
         // Case 2: Where uc bit is 1, but both ua and ub have 0s.
         unsigned int flipsForOneTarget = ~(ua | ub) & uc;
 
-        // Total up set bits using compiler-optimized hardware instructions
+        // Total up set bits using compiler-optimized hardware instructions for population count (Hamming weight)
         return std::popcount(flipsForZeroTarget) + 
                std::popcount(doubleFlipsRequired) + 
                std::popcount(flipsForOneTarget);
