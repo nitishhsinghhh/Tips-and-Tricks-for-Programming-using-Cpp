@@ -1,57 +1,3 @@
-# Problem Statement
-
-Given a string s consisting only of lowercase English letters (a–z) and single spaces between words, convert the string so that the first character of each word is uppercase. All other characters remain unchanged.
-
-## Notes
-
-- The string does not have leading or trailing spaces.
-- Words are separated by exactly one space.
-- After every space, there is always a letter.
-- You may modify the string in-place and return it.
-
-  ## Constraints (what to consider)
-
-- 1 <= s.length <= 10^5
-- s[i] ∈ {'a'..'z', ' '}
-- No leading or trailing spaces.
-- No consecutive spaces.
-- After each ' ' there is a lowercase letter.
-
-Under these constraints, the simple ASCII transformation is safe:
-'a'..'z' → uppercase via ch = ch - 'a' + 'A'
-
-## Examples
-
-- Example 1
-  - Input:  "my name is mohit"
-  - Output: "My Name Is Mohit"
-
-- Example 2
-  - Input:  "hello world this is test"
-  - Output: "Hello World This Is Test"
-
-- Example 3
-  - Input:  "a b c d e f"
-  - Output: "A B C D E F"
-
-  ## Approach
-
-- If the first character is a lowercase letter, uppercase it.
-- For each position i, if s[i] == ' ', then uppercase s[i+1] (guaranteed to be a lowercase letter by constraints).
-- Time Complexity: O(n)
-- Space Complexity: O(1) (in-place)
-
-## Edge Cases (within given constraints)
-
-- Single word: "my" → "My"
-- Single character: "a" → "A"
-- Many short words: "aa aa aa aa" → "Aa Aa Aa Aa"
-
-If constraints are ever relaxed (e.g., multiple spaces, digits/punctuation), guard conversions using std::islower before uppercasing the next character.
-
-## C++ Solution
-
-```c++ []
 #include <iostream>
 #include <string>
 #include <string_view>
@@ -132,4 +78,46 @@ int main() {
     std::println("All asserts passed for constrained valid inputs!");
     return 0;
 }
-```
+
+// c++ -std=c++26 main.cpp -o main && ./main
+
+/*
+    Testing implementation under constrained valid inputs...
+    IN : [a]
+    OUT: [A]
+    EXP: [A]
+    ----
+    IN : [m]
+    OUT: [M]
+    EXP: [M]
+    ----
+    IN : [my]
+    OUT: [My]
+    EXP: [My]
+    ----
+    IN : [my name]
+    OUT: [My Name]
+    EXP: [My Name]
+    ----
+    IN : [my name is mohit]
+    OUT: [My Name Is Mohit]
+    EXP: [My Name Is Mohit]
+    ----
+    IN : [hello world this is test]
+    OUT: [Hello World This Is Test]
+    EXP: [Hello World This Is Test]
+    ----
+    IN : [abcdefghijklmnopqrstuvwxyz]
+    OUT: [Abcdefghijklmnopqrstuvwxyz]
+    EXP: [Abcdefghijklmnopqrstuvwxyz]
+    ----
+    IN : [a b c d e f]
+    OUT: [A B C D E F]
+    EXP: [A B C D E F]
+    ----
+    IN : [aa aa aa aa aa]
+    OUT: [Aa Aa Aa Aa Aa]
+    EXP: [Aa Aa Aa Aa Aa]
+    ----
+    All asserts passed for constrained valid inputs!
+ */
