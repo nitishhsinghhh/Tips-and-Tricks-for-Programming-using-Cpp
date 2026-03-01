@@ -6,7 +6,8 @@ Given a string consisting of words separated by spaces, reverse each word **indi
 
 ### Example
 
-**Input:** "My name is Nitish"
+**Input:** "My name is Nitishi"
+**Output:** "yM eman si hsitiN"
 
 Each word has been reversed, but the order of the words remains unchanged.
 
@@ -14,23 +15,19 @@ Each word has been reversed, but the order of the words remains unchanged.
 
 ## Solution Approach
 
-We approach the problem in two main steps:
+We approach the problem using two distinct paradigms depending on the constraints:
 
-1. **Break the input string into words** by identifying spaces.
-2. **Reverse each word individually** using a helper function.
+- String Tokenization & Construction: Extracting word blocks, mutating them, and compiling a clean output stream.
+- In-place Raw Pointer Manipulation: Iterating directly through a continuous memory buffer to swap characters between boundaries without allocating extra space.
 
-We then rebuild the sentence using the reversed words, preserving the original word order.
+### Step-by-Step Algorithm (In-Place Tracking)
 
-### Step-by-Step Algorithm
-
-1. Iterate through each character in the input string.
-2. Use a temporary string (`tmp`) to accumulate characters of the current word.
-3. When a space `' '` is encountered:
-   - Reverse the accumulated word using a helper function.
-   - Append the reversed word and a space to the result string.
-   - Clear the temporary word holder.
-4. After the loop, process the last word (which won’t be followed by a space).
-5. Return the final result string.
+1. Track the start boundary of a word using a pointer or index (start = 0).
+2. Move through the character sequence index by index.
+3. When hitting a space character (' ') or the null terminator ('\0'):
+    - Calculate the end boundary of the current active word slice.
+    - Invoke a two-pointer swapping strategy to reverse characters between start and end.
+    - Fast-forward the start marker to the index immediately following the space.
 
 ---
 
@@ -38,54 +35,45 @@ We then rebuild the sentence using the reversed words, preserving the original w
 
 ### 1. std::string
 
-- Used for efficient string handling.
-- Supports indexing, concatenation, and dynamic sizing.
+Used for managed string handling. It handles contiguous memory allocation internally, preventing raw pointer overruns while providing simple concatenation operators (+=).
 
 ### 2. Range-based for loop
+
+Simplifies read-only sequence traversal over iterable STL containers without maintaining manual index math.
 
 ```cpp
 for (char c : s)
 ```
 
-Simplifies iteration over containers like std::string.
-
 ### 3. Pass-by-reference
+
+Prevents expensive heap copies of the string object by providing an alias to the original caller's data payload.
 
 ```cpp
 string& s
 ```
 
-Avoids unnecessary copying of strings, improving performance.
-
 ### 4. In-place reversal using std::swap
+
+Exchanges values of two memory slots directly, enabling linear mutation without tracking additional allocation tables.
 
 ```cpp
 std::swap(s[i], s[size - i - 1]);
 ```
 
-Efficiently reverses the string without extra space.
-
-### 5. String concatenation
-
-```cpp
-res += swapWords(tmp);
-res += ' ';
-```
-
-Builds the final output one word at a time.
+---
 
 ## Functions Explained
 
 ### string swapWords(string& s)
 
-- Reverses a string in-place using two-pointer technique.
-- Swaps characters from both ends moving toward the center.
+- Mutates a discrete string word in-place using a symmetric two-pointer strategy.
+- Steps inward from both boundaries simultaneously to exchange characters up to the center pivot point.
 
 ### string swapWordByWord(string& s)
 
-- Processes the sentence word by word.
-- Reverses each word individually using swapWords.
-- Builds and returns the transformed sentence.
+- Traverses the entire sentence character by character.
+- Accumulates standard characters into a buffer, identifies word separations via space boundaries, handles processing of the terminal word token, and builds the returned sentence.
 
 ```cpp
 #include <iostream>
@@ -127,34 +115,29 @@ int main() {
 
 ### Output
 
-```cpp
+```Plaintext
 yM eman si hsitiN
 ```
 
 ## Complexity Analysis
 
-- Time Complexity: O(N), where N is the length of the input string.
-  Each character is visited once, and each word is reversed in linear time relative to its length.
-- Space Complexity: O(N), due to temporary strings used to construct the result.
+- Time Complexity: O(N), where N is the total number of characters in the string. Every position is verified sequentially, and character swaps run proportional to individual word lengths.
+- Space Complexity: O(N) for the standard string implementations due to allocations for tokenized buffers and output states. Drops to O(1) auxiliary space for the raw C-string allocation variant.
 
 ## Constraints
 
-- No <string> (we'll use C-style strings).
-- No std::swap.
-- No STL at all.
-- Only #include <iostream> and raw character arrays.
+- No <string> header or types allowed.
+- No std::swap or std::reverse.
+- Zero dependency on external runtime standard libraries except basic output streaming (<iostream>).
 
 ```cpp
 #include <iostream>
-
-using namespace std;
 
 /**
  * @brief Reverses a word in-place between indices [start, end] of a char array.
  */
 void reverseWord(char* arr, int start, int end) {
     while (start < end) {
-        // Manual swap without std::swap
         char temp = arr[start];
         arr[start] = arr[end];
         arr[end] = temp;
@@ -165,9 +148,6 @@ void reverseWord(char* arr, int start, int end) {
 
 /**
  * @brief Reverses each word in a sentence stored in a char array.
- *
- * Example: Input  -> "My name is Nitish"
- *          Output -> "yM eman si hsitiN"
  */
 void reverseEachWord(char* str) {
     int i = 0, start = 0;
@@ -183,22 +163,21 @@ void reverseEachWord(char* str) {
     }
 }
 
-/**
- * @brief Main function to demonstrate in-place word-wise reversal.
- */
 int main() {
-    // Mutable char array (unlike string literals which are const)
+    // Stack-allocated mutable character buffer
     char sentence[] = "My name is Nitish";
 
     reverseEachWord(sentence);
 
-    cout << sentence << endl;  // Output: yM eman si hsitiN
+    std::cout << sentence << std::endl;  // Output: yM eman si hsitiN
 
     return 0;
 }
 ```
 
-## Modern C++ with std::string
+---
+
+## Modern C++ Abstraction (Using Standard Streams)
 
 ```cpp
 #include <iostream>
@@ -213,12 +192,14 @@ string reverseEachWord(const string& input) {
     string word, result;
 
     while (ss >> word) {
-        reverse(word.begin(), word.end());
+        std::reverse(word.begin(), word.end());
         result += word + ' ';
     }
 
-    // Remove trailing space
-    if (!result.empty()) result.pop_back();
+    // Strip trailing delimiter space cleanly
+    if (!result.empty()) {
+        result.pop_back();
+    }
 
     return result;
 }
