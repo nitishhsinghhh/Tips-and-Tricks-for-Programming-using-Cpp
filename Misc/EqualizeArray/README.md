@@ -61,7 +61,7 @@ int equalizeArray(std::vector<int> arr) {
   We use an unordered map mp to count the frequency of each element in the array. The loop for (auto a : arr) mp[a]++; iterates through the array and increments the count for each element.
 
 - Finding the Most Frequent Element:
-  We use the max_element function to find the element with the highest frequency in the map. The lambda function 
+  We use the max_element function to find the element with the highest frequency in the map and the lambda function.
 
   ```cpp
   [] (const pair<int, int> & a, const pair<int, int> &b) { return a.second < b.second; }

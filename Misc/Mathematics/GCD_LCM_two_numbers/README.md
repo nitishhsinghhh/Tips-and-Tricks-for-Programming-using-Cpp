@@ -17,7 +17,7 @@ This algorithm is based on the principle that the GCD of two numbers also divide
 
 The Least Common Multiple (LCM) of two integers is the smallest positive integer that is divisible by both numbers. The relationship between GCD and LCM is given by:
 
-[LCM(a, b) * GCD(a, b) = |a * b|]
+[LCM(a, b)*GCD(a, b) = |a*b|]
 
 From the above relation, we can derive the LCM if we know the GCD:
 
@@ -48,6 +48,6 @@ Let's go through the example provided in the program:
     - (LCM(8, 12) = |8 * 12|/4 = 96/4 = 24).
 
 Thus, the output will correctly display:
+
 - GCD of 8 and 12 is: 4
 - LCM of 8 and 12 is: 24
-

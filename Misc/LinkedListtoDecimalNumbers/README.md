@@ -6,7 +6,7 @@ In the world of computer science and mathematics, converting a sequence of digit
 
 Our standard number system is the decimal or base-10 system, which uses the digits 0 through 9. For example, consider the number 6578 represented by the digits in a linked list:
 
-```
+```sh
 To convert this sequence into the number 6578, we perform the following operations:
 Loop    Character    Operation               Result
 1       ‘6’          6                       6
@@ -19,7 +19,7 @@ Loop    Character    Operation               Result
 
 Let's apply the same analogy to convert a binary number, where each digit is represented by a node in a linked list, into a decimal number. Instead of multiplying by 10, we will multiply by 2 (base-2) to shift left by one bit when incorporating each binary digit into the decimal result. For example, the binary number 1011 is equivalent to:
 
-```
+```sh
 Loop    Character    Operation            Result
 1       ‘1’          1                    1
 2       ‘0’          (1 x 2) + 0          2
