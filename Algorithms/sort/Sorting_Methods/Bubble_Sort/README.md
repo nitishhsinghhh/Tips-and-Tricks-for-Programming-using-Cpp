@@ -142,7 +142,7 @@ Sorting the array: `{5, 2, 9, 3, 1, 6}`
 | 4    | 1, 2, 3, 5, 6, 9        | 3                      |
 | 5    | Already sorted          | —                      |
 
-## ## ⚖️ Bubble Sort: Pros and Cons
+## Bubble Sort: Pros and Cons
 
 |   Pros                        |    Cons                           |
 |-------------------------------|-----------------------------------|
