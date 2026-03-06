@@ -2,7 +2,7 @@
 
 Bubble Sort is a simple comparison-based sorting algorithm. It works by repeatedly swapping adjacent elements if they are in the wrong order. This process is continued until the entire array is sorted.
 
-# Key Characteristics
+## Key Characteristics
 
 - Time Complexity: Worst-case is O(n^2); Best-case is O(n) (if already sorted)
 - Space Complexity: $$O(1)$$ (in-place sorting)
@@ -112,7 +112,7 @@ int main() {
 }
 ```
 
-# How It Works (Step-by-Step)
+## How It Works (Step-by-Step)
 
 - Start from the beginning of the array.
 - Compare adjacent elements: if the current one is greater than the next, swap them.
@@ -122,19 +122,19 @@ int main() {
 
 ## How This Code Applies SOLID Principles
 
-| Principle | Implementation Example                                               |
-|-----------|----------------------------------------------------------------------|
-| **S - SRP** | BubbleSort only sorts, NumberHandler only prints                |
-| **O - OCP** | Add other sorting strategies by inheriting ISortStrategy         |
-| **L - LSP** | BubbleSort properly substitutes ISortStrategy                  |
-| **I - ISP** | ISortStrategy keeps interface minimal and relevant               |
+| Principle   | Implementation Example                                                     |
+|-----------  |----------------------------------------------------------------------      |
+| **S - SRP** | BubbleSort only sorts, NumberHandler only prints                           |
+| **O - OCP** | Add other sorting strategies by inheriting ISortStrategy                   |
+| **L - LSP** | BubbleSort properly substitutes ISortStrategy                              |
+| **I - ISP** | ISortStrategy keeps interface minimal and relevant                         |
 | **D - DIP** | SortApplication depends on abstraction (ISortStrategy), not concrete class |
 
 ## Bubble Sort Progression Example
 
 Sorting the array: `{5, 2, 9, 3, 1, 6}`
 
-| Pass | Array State             | Largest Bubble to End |
+| Pass | Array State             | Largest Bubble to End  |
 |------|-------------------------|------------------------|
 | 1    | 2, 5, 3, 1, 6, 9        | 9                      |
 | 2    | 2, 3, 1, 5, 6, 9        | 6                      |
@@ -147,7 +147,7 @@ Sorting the array: `{5, 2, 9, 3, 1, 6}`
 |   Pros                        |    Cons                           |
 |-------------------------------|-----------------------------------|
 | Simple to understand          | Slow for large datasets           |
-| Easy to implement             | High time complexity (O(n^2)) |
+| Easy to implement             | High time complexity (O(n^2))     |
 | Works well for small arrays   | Not suitable for performance apps |
 
 ## Why Learn Bubble Sort in Competitive Programming?
@@ -160,12 +160,12 @@ Even though it's not performant for big problems, bubble sort helps you understa
 
 - ## Where Bubble Sort Might Be Useful
 
-| Use Case                      | Why It Works                                      |
-|------------------------------|---------------------------------------------------|
-| Small input size problems     | Time complexity isn't a deal-breaker              |
-| Teaching/debugging environments | Easy to visualize and trace step-by-step       |
-| Custom logic inside swapping  | You can modify the algorithm easily for variants |
-| Contest warm-up problems      | Quick to implement under pressure                |
+| Use Case                        | Why It Works                                       |
+|------------------------------   |--------------------------------------------------- |
+| Small input size problems       | Time complexity isn't a deal-breaker               |
+| Teaching/debugging environments | Easy to visualize and trace step-by-step           |
+| Custom logic inside swapping    | You can modify the algorithm easily for variants   |
+| Contest warm-up problems        | Quick to implement under pressure                  |
 
 ## Competitive Tip
 

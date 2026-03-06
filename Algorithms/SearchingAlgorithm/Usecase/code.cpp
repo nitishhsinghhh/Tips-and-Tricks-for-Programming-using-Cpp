@@ -1,6 +1,5 @@
 #include <iostream>
 
-
 /**
  * @brief Performs binary search on a sorted array to find the target element.
  *
