@@ -1,6 +1,6 @@
 # Custom HashSet in C++
 
-A simple, template-based HashSet implementation in C++ using separate chaining (linked lists) to resolve hash collisions. This class mimics the behavior of HashSet<T> from C# (.NET) — a collection that contains no duplicate elements and supports fast insert, delete, and search operations.
+A simple, template-based HashSet implementation in C++ using separate chaining (linked lists) to resolve hash collisions. This class mimics the behavior of ```HashSet<T>``` from C# (.NET) — a collection that contains no duplicate elements and supports fast insert, delete, and search operations.
 
 ## Features
 
