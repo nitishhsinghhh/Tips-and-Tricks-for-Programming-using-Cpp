@@ -2,6 +2,9 @@
 #include <vector>
 #include <algorithm>
 
+using std::cout;
+using std::endl;
+
 // Define an enumeration for search algorithms
 enum class SearchAlgorithm {
 	Linear,
