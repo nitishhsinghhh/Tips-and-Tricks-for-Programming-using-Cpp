@@ -1,7 +1,7 @@
 # CharAdder Application
 
 - **Author: Nitish Singh
-- Email: me.singhnitish@yandex.com
+- Email: <me.singhnitish@yandex.com>
 
 ---
 
@@ -68,7 +68,7 @@ int main() {
 }
 ```
 
-2. **Extended Version (v1.1)**: Accepts user input, validates it, and performs addition
+2.**Extended Version (v1.1)**: Accepts user input, validates it, and performs addition
 
 ```cpp
 /**
