@@ -22,7 +22,7 @@ Binary search is an algorithm employed for searching in a sorted array by iterat
 
 - If the key is larger than the middle element, then the right side is used for the next search.
 
-3. This process is continued until the key is found or the total search space is exhausted.
+3.This process is continued until the key is found or the total search space is exhausted.
 
 ### How to Implement Binary Search?
 
