@@ -12,8 +12,11 @@ template<
 
 std::array is a container that encapsulates fixed size arrays.
 
-This container is an aggregate type with the same semantics as a struct holding a C-style array T[N] as its only non-static data member. Unlike a C-style array, it doesn't decay to T* automatically. As an aggregate type, it can be initialized with aggregate-initialization given at most N initializers that are convertible to T: 
-```std::array<int, 3> a = {1, 2, 3};```
+This container is an aggregate type with the same semantics as a struct holding a C-style array T[N] as its only non-static data member. Unlike a C-style array, it doesn't decay to T* automatically. As an aggregate type, it can be initialized with aggregate-initialization given at most N initializers that are convertible to T:
+
+```cpp
+std::array<int, 3> a = {1, 2, 3};
+```
 
 The struct combines the performance and accessibility of a C-style array with the benefits of a standard container, such as knowing its own size, supporting assignment, random access iterators, etc.
 
@@ -29,7 +32,7 @@ As a rule, iterators to an array are never invalidated throughout the lifetime o
 
 ## Template parameters
 
-T - element type Must be ```MoveConstructible``` and ```MoveAssignable```. <br>
+T - element type Must be ```MoveConstructible``` and ```MoveAssignable```.
 N - the number of elements in the array or 0.
 
 ## Member types
