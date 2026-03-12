@@ -84,40 +84,40 @@ N - the number of elements in the array or 0.
 
 ## Capacity
 
-| Member Function | Description |
-|-----------------|-------------|
-| empty           | checks whether the container is empty |
-| size            | returns the number of elements |
+| Member Function | Description                                     |
+|-----------------|-------------                                    |
+| empty           | checks whether the container is empty           |
+| size            | returns the number of elements                  |
 | max_size        | returns the maximum possible number of elements |
 
 ## Operations
 
-| Member Function | Description |
-|-----------------|-------------|
+| Member Function | Description                             |
+|-----------------|-------------                            |
 | fill            | fill the container with specified value |
-| swap            | swaps the contents |
+| swap            | swaps the contents                      |
 
 ## Non-member functions
 
-| Function       | Description |
-|----------------|-------------|
-| operator==(C++11)     | lexicographically compares the values of two arrays (function template) |
-| operator!=(C++11)(removed in C++20)     | lexicographically compares the values of two arrays (function template) |
-| operator<(C++11)(removed in C++20)     | lexicographically compares the values of two arrays (function template) |
-| operator<=(C++11)(removed in C++20)     | lexicographically compares the values of two arrays (function template) |
-| operator>(C++11)(removed in C++20)      | lexicographically compares the values of two arrays (function template) |
-| operator>=(C++11)(removed in C++20)     | lexicographically compares the values of two arrays (function template) |
-| operator<=>(C++20)    | compares the values of two arrays (C++20) |
-| get(C++11)            | accesses an element of an array (function template) |
-| std::swap(C++11)      | specializes the std::swap algorithm for arrays (function template) |
-| to_array(C++20)       | creates a std::array object from a built-in array (function template) |
+| Function                                  | Description                                                             |
+|----------------                           |-------------                                                            |
+| operator==(C++11)                         | lexicographically compares the values of two arrays (function template) |
+| operator!=(C++11)(removed in C++20)       | lexicographically compares the values of two arrays (function template) |
+| operator<(C++11)(removed in C++20)        | lexicographically compares the values of two arrays (function template) |
+| operator<=(C++11)(removed in C++20)       | lexicographically compares the values of two arrays (function template) |
+| operator>(C++11)(removed in C++20)        | lexicographically compares the values of two arrays (function template) |
+| operator>=(C++11)(removed in C++20)       | lexicographically compares the values of two arrays (function template) |
+| operator<=>(C++20)                        | compares the values of two arrays (C++20)                               |
+| get(C++11)                                | accesses an element of an array (function template)                     |
+| std::swap(C++11)                          | specializes the std::swap algorithm for arrays (function template)      |
+| to_array(C++20)                           | creates a std::array object from a built-in array (function template)   |
 
 ## Helper classes
 
-| C++11 Feature                    | Description                              | Type                                |
-|----------------------------------|------------------------------------------|-------------------------------------|
-| std::tuple_size<std::array>      | Obtains the size of an array            | Class Template Specialization       |
-| std::tuple_element<std::array>   | Obtains the type of the elements of array | Class Template Specialization     |
+| C++11 Feature                    | Description                               | Type                                |
+|----------------------------------|------------------------------------------ |-------------------------------------|
+| std::tuple_size<std::array>      | Obtains the size of an array              | Class Template Specialization       |
+| std::tuple_element<std::array>   | Obtains the type of the elements of array | Class Template Specialization       |
 
 ## Example
 
@@ -162,7 +162,7 @@ int main() {
 
 ### Output
 
-```
+```sh
 3 2 1
 E Ǝ
 ```
