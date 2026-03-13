@@ -37,20 +37,21 @@ N - the number of elements in the array or 0.
 | Member types       | Definition                                             |
 |--------------------|--------------------------------------------------------|
 | value_type         | T                                                      |
-| size_type          | std::size_t                                             |
-| difference_type    | std::ptrdiff_t                                          |
+| size_type          | std::size_t                                            |
+| difference_type    | std::ptrdiff_t                                         |
 | reference          | value_type&                                            |
 | const_reference    | const value_type&                                      |
 | pointer            | value_type*                                            |
 | const_pointer      | const value_type*                                      |
+
 | iterator           | LegacyRandomAccessIterator and LegacyContiguousIterator to value_type (until C++17) LegacyRandomAccessIterator and LegacyContiguousIterator that is a LiteralType to value_type (since C++17, until C++20) LegacyRandomAccessIterator, contiguous_iterator, and ConstexprIterator to value_type (since C++20) |
 | const_iterator     | LegacyRandomAccessIterator and LegacyContiguousIterator to const value_type (until C++17) LegacyRandomAccessIterator and LegacyContiguousIterator that is a LiteralType to const value_type (since C++17, until C++20) LegacyRandomAccessIterator, contiguous_iterator, and ConstexprIterator to const value_type (since C++20) |
 | reverse_iterator   | std::reverse_iterator <iterator> |
 | const_reverse_iterator | std::reverse_iterator<const_iterator>                 |
 
-# Member functions
+## Member functions
 
-## Implicitly-defined member functions
+### Implicitly-defined member functions
 
 | Member Function | Description |
 |-----------------|-------------|
@@ -60,26 +61,26 @@ N - the number of elements in the array or 0.
 
 ### Element access
 
-| Member Function | Description |
-|-----------------|-------------|
-| at              | access specified element with bounds checking |
-| operator[]      | access specified element |
-| front           | access the first element |
-| back            | access the last element |
+| Member Function | Description                                        |
+|-----------------|-------------                                       |
+| at              | access specified element with bounds checking      |
+| operator[]      | access specified element                           |
+| front           | access the first element                           |
+| back            | access the last element                            |
 | data            | direct access to the underlying contiguous storage |
 
 ## Iterators
 
-| Member Function | Description |
-|-----------------|-------------|
-| begin           | returns an iterator to the beginning |
-| cbegin          | returns a const iterator to the beginning |
-| end             | returns an iterator to the end |
-| cend            | returns a const iterator to the end |
-| rbegin          | returns a reverse iterator to the beginning |
+| Member Function | Description                                       |
+|-----------------|-------------                                      |
+| begin           | returns an iterator to the beginning              |
+| cbegin          | returns a const iterator to the beginning         |
+| end             | returns an iterator to the end                    |
+| cend            | returns a const iterator to the end               |
+| rbegin          | returns a reverse iterator to the beginning       |
 | crbegin         | returns a const reverse iterator to the beginning |
-| rend            | returns a reverse iterator to the end |
-| crend           | returns a const reverse iterator to the end |
+| rend            | returns a reverse iterator to the end             |
+| crend           | returns a const reverse iterator to the end       |
 
 ## Capacity
 
