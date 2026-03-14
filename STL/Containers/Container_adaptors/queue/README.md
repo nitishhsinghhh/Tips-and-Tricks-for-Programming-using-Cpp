@@ -15,7 +15,7 @@ template<
 ## Template parameters
 
 T-The type of the stored elements. The behavior is undefined if T is not the same type as Container::value_type.
-Container	-	The type of the underlying container to use to store the elements. The container must satisfy the requirements of SequenceContainer. Additionally, it must provide the following functions with the usual semantics:
+Container- The type of the underlying container to use to store the elements. The container must satisfy the requirements of SequenceContainer. Additionally, it must provide the following functions with the usual semantics:
 
 - back(), e.g., std::deque::back(),
 - front(), e.g. std::list::front(),
@@ -98,8 +98,8 @@ However, depending on how you want to use your queue, there are better ways to b
 | operator<=>           |                                                                                 |
 | std::swap(std::queue) | (C++11) specializes the std::swap algorithm (function template)                 |
 
-| Helper Classes                  |        Description                                                                                                                      |
-|-------------                                                                                                                   |--------------------------------                                                                                                 |
+| Helper Classes                  |   Description                                                                                |
+|-------------                    |--------------------------------                                                              |
 | std::uses_allocator<std::queue> | (C++11) specializes the std::uses_allocator type trait (class template specialization)       |
 | std::formatter<std::queue>      |  (C++23) formatting support for queue (class template specialization)                        |
 
