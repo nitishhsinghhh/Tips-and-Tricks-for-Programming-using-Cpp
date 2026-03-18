@@ -64,7 +64,7 @@ public:
 };
 ```
 
-# Testing the Solution: A Comprehensive Approach
+## Testing the Solution: A Comprehensive Approach
 
 As we proceed with testing, we aim to cover a variety of scenarios—from basic functionality to edge cases and performance under load. Here's how we approach it:
 
@@ -88,6 +88,7 @@ void testSieveOfEratosthenes() {
 ```
 
 ## 2. Edge Case Testing: Handling Special Scenarios
+
 No solution is complete without accounting for edge cases. These are situations where the input is either minimal or follows an unusual pattern.
 
 Consider an array with only one element. This is an edge case, but trivially, the solution should always return true since a single element is already in a strictly increasing sequence.
@@ -127,6 +128,7 @@ void testPerformance() {
 ```
 
 ## 4. Consistency Testing: Ensuring Reliability
+
 To ensure our algorithm behaves consistently across multiple executions, we run the function multiple times with the same input and check for consistent outputs.
 
 We test the function's consistency by calling it multiple times with the same input to confirm that it produces the same result each time.
@@ -149,6 +151,7 @@ void testConsistency() {
 ```
 
 ## 5. Integration Testing: Ensuring End-to-End Functionality
+
 Lastly, we need to test the entire solution end-to-end to ensure that all components work together seamlessly.
 
 Here, we test different scenarios, such as strictly increasing sequences, arrays with large gaps, and sequences where subtraction doesn't work. These tests simulate real-world cases and help validate the entire process.
