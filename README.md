@@ -193,4 +193,3 @@ Once you have forked the repository, you will have your own copy of the code and
 Thank you for your suggestions! If you think there is anything to improve, please contact me at **<me.singhnitish@yandex.com>.**
 
 **[⬆ back to top](#tips-and-tricks-for-programming-using-cpp)**
-i
