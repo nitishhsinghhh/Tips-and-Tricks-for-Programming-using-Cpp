@@ -12,28 +12,26 @@ This repository is organized by core C++ and Computer Science topics.
 Each folder focuses on a specific concept or learning area.
 
 ```cpp
-├── .github
-│   └── workflows
+├── .github/workflows
 ├── Algorithms
 ├── ASCII
 ├── Article
 ├── ClassDiagram
 ├── CommunityResources
 ├── CppBasics
+├── Database
 ├── DesignPattern
 ├── GIT
 ├── GitHub_Actions
 ├── Interview_Question
 ├── Leetcode
 ├── Misc
+├── Native_Interop
 ├── OOP
 ├── STL
 ├── SystemDesign
 ├── Testing
-├── Working_Application
-├── CONTRIBUTING.md
-├── LICENSE.md
-└── README.md
+└── Working_Application
 ```
 
 ## How to use it
@@ -195,3 +193,4 @@ Once you have forked the repository, you will have your own copy of the code and
 Thank you for your suggestions! If you think there is anything to improve, please contact me at **<me.singhnitish@yandex.com>.**
 
 **[⬆ back to top](#tips-and-tricks-for-programming-using-cpp)**
+i
