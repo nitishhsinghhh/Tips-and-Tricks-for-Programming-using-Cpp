@@ -1,3 +1,5 @@
+#include "IComparator.hpp"
+
 /**
  * @class AsciiComparator
  * @brief Compares two characters and delegates printing.
