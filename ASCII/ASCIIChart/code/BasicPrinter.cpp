@@ -21,7 +21,7 @@ string controlCharName(int code) {
 }
 
 int main() {
-    cout cout << "ASCII Chart [0..127]\n";
+    cout << "ASCII Chart [0..127]\n";
     cout << std::setw(7) << "Dec" << " | " << std::setw(7) << "Oct" << " | "
          << std::setw(7) << "Hex" << " | " << std::setw(7) << "Char" << "\n";
     cout << "------------------------------------------------------\n";
