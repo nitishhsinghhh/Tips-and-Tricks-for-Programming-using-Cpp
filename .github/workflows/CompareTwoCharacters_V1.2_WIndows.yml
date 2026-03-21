@@ -1,0 +1,33 @@
+name: C++ CI Windows
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-run:
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        working-directory: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install MinGW compiler
+        run: |
+          choco install mingw -y
+          refreshenv
+
+      - name: Add MinGW to PATH
+        run: setx PATH "%PATH%;C:\tools\mingw64\bin"
+
+      - name: Compile main.cpp
+        run: g++ main.cpp -o main.exe
+
+      - name: Run program
+        run: main.exe
