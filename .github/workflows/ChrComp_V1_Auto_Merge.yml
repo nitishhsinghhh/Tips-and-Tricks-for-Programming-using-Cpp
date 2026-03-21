@@ -2,7 +2,7 @@ name: Auto Merge after CI
 
 on:
   workflow_run:
-    workflows: ["CharacterComparison_V1.1]
+    workflows: ["CharacterComparison_V1.1"]
     types:
       - completed
 
