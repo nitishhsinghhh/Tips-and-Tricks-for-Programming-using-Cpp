@@ -1,4 +1,4 @@
-name: C++ CI/CD
+name: C++ CI/CD Linux
 
 on:
   push:
@@ -8,38 +8,34 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     defaults:
       run:
         working-directory: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2
 
     steps:
-      # Step 1: Checkout code
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Install MinGW compiler
-      - name: Install MinGW
-        run: |
-          choco install mingw -y
-          refreshenv
+      # Step 2: Install build-essential (g++ compiler)
+      - name: Install g++ compiler
+        run: sudo apt-get update && sudo apt-get install -y build-essential
 
-      # Step 3: Add MinGW to PATH
-      - name: Add MinGW to PATH
-        run: setx PATH "%PATH%;C:\tools\mingw64\bin"
-
-      # Step 4: Compile code
+      # Step 3: Compile main.cpp
       - name: Compile main.cpp
-        run: g++ main.cpp -o main.exe
+        run: g++ main.cpp -o main
 
-      # Step 5: Run program (or unit tests)
+      # Step 4: Run program (or unit tests)
       - name: Run program
-        run: main.exe
+        run: ./main
 
-      # Step 6: Upload executable as artifact
+      # Step 5: Upload executable as artifact
       - name: Upload executable
         uses: actions/upload-artifact@v3
         with:
           name: CompareTwoChars
-          path: main.exe
+          path: main
+
+    
