@@ -3,6 +3,7 @@
 
 #include "IComparator.hpp"
 #include "IPrinter.hpp"
+#include "CharInput.hpp"
 
 /**
  * @class AsciiComparator
