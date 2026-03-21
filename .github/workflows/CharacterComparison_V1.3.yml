@@ -1,4 +1,4 @@
-name: C++ CI/CD Cross-Platform
+name: C++ CI/CD Linux
 
 on:
   push:
@@ -8,10 +8,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ubuntu-latest
 
     defaults:
       run:
@@ -22,34 +19,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Install compiler
-      - name: Setup compiler
-        if: runner.os != 'Windows'
+      # Step 2: Install build-essential (g++ compiler)
+      - name: Install g++ compiler
         run: sudo apt-get update && sudo apt-get install -y build-essential
-      - name: Setup compiler (Windows)
-        if: runner.os == 'Windows'
-        run: choco install mingw -y
 
       # Step 3: Compile main.cpp
       - name: Compile main.cpp
-        run: |
-          # Always output as CompareTwoCharacters_V1.2.exe
-          g++ main.cpp -o CompareTwoCharacters_V1.2.exe
+        run: g++ main.cpp -o CompareTwoCharacters_V1.2.exe
 
-      # Step 4: Run program
+      # Step 4: Run program (optional)
       - name: Run program
-        run: |
-          if [ "${{ runner.os }}" == "Windows" ]; then
-            CompareTwoCharacters_V1.2.exe
-          else
-            ./CompareTwoCharacters_V1.2.exe
-          fi
+        run: ./CompareTwoCharacters_V1.2.exe
 
-      # Step 5: Verify file exists
+      # Step 5: Verify the file exists
       - name: List files
         run: ls -l
 
-      # Step 6: Upload executable
+      # Step 6: Upload executable as artifact
       - name: Upload executable
         uses: actions/upload-artifact@v5
         with:
