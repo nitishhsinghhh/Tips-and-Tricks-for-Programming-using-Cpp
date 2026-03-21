@@ -31,9 +31,9 @@ jobs:
       - name: Run program
         run: ./main
 
-      # Step 5: Upload executable as artifact (v4)
+      # Step 5: Upload executable as artifact (v5)
       - name: Upload executable
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: CompareTwoChars
           path: main
