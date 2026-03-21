@@ -1,3 +1,4 @@
+#pragma once
 #include "IPrinter.hpp"
 
 using std::cout; 
