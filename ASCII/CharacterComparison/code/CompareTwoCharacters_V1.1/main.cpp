@@ -5,6 +5,7 @@
  * Nitish Singh
  */
 
+#pragma once
 #include "CharInput.hpp"
 #include "AsciiPrinter.hpp"
 #include "AsciiComparator.hpp"
