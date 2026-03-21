@@ -31,9 +31,13 @@ jobs:
       - name: Run program
         run: ./CompareTwoCharacters_V1.2.exe
 
-      # Step 5: Upload executable as artifact
+      # Step 5: Verify the file exists
+      - name: List files
+        run: ls -l
+
+      # Step 6: Upload executable as artifact
       - name: Upload executable
         uses: actions/upload-artifact@v5
         with:
-          name: CompareTwoCharacters_V1.2   # Artifact folder name in GitHub UI
-          path: ./CompareTwoCharacters_V1.2.exe  # File inside artifact
+          name: CompareTwoCharacters_V1.2
+          path: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2/CompareTwoCharacters_V1.2.exe
