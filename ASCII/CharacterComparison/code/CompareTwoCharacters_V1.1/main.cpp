@@ -22,3 +22,5 @@ int main() {
     delete printer;
     return 0;
 }
+
+// End of main
