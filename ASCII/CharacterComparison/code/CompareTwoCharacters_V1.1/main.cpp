@@ -15,9 +15,10 @@ int main() {
     char ch2 = input.getChar("second");
 
     IPrinter* printer = new AsciiPrinter();
-    AsciiComparator comparator(printer);
+    AsciiComparator* comparator = new AsciiComparator(printer);
     comparator->compare(ch1, ch2);
 
+    delete comparator;
     delete printer;
     return 0;
 }
