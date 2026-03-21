@@ -25,11 +25,11 @@ jobs:
 
       # Step 3: Compile main.cpp
       - name: Compile main.cpp
-        run: g++ main.cpp -o CompareTwoCharacters_V1.2
+        run: g++ main.cpp -o CompareTwoCharacters_V1.2.exe
 
       # Step 4: Run program (optional)
       - name: Run program
-        run: ./CompareTwoCharacters_V1.2
+        run: ./CompareTwoCharacters_V1.2.exe
 
       # Step 5: Verify the file exists
       - name: List files
@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: CompareTwoCharacters_V1.2
-          path: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2/CompareTwoCharacters_V1.2
+          path: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2/CompareTwoCharacters_V1.2.exe
