@@ -7,6 +7,9 @@ using std::cout;
 using std::endl;
 using std::map;
 using std::string;
+using std::setw
+using std::nouppercase;
+using std::dec;
 
 string controlCharName(int code) {
     static map<int, string> names = {
@@ -22,22 +25,22 @@ string controlCharName(int code) {
 
 int main() {
     cout << "ASCII Chart [0..127]\n";
-    cout << std::setw(7) << "Dec" << " | " << std::setw(7) << "Oct" << " | "
-         << std::setw(7) << "Hex" << " | " << std::setw(7) << "Char" << "\n";
+    cout << setw(7) << "Dec" << " | " << setw(7) << "Oct" << " | "
+         << setw(7) << "Hex" << " | " << setw(7) << "Char" << "\n";
     cout << "------------------------------------------------------\n";
 
     for (int i = 0; i <= 127; ++i) {
-        cout << std::setw(7) << i << " | " << std::setw(7) << std::oct << i
-             << " | " << std::setw(7) << std::hex << std::uppercase << i
+        cout << setw(7) << i << " | " << setw(7) << std::oct << i
+             << " | " << setw(7) << std::hex << std::uppercase << i
              << " | ";
 
         if (i < 32 || i == 127) {
-            cout << std::setw(7) << controlCharName(i);
+            cout << setw(7) << controlCharName(i);
         } else {
-            cout << std::setw(7) << static_cast<char>(i);
+            cout << setw(7) << static_cast<char>(i);
         }
 
-        cout << std::dec << std::nouppercase << "\n"; // reset formatting
+        cout << dec << nouppercase << "\n"; // reset formatting
     }
 
     cout << "------------------------------------------------------\n";
