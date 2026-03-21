@@ -26,3 +26,15 @@ jobs:
 
       - name: Run program
         run: ./PrintableChar
+
+      - name: Compile BasicPrinter.cpp
+        run: g++ BasicPrinter.cpp -o BasicPrinter
+
+      - name: Run program
+        run: ./BasicPrinter
+
+      - name: Compile TestedPrinter.cpp
+        run: g++ TestedPrinter.cpp -o TestedPrinter
+
+      - name: Run program
+        run: ./TestedPrinter
