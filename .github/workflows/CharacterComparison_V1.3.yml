@@ -31,11 +31,11 @@ jobs:
       - name: Run program
         run: ./main
 
-      # Step 5: Upload executable as artifact
+      # Step 5: Upload executable as artifact (v4)
       - name: Upload executable
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: CompareTwoChars
           path: main
 
-    
+  
