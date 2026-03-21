@@ -11,15 +11,15 @@
  */
 class AsciiComparator : public IComparator {
 private:
-    IPrinter* printer;
+    IPrinter& printer; // reference
 
 public:
-    AsciiComparator(IPrinter* p) : printer(p) {}
+    AsciiComparator(IPrinter& p) : printer(p) {} // takes reference
 
     void compare(char a, char b) override {
-        printer->printAscii(a);
-        printer->printAscii(b);
-        printer->printComparison(a, b);
+        printer.printAscii(a);
+        printer.printAscii(b);
+        printer.printComparison(a, b);
     }
 };
 
