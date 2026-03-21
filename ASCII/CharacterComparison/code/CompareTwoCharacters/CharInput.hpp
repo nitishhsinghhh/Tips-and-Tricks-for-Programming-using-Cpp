@@ -1,3 +1,6 @@
+#ifndef CHARINPUT_HPP
+#define CHARINPUT_HPP
+
 #include <iostream>
 #include <string>
 
@@ -23,3 +26,5 @@ public:
         return ch;
     }
 };
+
+#endif

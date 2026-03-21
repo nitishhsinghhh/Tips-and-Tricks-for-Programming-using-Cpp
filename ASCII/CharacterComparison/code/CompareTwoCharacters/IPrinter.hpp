@@ -1,3 +1,6 @@
+#ifndef IPRINTER_HPP
+#define IPRINTER_HPP
+
 #include <iostream>
 #include <string>
 
@@ -11,3 +14,5 @@ public:
     virtual void printComparison(char a, char b) = 0;
     virtual ~IPrinter() = default;
 };
+
+#endif

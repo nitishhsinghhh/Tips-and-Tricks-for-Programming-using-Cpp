@@ -1,6 +1,10 @@
-#include "IPrinter.hpp"
+#ifndef ASCIIPRINTER_HPP
+#define ASCIIPRINTER_HPP
 
-using std::cout; 
+#include "IPrinter.hpp"
+#include <iostream>
+
+using std::cout;
 using std::endl;
 
 /**
@@ -22,3 +26,5 @@ public:
             cout << b << " comes before " << a << " in ASCII order.\n";
     }
 };
+
+#endif

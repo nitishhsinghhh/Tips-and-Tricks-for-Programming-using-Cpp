@@ -1,3 +1,6 @@
+#ifndef ICOMPARATOR_HPP
+#define ICOMPARATOR_HPP
+
 #include <iostream>
 #include <string>
 
@@ -10,3 +13,5 @@ public:
     virtual void compare(char a, char b) = 0;
     virtual ~IComparator() = default;
 };
+
+#endif

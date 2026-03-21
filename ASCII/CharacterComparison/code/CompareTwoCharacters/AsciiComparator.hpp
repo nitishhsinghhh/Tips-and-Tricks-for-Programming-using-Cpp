@@ -1,4 +1,8 @@
+#ifndef ASCIICOMPARATOR_HPP
+#define ASCIICOMPARATOR_HPP
+
 #include "IComparator.hpp"
+#include "IPrinter.hpp"
 
 /**
  * @class AsciiComparator
@@ -21,3 +25,5 @@ public:
         printer.printComparison(a, b);
     }
 };
+
+#endif
