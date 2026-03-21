@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 
+#ifndef ICOMPARATOR_HPP
+#define ICOMPARATOR_HPP
+
 /**
  * @interface IComparator
  * @brief Interface for comparing two characters.
@@ -10,3 +13,5 @@ public:
     virtual void compare(char a, char b) = 0;
     virtual ~IComparator() = default;
 };
+
+#endif

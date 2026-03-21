@@ -1,4 +1,4 @@
- /**
+/**
  * @file CharAsciiCompareSOLID.cpp
  * @brief Compares two characters based on ASCII values using SOLID principles.
  * @author 
@@ -14,9 +14,11 @@ int main() {
     char ch1 = input.getChar("first");
     char ch2 = input.getChar("second");
 
-    AsciiPrinter printer;
-    AsciiComparator comparator(&printer);
-    comparator.compare(ch1, ch2);
+    IPrinter* printer = new AsciiPrinter();
+    IComparator* comparator = new AsciiComparator(printer);
+    comparator->compare(ch1, ch2);
 
+    delete comparator;
+    delete printer;
     return 0;
 }

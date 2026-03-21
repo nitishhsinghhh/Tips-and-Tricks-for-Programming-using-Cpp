@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 
+#ifndef IPRINTER_HPP
+#define IPRINTER_HPP
+
 /**
  * @interface IPrinter
  * @brief Interface for printing ASCII values and comparison results.
@@ -11,3 +14,5 @@ public:
     virtual void printComparison(char a, char b) = 0;
     virtual ~IPrinter() = default;
 };
+
+#endif

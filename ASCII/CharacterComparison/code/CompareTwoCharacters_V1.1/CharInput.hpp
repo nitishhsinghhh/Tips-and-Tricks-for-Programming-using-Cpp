@@ -1,3 +1,6 @@
+#ifndef CHARINPUT_HPP
+#define CHARINPUT_HPP
+
 #include <iostream>
 #include <string>
 
@@ -11,11 +14,6 @@ using std::cin;
  */
 class CharInput {
 public:
-    /**
-     * @brief Prompts user for a character.
-     * @param label Label to display before input.
-     * @return The character entered by the user.
-     */
     char getChar(const string& label) {
         char ch;
         cout << "Enter " << label << " character: ";
@@ -23,3 +21,5 @@ public:
         return ch;
     }
 };
+
+#endif

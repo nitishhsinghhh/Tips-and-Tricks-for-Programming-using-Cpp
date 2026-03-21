@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ASCIICOMPARATOR_HPP
+#define ASCIICOMPARATOR_HPP
+
 #include "IComparator.hpp"
 #include "IPrinter.hpp"
 
@@ -11,10 +13,6 @@ private:
     IPrinter* printer;
 
 public:
-    /**
-     * @brief Constructor with dependency injection.
-     * @param p Pointer to a printer object.
-     */
     AsciiComparator(IPrinter* p) : printer(p) {}
 
     void compare(char a, char b) override {
@@ -23,3 +21,5 @@ public:
         printer->printComparison(a, b);
     }
 };
+
+#endif
