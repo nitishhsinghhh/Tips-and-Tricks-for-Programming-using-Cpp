@@ -20,7 +20,7 @@ jobs:
         with:
           fetch-depth: 0
           sparse-checkout: |
-            ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2/**
+            ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2
 
       - name: Install MinGW compiler
         run: |
