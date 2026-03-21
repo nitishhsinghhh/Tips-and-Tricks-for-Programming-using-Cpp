@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ASCII/CharacterComparison/code/main
+        working-directory: ASCII/CharacterComparison/code/CompareTwoCharacters
 
     steps:
       - name: Checkout repository
