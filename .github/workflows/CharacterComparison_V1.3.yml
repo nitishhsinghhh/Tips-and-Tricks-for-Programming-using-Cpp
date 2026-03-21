@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: CompareTwoCharacters_V1.2
-          path: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2/CompareTwoCharacters_V1.2.exe
+          path: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2/CompareTwoCharacters
