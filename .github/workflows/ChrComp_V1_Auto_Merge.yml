@@ -1,0 +1,17 @@
+name: Auto Merge after CI
+
+on:
+  workflow_run:
+    workflows: ["CharacterComparison_V1.1]
+    types:
+      - completed
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Auto merge PR
+        uses: pascalgn/automerge-action@v0.17.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
