@@ -16,7 +16,7 @@ int main() {
 
     IPrinter* printer = new AsciiPrinter();
     AsciiComparator comparator(printer);
-    comparator.compare(ch1, ch2);
+    comparator->compare(ch1, ch2);
 
     delete printer;
     return 0;
