@@ -25,17 +25,15 @@ jobs:
 
       # Step 3: Compile main.cpp
       - name: Compile main.cpp
-        run: g++ main.cpp -o main
+        run: g++ main.cpp -o CompareTwoCharacters_V1.2.exe
 
-      # Step 4: Run program (or unit tests)
+      # Step 4: Run program (optional)
       - name: Run program
-        run: ./main
+        run: ./CompareTwoCharacters_V1.2.exe
 
-      # Step 5: Upload executable as artifact (v5)
+      # Step 5: Upload executable as artifact
       - name: Upload executable
         uses: actions/upload-artifact@v5
         with:
-          name: CompareTwoChars
-          path: main
-
-  
+          name: CompareTwoCharacters_V1.2   # Artifact folder name in GitHub UI
+          path: ./CompareTwoCharacters_V1.2.exe  # File inside artifact
