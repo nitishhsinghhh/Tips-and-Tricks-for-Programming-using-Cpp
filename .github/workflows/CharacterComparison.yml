@@ -1,0 +1,28 @@
+name: C++ CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ASCII/CharacterComparison/code
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install compiler
+        run: sudo apt-get update && sudo apt-get install -y g++
+
+      - name: Compile CompareTwoCharacters.cpp
+        run: g++ CompareTwoCharacters.cpp -o CompareTwoCharacters
+
+      - name: Run program
+        run: ./CompareTwoCharacters
