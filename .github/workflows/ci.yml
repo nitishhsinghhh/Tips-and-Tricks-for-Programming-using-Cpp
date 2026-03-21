@@ -21,8 +21,8 @@ jobs:
       - name: Install compiler
         run: sudo apt-get update && sudo apt-get install -y g++
 
-      - name: Compile basic.cpp
+      - name: Compile PrintableChar.cpp
         run: g++ basic.cpp -o basic
 
       - name: Run program
-        run: ./basic
+        run: ./PrintableChar
