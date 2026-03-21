@@ -1,3 +1,4 @@
+#pragma once
 #include "IComparator.hpp"
 #include "IPrinter.hpp"
 
