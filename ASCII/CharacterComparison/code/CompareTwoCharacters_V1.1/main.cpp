@@ -24,3 +24,4 @@ int main() {
 }
 
 // End of main
+// This is the tets of the Auto Merge
