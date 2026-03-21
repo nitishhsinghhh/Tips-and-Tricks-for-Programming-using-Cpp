@@ -1,0 +1,79 @@
+name: C++ CI/CD + Auto Commit
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-commit:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    defaults:
+      run:
+        working-directory: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true  # Required to push later
+
+      # Step 2: Install compiler
+      - name: Setup compiler Linux/macOS
+        if: runner.os != 'Windows'
+        run: sudo apt-get update && sudo apt-get install -y build-essential
+      - name: Setup compiler Windows
+        if: runner.os == 'Windows'
+        run: choco install mingw -y
+
+      # Step 3: Compile main.cpp
+      - name: Compile main.cpp
+        run: g++ main.cpp -o CompareTwoCharacters_V1.2.exe
+
+      # Step 4: Run program (optional)
+      - name: Run program
+        run: |
+          if [ "${{ runner.os }}" == "Windows" ]; then
+            CompareTwoCharacters_V1.2.exe
+          else
+            ./CompareTwoCharacters_V1.2.exe
+          fi
+
+      # Step 5: Verify file exists
+      - name: List files
+        run: ls -l
+
+      # Step 6: Upload artifact
+      - name: Upload executable
+        uses: actions/upload-artifact@v5
+        with:
+          name: CompareTwoCharacters_V1.2-${{ runner.os }}
+          path: ./CompareTwoCharacters_V1.2.exe
+
+      # Step 7: Commit built executable to separate branch
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Switch to auto-update branch
+        run: |
+          git fetch origin auto-update || git checkout -b auto-update
+          git checkout auto-update
+
+      - name: Copy executable to branch folder
+        run: |
+          mkdir -p built
+          cp CompareTwoCharacters_V1.2.exe built/CompareTwoCharacters_V1.2-${{ runner.os }}.exe
+
+      - name: Commit and push
+        run: |
+          git add built/CompareTwoCharacters_V1.2-${{ runner.os }}.exe
+          git commit -m "Add built executable for ${{ runner.os }}" || echo "No changes to commit"
+          git push origin auto-update
