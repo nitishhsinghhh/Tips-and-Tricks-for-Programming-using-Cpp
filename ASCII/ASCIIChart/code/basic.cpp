@@ -8,7 +8,7 @@
  * @result
  * Outputs the printable ASCII characters from space (' ') to tilde ('~') to the console.
  */
-int main() 
+int main() {
     std::cout << "Printable ASCII [32..126]:\n";
 
     // Loop through characters from ASCII 32 (' ') to 126 ('~')
