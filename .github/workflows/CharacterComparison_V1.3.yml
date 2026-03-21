@@ -25,11 +25,11 @@ jobs:
 
       # Step 3: Compile main.cpp
       - name: Compile main.cpp
-        run: g++ main.cpp -o CompareTwoCharacters_V1.2.exe
+        run: g++ main.cpp -o CompareTwoCharacters_V1.2
 
       # Step 4: Run program (optional)
       - name: Run program
-        run: ./CompareTwoCharacters_V1.2.exe
+        run: ./CompareTwoCharacters_V1.2
 
       # Step 5: Verify the file exists
       - name: List files
