@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 using std::map;
 using std::string;
-using std::setw
+using std::setw;
 using std::nouppercase;
 using std::dec;
 
