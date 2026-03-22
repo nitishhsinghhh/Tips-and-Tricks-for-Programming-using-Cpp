@@ -2,29 +2,29 @@
 
 In the number system, each number is represented by its base. If the base is 2 it is a binary number, if the base is 8 it is an octal number, if the base is 10, then it is called decimal number system and if the base is 16, it is part of the hexadecimal number system.
 
-The day-to-day system of writing numbers is called decimal. It uses 10 digits (0 to 9) to represent any number. When we write a number in decimal, each digit is multiplied by a power of 10, which is it's distance from the rightmost bit. <br>
-For example, 89 = (8 * 10^1) + (9 * 10^0).
+The day-to-day system of writing numbers is called decimal. It uses 10 digits (0 to 9) to represent any number. When we write a number in decimal, each digit is multiplied by a power of 10, which is it's distance from the rightmost bit.
+For example, 89 = (8 *10^1) + (9* 10^0).
 
 In a similar way, we can write all numbers using only 0 and 1, and multiplying each digit by
-a power of 2, which is it's distance from the rightmost bit. <br>
+a power of 2, which is it's distance from the rightmost bit.
 A computer only knows 0's and 1's. That's why we need to represent numbers in binary.
 
-Let's do some simple calculations:-<br>
+Let's do some simple calculations:-
 
-i) What does (101) represent in binary? <br>
-A. (101) = (1 * 2^2) + (0 * 2^1) + (1 * 2^0) = (4) + (0) + (1) = 5.<br>
+i) What does (101) represent in binary?
+A. (101) = (1 *2^2) + (0* 2^1) + (1 * 2^0) = (4) + (0) + (1) = 5.
 
-ii) What does (111) represent in binary?<br>
-A. (111) = (1 * 2^2) + (1 * 2^1) + (1 * 2^0) = (4) + (2) + (1) = 7.<br>
+ii) What does (111) represent in binary?
+A. (111) = (1 *2^2) + (1* 2^1) + (1 * 2^0) = (4) + (2) + (1) = 7.
 
-Hope, this was clear. Also, when we say that a bit is set, it means that the bit is 1. To set a bit means to make it 1.<br>
+Hope, this was clear. Also, when we say that a bit is set, it means that the bit is 1. To set a bit means to make it 1.
 
-Now, let's put our newly gained knowledge to use.<br>
+Now, let's put our newly gained knowledge to use.
 
 Notice that, since 2 is an even number, all powers of 2 will contribute an even number, except the rightmost bit, which contributes 1. Hence, in every odd number, the last bit will be set.
-Let's take some examples to make that sink.<br>
+Let's take some examples to make that sink.
 
-Let's represent some odd decimal numbers in Binary:-<br>
+Let's represent some odd decimal numbers in Binary:-
 
 | Decimal | Binary |
 |---------|--------|
@@ -33,8 +33,7 @@ Let's represent some odd decimal numbers in Binary:-<br>
 |   9     | 1001   |
 |  15     | 1111   |
 
-
-Do you see that the rightmost bit is 1 for all the odd numbers? Similarly, the rightmost bit is 0 for all even numbers. It makes sense right? Since the last bit contributes 1 which is an odd number.<br>
+Do you see that the rightmost bit is 1 for all the odd numbers? Similarly, the rightmost bit is 0 for all even numbers. It makes sense right? Since the last bit contributes 1 which is an odd number.
 
 Hopefully everything was clear upto this point.
 
@@ -100,9 +99,10 @@ Let's add 2 and 5.
 
 ```
 2 + 5 = 0010 + 0101 = 0010
-					+ 0101
-					= 0111
+     + 0101
+     = 0111
 ```
+
 What does (0111) represent? 7 right? +7 to be precise.
 
 Try adding -3 and 4.
@@ -141,7 +141,7 @@ Let's take 1011 for example. Let's see what it represents.
 We use the same method of getting the value.
 Multiply the bit and weight.
 So (1011) in Twos complement is:
-1 * (-(2^3)) + 0 * (2^2) + 1 * (2^1) + 1 * (2^0)
+1 *(-(2^3)) + 0* (2^2) + 1 *(2^1) + 1* (2^0)
 = -8 + 0 + 2 + 1
 = -8 + 3
 = -5
@@ -179,12 +179,12 @@ For example, C++ integer is of 32 bits. So, if I want to know all the bits of a 
 
 ```c++ []
 void printTwosComplementRepresentation(int n) {
-	// We start from 31 and go to 0.
-	for (int i = 31; i >= 0; --i) {
-	    if ((1 << i) & n)   // Check if the ith bit is set or not 
-		std::cout << 1 ;
-	    else std::cout << 0 ;
-	}
+ // We start from 31 and go to 0.
+ for (int i = 31; i >= 0; --i) {
+     if ((1 << i) & n)   // Check if the ith bit is set or not 
+  std::cout << 1 ;
+     else std::cout << 0 ;
+ }
 }
 
 int main()
@@ -193,6 +193,7 @@ int main()
     return 0;
 }
 ```
+
 ![image](https://github.com/user-attachments/assets/83f7870c-9225-4f14-9ba2-d4ffb7723f25)
 
 Above image is for +12.
@@ -203,8 +204,6 @@ For -12, it looks something like below.
 
 Now, I am interested in knowing how 0 is represented. I ran the same program with n as 0 and it gave following output.
 
-
-
 ![image](https://github.com/user-attachments/assets/b2b6b5a2-4e95-47d0-83db-68f8894a5a4d)
 
 So, leftmost bit is 0 in 0.
@@ -213,8 +212,3 @@ Do you wonder what if leftmost bit is 1 and all other bits are 0?
 Since, we know that weight of leftmost bit is negative, the final number will be very big negative number and it's absolute value will be a power of 2.
 
 So, that's it. This is how numbers are represented in memory. If you want to learn how various operations are done with Twos complement, you are free to check out other amazing sources on the web.
-
-
-
-
-
