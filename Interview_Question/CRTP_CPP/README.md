@@ -36,7 +36,7 @@ int main() {
 }
 ```
 
-The base defines a contract, the derived implements it, and static dispatch ensures zero runtime overhead. 
+The base defines a contract, the derived implements it, and static dispatch ensures zero runtime overhead.
 
 ## Why Use CRTP for Dependency Injection?
 
