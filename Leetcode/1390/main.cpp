@@ -1,11 +1,27 @@
+/**
+ * @file main.cpp
+ * @brief Test driver for LeetCode 1390 - Four Divisors.
+ *
+ * This file contains a simple main function to test the Solution class
+ * implementation with multiple sample and custom test cases.
+ */
+
 #include "solution.hpp"
 #include <iostream>
 #include <vector>
 
-using std::vector;
 using std::cout;
 using std::endl;
+using std::vector;
 
+/**
+ * @brief Entry point of the program.
+ *
+ * Creates sample test cases, invokes the Solution class, and prints
+ * the computed results along with expected outputs.
+ *
+ * @return int Returns 0 on successful execution.
+ */
 int main() {
     Solution sol;
 
