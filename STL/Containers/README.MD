@@ -1,5 +1,7 @@
 # Containers library
+
 The Containers library comprises class templates and algorithms that enable programmers to implement common data structures such as queues, lists, and stacks with ease. It consists of two classes of containers until C++11 and three classes since C++11, 
+
 - sequence containers,
 - associative containers, and
 - unordered associative containers, (since C++11)
@@ -32,26 +34,35 @@ The Containers library comprises class templates and algorithms that enable prog
 # Iterator and Reference Invalidation in C++ Containers
 
 ## Read-Only Methods
+
 Read-only methods, which do not modify the container's contents, never invalidate iterators or references.
 
 ## Modification Methods
+
 Methods that modify the container's contents may invalidate iterators and references, depending on the specific container and the type of modification.
 
 ## Sequence Containers
+
 ### Array, Vector, Deque, List, and Forward List
+
 - After insertion, iterators and references may be invalidated, with specific conditions for validity before or after the modification.
 - After erasure, similar conditions apply for the validity of iterators and references.
 
 ## Associative Containers
+
 ### Set, Multiset, Map, and Multimap
+
 - After insertion or erasure, iterators and references are typically still valid, except for erased elements.
 
 ## Unordered Associative Containers
+
 ### Unordered Set, Unordered Multiset, Unordered Map, and Unordered Multimap
+
 - After insertion, iterators may be invalidated, especially if the insertion causes a rehash of the container. References, however, remain valid.
 - After erasure, iterators and references are usually still valid, except for erased elements.
 
 ## Additional Information
+
 - Insertion refers to any method that adds elements to the container, while erasure refers to any method that removes elements from the container.
 - It provides examples of insertion and erasure methods for different containers.
 - An exception is noted for erasure of the last element in a deque, which invalidates the past-the-end iterator.

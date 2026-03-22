@@ -8,6 +8,7 @@
 Real-life Example: Database Connection Pool: Ensures only one instance of the connection pool is created to manage database connections.
 
 `DatabaseConnectionPool.h`
+
 ```cpp
 #pragma once
 
@@ -43,6 +44,7 @@ private:
 ```
 
 `DatabaseConnectionPool.cpp`
+
 ```cpp
 // Initialize the static member
 #include "DatabaseConnectionPool.h"
@@ -51,6 +53,7 @@ DatabaseConnectionPool* DatabaseConnectionPool::instance = nullptr;
 ```
 
 // Usage main file
+
 ```cpp
 int main() {
     DatabaseConnectionPool* pool = DatabaseConnectionPool::getInstance();
@@ -62,6 +65,7 @@ int main() {
 - **Observer Pattern** <br>
 
 Real-life Example: Weather Monitoring System: When the weather station updates the weather data, all the display elements (observers) are updated.
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -134,8 +138,10 @@ int main() {
     return 0;
 }
 ```
+
 - **Factory Pattern** <br>
 Real-life Example: Notification System: Depending on the type of notification (SMS, Email, Push), the factory can create the appropriate object.
+
 ```cpp
 #include <iostream>
 #include <memory>

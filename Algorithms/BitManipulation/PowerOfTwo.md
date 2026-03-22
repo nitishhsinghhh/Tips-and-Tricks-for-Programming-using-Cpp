@@ -1,8 +1,10 @@
 # Power of Two (and Related Powers) — Bit Manipulation Explained
+
 This document explains multiple ways to determine whether a number is a power of two, along with related extensions (power of three, four, and k).  
 The goal is not just correctness, but **understanding why the solution works**.
 
 ## Recursive version
+
 While the recursive version is elegant, it’s not ideal for production or competitive programming due to stack overhead.
 
 ```
@@ -23,6 +25,7 @@ bool isPowerOfTwo(int n) {
 ```
 
 ## Iterative (and more efficient) alternative
+
 ```C++ []
 bool isPowerOfTwo(int n) {
     return n > 0 && (n & (n - 1)) == 0;
@@ -30,12 +33,15 @@ bool isPowerOfTwo(int n) {
 ```
 
 ## Powers of two in binary
+
 A power of two is:
+
 ```
 1, 2, 4, 8, 16, 32, ...
 ```
 
 In binary, these look like:
+
 ```
 1     -> 0001
 2     -> 0010
@@ -43,34 +49,43 @@ In binary, these look like:
 8     -> 1000
 16    -> 1 0000
 ```
+
 Did you Notice the pattern?
+
 - Every power of two has exactly one 1 bit and all the rest are 0s.
 
 ## What is n - 1 in binary?
+
 Let’s take an example:
 **n = 8 (1000 in binary)**
+
 ```
 n      = 1000
 n - 1  = 0111
 ```
+
 For a power of two:
 The single 1 in n becomes 0
 All bits to the right of it become 1
 
 ## Why (n & (n - 1)) == 0 works
+
 & means bitwise AND → it compares each bit:
 1 & 1 → 1
 1 & 0 → 0
 0 & 1 → 0
 0 & 0 → 0
 Example 1 — n = 8 (power of two):
+
 ```
 n      = 1000
 n - 1  = 0111
 ----------------
 n & (n-1) = 0000    equals 0
 ```
+
 Example 2 — n = 6 (NOT a power of two):
+
 ```
 n      = 0110
 n - 1  = 0101
@@ -81,16 +96,21 @@ n & (n-1) = 0100    not 0
 ![SQL_Bootcamp (2).jpg](https://assets.leetcode.com/users/images/250879eb-5d56-481c-bb43-80aad6164617_1759620178.026966.jpeg)
 
 ## Final logic
+
 If n is a power of two → (n & (n - 1)) will always be 0
 If n is NOT a power of two → result will be non-zero
+
 ```C++ []
 return n > 0 && (n & (n - 1)) == 0;
 ```
+
 checks both:
+
 1. n > 0 → rules out negatives and zero
 2. (n & (n - 1)) == 0 → ensures exactly one bit is set
 
 ### Time and space Complexity
+
 - O(1) time complexity — one bitwise operation and one comparison.
 - O(1) space — no recursion or extra data structures.
 
@@ -124,19 +144,24 @@ bool isPowerOfK(int n, int k) {
 }
 
 ```
+
 ## Relation to __builtin_popcount(n)
+
 In GCC and Clang, [__builtin_popcount](https://en.cppreference.com/w/cpp/numeric/popcount.html)(n) is a compiler intrinsic — a built-in function that counts the number of 1s (set bits) in the binary representation of an integer n.
 
 A power of two has exactly one set bit in its binary representation.
 ```__builtin_popcount(n) == 1```: Confirms only one bit is set.
 
 ## Checking for Power of Two
+
 ```C++ []
 bool isPowerOfTwo(int n) {
     return n > 0 && __builtin_popcount(n) == 1;
 }
 ```
+
 ## Extending to Power of Four
+
 To check if a number is a power of four, we need to ensure:
 
 1. It is a power of two (only one bit set).
@@ -151,6 +176,7 @@ bool isPowerOfFour(int n) {
 ```
 
 ## Bit Manipulation
+
 ```// 0x55555555 = 01010101... in binary (bits set at even positions)```
 
 ```C++ []
@@ -160,9 +186,11 @@ bool isPowerOfFour(int n) {
 ```
 
 ## Precomputed Max Power Trick (for small bases)
+
 For fixed bases like 3 or 5, you can precompute the maximum power that fits in int and check if it divides n.
 
-## Code 
+## Code
+
 ```C++ []
 bool isPowerOfThree(int n) {
     const int maxPowerOf3 = 1162261467; // 3^19
@@ -171,6 +199,7 @@ bool isPowerOfThree(int n) {
 ```
 
 ## Bitset-based Check (C++20)
+
 ```C++ []
 #include <iostream>
 #include <bit>
@@ -188,9 +217,11 @@ int main() {
     return 0;
 }
 ```
+
 std::has_single_bit (C++20) is literally designed for this check.
 
 # Recursive version
+
 While the recursive version is elegant, it’s not ideal for production or competitive programming due to stack overhead.
 
 ```
@@ -211,6 +242,7 @@ bool isPowerOfTwo(int n) {
 ```
 
 # Iterative (and more efficient) alternative
+
 ```C++ []
 bool isPowerOfTwo(int n) {
     return n > 0 && (n & (n - 1)) == 0;
@@ -218,6 +250,7 @@ bool isPowerOfTwo(int n) {
 ```
 
 ## Powers of two in binary
+
 A power of two is:
 ```
 1, 2, 4, 8, 16, 32, ...
@@ -232,11 +265,14 @@ In binary, these look like:
 16    -> 1 0000
 ```
 Did you Notice the pattern?
+
 - Every power of two has exactly one 1 bit and all the rest are 0s.
 
 ## What is n - 1 in binary?
+
 Let’s take an example:
 **n = 8 (1000 in binary)**
+
 ```
 n      = 1000
 n - 1  = 0111
@@ -246,6 +282,7 @@ The single 1 in n becomes 0
 All bits to the right of it become 1
 
 ## Why (n & (n - 1)) == 0 works
+
 & means bitwise AND → it compares each bit:
 1 & 1 → 1
 1 & 0 → 0
@@ -258,7 +295,9 @@ n - 1  = 0111
 ----------------
 n & (n-1) = 0000    equals 0
 ```
+
 Example 2 — n = 6 (NOT a power of two):
+
 ```
 n      = 0110
 n - 1  = 0101
@@ -269,16 +308,20 @@ n & (n-1) = 0100    not 0
 ![SQL_Bootcamp (2).jpg](https://assets.leetcode.com/users/images/250879eb-5d56-481c-bb43-80aad6164617_1759620178.026966.jpeg)
 
 ## Final logic
+
 If n is a power of two → (n & (n - 1)) will always be 0
 If n is NOT a power of two → result will be non-zero
+
 ```C++ []
 return n > 0 && (n & (n - 1)) == 0;
 ```
 checks both:
+
 1. n > 0 → rules out negatives and zero
 2. (n & (n - 1)) == 0 → ensures exactly one bit is set
 
 ## Time and space Complexity
+
 - O(1) time complexity — one bitwise operation and one comparison.
 - O(1) space — no recursion or extra data structures.
 
@@ -312,6 +355,7 @@ bool isPowerOfK(int n, int k) {
 }
 
 ```
+
 ## Relation to __builtin_popcount(n)
 In GCC and Clang, [__builtin_popcount](https://en.cppreference.com/w/cpp/numeric/popcount.html)(n) is a compiler intrinsic — a built-in function that counts the number of 1s (set bits) in the binary representation of an integer n.
 
@@ -319,11 +363,13 @@ A power of two has exactly one set bit in its binary representation.
 ```__builtin_popcount(n) == 1```: Confirms only one bit is set.
 
 ## Checking for Power of Two
+
 ```C++ []
 bool isPowerOfTwo(int n) {
     return n > 0 && __builtin_popcount(n) == 1;
 }
 ```
+
 ## Power of Four — Bitmask Approach
 To check if a number is a power of four, we need to ensure:
 
@@ -339,6 +385,7 @@ bool isPowerOfFour(int n) {
 ```
 
 ## Bit Manipulation
+
 ```// 0x55555555 = 01010101... in binary (bits set at even positions)```
 
 ```C++ []
@@ -348,9 +395,11 @@ bool isPowerOfFour(int n) {
 ```
 
 ## Precomputed Max Power Trick (for small bases)
+
 For fixed bases like 3 or 5, you can precompute the maximum power that fits in int and check if it divides n.
 
 ## Code 
+
 ```C++ []
 bool isPowerOfThree(int n) {
     const int maxPowerOf3 = 1162261467; // 3^19
@@ -359,6 +408,7 @@ bool isPowerOfThree(int n) {
 ```
 
 ## Bitset-based Check (C++20)
+
 ```C++ []
 #include <iostream>
 #include <bit>
@@ -379,6 +429,7 @@ int main() {
 std::has_single_bit (C++20) is literally designed for this check.
 
 ## Recommended in Production
+
 - Prefer `std::has_single_bit` (C++20+)
 - Use `(n & (n - 1)) == 0` for pre-C++20 codebases
 - Avoid recursion for this check
@@ -395,6 +446,7 @@ std::has_single_bit (C++20) is literally designed for this check.
 | `std::has_single_bit`  | O(1)            | O(1)             | Best (C++20+)            |
 
 ## Key Takeaway
+
 `A number is a power of two if and only if it has exactly one set bit.`
 <bk> 
 Understanding why this works matters more than memorizing the formula.

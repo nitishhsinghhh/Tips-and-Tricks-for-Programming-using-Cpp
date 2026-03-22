@@ -13,11 +13,13 @@ Backtracking is a problem-solving algorithm that employs a brute force approach 
 ---
 
 ## State Space Tree
+
 A space state tree is a tree representing all the possible states (solution or nonsolution) of the problem from the root as an initial state to the leaf as a terminal state.
 
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/assets/93253740/72e2e3da-b5a3-4d81-9149-7358a76639af)
 
 ## Backtracking Algorithm
+
 ```cpp
 Backtrack(x)
     if x is not a solution
@@ -187,7 +189,3 @@ int main() {
 }
 
 ```
-
-
-
-

@@ -1,9 +1,11 @@
 # Binary Search 
+
 Binary search is an algorithm employed for searching in a sorted array by iteratively dividing the search range in half. The concept behind binary search is to leverage the sorted nature of the array to achieve a time complexity of O(log N).
 
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/51e0fc30-d69d-44f6-9e14-504b51840de0)
 
 ## Conditions for applying the Binary Search algorithm to a data structure:
+
 1. The data structure must be sorted in ascending or descending order.
 2. Accessing any element within the data structure must take constant time.
 
@@ -13,11 +15,13 @@ Binary search is an algorithm employed for searching in a sorted array by iterat
 
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/9305617a-84d6-475b-a120-2bf6b4691821)
 
-2. Compare the middle element of the search space with the key: <br>
+2.Compare the middle element of the search space with the key: <br>
    A. If the key is found at the middle element, the process is terminated. <br>
    B. If the key is not found at the middle element, choose which half will be used as the next search space. <br>
-      - If the key is smaller than the middle element, then the left side is used for the next search. <br>
-   - If the key is larger than the middle element, then the right side is used for the next search. <br>
+      - If the key is smaller than the middle element, then the left side is used for the next search. <br
+
+- If the key is larger than the middle element, then the right side is used for the next search. <br>
+
 3. This process is continued until the key is found or the total search space is exhausted.
 
 ### How to Implement Binary Search?
@@ -33,25 +37,30 @@ The Binary Search Algorithm can be implemented in the following two ways:
 ### Complexity Analysis of Binary Search
 
 **Time Complexity:**
+
 - Best Case: O(1)
 - Average Case: O(log N)
 - Worst Case: O(log N)
 
 **Auxiliary Space:** 
+
 - O(1), If the recursive call stack is considered then the auxiliary space will be O(logN).
 
 ## Understand the algorithm
+
 - We are performing a binary search between left = 0 and right = x.
 - At each iteration, We compute mid = (left + right)/2 and check whether mid * mid equals x.
 - Depending on the result, We shrink the search space to either the left half or the right half.
 
 **Size of the search space**
+
 - Initially, the search space is of size 𝑥(from 0 to 𝑥).
 - After the first iteration, the search space is halved: size 𝑥/2
 - After the second iteration, it is halved again: size 𝑥/4.
 - After 𝑘 iterations, the search space size is 𝑥/(2^𝑘).
 
 **When does the search stop?**
+
 - The loop continues until the search space reduces to size 1 (i.e., left > right).
 - So we need: 𝑥/(2^𝑘) ≤ 1
 - Solving for 𝑘:
@@ -169,10 +178,11 @@ Increasing: 𝑓(𝑎) ≤ 𝑓(𝑏) whenever 𝑎 < 𝑏.
 Decreasing: 𝑓(𝑎) ≥ 𝑓(𝑏) whenever 𝑎 < 𝑏.
 
 ### In our mySqrt example
+
 - We’re searching for the largest integer mid such that mid * mid ≤ x.
 - The function 𝑓(𝑚𝑖𝑑)=𝑚𝑖𝑑^2 is monotonically increasing for non-negative integers.
 - That monotonicity guarantees:
-    - If 𝑚𝑖𝑑^2 > 𝑥, then all larger values will also be too large
+  - If 𝑚𝑖𝑑^2 > 𝑥, then all larger values will also be too large
     - If 𝑚𝑖𝑑^2 < 𝑥, then all smaller values will also be too small.
 - This property allows binary search to safely discard half of the search space each step.
 
@@ -386,6 +396,7 @@ valuetofind: the target value which we have
 Returns :
 true if an element equal to valuetofind is found, else false.
 ```
+
 ### Vector Search with Sorting and Binary Search in C++
 
 ```cpp
@@ -485,6 +496,7 @@ int main() {
 ```
 
 ### C++ code example 2
+
 ```cpp
 #include <algorithm>
 #include <iostream>
@@ -517,6 +529,7 @@ int main() {
 
 
 # Binary search leetcode
+
 Blind top 5<br>
 [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)<br>
 [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)<br>
@@ -616,42 +629,43 @@ class Solution {
 
 	int findPeakElementUtil(vector<int>& nums, int l, int r) {
 
-		if (l > r)
-			return -1;
+  if (l > r)
+   return -1;
 
-		int m = l + (r - l) / 2;
+  int m = l + (r - l) / 2;
 
-		if (((m > 0) && (nums[m] > nums[m - 1])) &&
-			((m < nums.size() - 1) && (nums[m] > nums[m + 1])))
-			return m;
+  if (((m > 0) && (nums[m] > nums[m - 1])) &&
+   ((m < nums.size() - 1) && (nums[m] > nums[m + 1])))
+   return m;
 
-		if (m == 0 && nums.size() > 1 && nums[m] > nums[m + 1])
-			return m;
+  if (m == 0 && nums.size() > 1 && nums[m] > nums[m + 1])
+   return m;
 
-		if ((m == nums.size() - 1) && (nums[m] > nums[m - 1]))
-			return m;
+  if ((m == nums.size() - 1) && (nums[m] > nums[m - 1]))
+   return m;
 
-		int left = findPeakElementUtil(nums, l, m - 1);
-		int right = findPeakElementUtil(nums, m + 1, r);
+  int left = findPeakElementUtil(nums, l, m - 1);
+  int right = findPeakElementUtil(nums, m + 1, r);
 
-		if (left != -1)
-			return left;
-		else
-			return right;
-	}
+  if (left != -1)
+   return left;
+  else
+   return right;
+ }
 public:
-	int findPeakElement(vector<int>& nums) {
+ int findPeakElement(vector<int>& nums) {
 
-		int n = nums.size();
+  int n = nums.size();
 
-		if (n == 1) return 0;
+  if (n == 1) return 0;
 
-		return findPeakElementUtil(nums, 0, n - 1);
-	}
+  return findPeakElementUtil(nums, 0, n - 1);
+ }
 };
 ```
 
 ## Simple Binary Search
+
 [Find Smallest Letter Greater Than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)<br>
 [Missing element in sorted array](https://leetcode.com/problems/missing-element-in-sorted-array/)<br>
 [Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)<br>
@@ -705,6 +719,7 @@ public:
 ```
 
 ## Using C++ STL upper bound for binary search
+
 [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)<br>
 [Online Election](https://leetcode.com/problems/online-election/)<br>
 [Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)<br>
@@ -770,6 +785,7 @@ public:
 ```
 
 ## Binary search based on condition on 2 arrays
+
 [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)<br>
 
 ```cpp
@@ -849,14 +865,17 @@ public:
 ```
 
 ## Two Pointers: The General Pattern
+
 Maintain two indices (or bounds) over a sequence/number line—typically i and j—and move them based on some condition to converge on the answer.
 Common variants:
+
 - Opposite ends (e.g., sorted array pair-sum: move i up or j down).
 - Sliding window (e.g., subarray with sum/property: move right to expand, left to shrink).
 - Partitioning (e.g., Dutch flag, Lomuto/Hoare partition in quicksort).
 - Same-direction pointers (e.g., slow/fast cycle detection).
 
 ## Binary Search as a Special Case of Two Pointers
+
 Binary search maintains two pointers (left, right) bounding the candidate space and moves them based on a monotone predicate. The only difference vs. classic two-pointers is how the next step is chosen:
 
 - Two-pointers normally move one end (e.g., left++ or right--) based on comparisons.
