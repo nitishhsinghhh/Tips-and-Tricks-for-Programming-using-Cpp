@@ -1,4 +1,4 @@
-# Binary Search 
+# Binary Search
 
 Binary search is an algorithm employed for searching in a sorted array by iteratively dividing the search range in half. The concept behind binary search is to leverage the sorted nature of the array to achieve a time complexity of O(log N).
 
@@ -9,18 +9,18 @@ Binary search is an algorithm employed for searching in a sorted array by iterat
 1. The data structure must be sorted in ascending or descending order.
 2. Accessing any element within the data structure must take constant time.
 
-## Binary Search Algorithm:
+## Binary Search Algorithm
 
 1. Divide the search space into two halves by finding the middle index "mid".
 
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/9305617a-84d6-475b-a120-2bf6b4691821)
 
-2.Compare the middle element of the search space with the key: <br>
-   A. If the key is found at the middle element, the process is terminated. <br>
-   B. If the key is not found at the middle element, choose which half will be used as the next search space. <br>
+2.Compare the middle element of the search space with the key: 
+   A. If the key is found at the middle element, the process is terminated. 
+   B. If the key is not found at the middle element, choose which half will be used as the next search space. 
       - If the key is smaller than the middle element, then the left side is used for the next search. <br
 
-- If the key is larger than the middle element, then the right side is used for the next search. <br>
+- If the key is larger than the middle element, then the right side is used for the next search. 
 
 3. This process is continued until the key is found or the total search space is exhausted.
 
@@ -68,7 +68,7 @@ The Binary Search Algorithm can be implemented in the following two ways:
 
 Total Time Complexity = 𝑂(log𝑥)
 
-# CPP code exmaple 
+## CPP code exmaple 
 
 ```cpp
 /**
@@ -149,27 +149,32 @@ int main() {
 ```
 
 **Advantages of Binary Search:**
+
 - Binary search is faster than linear search, especially for large arrays.
 - More efficient than other searching algorithms with a similar time complexity, such as interpolation search or exponential search.
 - Well-suited for searching large datasets that are stored in external memory, such as on a hard drive or in the cloud.
 
 **Drawbacks of Binary Search:**
+
 - The array should be sorted.
 - Requires that the data structure being searched be stored in contiguous memory locations.
 - Requires that the elements of the array be comparable, meaning that they must be able to be ordered.
 
 **Applications of Binary Search:**
+
 - Can be used as a building block for more complex algorithms used in machine learning, such as algorithms for training neural networks or finding the optimal hyperparameters for a model.
 - Used for searching in computer graphics such as algorithms for ray tracing or texture mapping.
 - Can be used for searching a database.
 
 ## Meaning of "Monotonically"
+
 - In mathematics and computer science, monotonic means something changes in one direction only — it either always increases or always decreases, but never reverses.
 - For binary search:
-    - The search space (the interval between left and right) always decreases in size at each step.
-    - It never grows back or oscillates; it shrinks steadily until it becomes empty or reaches the answer.
+  - The search space (the interval between left and right) always decreases in size at each step.
+  - It never grows back or oscillates; it shrinks steadily until it becomes empty or reaches the answer.
 
 ### Binary Search and Monotonicity
+
 - Binary search works because the condition you’re testing is monotonic.
 - A monotonic function or predicate is one that changes in only one direction: once it becomes true (or false), it stays that way for the rest of the domain.
 
@@ -329,7 +334,8 @@ int main() {
     return 0;
 }
 ```
-# Edge Cases
+
+## Edge Cases
 
 When working with array search algorithms, it's important to consider the following edge cases:
 
@@ -366,6 +372,7 @@ constexpr bool binary_search( ForwardIt first, ForwardIt last,
 ```
 
 ### binary_search (1)
+
 ```cpp
 template<class ForwardIt, class T>
 bool binary_search(ForwardIt first, ForwardIt last, const T& value) {
@@ -375,6 +382,7 @@ bool binary_search(ForwardIt first, ForwardIt last, const T& value) {
 ```
 
 ### binary_search (2)
+
 ```cpp
 template<class ForwardIt, class T, class Compare>
 bool binary_search(ForwardIt first, ForwardIt last, const T& value, Compare comp) {
@@ -527,26 +535,24 @@ int main() {
 }
 ```
 
+## Binary search leetcode
 
-# Binary search leetcode
+Blind top 5
+[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)
+[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)
+[Counting Bits](https://leetcode.com/problems/counting-bits/description/)
+[Missing Number](https://leetcode.com/problems/missing-number/description/)
+[Reverse Bits](https://leetcode.com/problems/reverse-bits/description/)
 
-Blind top 5<br>
-[Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)<br>
-[Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/description/)<br>
-[Counting Bits](https://leetcode.com/problems/counting-bits/description/)<br>
-[Missing Number](https://leetcode.com/problems/missing-number/description/)<br>
-[Reverse Bits](https://leetcode.com/problems/reverse-bits/description/)<br>
-
-
-# Problems where its Difficult to figure out if Binary Search can be applied.
+## Problems where its Difficult to figure out if Binary Search can be applied
 
 There are certain problem scenarios where it can be challenging to determine if binary search is applicable. In these cases, there is an array of length (n) and the task is to find the minimum value that satisfies a specific condition on the array. The runtime for these problems is typically nLog(m).
 
-[Minimum Number of Days to Make m Bouquets](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/)<br>
-[Sum of Mutated Array Closest to Target](https://leetcode.com/problems/sum-of-mutated-array-closest-to-target/)<br>
-[Find the Smallest Divisor Given a Threshold](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/)<br>
-[Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)<br>
-[Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)<br>
+[Minimum Number of Days to Make m Bouquets](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/)
+[Sum of Mutated Array Closest to Target](https://leetcode.com/problems/sum-of-mutated-array-closest-to-target/)
+[Find the Smallest Divisor Given a Threshold](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/)
+[Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
+[Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)
 
 ```cpp
 #include <iostream>
@@ -617,17 +623,18 @@ public:
 ```
 
 ## Tricky Binary Search
+
 There are multiple conditions we need to figure out if we need to select left or if we need to select right.
 
-[Find Peak Element](https://leetcode.com/problems/find-peak-element/)<br>
-[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)<br>
-[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)<br>
-[Missing element in sorted array](https://leetcode.com/problems/missing-element-in-sorted-array/)<br>
+[Find Peak Element](https://leetcode.com/problems/find-peak-element/)
+[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+[Missing element in sorted array](https://leetcode.com/problems/missing-element-in-sorted-array/)
 
 ```cpp
 class Solution {
 
-	int findPeakElementUtil(vector<int>& nums, int l, int r) {
+ int findPeakElementUtil(vector<int>& nums, int l, int r) {
 
   if (l > r)
    return -1;
@@ -666,12 +673,12 @@ public:
 
 ## Simple Binary Search
 
-[Find Smallest Letter Greater Than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)<br>
-[Missing element in sorted array](https://leetcode.com/problems/missing-element-in-sorted-array/)<br>
-[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)<br>
-[H-Index II](https://leetcode.com/problems/h-index-ii/)<br>
-[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)<br>
-[First Bad Version](https://leetcode.com/problems/first-bad-version/)<br>
+[Find Smallest Letter Greater Than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
+[Missing element in sorted array](https://leetcode.com/problems/missing-element-in-sorted-array/)
+[Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)
+[H-Index II](https://leetcode.com/problems/h-index-ii/)
+[Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+[First Bad Version](https://leetcode.com/problems/first-bad-version/)
 
 ```cpp
 /**
@@ -720,10 +727,10 @@ public:
 
 ## Using C++ STL upper bound for binary search
 
-[Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)<br>
-[Online Election](https://leetcode.com/problems/online-election/)<br>
-[Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)<br>
-[Find Right Interval](https://leetcode.com/problems/find-right-interval/)<br>
+[Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)
+[Online Election](https://leetcode.com/problems/online-election/)
+[Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
+[Find Right Interval](https://leetcode.com/problems/find-right-interval/)
 
 ```cpp
 /**
@@ -786,7 +793,7 @@ public:
 
 ## Binary search based on condition on 2 arrays
 
-[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)<br>
+[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 
 ```cpp
 /**
