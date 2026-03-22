@@ -54,7 +54,8 @@ Each folder focuses on a specific concept or learning area.
 Everything below is an outline, and you should tackle the items in order from top to bottom.
 
 I'm using GitHub's special markdown flavor, including tasks lists to track progress.
-  - [More about GitHub-flavored markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown)
+
+- [More about GitHub-flavored markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown)
 
 ### If you don't want to use git
 
@@ -91,9 +92,10 @@ Create a new branch so you can check items like this, just put an x in the brack
     ```
 
 
-**[⬆ back to top](#Tips-and-Tricks-for-Programming-using-Cpp)**
+**[⬆ back to top](#tips-and-tricks-for-programming-using-cpp)**
 
 ## What You’ll Find Here
+
 - Hands-on C++ examples from beginner to advanced.
 - STL internals & custom implementations:
   - Stack using Queue
@@ -103,6 +105,7 @@ Create a new branch so you can check items like this, just put an x in the brack
 - Project ideas for practice.
 
 ## Why This Repo?
+
 C++ is a powerful language, but mastering its nuances takes time. This repo bridges the gap between theory and practice by providing:
 
 - Clear, documented code (Doxygen-style).
@@ -114,6 +117,7 @@ C++ is a powerful language, but mastering its nuances takes time. This repo brid
 To run these programs, you need to have a C++ compiler installed on your computer. Once that's set up, you can download the program files from this repository and compile them using the compiler. Since C++ is a compiled language, the code needs to be converted from a human-readable format into something a computer can understand. This conversion is done by a tool called a compiler.
 
 Typically C++ source code files are given the suffix:
+
 1. .cpp (ex: firstCode.cpp) or
 2. .h (ex: std_lib_facilities.h).
 
@@ -128,19 +132,23 @@ A compiler translates the C++ program into machine language code which it stores
 The executable is loaded from the disk to memory and the computer’s CPU (Central Processing Unit) executes the program one instruction at a time.
 Alternatively, you can also use an online C++ compiler to run these programs without needing to install a compiler on your computer.
 
-**[⬆ back to top](#Tips-and-Tricks-for-Programming-using-Cpp)**
+**[⬆ back to top](#tips-and-tricks-for-programming-using-cpp)**
 
 ## Getting Started
+
 To compile and run these programs on your local machine, you'll need to have the appropriate programming language and compiler installed. Here are the steps to get started:
 
 1. Clone this repository to your local machine using git clone.
+
 ```
 git clone https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp.git
 ```
-2. Navigate to the folder containing the program you want to run.
-3. Follow the instructions in the program's README file to compile and run the program.
+
+1. Navigate to the folder containing the program you want to run.
+2. Follow the instructions in the program's README file to compile and run the program.
 
 ## Contributions
+
 If you have any suggestions for improvements or would like to add additional C++ programs to this repository, please feel free to create a pull request. We welcome contributions from the community to make this repository more useful for everyone.
 
 Contributions to this repository are welcome! If you'd like to contribute, please follow these guidelines:
@@ -151,15 +159,15 @@ Contributions to this repository are welcome! If you'd like to contribute, pleas
 4. Push your changes to your forked repository with git push origin my-feature-branch
 5. Submit a pull request to this repository with a detailed description of your changes.
 
-
-## To fork this repository, follow these steps:
+## To fork this repository, follow these steps
 
 1. Navigate to the repository on GitHub.
 2. Click on the "Fork" button in the top-right corner of the page.
 3. Select the account or organization where you want to fork the repository.
 4. Wait for the forking process to complete.
 
-## Contents:
+## Contents
+
 - Tips
 - Computer Science Basics
 - Learning Resources
@@ -167,9 +175,11 @@ Contributions to this repository are welcome! If you'd like to contribute, pleas
 - Projects Ideas
 
 ## Code Documentation Style: Doxygen
+
 This repository follows **[Doxygen-style comments](https://micro-os-plus.github.io/develop/doxygen-style-guide/)** to document all major classes, functions, and modules. Doxygen is a powerful tool that generates structured documentation from annotated C++ source code, making it easier for developers to understand and contribute to the project.
 
 ---
+
 ### 📌 Commonly Used Doxygen Tags
 
 | Tag        | Description |
@@ -181,8 +191,8 @@ This repository follows **[Doxygen-style comments](https://micro-os-plus.github.
 | `@note`    | Additional notes or important information. |
 | `@warning` | Highlights potential issues or important caveats. |
 | `@see`     | References to related functions or documentation. |
----
 
+---
 
 ## Please help by giving a star
 
@@ -193,7 +203,7 @@ Once you have forked the repository, you will have your own copy of the code and
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/8ea8a38f-c347-4dcd-8d18-0246e4da2c31)
 
 ## Contact
-Thank you for your suggestions! If you think there is anything to improve, please contact me at **me.singhnitish@yandex.com.**
 
-**[⬆ back to top](#Tips-and-Tricks-for-Programming-using-Cpp)**
+Thank you for your suggestions! If you think there is anything to improve, please contact me at **<me.singhnitish@yandex.com>.**
 
+**[⬆ back to top](#tips-and-tricks-for-programming-using-cpp)**
