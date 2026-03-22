@@ -16,6 +16,7 @@ Loop    Character    Operation               Result
 ```
 
 ## Binary Number Conversion
+
 Let's apply the same analogy to convert a binary number, where each digit is represented by a node in a linked list, into a decimal number. Instead of multiplying by 10, we will multiply by 2 (base-2) to shift left by one bit when incorporating each binary digit into the decimal result. For example, the binary number 1011 is equivalent to:
 
 ```
@@ -27,6 +28,7 @@ Loop    Character    Operation            Result
 ```
 
 ## Iterative Solution in C++
+
 The following C++ code demonstrates the iterative approach to convert a binary number stored in a linked list to its decimal equivalent:
 
 ```cpp
@@ -73,7 +75,9 @@ int main() {
 ```
 
 ## Recursive Solution in C++
+
 In languages where methods are stateless and idempotent, iteration is not supported, leading programmers to use recursion instead. The following C++ code demonstrates the recursive approach:
+
 ```cpp
 class Solution {
 public:
@@ -84,6 +88,7 @@ public:
 ```
 
 ## Binary Operation
+
 Binary operations can optimize the conversion process. Left shifting in bitwise operations involves shifting the binary representation of a number to the left by a specified number of positions. Each left shift operation effectively multiplies the number by 2 raised to the power of the shift count.
 
 For example, the operation res = res * 2 + head->val can be optimized using the left shift operator:
@@ -118,6 +123,7 @@ public:
 ```
 
 Recursive Solution with Binary Operations
+
 ```Cpp
 
 class Solution {
@@ -127,5 +133,7 @@ public:
     }
 };
 ```
+
 ## Conclusion
+
 Converting a sequence of digits in a linked list to a single number is a process that can be optimized using binary operations. Whether using iterative or recursive methods, understanding the fundamentals of positional notation and binary operations enables efficient and effective solutions. By leveraging these techniques, developers can handle various numerical conversions with ease.

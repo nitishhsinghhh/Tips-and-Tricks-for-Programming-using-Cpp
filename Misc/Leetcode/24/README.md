@@ -1,9 +1,10 @@
-## Leetcode 24: Swap Nodes in pairs
+# Leetcode 24: Swap Nodes in pairs
 
-### Approach:
+## Approach
+
 Here's a concise explanation of the approach:
 
-1. **Base Case Handling:** 
+1. **Base Case Handling:**
    - If the list is empty or has only one node, return the head.
 
 2. **Initialization:**

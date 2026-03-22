@@ -1,11 +1,14 @@
 # [Closest Prime Numbers in Range](https://leetcode.com/problems/closest-prime-numbers-in-range/description/)
 
 ## Topics
+
 - Math
 - Number Theory
 
 ## Basic Solution: Using isPrime
+
 ### Step-by-Step Explanation:
+
 1. **Check if a Number is Prime:**
     - We use the isPrime function to determine if a number is prime.
     - This function checks divisibility from 2 up to the square root of the number.
@@ -13,7 +16,8 @@
     - We iterate through each number in the given range.
     - For each number, we use the isPrime function to check if it is prime.
     - If it is prime, we add it to our list of primes.
-```cpp 
+
+```cpp
 class Solution {
 public:
     /**
@@ -69,8 +73,11 @@ public:
     }
 };
 ```
+
 ## Optimized Solution: Using Sieve of Eratosthenes
-### Step-by-Step Explanation:
+
+## Step-by-Step Explanation:
+
 1. **Mark Non-Prime Numbers:**
     - We use the Sieve of Eratosthenes algorithm to mark non-prime numbers in a boolean array.
     - This algorithm iterates through each number starting from 2 and marks its multiples as non-prime.
@@ -78,7 +85,8 @@ public:
     - After marking non-prime numbers, we collect all numbers that are still marked as prime within the given range.
 3. **Find Closest Primes:**
     - We iterate through the list of primes to find the closest pair by checking the difference between consecutive primes.
-```cpp 
+
+```cpp
 class Solution {
 public:
     /**
@@ -126,7 +134,9 @@ public:
     }
 };
 ```
+
 ## Refactored code
+
 1. **Interface Segregation:** The PrimeFinder interface allows for different implementations of prime-finding algorithms.
 2. **Modularity:** The code is modular, making it easy to extend or modify individual components.
 3. **Testing:** The ClosestPrimesFinderTest class provides a way to validate the functionality, ensuring reliability.
@@ -259,6 +269,7 @@ int main() {
     return 0;
 }
 ```
+
 ## Unified Table: C++ Libraries, Usage, and Application Context
 
 | **Library**     | **Purpose**                                      | **Used In**                  | **Application Context**                                                        | **Test Case Example**             |
@@ -267,4 +278,4 @@ int main() {
 | `<vector>`       | Dynamic array to store primes/results            | `std::vector<int>`            | Storing primes and closest prime pairs in `SievePrimeFinder`, `ClosestPrimesFinder` | `[11, 13]`, `[-1, -1]`            |
 | `<limits.h>`     | Provides `INT_MAX` constant                      | `INT_MAX`                     | Used to track the minimum difference between prime pairs                        | `minimumDifference = INT_MAX`     |
 | `<cassert>`      | Assertion-based testing                          | `assert()`                    | Validates correctness of output in `ClosestPrimesFinderTest`                    | `assert(result[0] == 11...)`      |
-| `<algorithm>` ❌ | *(Not used but should be for `std::max`)*        | `std::max` (implicitly)       | Ensures range starts from at least 2 in `SievePrimeFinder`                      | `std::max(start, 2)`              |
+| `<algorithm>`  | *(Not used but should be for `std::max`)*        | `std::max` (implicitly)       | Ensures range starts from at least 2 in `SievePrimeFinder`                      | `std::max(start, 2)`              |

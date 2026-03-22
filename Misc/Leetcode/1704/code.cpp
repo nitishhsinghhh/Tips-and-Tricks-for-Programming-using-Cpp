@@ -11,7 +11,7 @@ bool halvesAreAlike(std::string S) {
 	return ans == 0;
 }
 
-void main() {
+int main() {
 	// Test cases
 	std::string test1 = "book";
 	std::string test2 = "textbook";
@@ -21,7 +21,7 @@ void main() {
 	std::cout << "Test 2: " << (halvesAreAlike(test2) ? "true" : "false") << std::endl;
 	std::cout << "Test 3: " << (halvesAreAlike(test3) ? "true" : "false") << std::endl;
 
-	system("pause");
+	return 0;
 }
 
 /**

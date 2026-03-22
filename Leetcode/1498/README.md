@@ -1,12 +1,14 @@
 # [Number of Subsequences That Satisfy the Given Sum Condition](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/description/)
 
-# Topics
+## Topics
+
 - Array
 - Two Pointers
 - Binary Search
 - Sorting
 
 ## Problem Summary
+
 You are given:
 
 A list of numbers (like [3, 5, 6, 7])
@@ -18,6 +20,7 @@ The smallest number in the group + the biggest number in the group ≤ target
 You must return the answer modulo (10^9 + 7) 1,000,000,007 (this is just to keep the number small).
 
 ## What is a subsequence?
+
 A subsequence is a group of elements you can pick from the list in the same order, but you can skip some elements.
 
 For example, from [3, 5, 6], valid subsequences include:
@@ -28,11 +31,13 @@ For example, from [3, 5, 6], valid subsequences include:
 - [3, 5, 6]
 
 ## What does the condition mean?
+
 For each group (subsequence), you check:
 
 - What is the smallest number in the group?
 - What is the largest number in the group?
 Then check:
+
 ```
 smallest + largest ≤ target
 
@@ -40,10 +45,12 @@ smallest + largest ≤ target
 If it is, then this group is valid.
 
 ## Why modulo 1,000,000,007?
+
 When counting all valid groups, the number can get very large. To keep it manageable and avoid overflow, we return the result modulo 
 10^9 + 7, which is a common trick in programming.
 
 ### Example
+
 Let’s say:
 
 - List = [3, 5, 6, 7]
@@ -51,13 +58,12 @@ Let’s say:
 
 Some valid groups:
 
-- [3] → 3 + 3 = 6 ✅
-- [3, 5] → 3 + 5 = 8 ✅
-- [3, 6] → 3 + 6 = 9 ✅
-- [3, 5, 6] → 3 + 6 = 9 ✅
-- [5] → 5 + 5 = 10 ❌
-- [6] → 6 + 6 = 12 ❌
-
+- [3] → 3 + 3 = 6
+- [3, 5] → 3 + 5 = 8
+- [3, 6] → 3 + 6 = 9
+- [3, 5, 6] → 3 + 6 = 9
+- [5] → 5 + 5 = 10
+- [6] → 6 + 6 = 12
 
 ## Step-by-Step Explanation of the Code
 
@@ -71,6 +77,7 @@ Some valid groups:
 - If it’s okay, we count how many subsequences we can make between low and high and move low right.
 
 Here's a clean and efficient C++ solution to solve the problem of counting valid subsequences where the sum of the smallest and largest number is less than or equal to the target:
+
 ```C++ []
 #include <vector>
 #include <algorithm>
@@ -128,6 +135,7 @@ public:
 ```
 
 ## C++ Solution Using Custom Merge Sort + Two Pointers
+
 ```C++ []
 class Solution {
 public:
@@ -183,6 +191,7 @@ private:
 ```
 
 ## Refactored Code Using SOLID Principles
+
 Refactoring your C++ solution using SOLID principles means improving the design for better maintainability, readability, and testability.
 
 ```C++ []
@@ -259,6 +268,7 @@ public:
 ```
 
 C++ code with test cases
+
 ```C++ []
 #include <iostream>
 #include <vector>
@@ -332,7 +342,7 @@ int main() {
     int target3 = 12;
     assert(sol.numSubseq(nums3, target3) == 61);
 
-    cout << "All test cases passed successfully! ✅" << endl;
+    cout << "All test cases passed successfully! " << endl;
     return 0;
 }
 ```

@@ -4,7 +4,7 @@
 2. **Observer Pattern:** The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
 3. **Factory Pattern:** The Factory Pattern defines an interface for creating an object, but lets subclasses alter the type of objects that will be created.
 
-- **Singleton Pattern**<br>
+- **Singleton Pattern**
 Real-life Example: Database Connection Pool: Ensures only one instance of the connection pool is created to manage database connections.
 
 `DatabaseConnectionPool.h`
@@ -62,7 +62,7 @@ int main() {
 }
 ```
 
-- **Observer Pattern** <br>
+- **Observer Pattern**
 
 Real-life Example: Weather Monitoring System: When the weather station updates the weather data, all the display elements (observers) are updated.
 
@@ -139,7 +139,7 @@ int main() {
 }
 ```
 
-- **Factory Pattern** <br>
+- **Factory Pattern**
 Real-life Example: Notification System: Depending on the type of notification (SMS, Email, Push), the factory can create the appropriate object.
 
 ```cpp

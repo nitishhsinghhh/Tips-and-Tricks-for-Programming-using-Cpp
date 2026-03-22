@@ -41,7 +41,7 @@ int main() {
     std::cout << std::endl;
 
     // Pause execution before exit (Windows specific)
-    system("pause");
+
     return 0;
 }
 

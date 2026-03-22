@@ -1,31 +1,38 @@
 # Problem Explanation: Leetcode 2322 - Minimum Score After Removals on a Tree
 
 You're given:
+
 - A tree with n nodes labeled from 0 to n-1.
 - An array nums where nums[i] is the value of node i.
 - An array edges representing the connections between nodes.
 
-## Goal:
+## Goal
+
 Remove two distinct edges from the tree to split it into three connected components. For each component:
+
 - Compute the XOR of all node values.
 - Calculate the score as the difference between the maximum XOR and minimum XOR among the three components.
 - Return the minimum score possible across all valid pairs of edge removals.
 
 ## Topics
+
 - Array
 - Bit Manipulation
 - Tree
 - Depth-First Search
 
 ## Key Observations:
+
 - A tree with n nodes has n-1 edges and is acyclic and connected.
 - Removing two edges will always split the tree into three components.
 - The challenge is to efficiently explore all valid edge removal pairs and compute the XORs.
 
 ## Code Explanation
+
 The provided C++ solution uses DFS and backtracking to simulate edge removals and compute XORs:
 
 ### Data Members:
+
 ```cpp
 unordered_set<int> v[1002]; // Adjacency list
 bool vis[1002];             // Visited array
@@ -34,6 +41,7 @@ int comp_1, comp_2, comp_3; // XORs of the 3 components
 ```
 
 ## Solution 
+
 ```cpp
 /**
  * @class Solution

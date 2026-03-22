@@ -52,7 +52,7 @@ int main() {
 	for (int i = 0; i < unhappyNumbers.size(); i++)
 		std::cout << unhappyNumbers[i] << " ";
 	std::cout << std::endl;
-	system("pause");
+
 	return 0;
 }
 

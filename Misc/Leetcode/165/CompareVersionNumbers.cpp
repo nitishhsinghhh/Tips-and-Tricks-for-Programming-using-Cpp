@@ -21,7 +21,7 @@ public:
 	}
 };
 
-void main() {
+int main() {
 	Solution solution;
 
 	// Test case 1
@@ -52,7 +52,7 @@ void main() {
 	std::cout << "Test Case 4: " << result << std::endl;
 	// Expected output: 0 (versions are equal)
 
-	system("pause");
+	return 0;
 }
 
 /**

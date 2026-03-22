@@ -99,8 +99,6 @@ int main() {
 
 Thread-Safe Queue: The ThreadSafeQueue class uses std::mutex and std::condition_variable to ensure thread safety. The push method adds an item to the queue and notifies a waiting thread, while wait_and_pop waits until an item is available in the queue before retrieving and removing it.
 
-### Processes
-
 - process_a simulates some processing and pushes the result to queue_ab.
 process_b waits for input from queue_ab, processes it, and pushes the result to queue_bc.
 process_c waits for input from queue_bc, processes it, and prints the result.

@@ -11,11 +11,13 @@ Your task is to determine the health of the robots that survive the collisions i
 ### Example 1
 
 **Input:**
+
 - Positions: [5, 4, 3, 2, 1]
 - Healths: [2, 17, 9, 15, 10]
 - Directions: "RRRRR"
 
 **Output:**
+
 - [2, 17, 9, 15, 10]
 
 **Explanation:**
@@ -24,28 +26,34 @@ No collision occurs since all robots are moving in the same direction. Therefore
 ### Example 2
 
 **Input:**
+
 - Positions: [3, 5, 2, 6]
 - Healths: [10, 10, 15, 12]
 - Directions: "RLRL"
 
 **Output:**
+
 - [14]
 
 **Explanation:**
+
 - Robot 1 (R) collides with Robot 2 (L). Both have the same health and are removed.
 - Robot 3 (R) collides with Robot 4 (L). Robot 4 is removed, and Robot 3's health is reduced to 14.
 
 ### Example 3
 
 **Input:**
+
 - Positions: [1, 2, 5, 6]
 - Healths: [10, 10, 11, 11]
 - Directions: "RLRL"
 
 **Output:**
+
 - []
 
 **Explanation:**
+
 - Robot 1 (R) collides with Robot 2 (L). Both have the same health and are removed.
 - Robot 3 (R) collides with Robot 4 (L). Both have the same health and are removed.
 
@@ -134,4 +142,5 @@ public:
 ```
 
 ## Conclusion
+
 The robot collisions problem is an interesting challenge that involves handling simultaneous movements and resolving collisions based on health values. The solution employs a stack to manage the collisions effectively and a vector to keep track of robot indices sorted by their positions. This ensures that the robots are processed in the correct order and the collisions are resolved accurately. By following this approach, you can determine the health of the surviving robots after all collisions have occurred.
