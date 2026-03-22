@@ -1,5 +1,7 @@
 #include <iostream>
 
+using std::cout;
+using std::endl;
 class Solution {
 public:
     int mySqrt(int x) {

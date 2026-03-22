@@ -1,4 +1,4 @@
-# Algorithm Collection 
+# Algorithm Collection
 
 This repository contains implementations of a variety of algorithmic strategies and problem-solving techniques commonly used in software development, competitive programming, and computer science education.
 
@@ -28,6 +28,7 @@ Each algorithm type includes real-world use cases or example problems to illustr
 ## Purpose
 
 This repository is intended for:
+
 - Students learning core computer science algorithms.
 - Competitive programmers improving problem-solving skills.
 - Developers looking for reference implementations.

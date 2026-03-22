@@ -7,12 +7,14 @@ This repository contains simple brute force algorithms written in C++ to help be
 Brute force algorithms solve problems by checking all possible solutions. Though not always efficient, this approach is important for building foundational understanding in algorithm development.
 
 The code in this repository includes examples such as:
+
 - Prime number detection within a range
 - Simple linear and nested loop problems
 - Brute force string matching
 - Base cases for backtracking problems
 
 ### Prime Number Detection Within a Range
+
 ```cpp
 /**
  * @file prime_number_bruteforce.cpp
@@ -52,6 +54,7 @@ int main() {
 ```
 
 ### Simple Linear and Nested Loop Problem (Sum of Pairs)
+
 ```cpp
 /**
  * @file sum_of_pairs.cpp
@@ -90,6 +93,7 @@ int main() {
 ```
 
 ### Brute Force String Matching
+
 ```cpp
 /**
  * @file string_match.cpp
@@ -132,7 +136,7 @@ int main() {
 
 ### Base Case for Backtracking (N-Queens Problem with 1 Queen)
 
-```
+```cpp
 /**
  * @file one_queen_board.cpp
  * @brief Base case for N-Queens problem using brute force for 1 queen.
@@ -220,9 +224,3 @@ int main() {
     return 0;
 }
 ```
-
-
-
-
-
-

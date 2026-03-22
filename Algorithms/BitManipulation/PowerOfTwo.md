@@ -252,6 +252,7 @@ bool isPowerOfTwo(int n) {
 ## Powers of two in binary
 
 A power of two is:
+
 ```
 1, 2, 4, 8, 16, 32, ...
 ```
@@ -426,6 +427,7 @@ int main() {
     return 0;
 }
 ```
+
 std::has_single_bit (C++20) is literally designed for this check.
 
 ## Recommended in Production
@@ -433,7 +435,6 @@ std::has_single_bit (C++20) is literally designed for this check.
 - Prefer `std::has_single_bit` (C++20+)
 - Use `(n & (n - 1)) == 0` for pre-C++20 codebases
 - Avoid recursion for this check
-
 
 ## Summary
 

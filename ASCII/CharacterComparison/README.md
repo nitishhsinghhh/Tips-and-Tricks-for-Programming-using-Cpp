@@ -6,12 +6,14 @@
 In C++, characters are internally represented by their **ASCII values**. This means you can compare characters using relational operators (`<`, `>`, `==`, etc.) just like numbers.
 
 For example:
+
 - `'A'` has an ASCII value of **65**
 - `'a'` has an ASCII value of **97**
 
 So, `'A' < 'a'` evaluates to `true`.
 
 This is useful in:
+
 - **Sorting algorithms**
 - **Lexicographical comparisons**
 - **Case-sensitive checks**
@@ -131,7 +133,9 @@ int main() {
 }
 
 ```
-# C++ Program: Case Check, Letter Match, and Alphabetical Order
+
+## C++ Program: Case Check, Letter Match, and Alphabetical Order
+
 ```cpp
 #include <iostream>
 
@@ -274,7 +278,9 @@ int main() {
     return 0;
 }
 ```
+
 ## Applications
+
 - Sorting strings (e.g., dictionary order)
 - Case-sensitive filters
 - Custom character-based logic in games or parsers\

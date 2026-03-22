@@ -18,11 +18,13 @@ public:
 	}
 };
 
-void main() {
+int main() {
 	std::array<int, 6> arr = { 5,8,7,55,34,23 };
 	Solution oSolution;
 	oSolution.insertionSort(arr);
 	for (const auto& element : arr)
 		std::cout << element << " ";
 	std::cout << std::endl;
+
+	return 0;
 }

@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+
 
 /**
  * @brief Performs binary search on a sorted array to find the target element.
@@ -50,15 +50,15 @@ int main() {
     int n = sizeof(arr) / sizeof(arr[0]);
     int x;
 
-    cout << "Enter a number to search: ";
-    cin >> x;
+    std::cout << "Enter a number to search: ";
+    std::cin >> x;
 
     int result = binarySearch(arr, 0, n - 1, x);
 
     if (result == -1) {
-        cout << "Element not found." << endl;
+        std::cout << "Element not found." << std::endl;
     } else {
-        cout << "Element found at index " << result << "." << endl;
+        std::cout << "Element found at index " << result << "." << std::endl;
     }
 
     return 0;

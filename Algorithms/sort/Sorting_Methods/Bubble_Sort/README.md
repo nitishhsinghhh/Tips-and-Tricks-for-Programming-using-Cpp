@@ -1,13 +1,16 @@
 # What is Bubble Sort?
+
 Bubble Sort is a simple comparison-based sorting algorithm. It works by repeatedly swapping adjacent elements if they are in the wrong order. This process is continued until the entire array is sorted.
 
 # Key Characteristics
+
 - Time Complexity: Worst-case is O(n^2); Best-case is O(n) (if already sorted)
 - Space Complexity: $$O(1)$$ (in-place sorting)
 - Stable Sort: Yes
 - Simple but Inefficient for Large Arrays
 
 ## C++ Code  
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -110,6 +113,7 @@ int main() {
 ```
 
 # How It Works (Step-by-Step)
+
 - Start from the beginning of the array.
 - Compare adjacent elements: if the current one is greater than the next, swap them.
 - Repeat this process for every element up to the end of the array.
@@ -147,6 +151,7 @@ Sorting the array: `{5, 2, 9, 3, 1, 6}`
 | Works well for small arrays   | Not suitable for performance apps |
 
 ## Why Learn Bubble Sort in Competitive Programming?
+
 Even though it's not performant for big problems, bubble sort helps you understand:
 
 - Fundamentals of algorithm design (loops, swaps, comparisons)
@@ -163,5 +168,5 @@ Even though it's not performant for big problems, bubble sort helps you understa
 | Contest warm-up problems      | Quick to implement under pressure                |
 
 ## Competitive Tip
-Even if you don't use it in final solutions, understanding bubble sort helps you appreciate how more advanced sorting algorithms work and what optimizations matter.
 
+Even if you don't use it in final solutions, understanding bubble sort helps you appreciate how more advanced sorting algorithms work and what optimizations matter.
