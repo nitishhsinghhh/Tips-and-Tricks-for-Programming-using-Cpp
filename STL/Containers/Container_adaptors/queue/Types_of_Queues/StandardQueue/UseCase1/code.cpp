@@ -2,7 +2,7 @@
 #include <queue>
 #include<string>
 
-void main() {
+int main() {
 	// Creating an empty queue of string
 	std::queue<std::string> q;
 

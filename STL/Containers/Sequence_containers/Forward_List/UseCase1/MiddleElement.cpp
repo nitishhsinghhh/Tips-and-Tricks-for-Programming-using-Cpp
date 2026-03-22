@@ -26,8 +26,7 @@ int main() {
 	ListNode *head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
 	ListNode *middle = oSolution.middleNode(head);
 	std::cout << "Output result: " << middle->val << std::endl;
-
-	system("pause");
+	return 0;
 }
 /*
 Output:

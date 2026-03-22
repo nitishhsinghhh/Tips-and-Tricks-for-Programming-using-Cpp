@@ -88,7 +88,7 @@ public:
 	}
 };
 
-void main() {
+int main() {
 	CircularQueue cq;
 
 	cq.enqueue(1);

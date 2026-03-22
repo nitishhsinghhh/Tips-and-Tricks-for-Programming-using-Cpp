@@ -38,7 +38,7 @@ int main() {
      * @brief Sorting std::array using std::sort
      * @details Works since std::array provides iterators (begin(), end()).
      */
-    sort(array1.begin(), array1.end());
+    std::sort(array1.begin(), array1.end());
 
     std::cout << "\nsorted  array1 : ";
     for (auto i : array1)

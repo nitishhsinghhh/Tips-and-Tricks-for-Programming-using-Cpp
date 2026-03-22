@@ -11,8 +11,9 @@ namespace pmr {
     template< class T >
     using deque = std::deque<T, std::pmr::polymorphic_allocator<T>>;
 }
-// (2)	(since C++17)
+// (2) (since C++17)
 ```
+
 std::deque (double-ended queue) is an indexed sequence container that allows fast insertion and deletion at both its beginning and its end. In addition, insertion and deletion at either end of a deque never invalidates pointers or references to the rest of the elements.
 
 As opposed to std::vector, the elements of a deque are not stored contiguously: typical implementations use a sequence of individually allocated fixed-size arrays, with additional bookkeeping, which means indexed access to deque must perform two pointer dereferences, compared to vector's indexed access which performs only one.
@@ -21,7 +22,7 @@ The storage of a deque is automatically expanded and contracted as needed. Expan
 
 The complexity (efficiency) of common operations on deques is as follows:
 
-Random access - constant O(1).<br>
-Insertion or removal of elements at the end or beginning - constant O(1).<br>
-Insertion or removal of elements - linear O(n).<br>
-std::deque meets the requirements of Container, AllocatorAwareContainer, SequenceContainer and ReversibleContaine<br>
+Random access - constant O(1).
+Insertion or removal of elements at the end or beginning - constant O(1).
+Insertion or removal of elements - linear O(n).
+std::deque meets the requirements of Container, AllocatorAwareContainer, SequenceContainer and ReversibleContaine

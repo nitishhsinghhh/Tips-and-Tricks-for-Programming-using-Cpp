@@ -11,6 +11,7 @@ A singly linked list is a type of data structure where each node contains a valu
 ### Node Structure
 
 The `detail::forward_list_node` structure represents each node in the list and includes:
+
 - An integer value (`value`).
 - A pointer to the next node (`next`).
 

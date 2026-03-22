@@ -1,37 +1,44 @@
-// Forward declaration of the forward_list class template
+#include <iostream>
+#include <memory>
+#include <iterator>
+#include <cstddef>
+
 template<class T, class Allocator = std::allocator<T>>
 class forward_list;
 
 namespace detail {
 
-    // Helper class for managing the linked list nodes
     template<class T>
     struct forward_list_node {
-        T value;                          // Value stored in the node
-        forward_list_node<T>* next;       // Pointer to the next node
+        T value;
+        forward_list_node<T>* next;
+
         forward_list_node(const T& val) : value(val), next(nullptr) {}
     };
 
-    // Helper class for managing memory allocation
     template<class T, class Allocator>
     struct forward_list_alloc_base {
-        using allocator_type = Allocator;
-        allocator_type allocator;        // Allocator object
+        using node_type = forward_list_node<T>;
+        using node_allocator_type =
+            typename std::allocator_traits<Allocator>::template rebind_alloc<node_type>;
+        using node_allocator_traits = std::allocator_traits<node_allocator_type>;
+
+        node_allocator_type allocator;
 
         forward_list_alloc_base(const Allocator& alloc) : allocator(alloc) {}
 
-        // Allocate memory for a new node
-        forward_list_node<T>* allocate_node(const T& val) {
-            return allocator.allocate(1);
+        node_type* allocate_node(const T& val) {
+            node_type* node = node_allocator_traits::allocate(allocator, 1);
+            node_allocator_traits::construct(allocator, node, val);
+            return node;
         }
 
-        // Deallocate memory for a node
-        void deallocate_node(forward_list_node<T>* node) {
-            allocator.deallocate(node, 1);
+        void deallocate_node(node_type* node) {
+            node_allocator_traits::destroy(allocator, node);
+            node_allocator_traits::deallocate(allocator, node, 1);
         }
     };
 
-    // Iterator class for forward_list
     template<class T, class Pointer, class Reference>
     struct forward_list_iterator {
         using iterator_category = std::forward_iterator_tag;
@@ -40,11 +47,10 @@ namespace detail {
         using pointer = Pointer;
         using reference = Reference;
 
-        forward_list_node<T>* node;    // Pointer to the current node
+        forward_list_node<T>* node;
 
         explicit forward_list_iterator(forward_list_node<T>* n) : node(n) {}
 
-        // Iterator operations
         forward_list_iterator& operator++() {
             node = node->next;
             return *this;
@@ -75,35 +81,30 @@ namespace detail {
 
 } // namespace detail
 
-// Class template for std::forward_list
 template<class T, class Allocator>
 class forward_list : private detail::forward_list_alloc_base<T, Allocator> {
 public:
-    // Public type aliases
     using value_type = T;
     using allocator_type = Allocator;
     using reference = value_type&;
     using const_reference = const value_type&;
-    using pointer = typename std::allocator_traits<Allocator>::pointer;
-    using const_pointer = typename std::allocator_traits<Allocator>::const_pointer;
+    using pointer = value_type*;
+    using const_pointer = const value_type*;
     using iterator = detail::forward_list_iterator<T, pointer, reference>;
     using const_iterator = detail::forward_list_iterator<T, const_pointer, const_reference>;
     using size_type = std::size_t;
 
 private:
-    // Private data members
-    detail::forward_list_node<T>* head;    // Pointer to the head node
+    detail::forward_list_node<T>* head;
 
 public:
-    // Constructor
-    explicit forward_list(const Allocator& alloc = Allocator()) : detail::forward_list_alloc_base<T, Allocator>(alloc), head(nullptr) {}
+    explicit forward_list(const Allocator& alloc = Allocator())
+        : detail::forward_list_alloc_base<T, Allocator>(alloc), head(nullptr) {}
 
-    // Destructor
     ~forward_list() {
         clear();
     }
 
-    // Iterator functions
     iterator begin() {
         return iterator(head);
     }
@@ -120,7 +121,6 @@ public:
         return const_iterator(nullptr);
     }
 
-    // Capacity
     bool empty() const {
         return head == nullptr;
     }
@@ -133,7 +133,6 @@ public:
         return count;
     }
 
-    // Modifiers
     void push_front(const T& val) {
         auto node = this->allocate_node(val);
         node->next = head;
@@ -154,3 +153,16 @@ public:
         }
     }
 };
+
+int main() {
+    forward_list<int> fl;
+    fl.push_front(30);
+    fl.push_front(20);
+    fl.push_front(10);
+
+    for (auto it = fl.begin(); it != fl.end(); ++it) {
+        std::cout << *it << " ";
+    }
+
+    return 0;
+}
