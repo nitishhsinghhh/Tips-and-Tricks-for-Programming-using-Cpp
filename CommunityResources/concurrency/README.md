@@ -16,7 +16,7 @@ Now for my example - 4 roommates at Costco grocery shopping (because I love Cost
 
 In this example, Costco (the grocery store) is the shared resource, and each roommate is responsible for securing only a few items for the week to take home to eat. Each roommate arrives together, grabs a shopping cart, and sprints into the store.
 
-**Race condition:** 
+**Race condition:**
 Roommates don't coordinate beforehand on what to buy for the week, and they all just grab whatever they want, leading to inconsistent meals and an imbalanced diet for the week. Resolution - make a shopping list beforehand.
 
 **Resource starvation:**
@@ -42,33 +42,33 @@ Just so we do look at some code, here's a simple example of a race condition and
 std::mutex CountingMutex;
 
 void unsafeIncrementCounter(int & counter) {
-	for (int i = 0; i < 100000; ++i) {
-		counter++;
-	}
+ for (int i = 0; i < 100000; ++i) {
+  counter++;
+ }
 }
 
 void safeIncremntCounter(int& counter) {
-	std::lock_guard<std::mutex> lock(CountingMutex);
-	for (int i = 0; i < 100000; ++i) {
-		counter++;
-	}
+ std::lock_guard<std::mutex> lock(CountingMutex);
+ for (int i = 0; i < 100000; ++i) {
+  counter++;
+ }
 }
 
 int main() { 
-	int unsafeCounter = 0;
-	int safeCounter = 0;
-	std::vector<std::thread> threads;
-	for (int i = 0; i < 5; i++) {
-		threads.push_back(std::thread(unsafeIncrementCounter, std::ref(unsafeCounter)));
-		threads.push_back(std::thread(safeIncremntCounter, std::ref(safeCounter)));
-	}
+ int unsafeCounter = 0;
+ int safeCounter = 0;
+ std::vector<std::thread> threads;
+ for (int i = 0; i < 5; i++) {
+  threads.push_back(std::thread(unsafeIncrementCounter, std::ref(unsafeCounter)));
+  threads.push_back(std::thread(safeIncremntCounter, std::ref(safeCounter)));
+ }
 
-	for (auto& thread : threads) {
-		thread.join();
-	}
-	std::cout << "final unsfae counter value: " << unsafeCounter << std::endl;
-	std::cout << "final safe counter value: " << safeCounter << std::endl;
-	
-	return 0;
+ for (auto& thread : threads) {
+  thread.join();
+ }
+ std::cout << "final unsfae counter value: " << unsafeCounter << std::endl;
+ std::cout << "final safe counter value: " << safeCounter << std::endl;
+ 
+ return 0;
 }
 ```
