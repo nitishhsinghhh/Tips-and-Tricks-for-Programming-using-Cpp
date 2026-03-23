@@ -10,9 +10,14 @@ jobs:
   build-and-run:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        problem_dir: [Leetcode/1390, Leetcode/223]
+
     defaults:
       run:
-        working-directory: Leetcode/1390
+        working-directory: ${{ matrix.problem_dir }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,7 +26,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y g++
 
       - name: Compile main.cpp
-        run: g++ main.cpp -o main
+        run: g++ -std=c++17 -O2 main.cpp -o main
 
       - name: Run program
         run: ./main
