@@ -10,14 +10,17 @@ No matter your skill level, this repository is a great place to learn and grow. 
 
 This repository is organized by core C++ and Computer Science topics.
 Each folder focuses on a specific concept or learning area.
-```
-.
+
+├── .github
+│   └── workflows
+│       └── Leetcode.yml
 ├── Algorithms
 │   └── Binary Search and other algorithmic patterns
 ├── ASCII
 │   └── ASCII-based logic and pattern problems
 ├── Article
-│   └── Concept-based articles (e.g., Static vs Non-Static, Fibonacci)
+│   └── Static-Non-Static-Fibonacci
+│       └── Concept-based articles
 ├── ClassDiagram
 │   └── UML and class diagram examples
 ├── CommunityResources
@@ -29,6 +32,8 @@ Each folder focuses on a specific concept or learning area.
 │   └── Common software design patterns in C++
 ├── GIT
 │   └── Git commands, workflows, and best practices
+├── GitHub_Actions
+│   └── GitHub Actions workflows and CI/CD notes
 ├── Interview_Question
 │   └── Frequently asked C++ interview questions
 ├── Leetcode
@@ -42,12 +47,12 @@ Each folder focuses on a specific concept or learning area.
 ├── SystemDesign
 │   └── System design concepts and notes
 ├── Testing
-│   └── Software testing methodologies
-├── Working Application
+│   └── SoftwareTestingMethodologies
+├── Working_Application
 │   └── End-to-end C++ applications
+├── CONTRIBUTING.md
 ├── LICENSE.md
 └── README.md
-```
 
 ## How to use it
 
