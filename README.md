@@ -10,7 +10,7 @@ No matter your skill level, this repository is a great place to learn and grow. 
 
 This repository is organized by core C++ and Computer Science topics.
 Each folder focuses on a specific concept or learning area.
-
+```
 ├── .github
 │   └── workflows
 │       └── Leetcode.yml
@@ -53,7 +53,7 @@ Each folder focuses on a specific concept or learning area.
 ├── CONTRIBUTING.md
 ├── LICENSE.md
 └── README.md
-
+```
 ## How to use it
 
 Everything below is an outline, and you should tackle the items in order from top to bottom.
