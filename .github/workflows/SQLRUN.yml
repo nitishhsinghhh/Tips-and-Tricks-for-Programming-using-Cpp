@@ -34,13 +34,13 @@ jobs:
       - name: Run setup.sql (create tables & insert data)
         run: |
           docker exec -i ${{ job.services.sqlserver.id }} \
-          /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong@Pass123' -d master \
+          /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P 'YourStrong@Pass123' -d master \
           < ./Leetcode/3497/setup.sql
 
       - name: Run query.sql and save output
         run: |
           docker exec -i ${{ job.services.sqlserver.id }} \
-          /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong@Pass123' -d master -W -s "," \
+          /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P 'YourStrong@Pass123' -d master -W -s "," \
           < ./Leetcode/3497/query.sql > query_results.csv
 
       - name: Upload query results
