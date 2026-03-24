@@ -17,9 +17,9 @@ jobs:
           ACCEPT_EULA: Y
           SA_PASSWORD: YourStrong@Pass123
         options: >-
-          --health-cmd "exit 0" 
-          --health-interval 10s 
-          --health-timeout 5s 
+          --health-cmd "exit 0"
+          --health-interval 10s
+          --health-timeout 5s
           --health-retries 5
 
     steps:
@@ -34,17 +34,17 @@ jobs:
       - name: Run setup.sql (create tables & insert data)
         run: |
           docker exec -i ${{ job.services.sqlserver.id }} \
-          /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong@Pass123' \
-          -d master -i ./Leetcode/3497/setup.sql
+          /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong@Pass123' -d master \
+          < ./Leetcode/3497/setup.sql
 
       - name: Run query.sql and save output
         run: |
           docker exec -i ${{ job.services.sqlserver.id }} \
-          /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong@Pass123' \
-          -d master -W -s "," -i ./Leetcode/3497/query.sql > query_results.csv
+          /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong@Pass123' -d master -W -s "," \
+          < ./Leetcode/3497/query.sql > query_results.csv
 
       - name: Upload query results
-        uses: actions/upload-artifact@v4 
+        uses: actions/upload-artifact@v4
         with:
           name: query-results
           path: query_results.csv
