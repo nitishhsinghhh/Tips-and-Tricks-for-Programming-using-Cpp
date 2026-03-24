@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        problem_dir: [Leetcode/1390, Leetcode/223]
+        problem_dir: [Leetcode/1390, Leetcode/223, Leetcode/961]
 
     defaults:
       run:
