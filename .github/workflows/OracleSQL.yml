@@ -1,0 +1,47 @@
+name: Run Oracle Scripts
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  oracle:
+    runs-on: ubuntu-latest
+    services:
+      oracle:
+        image: gvenzl/oracle-xe
+        ports:
+          - 1521:1521
+        env:
+          ORACLE_PASSWORD: oracle
+        options: >-
+          --health-cmd "exit 0"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Wait for Oracle to start
+        run: |
+          echo "Waiting 60 seconds for Oracle XE to initialize..."
+          sleep 60
+
+      - name: Run OracleSetup.sql (create tables & insert data)
+        run: |
+          docker exec -i ${{ job.services.oracle.id }} \
+          sqlplus system/oracle@XE @/dev/stdin < ./Leetcode/3497/OracleSetup.sql
+
+      - name: Run OracleQuery.sql and save output
+        run: |
+          docker exec -i ${{ job.services.oracle.id }} \
+          sqlplus -S system/oracle@XE @/dev/stdin < ./Leetcode/3497/OracleQuery.sql > oracle_query_results.txt
+
+      - name: Upload Oracle query results
+        uses: actions/upload-artifact@v4
+        with:
+          name: oracle-query-results
+          path: oracle_query_results.csv

@@ -1,0 +1,21 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Tue Mar 24 09:19:38 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Last Successful login time: Tue Mar 24 2026 09:19:28 +00:00
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+
+   USER_ID TRIAL_AVG_DURATION PAID_AVG_DURATION
+---------- ------------------ -----------------
+	 1		 37.5		     75
+	 3		   70		  63.33
+	 4		 37.5		     45
+
+SQL> Disconnected from Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
