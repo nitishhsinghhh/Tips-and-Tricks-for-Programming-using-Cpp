@@ -27,4 +27,4 @@ jobs:
           pip install pandas
 
       - name: Run subscription_conversion.py
-        run: python Leetcode/3496/subscription_conversion.py
+        run: python Leetcode/3497/subscription_conversion.py
