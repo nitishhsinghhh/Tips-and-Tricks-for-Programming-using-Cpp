@@ -35,13 +35,13 @@ jobs:
         run: |
           docker exec -i ${{ job.services.sqlserver.id }} \
           /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong@Pass123' \
-          -d master -i ./sql/setup.sql
+          -d master -i ./setup.sql
 
       - name: Run query.sql and save output
         run: |
           docker exec -i ${{ job.services.sqlserver.id }} \
           /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong@Pass123' \
-          -d master -W -s "," -i ./sql/query.sql > query_results.csv
+          -d master -W -s "," -i ./query.sql > query_results.csv
 
       - name: Upload query results
         uses: actions/upload-artifact@v4 
