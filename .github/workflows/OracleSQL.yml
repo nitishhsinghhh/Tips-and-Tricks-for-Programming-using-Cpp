@@ -22,27 +22,30 @@ jobs:
           --health-retries 5
 
     steps:
+      # 1. Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2. Wait for Oracle XE to start
       - name: Wait for Oracle XE to initialize
         run: |
           echo "Waiting 60 seconds for Oracle XE to initialize..."
           sleep 60
 
-      - name: Run OracleSetup.sql (create tables & insert data)
+      # 3. Run OracleSetup.sql (create tables & insert data)
+      - name: Run OracleSetup.sql
         run: |
-          docker exec -i ${{ job.services.oracle.id }} bash -c "\
-          sqlplus -S system/oracle@XE @/dev/stdin" < ./Leetcode/3497/OracleSetup.sql
+          docker exec -i ${{ job.services.oracle.id }} \
+          sqlplus -S system/oracle@XE @/dev/stdin < ./Leetcode/3497/OracleSetup.sql
 
-      - name: Run OracleQuery.sql and save output as CSV
+      # 4. Run OracleQuery.sql and save output
+      - name: Run OracleQuery.sql and save output
         run: |
-          docker exec -i ${{ job.services.oracle.id }} bash -c "\
-          echo 'SET FEEDBACK OFF; SET HEADING ON; SET PAGESIZE 0; SET LINESIZE 200; SET COLSEP ,;' > tmp.sql && \
-          cat ./Leetcode/3497/OracleQuery.sql >> tmp.sql && \
-          sqlplus -S system/oracle@XE @tmp.sql" > ./oracle_query_results.csv
+          docker exec -i ${{ job.services.oracle.id }} \
+          sqlplus -S system/oracle@XE @/dev/stdin < ./Leetcode/3497/OracleQuery.sql > ./oracle_query_results.csv
 
-      - name: Upload Oracle query results
+      # 5. Upload query results as artifact
+      - name: Upload query results
         uses: actions/upload-artifact@v4
         with:
           name: oracle-query-results
