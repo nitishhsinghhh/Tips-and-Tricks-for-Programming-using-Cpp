@@ -44,7 +44,7 @@ jobs:
           -d master -W -s "," -i ./sql/query.sql > query_results.csv
 
       - name: Upload query results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 
         with:
           name: query-results
           path: query_results.csv
