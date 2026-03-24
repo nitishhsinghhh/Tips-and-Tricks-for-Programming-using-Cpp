@@ -10,50 +10,30 @@ No matter your skill level, this repository is a great place to learn and grow. 
 
 This repository is organized by core C++ and Computer Science topics.
 Each folder focuses on a specific concept or learning area.
-
+```cpp
 ├── .github
 │   └── workflows
-│       └── Leetcode.yml
 ├── Algorithms
-│   └── Binary Search and other algorithmic patterns
 ├── ASCII
-│   └── ASCII-based logic and pattern problems
 ├── Article
-│   └── Static-Non-Static-Fibonacci
-│       └── Concept-based articles
 ├── ClassDiagram
-│   └── UML and class diagram examples
 ├── CommunityResources
-│   └── Learning notes and senior developer insights
 ├── CppBasics
-│   └── Core C++ fundamentals
-│       └── STL_Containers
 ├── DesignPattern
-│   └── Common software design patterns in C++
 ├── GIT
-│   └── Git commands, workflows, and best practices
 ├── GitHub_Actions
-│   └── GitHub Actions workflows and CI/CD notes
 ├── Interview_Question
-│   └── Frequently asked C++ interview questions
 ├── Leetcode
-│   └── Problem-solving practice and solutions
 ├── Misc
-│   └── Miscellaneous C++ utilities and experiments
 ├── OOP
-│   └── Object-Oriented Programming concepts
 ├── STL
-│   └── STL usage and internal behavior
 ├── SystemDesign
-│   └── System design concepts and notes
 ├── Testing
-│   └── SoftwareTestingMethodologies
 ├── Working_Application
-│   └── End-to-end C++ applications
 ├── CONTRIBUTING.md
 ├── LICENSE.md
 └── README.md
-
+```
 ## How to use it
 
 Everything below is an outline, and you should tackle the items in order from top to bottom.
