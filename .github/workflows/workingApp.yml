@@ -1,0 +1,58 @@
+name: C++ CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: Working_Application
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install compiler
+        run: sudo apt-get update && sudo apt-get install -y g++
+
+      # -------------------------------
+      # Link Shortener
+      # -------------------------------
+      - name: Compile Link Shortener
+        run: g++ ./Link_Shortener/sourcecode.cpp -o ./Link_Shortener/sourcecode
+
+      - name: Run Link Shortener
+        run: ./Link_Shortener/sourcecode
+
+      # -------------------------------
+      # Reverse String
+      # -------------------------------
+      - name: Compile Reverse String
+        run: g++ ./Reverse_String/sourcecode.cpp -o ./Reverse_String/sourcecode
+
+      - name: Run Reverse String
+        run: ./Reverse_String/sourcecode
+
+      # -------------------------------
+      # Roman Integer
+      # -------------------------------
+      - name: Compile Roman Integer
+        run: g++ ./Roman_Integer/sourcecode.cpp -o ./Roman_Integer/sourcecode
+
+      - name: Run Roman Integer
+        run: ./Roman_Integer/sourcecode
+
+      # -------------------------------
+      # String Conversion
+      # -------------------------------
+      - name: Compile String Conversion
+        run: g++ ./String_Conversion/sourcecode.cpp -o ./String_Conversion/sourcecode
+
+      - name: Run String Conversion
+        run: ./String_Conversion/sourcecode
