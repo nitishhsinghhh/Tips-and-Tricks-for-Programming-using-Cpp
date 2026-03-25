@@ -76,7 +76,6 @@ int main() {
 		cout << "Unknown error occurred." << endl;
 	}
 
-	system("pause");
 
 	return 0;
 }
