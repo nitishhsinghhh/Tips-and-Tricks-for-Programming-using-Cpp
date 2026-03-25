@@ -1,4 +1,4 @@
-name: C++ CI
+name: C++ CI Link Shortener
 
 on:
   push:
@@ -8,21 +8,21 @@ on:
 
 jobs:
   build-and-run:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
 
     defaults:
       run:
         working-directory: Working_Application/Link_Shortener
-        
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-        - name: Install compiler
+      - name: Install compiler
         run: sudo apt-get update && sudo apt-get install -y g++
 
-        - name: Compile sourcecode.cpp
-          run: g++ sourcecode.cpp -o sourcecode
+      - name: Compile sourcecode.cpp
+        run: g++ sourcecode.cpp -o sourcecode
 
-        - name: Run program
-          run: ./sourcecode
+      - name: Run program
+        run: ./sourcecode
