@@ -1,4 +1,4 @@
-name: C++ CI Link Shortener
+name: C++ CI
 
 on:
   push:
