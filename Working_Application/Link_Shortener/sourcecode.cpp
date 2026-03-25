@@ -2,8 +2,13 @@
 #include <string>
 #include <unordered_map>
 #include <random>
-using namespace std;
+#include <vector>
 
+using std::string;
+using std::unordered_map;
+using std::cout;
+using std::endl;
+using std::vector;
 class LinkShortener {
 private:
 	unordered_map<string, string> links;
@@ -11,9 +16,9 @@ private:
 
 	string generateRandomCode(int length) {
 		const string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-		random_device rd;
-		mt19937 generator(rd());
-		uniform_int_distribution<int> distribution(0, characters.size() - 1);
+		std::random_device rd;
+		std::mt19937 generator(rd());
+		std::uniform_int_distribution<int> distribution(0, characters.size() - 1);
 		string code;
 		for (int i = 0; i < length; ++i)
 			code += characters[distribution(generator)];
@@ -45,38 +50,52 @@ public:
 };
 
 int main() {
-	try {
-		cout << "This program generates shortened links based on a given base URL." << endl;
-		cout << "In the URL : https://github.com/nitishhsinghhh. The base URL is: https://github.com/" << endl;
+    string baseUrl = "https://github.com/";
+    LinkShortener shortener(baseUrl);
 
-		cout << "Please enter the base URL: ";
-		string baseUrl = "";
-		cin >> baseUrl;
-		cout << "The base URL is: " << baseUrl << endl;
+    // 20 test URLs
+    vector<string> testUrls = {
+        "https://example.com/page1",
+        "https://example.com/page2",
+        "https://example.com/page3",
+        "https://example.com/page4",
+        "https://example.com/page5",
+        "https://example.com/page6",
+        "https://example.com/page7",
+        "https://example.com/page8",
+        "https://example.com/page9",
+        "https://example.com/page10",
+        "https://example.com/page11",
+        "https://example.com/page12",
+        "https://example.com/page13",
+        "https://example.com/page14",
+        "https://example.com/page15",
+        "https://example.com/page16",
+        "https://example.com/page17",
+        "https://example.com/page18",
+        "https://example.com/page19",
+        "https://example.com/page20"
+    };
 
-		LinkShortener shortener(baseUrl);
+    cout << "Testing 20 URLs with base URL: " << baseUrl << endl;
+    cout << "---------------------------------------------" << endl;
 
-		cout << "Please enter the URL to be shortened: ";
-		string originalLink;
-		cin >> originalLink;
+    for (auto &url : testUrls) {
+        string shortened = shortener.shortenLink(url);
+        string original = shortener.getOriginalLink(shortened);
 
-		string shortenedLink = shortener.shortenLink(originalLink);
-		cout << "The shortened link is: " << shortenedLink << endl;
+        cout << "Original URL: " << url << endl;
+        cout << "Shortened URL: " << shortened << endl;
+        cout << "Retrieved URL: " << original << endl;
 
-		string retrievedLink = shortener.getOriginalLink(shortenedLink);
-		if (retrievedLink.empty())
-			cout << "Invalid or non-existent shortened link." << endl;
-		else
-			cout << "The original link is: " << retrievedLink << endl;
-	}
-	catch (const exception& ex) {
-		cout << "Error occurred: " << ex.what() << endl;
-	}
-	catch (...) {
-		cout << "Unknown error occurred." << endl;
-	}
+        if (original != url) {
+            cout << "ERROR: Retrieved URL does not match original!" << endl;
+        }
 
-	return 0;
+        cout << "---------------------------------------------" << endl;
+    }
+
+    return 0;
 }
 
 /*
