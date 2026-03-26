@@ -89,3 +89,6 @@ jobs:
 
       - name: Run String Conversion Tests
         run: ctest --output-on-failure --test-dir String_Conversion/build
+
+      - name: Run String Conversion Tests with Logs
+        run: ./String_Conversion/build/runTests --gtest_output=console --gtest_brief=0
