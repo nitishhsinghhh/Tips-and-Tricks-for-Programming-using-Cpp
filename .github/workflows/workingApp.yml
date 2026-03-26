@@ -54,8 +54,8 @@ jobs:
       # -------------------------------
       # String_Conversion (compile sourcecode.cpp only)
       # -------------------------------
-      - name: Compile String Conversion
-        run: g++ -std=c++17 -Wall -Wextra String_Conversion/src/sourcecode.cpp -o ./String_Conversion/app
+      - name: Compile String Conversion App
+        run: g++ -std=c++17 -Wall -Wextra -I String_Conversion/include String_Conversion/src/sourcecode.cpp -o String_Conversion/app
 
       - name: Run String Conversion
         run: ./String_Conversion/app
