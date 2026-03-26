@@ -1,3 +1,4 @@
+#include <gtest/gtest.h>
 #include "IStringConversion.hpp"
 #include "LowerCaseConversion.hpp"
 #include "UpperCaseConversion.hpp"
@@ -6,10 +7,9 @@
 #include "ToggleCaseConversion.hpp"
 #include "StringConversionFactory.hpp"
 #include "Client.hpp"
-#include <gtest/gtest.h>
 
 //
-// 🔹 Conversion Tests
+// Conversion Tests
 //
 
 TEST(LowerCaseConversionTest, Basic) {
@@ -38,7 +38,7 @@ TEST(ToggleCaseConversionTest, Basic) {
 }
 
 //
-// 🔹 Edge Cases
+// Edge Cases
 //
 
 TEST(ConversionEdgeCases, EmptyString) {
@@ -52,7 +52,7 @@ TEST(ConversionEdgeCases, NumbersAndSymbols) {
 }
 
 //
-// 🔹 Factory Tests
+// Factory Tests
 //
 
 TEST(FactoryTest, CreatesLowerCase) {
@@ -68,7 +68,7 @@ TEST(FactoryTest, CreatesUpperCase) {
 }
 
 //
-// 🔹 Client (Strategy Pattern) Tests
+// Client (Strategy Pattern) Tests
 //
 
 TEST(ClientTest, ExecutesLowerCaseStrategy) {
