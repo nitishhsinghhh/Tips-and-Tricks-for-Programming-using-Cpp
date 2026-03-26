@@ -16,37 +16,55 @@ jobs:
           - 1521:1521
         env:
           ORACLE_PASSWORD: ${{ secrets.ORACLE_PASSWORD }}
-        options: >-
-          --health-cmd "exit 0"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+        options: "--health-cmd 'exit 0' --health-interval 10s --health-timeout 5s --health-retries 5"
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Logging: Starting Oracle initialization
+        run: echo "=== Step 1: Starting Oracle XE container and waiting for it to initialize ==="
+
       - name: Wait for Oracle to start
         run: |
-          echo "Waiting for Oracle XE to initialize..."
+          echo "Waiting for Oracle XE to be ready..."
           for i in {1..20}; do
-            docker exec -i ${{ job.services.oracle.id }} bash -c "sqlplus -S system/\$ORACLE_PASSWORD@XE <<< 'SELECT 1 FROM dual;'" >/dev/null 2>&1 && break
+            echo "Attempt $i: Checking Oracle connection..."
+            docker exec -i ${{ job.services.oracle.id }} bash -c "sqlplus -S system/\$ORACLE_PASSWORD@XE <<< 'SELECT 1 FROM dual;'" >/dev/null 2>&1
+            if [ $? -eq 0 ]; then
+              echo "Oracle is ready!"
+              break
+            fi
             echo "Oracle not ready, retrying in 5s..."
             sleep 5
           done
 
-      - name: Run OracleSetup.sql (create tables & insert data)
+      - name: Logging: Running OracleSetup.sql
+        run: echo "=== Step 2: Running OracleSetup.sql to create tables and insert data ==="
+
+      - name: Run OracleSetup.sql
         run: |
+          echo "Executing OracleSetup.sql..."
           docker exec -i ${{ job.services.oracle.id }} bash -c "\
             export ORACLE_PASSWORD=${ORACLE_PASSWORD}; \
-            echo 'Running OracleSetup.sql'; \
             sqlplus -S system/\$ORACLE_PASSWORD@XE @/dev/stdin" < ./Leetcode/3497/OracleSetup.sql
+          echo "OracleSetup.sql executed successfully."
+
+      - name: Running OracleQuery.sql
+        run: 
+          echo "=== Step 3: Running OracleQuery.sql and saving output ==="
 
       - name: Run OracleQuery.sql and save output
         run: |
+          echo "Executing OracleQuery.sql..."
           docker exec -i ${{ job.services.oracle.id }} bash -c "\
             export ORACLE_PASSWORD=${ORACLE_PASSWORD}; \
             sqlplus -S system/\$ORACLE_PASSWORD@XE @/dev/stdin" < ./Leetcode/3497/OracleQuery.sql > oracle_query_results.csv
+          echo "OracleQuery.sql executed, results saved to oracle_query_results.csv"
+
+      - name: Uploading query results
+        run: 
+            echo "=== Step 4: Uploading Oracle query results as artifact ==="
 
       - name: Upload Oracle query results
         uses: actions/upload-artifact@v4
