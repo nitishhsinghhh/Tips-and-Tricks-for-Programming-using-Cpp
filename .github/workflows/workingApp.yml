@@ -52,6 +52,15 @@ jobs:
         run: ./Roman_Integer/app
 
       # -------------------------------
+      # String_Conversion (compile sourcecode.cpp only)
+      # -------------------------------
+      - name: Compile String Conversion
+        run: g++ -std=c++17 -Wall -Wextra String_Conversion/src/sourcecode.cpp -o ./String_Conversion/app
+
+      - name: Run String Conversion
+        run: ./String_Conversion/app
+
+      # -------------------------------
       # String Conversion Tests (GoogleTest)
       # -------------------------------
       - name: Install CMake & GTest
@@ -67,4 +76,4 @@ jobs:
         run: cmake --build String_Conversion/build
 
       - name: Run String Conversion Tests
-        run: cd String_Conversion/build && ctest --output-on-failure
+        run: ctest --output-on-failure --test-dir String_Conversion/build
