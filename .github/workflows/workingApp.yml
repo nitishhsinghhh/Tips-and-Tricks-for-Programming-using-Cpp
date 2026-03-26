@@ -59,3 +59,18 @@ jobs:
 
       - name: Run String Conversion
         run: ./String_Conversion/app
+
+      # -------------------------------
+      # String Conversion Tests (GoogleTest)
+      # -------------------------------
+      - name: Install CMake
+        run: sudo apt-get update && sudo apt-get install -y cmake
+
+      - name: Configure String Conversion Tests
+        run: cmake -S ./String_Conversion -B ./String_Conversion/build
+
+      - name: Build String Conversion Tests
+        run: cmake --build ./String_Conversion/build
+
+      - name: Run String Conversion Tests
+        run: cd ./String_Conversion/build && ctest --output-on-failureß
