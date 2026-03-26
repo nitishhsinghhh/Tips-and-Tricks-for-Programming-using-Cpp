@@ -19,6 +19,7 @@ add_library(StringConversionLib
     src/CapitalizeWordsConversion.cpp
     src/SentenceCaseConversion.cpp
     src/ToggleCaseConversion.cpp
+    src/MultiThreadManager.cpp
 )
 
 target_include_directories(StringConversionLib PUBLIC include)
