@@ -1,10 +1,7 @@
 #include <iostream>
-#include "Client.hpp"
-#include "StringConversionFactory.hpp"
+#include "helpers.hpp"
 
 int main() {
-    Client client;
-
     std::string input;
     std::cout << "Enter string: ";
     std::getline(std::cin, input);
@@ -14,19 +11,9 @@ int main() {
     int choice;
     std::cin >> choice;
 
-    ConversionType type = ConversionType::Lower;
+    std::string result = processString(input, choice);
 
-    switch (choice) {
-        case 1: type = ConversionType::Lower; break;
-        case 2: type = ConversionType::Upper; break;
-        case 3: type = ConversionType::Sentence; break;
-        case 4: type = ConversionType::Capitalize; break;
-        case 5: type = ConversionType::Toggle; break;
-    }
-
-    client.setStrategy(StringConversionFactory::create(type));
-
-    std::cout << "Result: " << client.execute(input) << std::endl;
+    std::cout << "Result: " << result << std::endl;
 
     return 0;
 }
