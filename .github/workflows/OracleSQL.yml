@@ -15,7 +15,7 @@ jobs:
         ports:
           - 1521:1521
         env:
-          ORACLE_PASSWORD: ${{ secrets.ORACLE_PASSWORD }}
+          ORACLE_PASSWORD: MyPlainPassword123
         options: >-
           --health-cmd "exit 0"
           --health-interval 10s
@@ -36,21 +36,21 @@ jobs:
           done
           echo "Oracle XE is ready!"
 
-      - name: Run OracleSetup.sql (create tables & insert data)
+      - name: Run OracleSetup.sql
         run: |
           echo "Running OracleSetup.sql..."
           docker exec -i ${{ job.services.oracle.id }} bash -c "\
-            echo 'Executing OracleSetup.sql...'; \
-            sql system/${{ secrets.ORACLE_PASSWORD }}@XE @/dev/stdin" < ./Leetcode/3497/OracleSetup.sql
-
+            echo 'Executing OracleSetup.sql'; \
+            sqlplus -S system/MyPlainPassword123@//localhost:1521/XEPDB1 @/dev/stdin" < ./Leetcode/3497/OracleSetup.sql
+      
       - name: Run OracleQuery.sql and save output
         run: |
           echo "Running OracleQuery.sql..."
           docker exec -i ${{ job.services.oracle.id }} bash -c "\
-            echo 'Executing OracleQuery.sql...'; \
-            sql system/${{ secrets.ORACLE_PASSWORD }}@XE @/dev/stdin" < ./Leetcode/3497/OracleQuery.sql > oracle_query_results.csv
+            echo 'Executing OracleQuery.sql'; \
+            sqlplus -S system/MyPlainPassword123@//localhost:1521/XEPDB1 @/dev/stdin" < ./Leetcode/3497/OracleQuery.sql > oracle_query_results.csv
           echo "OracleQuery.sql executed, results saved to oracle_query_results.csv"
-
+    
       - name: Upload Oracle query results
         uses: actions/upload-artifact@v4
         with:
