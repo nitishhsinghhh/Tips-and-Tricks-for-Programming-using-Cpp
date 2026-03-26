@@ -1,3 +1,0 @@
-/Users/nitishsingh/Documents/GitHub/Tips-and-Tricks-for-Programming-using-Cpp/Repo/Working_Application/String_Conversion/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
-/Users/nitishsingh/Documents/GitHub/Tips-and-Tricks-for-Programming-using-Cpp/Repo/Working_Application/String_Conversion/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
-/Users/nitishsingh/Documents/GitHub/Tips-and-Tricks-for-Programming-using-Cpp/Repo/Working_Application/String_Conversion/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir
