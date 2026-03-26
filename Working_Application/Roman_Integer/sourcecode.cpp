@@ -1,19 +1,23 @@
 #include <iostream>
-#include<istream>
 #include<string>
 #include<vector>
-using namespace std;
+#include <algorithm>
+
+using std::vector;
+using std::string;
+using std::cout;
+using std::endl;
 
 class Solution {
 public:
-	int romanToInt(string s) {
+	int romanToInt(string& s) {
 		vector<int> Key = { 8,21,23,11,2,3,12 };
 		vector<int> value = { 1, 5, 10, 50, 100, 500, 1000 };
 		int res = 0, tKey = 0;
 		for (int i = s.size() - 1; i >= 0; i--) {
 			auto cKey = find(Key.begin(), Key.end(), (s[i] - 'A'));
 			if (cKey != Key.end()) {
-				int index = distance(Key.begin(), cKey);
+				int index = std::distance(Key.begin(), cKey);
 				if (tKey > index)
 					res -= value[index];
 				else
@@ -57,9 +61,9 @@ int main() {
 
 	cout << endl << "Please enter a Roman numeral to be converted (in the range [1, 3999]): " << endl;
 
-	cin >> input;
+	std::cin >> input;
 	int res = oSolution.romanToInt(input);
 	cout << "The equivalent integer value is: " << res << endl;
 
-	system("pause");
+	return 0;
 }
