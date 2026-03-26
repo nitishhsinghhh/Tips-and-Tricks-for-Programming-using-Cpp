@@ -42,8 +42,9 @@ jobs:
         run: |
           echo "=== Running OracleSetup.sql ==="
           docker exec -i ${{ job.services.oracle.id }} bash -c "\
+            export ORACLE_PASSWORD='${ORACLE_PASSWORD}'; \
             echo 'Executing OracleSetup.sql...'; \
-            sqlplus -S system/${ORACLE_PASSWORD}@//localhost:1521/XEPDB1 @/dev/stdin" < ./Leetcode/3497/OracleSetup.sql
+            sqlplus -S system/\$ORACLE_PASSWORD@//localhost:1521/XEPDB1 @/dev/stdin" < ./Leetcode/3497/OracleSetup.sql
 
       - name: Run OracleQuery.sql and save output
         run: |
