@@ -42,6 +42,7 @@ FetchContent_MakeAvailable(googletest)
 # ---------------------------
 add_executable(runTests
     tests/StringConversionTests.cpp
+    tests/AdvancedStringConversionTests.cpp
     src/ProcessString.cpp
     src/LowerCaseConversion.cpp
     src/UpperCaseConversion.cpp
