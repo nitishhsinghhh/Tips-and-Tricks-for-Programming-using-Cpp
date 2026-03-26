@@ -49,6 +49,7 @@ FetchContent_MakeAvailable(googletest)
 add_executable(runTests
     tests/StringConversionTests.cpp
     tests/MultiThreadedTests.cpp
+    tests/TestUtils.cpp 
 )
 
 # Link the library and GoogleTest
