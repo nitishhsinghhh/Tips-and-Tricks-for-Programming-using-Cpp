@@ -16,7 +16,11 @@ jobs:
           - 1521:1521
         env:
           ORACLE_PASSWORD: ${{ secrets.ORACLE_PASSWORD }}
-        options: "--health-cmd 'exit 0' --health-interval 10s --health-timeout 5s --health-retries 5"
+        options: >-
+          --health-cmd "exit 0"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout repository
@@ -24,33 +28,25 @@ jobs:
 
       - name: Wait for Oracle to start
         run: |
-          echo "Waiting for Oracle XE to be ready..."
+          echo "Waiting for Oracle XE to initialize..."
           for i in {1..20}; do
-            echo "Attempt $i: Checking Oracle connection..."
-            docker exec -i ${{ job.services.oracle.id }} bash -c "sqlplus -S system/\$ORACLE_PASSWORD@XE <<< 'SELECT 1 FROM dual;'" >/dev/null 2>&1
-            if [ $? -eq 0 ]; then
-              echo "Oracle is ready!"
-              break
-            fi
+            docker exec -i ${{ job.services.oracle.id }} bash -c "sqlplus -S system/\$ORACLE_PASSWORD@XE <<< 'SELECT 1 FROM dual;'" >/dev/null 2>&1 && break
             echo "Oracle not ready, retrying in 5s..."
             sleep 5
           done
 
-      - name: Run OracleSetup.sql
+      - name: Run OracleSetup.sql (create tables & insert data)
         run: |
-          echo "Executing OracleSetup.sql..."
           docker exec -i ${{ job.services.oracle.id }} bash -c "\
             export ORACLE_PASSWORD=${ORACLE_PASSWORD}; \
+            echo 'Running OracleSetup.sql'; \
             sqlplus -S system/\$ORACLE_PASSWORD@XE @/dev/stdin" < ./Leetcode/3497/OracleSetup.sql
-          echo "OracleSetup.sql executed successfully."
 
       - name: Run OracleQuery.sql and save output
         run: |
-          echo "Executing OracleQuery.sql..."
           docker exec -i ${{ job.services.oracle.id }} bash -c "\
             export ORACLE_PASSWORD=${ORACLE_PASSWORD}; \
             sqlplus -S system/\$ORACLE_PASSWORD@XE @/dev/stdin" < ./Leetcode/3497/OracleQuery.sql > oracle_query_results.csv
-          echo "OracleQuery.sql executed, results saved to oracle_query_results.csv"
 
       - name: Upload Oracle query results
         uses: actions/upload-artifact@v4
