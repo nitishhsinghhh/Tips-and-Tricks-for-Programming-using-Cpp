@@ -3,10 +3,21 @@ project(StringConversion)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Enable testing
 enable_testing()
 
-# Download GoogleTest automatically
+# ---------------------------
+# Include directories
+# ---------------------------
+include_directories(include)
+
+# ---------------------------
+# Main Application
+# ---------------------------
+add_executable(app src/sourcecode.cpp)
+
+# ---------------------------
+# GoogleTest Setup
+# ---------------------------
 include(FetchContent)
 
 FetchContent_Declare(
@@ -16,14 +27,11 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
-# Test executable
-add_executable(runTests StringConversionTests.cpp)
+# ---------------------------
+# Tests
+# ---------------------------
+add_executable(runTests tests/StringConversionTests.cpp)
 
-# Include headers
-target_include_directories(runTests PRIVATE ${PROJECT_SOURCE_DIR})
-
-# Link GoogleTest
 target_link_libraries(runTests gtest gtest_main)
 
-# Register test
 add_test(NAME AllTests COMMAND runTests)

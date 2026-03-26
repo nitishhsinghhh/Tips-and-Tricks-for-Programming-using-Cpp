@@ -1,0 +1,72 @@
+Start testing: Mar 26 12:23 IST
+----------------------------------------------------------
+1/1 Testing: AllTests
+1/1 Test: AllTests
+Command: "/Users/nitishsingh/Documents/GitHub/Tips-and-Tricks-for-Programming-using-Cpp/Repo/Working_Application/String_Conversion/build/runTests"
+Directory: /Users/nitishsingh/Documents/GitHub/Tips-and-Tricks-for-Programming-using-Cpp/Repo/Working_Application/String_Conversion/build
+"AllTests" start time: Mar 26 12:23 IST
+Output:
+----------------------------------------------------------
+Running main() from /Users/nitishsingh/Documents/GitHub/Tips-and-Tricks-for-Programming-using-Cpp/Repo/Working_Application/String_Conversion/build/_deps/googletest-src/googletest/src/gtest_main.cc
+[==========] Running 12 tests from 8 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from LowerCaseConversionTest
+[ RUN      ] LowerCaseConversionTest.Basic
+[       OK ] LowerCaseConversionTest.Basic (0 ms)
+[----------] 1 test from LowerCaseConversionTest (0 ms total)
+
+[----------] 1 test from UpperCaseConversionTest
+[ RUN      ] UpperCaseConversionTest.Basic
+[       OK ] UpperCaseConversionTest.Basic (0 ms)
+[----------] 1 test from UpperCaseConversionTest (0 ms total)
+
+[----------] 1 test from CapitalizeWordsConversionTest
+[ RUN      ] CapitalizeWordsConversionTest.Basic
+[       OK ] CapitalizeWordsConversionTest.Basic (0 ms)
+[----------] 1 test from CapitalizeWordsConversionTest (0 ms total)
+
+[----------] 1 test from SentenceCaseConversionTest
+[ RUN      ] SentenceCaseConversionTest.Basic
+[       OK ] SentenceCaseConversionTest.Basic (0 ms)
+[----------] 1 test from SentenceCaseConversionTest (0 ms total)
+
+[----------] 1 test from ToggleCaseConversionTest
+[ RUN      ] ToggleCaseConversionTest.Basic
+[       OK ] ToggleCaseConversionTest.Basic (0 ms)
+[----------] 1 test from ToggleCaseConversionTest (0 ms total)
+
+[----------] 2 tests from ConversionEdgeCases
+[ RUN      ] ConversionEdgeCases.EmptyString
+[       OK ] ConversionEdgeCases.EmptyString (0 ms)
+[ RUN      ] ConversionEdgeCases.NumbersAndSymbols
+[       OK ] ConversionEdgeCases.NumbersAndSymbols (0 ms)
+[----------] 2 tests from ConversionEdgeCases (0 ms total)
+
+[----------] 2 tests from FactoryTest
+[ RUN      ] FactoryTest.CreatesLowerCase
+[       OK ] FactoryTest.CreatesLowerCase (0 ms)
+[ RUN      ] FactoryTest.CreatesUpperCase
+[       OK ] FactoryTest.CreatesUpperCase (0 ms)
+[----------] 2 tests from FactoryTest (0 ms total)
+
+[----------] 3 tests from ClientTest
+[ RUN      ] ClientTest.ExecutesLowerCaseStrategy
+[       OK ] ClientTest.ExecutesLowerCaseStrategy (0 ms)
+[ RUN      ] ClientTest.ExecutesToggleStrategy
+[       OK ] ClientTest.ExecutesToggleStrategy (0 ms)
+[ RUN      ] ClientTest.NoStrategySet
+[       OK ] ClientTest.NoStrategySet (0 ms)
+[----------] 3 tests from ClientTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 12 tests from 8 test suites ran. (0 ms total)
+[  PASSED  ] 12 tests.
+<end of output>
+Test time =   0.66 sec
+----------------------------------------------------------
+Test Passed.
+"AllTests" end time: Mar 26 12:23 IST
+"AllTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 26 12:23 IST
