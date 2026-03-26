@@ -14,7 +14,7 @@ jobs:
         ports:
           - 1521:1521
         env:
-          ORACLE_PASSWORD: oracle
+          ORACLE_PASSWORD: ${{ secrets.ORACLE_PASSWORD }}
         options: >-
           --health-cmd "exit 0"
           --health-interval 10s
