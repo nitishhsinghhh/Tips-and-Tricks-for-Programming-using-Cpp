@@ -58,4 +58,7 @@ jobs:
         run: cmake --build String_Conversion_MultithreadedApp/build/tests
 
       - name: Run Multi-threaded Tests
-        run: ./String_Conversion_MultithreadedApp/build/tests/MultiThreadedTests
+        run: |
+            pwd
+            ls -R ./String_Conversion_MultithreadedApp/build/tests
+            ./String_Conversion_MultithreadedApp/build/tests/runTests
