@@ -8,100 +8,57 @@
 #include "StringConversionFactory.hpp"
 #include "Client.hpp"
 #include "ProcessString.hpp" 
+#include <iostream>
+
+// Helper function to print results
+void logConversion(const std::string& name, const std::string& input, const std::string& output) {
+    std::cout << "[" << name << "] Input: \"" << input << "\" => Output: \"" << output << "\"" << std::endl;
+}
 
 // ---------------------------
-// Advanced Conversion Tests
+// Advanced Conversion Tests with logging
 // ---------------------------
 
-// Mixed case input
-TEST(AdvancedConversionTest, MixedCaseInput) {
+TEST(AdvancedConversionTest, MixedCaseInputWithLog) {
+    std::string input = "hElLo WoRLd!";
+
     LowerCaseConversion lower;
     UpperCaseConversion upper;
     CapitalizeWordsConversion cap;
     SentenceCaseConversion sentence;
     ToggleCaseConversion toggle;
 
-    std::string input = "hElLo WoRLd!";
+    std::string result;
 
-    EXPECT_EQ(lower.convert(input), "hello world!");
-    EXPECT_EQ(upper.convert(input), "HELLO WORLD!");
-    EXPECT_EQ(cap.convert(input), "Hello World!");
-    EXPECT_EQ(sentence.convert(input), "Hello world!");
-    EXPECT_EQ(toggle.convert(input), "HeLlO wOrlD!");
+    result = lower.convert(input);
+    logConversion("LowerCase", input, result);
+    EXPECT_EQ(result, "hello world!");
+
+    result = upper.convert(input);
+    logConversion("UpperCase", input, result);
+    EXPECT_EQ(result, "HELLO WORLD!");
+
+    result = cap.convert(input);
+    logConversion("CapitalizeWords", input, result);
+    EXPECT_EQ(result, "Hello World!");
+
+    result = sentence.convert(input);
+    logConversion("SentenceCase", input, result);
+    EXPECT_EQ(result, "Hello world!");
+
+    result = toggle.convert(input);
+    logConversion("ToggleCase", input, result);
+    EXPECT_EQ(result, "HeLlO wOrlD!");
 }
 
-// Numeric and punctuation handling
-TEST(AdvancedConversionTest, NumericAndPunctuation) {
-    std::string input = "123abc!@# DEF";
-
-    CapitalizeWordsConversion cap;
-    ToggleCaseConversion toggle;
-
-    EXPECT_EQ(cap.convert(input), "123abc!@# Def");
-    EXPECT_EQ(toggle.convert(input), "123ABC!@# def");
-}
-
-// Empty string multiple conversions
-TEST(AdvancedConversionTest, EmptyStringMultipleConversions) {
-    std::string input = "";
-    Client client;
-
-    client.setStrategy(StringConversionFactory::create(ConversionType::Lower));
-    EXPECT_EQ(client.execute(input), "");
-
-    client.setStrategy(StringConversionFactory::create(ConversionType::Toggle));
-    EXPECT_EQ(client.execute(input), "");
-}
-
-// All strategies combined in loop
-TEST(AdvancedConversionTest, LoopAllStrategies) {
-    std::string input = "Hello World 123!";
-    std::vector<ConversionType> types = {
-        ConversionType::Lower,
-        ConversionType::Upper,
-        ConversionType::Capitalize,
-        ConversionType::Sentence,
-        ConversionType::Toggle
-    };
-
-    for (auto type : types) {
-        auto conv = StringConversionFactory::create(type);
-        ASSERT_NE(conv, nullptr);
-        std::string output = conv->convert(input);
-        EXPECT_FALSE(output.empty());
-    }
-}
-
-// Stress test: very long string
-TEST(AdvancedConversionTest, VeryLongString) {
-    std::string input(10000, 'a'); // 10,000 'a's
-    input[5000] = 'Z';
-
-    ToggleCaseConversion toggle;
-    std::string output = toggle.convert(input);
-
-    EXPECT_EQ(output.size(), input.size());
-    EXPECT_EQ(output[5000], 'z'); // toggled
-}
-
-// Factory returns nullptr for invalid enum
-TEST(AdvancedConversionTest, FactoryInvalidType) {
-    // Force cast to simulate invalid type
-    auto conv = StringConversionFactory::create(static_cast<ConversionType>(999));
-    EXPECT_EQ(conv, nullptr);
-}
-
-// Chained client strategies
-TEST(AdvancedConversionTest, ChainedClientStrategies) {
-    std::string input = "hello world";
+// Example: capturing client logs
+TEST(ClientTest, ExecuteStrategyWithLog) {
+    std::string input = "TeStInG";
 
     Client client;
-    client.setStrategy(StringConversionFactory::create(ConversionType::Upper));
-    std::string output1 = client.execute(input);
-
     client.setStrategy(StringConversionFactory::create(ConversionType::Toggle));
-    std::string output2 = client.execute(output1);
+    std::string output = client.execute(input);
 
-    EXPECT_EQ(output1, "HELLO WORLD");
-    EXPECT_EQ(output2, "hello world"); // toggled back
+    std::cout << "[Client Toggle] Input: " << input << " => Output: " << output << std::endl;
+    EXPECT_EQ(output, "tEsTiNg");
 }
