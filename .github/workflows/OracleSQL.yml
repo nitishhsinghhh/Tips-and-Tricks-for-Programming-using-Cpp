@@ -28,9 +28,8 @@ jobs:
       - name: Wait for Oracle to start
         run: |
           echo "Waiting for Oracle XE to initialize..."
-          # Retry connection until Oracle is ready
           for i in {1..20}; do
-            docker exec -i ${{ job.services.oracle.id }} bash -c "echo 'SELECT 1 FROM dual;' | sqlplus -S system/${ORACLE_PASSWORD}@XE" >/dev/null 2>&1 && break
+            docker exec -i ${{ job.services.oracle.id }} bash -c "sqlplus -S system/${ORACLE_PASSWORD}@XE <<< 'SELECT 1 FROM dual;'" >/dev/null 2>&1 && break
             echo "Oracle not ready, retrying in 5s..."
             sleep 5
           done
@@ -38,13 +37,14 @@ jobs:
       - name: Run OracleSetup.sql (create tables & insert data)
         run: |
           docker exec -i ${{ job.services.oracle.id }} bash -c "\
-            echo 'Running OracleSetup.sql'; \
-            sqlplus -S system/${ORACLE_PASSWORD}@XE @/dev/stdin" < ./Leetcode/3497/OracleSetup.sql
+            export ORACLE_PASSWORD=${ORACLE_PASSWORD}; \
+            sqlplus -S system/\$ORACLE_PASSWORD@XE @/dev/stdin" < ./Leetcode/3497/OracleSetup.sql
 
       - name: Run OracleQuery.sql and save output
         run: |
           docker exec -i ${{ job.services.oracle.id }} bash -c "\
-            sqlplus -S system/${ORACLE_PASSWORD}@XE @/dev/stdin" < ./Leetcode/3497/OracleQuery.sql > oracle_query_results.csv
+            export ORACLE_PASSWORD=${ORACLE_PASSWORD}; \
+            sqlplus -S system/\$ORACLE_PASSWORD@XE @/dev/stdin" < ./Leetcode/3497/OracleQuery.sql > oracle_query_results.csv
 
       - name: Upload Oracle query results
         uses: actions/upload-artifact@v4
