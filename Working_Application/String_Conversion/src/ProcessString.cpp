@@ -1,4 +1,4 @@
-#include "helpers.hpp"
+#include "ProcessString.hpp"
 #include "Client.hpp"
 #include "StringConversionFactory.hpp"
 
