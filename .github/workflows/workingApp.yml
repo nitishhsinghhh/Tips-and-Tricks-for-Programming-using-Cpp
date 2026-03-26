@@ -1,4 +1,4 @@
-name: C++ CI
+name: C++ CI Working Application
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
       # Link Shortener (compile main.cpp only)
       # -------------------------------
       - name: Compile Link Shortener
-        run: g++ -std=c++17 -Wall -Wextra ./Link_Shortener/sourcecode.cpp -o ./Link_Shortener
+        run: g++ -std=c++17 -Wall -Wextra ./Link_Shortener/sourcecode.cpp -o ./Link_Shortener/app
 
       - name: Run Link Shortener
         run: ./Link_Shortener/app
@@ -37,7 +37,7 @@ jobs:
       # Reverse String (compile main.cpp only)
       # -------------------------------
       - name: Compile Reverse String
-        run: g++ -std=c++17 -Wall -Wextra ./Reverse_String/sourcecode.cpp -o ./Reverse_String
+        run: g++ -std=c++17 -Wall -Wextra ./Reverse_String/sourcecode.cpp -o ./Reverse_String/app
 
       - name: Run Reverse String
         run: ./Reverse_String/app
@@ -46,7 +46,7 @@ jobs:
       # Roman Integer (compile sourcecode.cpp only)
       # -------------------------------
       - name: Compile Roman Integer
-        run: g++ -std=c++17 -Wall -Wextra ./Roman_Integer/sourcecode.cpp -o ./Roman_Integer
+        run: g++ -std=c++17 -Wall -Wextra ./Roman_Integer/sourcecode.cpp -o ./Roman_Integer/app
 
       - name: Run Roman Integer
         run: ./Roman_Integer/app
@@ -64,4 +64,4 @@ jobs:
         run: cmake --build ./String_Conversion/build
 
       - name: Run String Conversion Tests
-        run: cd ./String_Conversion/build && ctest --output-on-failureß
+        run: cd ./String_Conversion/build && ctest --output-on-failure
