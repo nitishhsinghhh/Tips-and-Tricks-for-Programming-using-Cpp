@@ -1,4 +1,4 @@
-name: C++ CI Working Application
+name: C++ CI Working Application multi-threaded
 
 on:
   push:
