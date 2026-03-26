@@ -10,6 +10,7 @@ This project demonstrates a clean C++ design using SOLID principles and modern C
 | RAII (Resource Acquisition Is Initialization) | Use `std::unique_ptr` for automatic memory management and resource safety |
 
 ## File Structure
+
 ```
 StringConversion/
 │
@@ -33,6 +34,7 @@ StringConversion/
 │
 └── CMakeLists.txt
 ```
+
 ## Build Instructions
 
 ### Step 1: Configure project

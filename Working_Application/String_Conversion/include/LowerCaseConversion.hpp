@@ -7,12 +7,7 @@
 
 class LowerCaseConversion : public IStringConversion {
 public:
-    std::string convert(const std::string& input) const override {
-        std::string result = input;
-        std::transform(result.begin(), result.end(), result.begin(),
-                       [](unsigned char c){ return std::tolower(c); });
-        return result;
-    }
+    std::string convert(const std::string& input) const override;
 };
 
 #endif // LOWERCASECONVERSION_HPP
