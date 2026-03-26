@@ -46,7 +46,7 @@ jobs:
       # Roman Integer (compile sourcecode.cpp only)
       # -------------------------------
       - name: Compile Roman Integer
-        run: g++ -std=c++17 -Wall -Wextra ./Roman_Integer/sourcecode.cpp -o ./Roman_Integer/app
+        run: g++ -std=c++17 -Wall -Wextra Roman_Integer/sourcecode.cpp -o ./Roman_Integer/app
 
       - name: Run Roman Integer
         run: ./Roman_Integer/app
