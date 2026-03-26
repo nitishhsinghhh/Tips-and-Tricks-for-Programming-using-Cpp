@@ -6,6 +6,7 @@
 #include "ToggleCaseConversion.hpp"
 #include "StringConversionFactory.hpp"
 #include "Client.hpp"
+#include <gtest/gtest.h>
 
 //
 // 🔹 Conversion Tests
