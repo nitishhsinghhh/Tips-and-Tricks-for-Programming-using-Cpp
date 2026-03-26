@@ -25,40 +25,31 @@ jobs:
         run: ls -R
 
       # -------------------------------
-      # Link Shortener
+      # Link Shortener (compile main.cpp only)
       # -------------------------------
       - name: Compile Link Shortener
-        run: g++ ./Link_Shortener/*.cpp -o ./Link_Shortener/app
+        run: g++ -std=c++17 -Wall -Wextra ./Link_Shortener/sourcecode.cpp -o ./Link_Shortener
 
       - name: Run Link Shortener
         run: ./Link_Shortener/app
 
       # -------------------------------
-      # Reverse String
+      # Reverse String (compile main.cpp only)
       # -------------------------------
       - name: Compile Reverse String
-        run: g++ ./Reverse_String/*.cpp -o ./Reverse_String/app
+        run: g++ -std=c++17 -Wall -Wextra ./Reverse_String/sourcecode.cpp -o ./Reverse_String
 
       - name: Run Reverse String
         run: ./Reverse_String/app
 
       # -------------------------------
-      # Roman Integer
+      # Roman Integer (compile sourcecode.cpp only)
       # -------------------------------
       - name: Compile Roman Integer
-        run: g++ ./Roman_Integer/*.cpp -o ./Roman_Integer/app
+        run: g++ -std=c++17 -Wall -Wextra ./Roman_Integer/sourcecode.cpp -o ./Roman_Integer
 
       - name: Run Roman Integer
         run: ./Roman_Integer/app
-
-      # -------------------------------
-      # String Conversion
-      # -------------------------------
-      - name: Compile String Conversion
-        run: g++ ./String_Conversion/*.cpp -o ./String_Conversion/app
-
-      - name: Run String Conversion
-        run: ./String_Conversion/app
 
       # -------------------------------
       # String Conversion Tests (GoogleTest)
