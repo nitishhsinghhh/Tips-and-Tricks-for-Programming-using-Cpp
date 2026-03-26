@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include "TestUtils.hpp"
 #include "IStringConversion.hpp"
 #include "UpperCaseConversion.hpp"
 #include "ToggleCaseConversion.hpp"
@@ -7,13 +8,6 @@
 #include <string>
 #include <mutex>
 #include <iostream>
-
-// Optional: to safely log from multiple threads
-std::mutex coutMutex;
-void logConversion(const std::string& name, const std::string& input, const std::string& output) {
-    std::lock_guard<std::mutex> lock(coutMutex);
-    std::cout << "[" << name << "] Input: \"" << input << "\" => Output: \"" << output << "\"" << std::endl;
-}
 
 // Test multi-threaded processing of UpperCaseConversion
 TEST(MultiThreadedConversionTest, UpperCaseStrings) {
