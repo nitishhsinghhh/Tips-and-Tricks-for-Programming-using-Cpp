@@ -22,9 +22,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Logging: Starting Oracle initialization
-        run: echo "=== Step 1: Starting Oracle XE container and waiting for it to initialize ==="
-
       - name: Wait for Oracle to start
         run: |
           echo "Waiting for Oracle XE to be ready..."
@@ -39,9 +36,6 @@ jobs:
             sleep 5
           done
 
-      - name: Logging: Running OracleSetup.sql
-        run: echo "=== Step 2: Running OracleSetup.sql to create tables and insert data ==="
-
       - name: Run OracleSetup.sql
         run: |
           echo "Executing OracleSetup.sql..."
@@ -50,10 +44,6 @@ jobs:
             sqlplus -S system/\$ORACLE_PASSWORD@XE @/dev/stdin" < ./Leetcode/3497/OracleSetup.sql
           echo "OracleSetup.sql executed successfully."
 
-      - name: Running OracleQuery.sql
-        run: 
-          echo "=== Step 3: Running OracleQuery.sql and saving output ==="
-
       - name: Run OracleQuery.sql and save output
         run: |
           echo "Executing OracleQuery.sql..."
@@ -61,10 +51,6 @@ jobs:
             export ORACLE_PASSWORD=${ORACLE_PASSWORD}; \
             sqlplus -S system/\$ORACLE_PASSWORD@XE @/dev/stdin" < ./Leetcode/3497/OracleQuery.sql > oracle_query_results.csv
           echo "OracleQuery.sql executed, results saved to oracle_query_results.csv"
-
-      - name: Uploading query results
-        run: 
-            echo "=== Step 4: Uploading Oracle query results as artifact ==="
 
       - name: Upload Oracle query results
         uses: actions/upload-artifact@v4
