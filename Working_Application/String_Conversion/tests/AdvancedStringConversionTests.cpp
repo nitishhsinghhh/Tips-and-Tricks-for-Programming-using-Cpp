@@ -5,9 +5,10 @@
 #include "CapitalizeWordsConversion.hpp"
 #include "SentenceCaseConversion.hpp"
 #include "ToggleCaseConversion.hpp"
+#include "AlternatingCaseConversion.hpp"  
 #include "StringConversionFactory.hpp"
 #include "Client.hpp"
-#include "ProcessString.hpp" 
+#include "ProcessString.hpp"
 #include <iostream>
 
 // Helper function to print results
@@ -16,7 +17,7 @@ void logConversion(const std::string& name, const std::string& input, const std:
 }
 
 // ---------------------------
-// Advanced Conversion Tests with logging
+// Advanced Conversion Tests with Logging
 // ---------------------------
 
 TEST(AdvancedConversionTest, MixedCaseInputWithLog) {
@@ -27,6 +28,7 @@ TEST(AdvancedConversionTest, MixedCaseInputWithLog) {
     CapitalizeWordsConversion cap;
     SentenceCaseConversion sentence;
     ToggleCaseConversion toggle;
+    AlternatingCaseConversion alternating;
 
     std::string result;
 
@@ -49,9 +51,16 @@ TEST(AdvancedConversionTest, MixedCaseInputWithLog) {
     result = toggle.convert(input);
     logConversion("ToggleCase", input, result);
     EXPECT_EQ(result, "HeLlO wOrlD!");
+
+    result = alternating.convert(input);
+    logConversion("AlternatingCase", input, result);
+    EXPECT_EQ(result, "HeLlO WoRlD!");
 }
 
-// Example: capturing client logs
+// ---------------------------
+// Client Strategy Test with Logging
+// ---------------------------
+
 TEST(ClientTest, ExecuteStrategyWithLog) {
     std::string input = "TeStInG";
 
@@ -59,6 +68,19 @@ TEST(ClientTest, ExecuteStrategyWithLog) {
     client.setStrategy(StringConversionFactory::create(ConversionType::Toggle));
     std::string output = client.execute(input);
 
-    std::cout << "[Client Toggle] Input: " << input << " => Output: " << output << std::endl;
+    std::cout << "[Client Toggle] Input: \"" << input << "\" => Output: \"" << output << "\"" << std::endl;
     EXPECT_EQ(output, "tEsTiNg");
+}
+
+// ---------------------------
+// ProcessString Helper Test
+// ---------------------------
+
+TEST(ProcessStringTest, ProcessStringToggle) {
+    std::string input = "Hello World!";
+    int choice = 5; // Toggle
+
+    std::string output = processString(input, choice);
+    logConversion("ProcessString Toggle", input, output);
+    EXPECT_EQ(output, "HeLlO wOrlD!");
 }
