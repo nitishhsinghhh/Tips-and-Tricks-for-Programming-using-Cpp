@@ -58,23 +58,23 @@ jobs:
         run: |
           g++ -O2 \
             -I String_Conversion/include \
-            String_Conversion/src/sourcecode.cpp \
-            String_Conversion/src/ProcessString.cpp \
-            String_Conversion/src/LowerCaseConversion.cpp \
-            String_Conversion/src/UpperCaseConversion.cpp \
-            String_Conversion/src/CapitalizeWordsConversion.cpp \
-            String_Conversion/src/SentenceCaseConversion.cpp \
-            String_Conversion/src/ToggleCaseConversion.cpp \
-            String_Conversion/src/ReverseConversion.cpp \
             String_Conversion/src/AlternatingCaseConversion.cpp \
-            String_Conversion/src/StringConversionFactory.cpp \
+            String_Conversion/src/CapitalizeWordsConversion.cpp \
             String_Conversion/src/Client.cpp \
-            string_Conversion/src/RemoveVowelsConversion.cpp \
-            String_Conversion/src/RemoveSpacesConversion.cpp \
-            String_Conversion/src/SnakeCaseConversion.cpp \
-            String_Conversion/src/KebabCaseConversion.cpp \
             String_Conversion/src/InvertWordsConversion.cpp \
+            String_Conversion/src/KebabCaseConversion.cpp \
             String_Conversion/src/LeetSpeakConversion.cpp \ 
+            String_Conversion/src/LowerCaseConversion.cpp \
+            String_Conversion/src/ProcessString.cpp \
+            String_Conversion/src/RemoveSpacesConversion.cpp \
+            string_Conversion/src/RemoveVowelsConversion.cpp \
+            String_Conversion/src/ReverseConversion.cpp \
+            String_Conversion/src/SentenceCaseConversion.cpp \
+            String_Conversion/src/SnakeCaseConversion.cpp \
+            String_Conversion/src/sourcecode.cpp \
+            String_Conversion/src/StringConversionFactory.cpp \
+            String_Conversion/src/ToggleCaseConversion.cpp \
+            String_Conversion/src/UpperCaseConversion.cpp \         
             -o String_Conversion/app
 
       - name: Run String Conversion App

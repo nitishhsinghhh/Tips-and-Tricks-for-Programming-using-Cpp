@@ -12,6 +12,12 @@
 #include "Client.hpp"
 #include "ProcessString.hpp"
 #include <iostream>
+#include "InvertWordsConversion.hpp"
+#include "KebabCaseConversion.hpp"
+#include "LeetSpeakConversion.hpp"
+#include "RemoveSpacesConversion.hpp"
+#include "RemoveVowelsConversion.hpp"
+#include "SnakeCaseConversion.hpp"
 
 //
 // Basic Conversion Tests
@@ -143,3 +149,58 @@ TEST(ClientTest, ExecutesReverseStrategy) {
     EXPECT_EQ(client.execute("Hello"), "olleH");
 }
 
+
+
+//
+// InvertWords Conversion Tests
+//
+TEST(InvertWordsConversionTest, Basic) {
+    InvertWordsConversion conv;
+    EXPECT_EQ(conv.convert("Hello World"), "olleH dlroW");
+    EXPECT_EQ(conv.convert("abc def"), "cba fed");
+}
+
+//
+// KebabCase Conversion Tests
+//
+TEST(KebabCaseConversionTest, Basic) {
+    KebabCaseConversion conv;
+    EXPECT_EQ(conv.convert("Hello World Example"), "hello-world-example");
+    EXPECT_EQ(conv.convert("MixedCASE Input"), "mixedcase-input");
+}
+
+//
+// LeetSpeak Conversion Tests
+//
+TEST(LeetSpeakConversionTest, Basic) {
+    LeetSpeakConversion conv;
+    EXPECT_EQ(conv.convert("Hello World"), "H3ll0 W0rld");
+    EXPECT_EQ(conv.convert("Testing"), "73571ng");
+} 
+
+//
+// RemoveSpaces Conversion Tests
+//
+TEST(RemoveSpacesConversionTest, Basic) {
+    RemoveSpacesConversion conv;
+    EXPECT_EQ(conv.convert("Hello World Example"), "HelloWorldExample");
+    EXPECT_EQ(conv.convert(" No Spaces "), "NoSpaces");
+}
+
+//
+// RemoveVowels Conversion Tests
+//
+TEST(RemoveVowelsConversionTest, Basic) {
+    RemoveVowelsConversion conv;
+    EXPECT_EQ(conv.convert("Hello World"), "Hll Wrld");
+    EXPECT_EQ(conv.convert("AEIOUaeiou"), "");
+}
+
+//
+// SnakeCase Conversion Tests
+//
+TEST(SnakeCaseConversionTest, Basic) {
+    SnakeCaseConversion conv;
+    EXPECT_EQ(conv.convert("Hello World Example"), "hello_world_example");
+    EXPECT_EQ(conv.convert("MixedCASE Input"), "mixedcase_input");
+}
