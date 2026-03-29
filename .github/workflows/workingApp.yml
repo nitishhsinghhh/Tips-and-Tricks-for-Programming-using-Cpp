@@ -65,6 +65,7 @@ jobs:
             String_Conversion/src/CapitalizeWordsConversion.cpp \
             String_Conversion/src/SentenceCaseConversion.cpp \
             String_Conversion/src/ToggleCaseConversion.cpp \
+            String_Conversion/src/AlternatingCaseConversion.cpp \
             String_Conversion/src/StringConversionFactory.cpp \
             String_Conversion/src/Client.cpp \
             -o String_Conversion/app
