@@ -3,21 +3,18 @@
 
 std::string AlternatingCaseConversion::convert(const std::string& input) const {
     std::string result;
-    result.reserve(input.size());
-    bool upper = true; // Start with uppercase
+    bool upper = true;
 
-    for (char ch : input) {
-        if (std::isalpha(static_cast<unsigned char>(ch))) {
-            if (upper) {
-                result += std::toupper(static_cast<unsigned char>(ch));
-            } else {
-                result += std::tolower(static_cast<unsigned char>(ch));
-            }
-            upper = !upper; // Flip case for next character
+    for (char c : input) {
+        if (std::isalpha(c)) {
+            result += upper ? std::toupper(c) : std::tolower(c);
+            upper = !upper;
         } else {
-            result += ch; // Non-alphabet characters remain the same
+            result += c;
+            if (c == ' ') {   // reset alternation after space
+                upper = true;
+            }
         }
     }
-
     return result;
 }

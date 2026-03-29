@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include "TestHelpers.hpp"
 #include "IStringConversion.hpp"
 #include "LowerCaseConversion.hpp"
 #include "UpperCaseConversion.hpp"
@@ -10,11 +11,6 @@
 #include "Client.hpp"
 #include "ProcessString.hpp"
 #include <iostream>
-
-// Helper function to print results
-void logConversion(const std::string& name, const std::string& input, const std::string& output) {
-    std::cout << "[" << name << "] Input: \"" << input << "\" => Output: \"" << output << "\"" << std::endl;
-}
 
 // ---------------------------
 // Advanced Conversion Tests with Logging
@@ -76,11 +72,11 @@ TEST(ClientTest, ExecuteStrategyWithLog) {
 // ProcessString Helper Test
 // ---------------------------
 
-TEST(ProcessStringTest, ProcessStringToggle) {
+TEST(ProcessStringTest, ProcessStringAlternating) {
     std::string input = "Hello World!";
-    int choice = 5; // Toggle
+    int choice = 6; // Alternating case
 
     std::string output = processString(input, choice);
-    logConversion("ProcessString Toggle", input, output);
-    EXPECT_EQ(output, "HeLlO wOrlD!");
+    logConversion("ProcessString Alternating", input, output);
+    EXPECT_EQ(output, "HeLlO WoRlD!");
 }

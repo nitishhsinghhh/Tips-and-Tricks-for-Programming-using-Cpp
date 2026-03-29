@@ -5,15 +5,16 @@
 std::string processString(const std::string& input, int choice) {
     Client client;
 
-    ConversionType type = ConversionType::Lower;
+    ConversionType type;
 
     switch (choice) {
         case 1: type = ConversionType::Lower; break;
         case 2: type = ConversionType::Upper; break;
-        case 3: type = ConversionType::Sentence; break;
-        case 4: type = ConversionType::Capitalize; break;
+        case 3: type = ConversionType::Capitalize; break;  // Corrected
+        case 4: type = ConversionType::Sentence; break;     // Corrected
         case 5: type = ConversionType::Toggle; break;
-        case 6: type = ConversionType::Alternating; break;
+        case 6: type = ConversionType::Alternating; break;      // Already correct
+        default: return input;                                   // fallback
     }
 
     client.setStrategy(StringConversionFactory::create(type));

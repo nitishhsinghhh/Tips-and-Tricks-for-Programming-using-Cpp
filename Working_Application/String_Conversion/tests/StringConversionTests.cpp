@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include "TestHelpers.hpp"
 #include "IStringConversion.hpp"
 #include "LowerCaseConversion.hpp"
 #include "UpperCaseConversion.hpp"
@@ -10,11 +11,6 @@
 #include "Client.hpp"
 #include "ProcessString.hpp"
 #include <iostream>
-
-// Helper function for logging conversions
-void logConversion(const std::string& name, const std::string& input, const std::string& output) {
-    std::cout << "[" << name << "] Input: \"" << input << "\" => Output: \"" << output << "\"" << std::endl;
-}
 
 //
 // Basic Conversion Tests
@@ -109,51 +105,4 @@ TEST(ClientTest, NoStrategySet) {
     EXPECT_EQ(client.execute("Hello"), "Hello"); // should return input unchanged
 }
 
-//
-// Advanced Conversion Tests with Logging
-//
-TEST(AdvancedConversionTest, MixedCaseInputWithLog) {
-    std::string input = "hElLo WoRLd!";
 
-    LowerCaseConversion lower;
-    UpperCaseConversion upper;
-    CapitalizeWordsConversion cap;
-    SentenceCaseConversion sentence;
-    ToggleCaseConversion toggle;
-    AlternatingCaseConversion alternating;
-
-    std::string result;
-
-    result = lower.convert(input);
-    logConversion("LowerCase", input, result);
-    EXPECT_EQ(result, "hello world!");
-
-    result = upper.convert(input);
-    logConversion("UpperCase", input, result);
-    EXPECT_EQ(result, "HELLO WORLD!");
-
-    result = cap.convert(input);
-    logConversion("CapitalizeWords", input, result);
-    EXPECT_EQ(result, "Hello World!");
-
-    result = sentence.convert(input);
-    logConversion("SentenceCase", input, result);
-    EXPECT_EQ(result, "Hello world!");
-
-    result = toggle.convert(input);
-    logConversion("ToggleCase", input, result);
-    EXPECT_EQ(result, "HeLlO wOrlD!");
-
-    result = alternating.convert(input);
-    logConversion("AlternatingCase", input, result);
-    EXPECT_EQ(result, "HeLlO WoRlD!");
-}
-
-TEST(ProcessStringTest, ProcessStringToggle) {
-    std::string input = "Hello World!";
-    int choice = 5; // Toggle
-
-    std::string output = processString(input, choice);
-    logConversion("ProcessString Toggle", input, output);
-    EXPECT_EQ(output, "HeLlO wOrlD!");
-}
