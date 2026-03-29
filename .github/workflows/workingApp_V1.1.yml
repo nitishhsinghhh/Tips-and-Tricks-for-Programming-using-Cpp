@@ -32,12 +32,17 @@ jobs:
       # -------------------------------
       # String Conversion App
       # -------------------------------
+
+      - name: Debug String Conversion sources
+        run: ls -l String_Conversion/src
+
       - name: Compile String Conversion App
         run: |
             g++ -O2 -std=c++17 -Wall -Wextra \
             -I String_Conversion/include \
-            $(find String_Conversion/src -name "*.cpp") \
+            String_Conversion/src/*.cpp \
             -o String_Conversion/app
+
 
         #  Using wildcard (*.cpp) automatically includes all source files.
         #  Cleaner and easier to maintain than listing each file manually.
