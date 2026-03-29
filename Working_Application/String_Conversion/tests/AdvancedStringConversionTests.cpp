@@ -7,6 +7,7 @@
 #include "SentenceCaseConversion.hpp"
 #include "ToggleCaseConversion.hpp"
 #include "AlternatingCaseConversion.hpp"  
+#include "ReverseConversion.hpp"
 #include "StringConversionFactory.hpp"
 #include "Client.hpp"
 #include "ProcessString.hpp"
@@ -79,4 +80,18 @@ TEST(ProcessStringTest, ProcessStringAlternating) {
     std::string output = processString(input, choice);
     logConversion("ProcessString Alternating", input, output);
     EXPECT_EQ(output, "HeLlO WoRlD!");
+}
+
+// ---------------------------
+// Reverse Conversion Test with Logging
+// ---------------------------
+
+TEST(ReverseConversionTest, ReverseStringWithLog) {
+    std::string input = "Hello World!";
+    ReverseConversion reverse;
+
+    std::string output = reverse.convert(input);
+    logConversion("ReverseCase", input, output);
+
+    EXPECT_EQ(output, "!dlroW olleH");
 }

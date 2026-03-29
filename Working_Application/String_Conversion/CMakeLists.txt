@@ -23,6 +23,7 @@ add_library(StringConversionLib
     src/ToggleCaseConversion.cpp
     src/StringConversionFactory.cpp
     src/AlternatingCaseConversion.cpp
+    src/ReverseConversion.cpp
     src/Client.cpp
 )
 

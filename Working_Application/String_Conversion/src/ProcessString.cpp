@@ -14,6 +14,7 @@ std::string processString(const std::string& input, int choice) {
         case 4: type = ConversionType::Sentence; break;     // Corrected
         case 5: type = ConversionType::Toggle; break;
         case 6: type = ConversionType::Alternating; break;      // Already correct
+        case 7: type = ConversionType::Reverse; break;          // Added case for Reverse
         default: return input;                                   // fallback
     }
 

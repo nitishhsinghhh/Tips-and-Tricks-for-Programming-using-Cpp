@@ -7,6 +7,7 @@
 #include "SentenceCaseConversion.hpp"
 #include "ToggleCaseConversion.hpp"
 #include "AlternatingCaseConversion.hpp"
+#include "ReverseConversion.hpp"
 #include "StringConversionFactory.hpp"
 #include "Client.hpp"
 #include "ProcessString.hpp"
@@ -105,4 +106,40 @@ TEST(ClientTest, NoStrategySet) {
     EXPECT_EQ(client.execute("Hello"), "Hello"); // should return input unchanged
 }
 
+//
+// Reverse Conversion Tests
+//
+TEST(ReverseConversionTest, Basic) {
+    ReverseConversion conv;
+    EXPECT_EQ(conv.convert("Hello"), "olleH");
+    EXPECT_EQ(conv.convert("Hello World!"), "!dlroW olleH");
+}
+
+TEST(ConversionEdgeCases, ReverseEmptyString) {
+    ReverseConversion conv;
+    EXPECT_EQ(conv.convert(""), "");
+}
+
+TEST(ConversionEdgeCases, ReverseNumbersAndSymbols) {
+    ReverseConversion conv;
+    EXPECT_EQ(conv.convert("123!@#"), "#@!321");
+}
+
+//
+// Factory Tests for Reverse
+//
+TEST(FactoryTest, CreatesReverseCase) {
+    auto conv = StringConversionFactory::create(ConversionType::Reverse);
+    ASSERT_NE(conv, nullptr);
+    EXPECT_EQ(conv->convert("Hello"), "olleH");
+}
+
+//
+// Client (Strategy Pattern) Tests for Reverse
+//
+TEST(ClientTest, ExecutesReverseStrategy) {
+    Client client;
+    client.setStrategy(StringConversionFactory::create(ConversionType::Reverse));
+    EXPECT_EQ(client.execute("Hello"), "olleH");
+}
 
