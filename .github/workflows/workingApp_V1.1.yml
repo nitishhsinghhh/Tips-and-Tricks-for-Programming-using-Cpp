@@ -34,10 +34,11 @@ jobs:
       # -------------------------------
       - name: Compile String Conversion App
         run: |
-          g++ -O2 -std=c++17 -Wall -Wextra \
+            g++ -O2 -std=c++17 -Wall -Wextra \
             -I String_Conversion/include \
-            String_Conversion/src/*.cpp \
+            $(find String_Conversion/src -name "*.cpp") \
             -o String_Conversion/app
+
         #  Using wildcard (*.cpp) automatically includes all source files.
         #  Cleaner and easier to maintain than listing each file manually.
         #  Headers (.h) are not compiled directly — they’re included via .cpp.
