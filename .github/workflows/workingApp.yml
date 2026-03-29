@@ -25,7 +25,7 @@ jobs:
         run: ls -R
 
       # -------------------------------
-      # Link Shortener (compile main.cpp only)
+      # Link Shortener
       # -------------------------------
       - name: Compile Link Shortener
         run: g++ -std=c++17 -Wall -Wextra ./Link_Shortener/sourcecode.cpp -o ./Link_Shortener/app
@@ -34,7 +34,7 @@ jobs:
         run: ./Link_Shortener/app
 
       # -------------------------------
-      # Reverse String (compile main.cpp only)
+      # Reverse String
       # -------------------------------
       - name: Compile Reverse String
         run: g++ -std=c++17 -Wall -Wextra ./Reverse_String/sourcecode.cpp -o ./Reverse_String/app
@@ -43,20 +43,20 @@ jobs:
         run: ./Reverse_String/app
 
       # -------------------------------
-      # Roman Integer (compile sourcecode.cpp only)
+      # Roman Integer
       # -------------------------------
       - name: Compile Roman Integer
-        run: g++ -std=c++17 -Wall -Wextra Roman_Integer/sourcecode.cpp -o ./Roman_Integer/app
+        run: g++ -std=c++17 -Wall -Wextra ./Roman_Integer/sourcecode.cpp -o ./Roman_Integer/app
 
       - name: Run Roman Integer
         run: ./Roman_Integer/app
 
       # -------------------------------
-      # String_Conversion (compile sourcecode.cpp only)
+      # String Conversion App
       # -------------------------------
       - name: Compile String Conversion App
         run: |
-          g++ -O2 \
+          g++ -O2 -std=c++17 -Wall -Wextra \
             -I String_Conversion/include \
             String_Conversion/src/AlternatingCaseConversion.cpp \
             String_Conversion/src/CapitalizeWordsConversion.cpp \
@@ -74,7 +74,7 @@ jobs:
             String_Conversion/src/sourcecode.cpp \
             String_Conversion/src/StringConversionFactory.cpp \
             String_Conversion/src/ToggleCaseConversion.cpp \
-            String_Conversion/src/UpperCaseConversion.cpp \      
+            String_Conversion/src/UpperCaseConversion.cpp \
             -o String_Conversion/app
 
       - name: Run String Conversion App
