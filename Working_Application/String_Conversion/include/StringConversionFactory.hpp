@@ -13,7 +13,8 @@ enum class ConversionType {
     Upper,      /**< Converts string to uppercase */
     Capitalize, /**< Capitalizes the first letter of each word */
     Sentence,   /**< Converts string to sentence case */
-    Toggle      /**< Toggles the case of each character */
+    Toggle,      /**< Toggles the case of each character */
+    Alternating  /**< Alternates the case of each character */
 };
 
 /**

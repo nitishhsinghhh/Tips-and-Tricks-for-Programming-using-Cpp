@@ -4,6 +4,7 @@
 #include "CapitalizeWordsConversion.hpp"
 #include "SentenceCaseConversion.hpp"
 #include "ToggleCaseConversion.hpp"
+#include "AlternatingCaseConversion.hpp"
 
 std::unique_ptr<IStringConversion> StringConversionFactory::create(ConversionType type) {
     switch (type) {
@@ -17,6 +18,8 @@ std::unique_ptr<IStringConversion> StringConversionFactory::create(ConversionTyp
             return std::make_unique<SentenceCaseConversion>();
         case ConversionType::Toggle:
             return std::make_unique<ToggleCaseConversion>();
+        case ConversionType::Alternating:
+            return std::make_unique<AlternatingCaseConversion>();
     }
     return nullptr; // fallback
 }

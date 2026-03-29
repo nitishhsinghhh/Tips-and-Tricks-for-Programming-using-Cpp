@@ -13,6 +13,7 @@ std::string processString(const std::string& input, int choice) {
         case 3: type = ConversionType::Sentence; break;
         case 4: type = ConversionType::Capitalize; break;
         case 5: type = ConversionType::Toggle; break;
+        case 6: type = ConversionType::Alternating; break;
     }
 
     client.setStrategy(StringConversionFactory::create(type));

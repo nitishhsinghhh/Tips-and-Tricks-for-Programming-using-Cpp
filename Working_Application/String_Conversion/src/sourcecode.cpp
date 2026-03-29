@@ -6,7 +6,7 @@ int main() {
     std::cout << "Enter string: ";
     std::getline(std::cin, input);
 
-    std::cout << "1: Lower, 2: Upper, 3: Sentence, 4: Capitalize, 5: Toggle\n";
+    std::cout << "1: Lower, 2: Upper, 3: Sentence, 4: Capitalize, 5: Toggle, 6: Alternating\n";
 
     int choice;
     std::cin >> choice;
