@@ -45,12 +45,9 @@ target_link_libraries(app StringConversionLib)
 # ---------------------------
 include(FetchContent)
 
-# Force GoogleTest to use the same runtime library on Windows
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/refs/tags/release-1.14.0.zip
+  URL https://github.com/google/googletest/archive/main.zip
 )
 
 # Make GoogleTest available
@@ -64,9 +61,8 @@ add_executable(runTests
     tests/AdvancedStringConversionTests.cpp
 )
 
-# Link the library and GoogleTest (main provided by gtest_main)
-target_link_libraries(runTests StringConversionLib gtest_main)
-
+# Link the library and GoogleTest
+target_link_libraries(runTests StringConversionLib gtest gtest_main)
 
 # ---------------------------
 # Register tests with CTest

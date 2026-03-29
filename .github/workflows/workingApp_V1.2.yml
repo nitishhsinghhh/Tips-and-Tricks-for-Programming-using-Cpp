@@ -31,8 +31,8 @@ jobs:
       - name: Cache CMake build
         uses: actions/cache@v4
         with:
-          path: Working_Application/String_Conversion_V1.1/build
-          key: ${{ runner.os }}-cmake-${{ hashFiles('Working_Application/String_Conversion_V1.1/CMakeLists.txt', 'Working_Application/String_Conversion_V1.1/src/*.cpp', 'Working_Application/String_Conversion_V1.1/include/*.h') }}
+          path: Working_Application/String_Conversion_All/build
+          key: ${{ runner.os }}-cmake-${{ hashFiles('Working_Application/String_Conversion_All/CMakeLists.txt', 'Working_Application/String_Conversion_All/src/*.cpp', 'Working_Application/String_Conversion_All/include/*.h') }}
           restore-keys: |
             ${{ runner.os }}-cmake-
 
@@ -55,31 +55,31 @@ jobs:
       # Configure project with CMake
       # -------------------------------
       - name: Configure String Conversion
-        run: cmake -S Working_Application/String_Conversion_V1.1 -B Working_Application/String_Conversion_V1.1/build -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S Working_Application/String_Conversion_All -B Working_Application/String_Conversion_All/build -DCMAKE_BUILD_TYPE=Release
 
       # -------------------------------
       # Build application and tests
       # -------------------------------
       - name: Build project
-        run: cmake --build Working_Application/String_Conversion_V1.1/build --parallel
+        run: cmake --build Working_Application/String_Conversion_All/build --parallel
 
       # -------------------------------
       # Ensure runTests is built
       # -------------------------------
       - name: Build runTests explicitly
-        run: cmake --build Working_Application/String_Conversion_V1.1/build --target runTests --parallel
+        run: cmake --build Working_Application/String_Conversion_All/build --target runTests --parallel
 
       # -------------------------------
       # Run the main application
       # -------------------------------
       - name: Run String Conversion App
-        run: ./Working_Application/String_Conversion_V1.1/build/app
+        run: ./Working_Application/String_Conversion_All/build/app
 
       # -------------------------------
       # Run tests with CTest
       # -------------------------------
       - name: Run String Conversion Tests
-        run: ctest --output-on-failure --test-dir Working_Application/String_Conversion_V1.1/build
+        run: ctest --output-on-failure --test-dir Working_Application/String_Conversion_All/build
 
       # -------------------------------
       # Upload test logs as artifacts
@@ -89,4 +89,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-logs-${{ matrix.os }}
-          path: Working_Application/String_Conversion_V1.1/build/Testing/Temporary/LastTest.log
+          path: Working_Application/String_Conversion_All/build/Testing/Temporary/LastTest.log
