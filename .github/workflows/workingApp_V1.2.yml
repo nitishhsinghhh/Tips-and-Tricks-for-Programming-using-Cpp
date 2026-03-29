@@ -10,7 +10,7 @@ jobs:
   build-and-test:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]   # ✅ Cross-platform builds
+        os: [ubuntu-latest, windows-latest, macos-latest]   #  Cross-platform builds
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -51,16 +51,28 @@ jobs:
         run: cmake -S Working_Application/String_Conversion -B Working_Application/String_Conversion/build -DCMAKE_BUILD_TYPE=Release
 
       # -------------------------------
-      # Build and Run Tests (Unified)
+      # Build application and tests
       # -------------------------------
-      - name: Build and Run Tests
-        run: cmake --build Working_Application/String_Conversion/build --target test --parallel
+      - name: Build project
+        run: cmake --build Working_Application/String_Conversion/build --parallel
 
       # -------------------------------
-      # Run main application
+      # Ensure runTests is built
+      # -------------------------------
+      - name: Build runTests explicitly
+        run: cmake --build Working_Application/String_Conversion/build --target runTests --parallel
+
+      # -------------------------------
+      # Run the main application
       # -------------------------------
       - name: Run String Conversion App
         run: ./Working_Application/String_Conversion/build/app
+
+      # -------------------------------
+      # Run tests with CTest
+      # -------------------------------
+      - name: Run String Conversion Tests
+        run: ctest --output-on-failure --test-dir Working_Application/String_Conversion/build
 
       # -------------------------------
       # Upload test logs as artifacts
