@@ -1,4 +1,8 @@
 #include <gtest/gtest.h>
+
+// ---------------------------
+// Core Includes
+// ---------------------------
 #include "TestHelpers.hpp"
 #include "IStringConversion.hpp"
 #include "LowerCaseConversion.hpp"
@@ -6,16 +10,21 @@
 #include "CapitalizeWordsConversion.hpp"
 #include "SentenceCaseConversion.hpp"
 #include "ToggleCaseConversion.hpp"
-#include "AlternatingCaseConversion.hpp"  
+#include "AlternatingCaseConversion.hpp"
 #include "ReverseConversion.hpp"
+
+// ---------------------------
+// Design Pattern / Framework
+// ---------------------------
 #include "StringConversionFactory.hpp"
 #include "Client.hpp"
 #include "ProcessString.hpp"
+
 #include <iostream>
 
-// ---------------------------
-// Advanced Conversion Tests with Logging
-// ---------------------------
+// ============================================================
+// 1. ADVANCED CONVERSION TESTS (WITH LOGGING)
+// ============================================================
 
 TEST(AdvancedConversionTest, MixedCaseInputWithLog) {
     std::string input = "hElLo WoRLd!";
@@ -54,43 +63,49 @@ TEST(AdvancedConversionTest, MixedCaseInputWithLog) {
     EXPECT_EQ(result, "HeLlO WoRlD!");
 }
 
-// ---------------------------
-// Client Strategy Test with Logging
-// ---------------------------
+// ============================================================
+// 2. CLIENT (STRATEGY PATTERN) TESTS
+// ============================================================
 
 TEST(ClientTest, ExecuteStrategyWithLog) {
     std::string input = "TeStInG";
 
     Client client;
     client.setStrategy(StringConversionFactory::create(ConversionType::Toggle));
+
     std::string output = client.execute(input);
 
-    std::cout << "[Client Toggle] Input: \"" << input << "\" => Output: \"" << output << "\"" << std::endl;
+    std::cout << "[Client Toggle] Input: \"" << input
+              << "\" => Output: \"" << output << "\"" << std::endl;
+
     EXPECT_EQ(output, "tEsTiNg");
 }
 
-// ---------------------------
-// ProcessString Helper Test
-// ---------------------------
+// ============================================================
+// 3. PROCESS STRING (INTEGRATION TEST)
+// ============================================================
 
 TEST(ProcessStringTest, ProcessStringAlternating) {
     std::string input = "Hello World!";
     int choice = 6; // Alternating case
 
     std::string output = processString(input, choice);
+
     logConversion("ProcessString Alternating", input, output);
+
     EXPECT_EQ(output, "HeLlO WoRlD!");
 }
 
-// ---------------------------
-// Reverse Conversion Test with Logging
-// ---------------------------
+// ============================================================
+// 4. SPECIAL CONVERSION TESTS
+// ============================================================
 
 TEST(ReverseConversionTest, ReverseStringWithLog) {
     std::string input = "Hello World!";
     ReverseConversion reverse;
 
     std::string output = reverse.convert(input);
+
     logConversion("ReverseCase", input, output);
 
     EXPECT_EQ(output, "!dlroW olleH");
