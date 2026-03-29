@@ -6,12 +6,17 @@ on:
   pull_request:
     branches: ["main"]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build-and-test:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]   #  Cross-platform builds
+        os: [ubuntu-latest, windows-latest, macos-latest]   # Cross-platform builds
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
 
     steps:
       # -------------------------------
@@ -32,17 +37,19 @@ jobs:
             ${{ runner.os }}-cmake-
 
       # -------------------------------
-      # Install compiler & CMake
+      # Install compiler & CMake per OS
       # -------------------------------
-      - name: Install compiler and CMake
-        run: |
-          if [[ "$RUNNER_OS" == "Linux" ]]; then
-            sudo apt-get update && sudo apt-get install -y build-essential cmake
-          elif [[ "$RUNNER_OS" == "macOS" ]]; then
-            brew install cmake
-          elif [[ "$RUNNER_OS" == "Windows" ]]; then
-            choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --yes
-          fi
+      - name: Install compiler and CMake (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y build-essential cmake
+
+      - name: Install compiler and CMake (macOS)
+        if: runner.os == 'macOS'
+        run: brew install cmake
+
+      - name: Install compiler and CMake (Windows)
+        if: runner.os == 'Windows'
+        run: choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --yes
 
       # -------------------------------
       # Configure project with CMake
