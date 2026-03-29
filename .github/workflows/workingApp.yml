@@ -67,7 +67,7 @@ jobs:
             String_Conversion/src/LowerCaseConversion.cpp \
             String_Conversion/src/ProcessString.cpp \
             String_Conversion/src/RemoveSpacesConversion.cpp \
-            string_Conversion/src/RemoveVowelsConversion.cpp \
+            String_Conversion/src/RemoveVowelsConversion.cpp \
             String_Conversion/src/ReverseConversion.cpp \
             String_Conversion/src/SentenceCaseConversion.cpp \
             String_Conversion/src/SnakeCaseConversion.cpp \
