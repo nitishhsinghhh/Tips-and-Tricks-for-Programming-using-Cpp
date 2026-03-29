@@ -14,17 +14,22 @@ include_directories(include)
 # Library: StringConversionLib
 # ---------------------------
 add_library(StringConversionLib
-    src/ProcessString.cpp
-    src/LowerCaseConversion.cpp
-    src/UpperCaseConversion.cpp
-    src/CapitalizeWordsConversion.cpp
-    src/SentenceCaseConversion.cpp
-    src/AlternatingCaseConversion.cpp 
-    src/ToggleCaseConversion.cpp
-    src/StringConversionFactory.cpp
     src/AlternatingCaseConversion.cpp
-    src/ReverseConversion.cpp
+    src/CapitalizeWordsConversion.cpp
     src/Client.cpp
+    src/InvertWordsConversion.cpp
+    src/KebabCaseConversion.cpp
+    src/LeetSpeakConversion.cpp
+    src/LowerCaseConversion.cpp
+    src/ProcessString.cpp
+    src/RemoveSpacesConversion.cpp
+    src/RemoveVowelsConversion.cpp
+    src/ReverseConversion.cpp
+    src/SentenceCaseConversion.cpp
+    src/SnakeCaseConversion.cpp
+    src/StringConversionFactory.cpp
+    src/ToggleCaseConversion.cpp
+    src/UpperCaseConversion.cpp    
 )
 
 target_include_directories(StringConversionLib PUBLIC include)

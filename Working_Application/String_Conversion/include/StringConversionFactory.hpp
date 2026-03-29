@@ -15,7 +15,13 @@ enum class ConversionType {
     Sentence,   /**< Converts string to sentence case */
     Toggle,      /**< Toggles the case of each character */
     Alternating,  /**< Alternates the case of each character */
-    Reverse       /**< Reverses the string */
+    Reverse,       /**< Reverses the string */
+    RemoveVowels,   /**< Removes all vowels from the string */
+    RemoveSpaces,   /**< Removes all spaces from the string */
+    InvertWords,     /**< Inverts the order of characters in each word */     
+    SnakeCase,     /**< Converts string to lower snake case */
+    KebabCase,       /**< Converts string to kebab case */   
+    LeetSpeak        /**< Converts string to leet speak */
 };
 
 /**
