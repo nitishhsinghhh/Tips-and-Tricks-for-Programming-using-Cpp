@@ -19,6 +19,7 @@ add_library(StringConversionLib
     src/UpperCaseConversion.cpp
     src/CapitalizeWordsConversion.cpp
     src/SentenceCaseConversion.cpp
+    src/AlternatingCaseConversion.cpp 
     src/ToggleCaseConversion.cpp
     src/StringConversionFactory.cpp
     src/Client.cpp
