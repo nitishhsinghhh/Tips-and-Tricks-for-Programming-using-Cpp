@@ -63,7 +63,7 @@ jobs:
             String_Conversion/src/Client.cpp \
             String_Conversion/src/InvertWordsConversion.cpp \
             String_Conversion/src/KebabCaseConversion.cpp \
-            String_Conversion/src/LeetSpeakConversion.cpp \ 
+            String_Conversion/src/LeetSpeakConversion.cpp \
             String_Conversion/src/LowerCaseConversion.cpp \
             String_Conversion/src/ProcessString.cpp \
             String_Conversion/src/RemoveSpacesConversion.cpp \
@@ -74,7 +74,7 @@ jobs:
             String_Conversion/src/sourcecode.cpp \
             String_Conversion/src/StringConversionFactory.cpp \
             String_Conversion/src/ToggleCaseConversion.cpp \
-            String_Conversion/src/UpperCaseConversion.cpp \         
+            String_Conversion/src/UpperCaseConversion.cpp \      
             -o String_Conversion/app
 
       - name: Run String Conversion App
