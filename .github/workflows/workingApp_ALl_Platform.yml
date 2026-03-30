@@ -70,7 +70,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
             cd Working_Application/String_Conversion_All_Platform/build
-            & .\app.exe
+            & .\Release\app.exe
 
       # -------------------------------
       # Run tests
