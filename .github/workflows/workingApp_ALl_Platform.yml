@@ -42,6 +42,16 @@ jobs:
         run: choco install cmake ninja --installargs 'ADD_CMAKE_TO_PATH=System' --yes
 
       # -------------------------------
+      # Clean
+      # -------------------------------
+      - name: Clean build directory (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          if (Test-Path "Working_Application\String_Conversion_All_Platform\build") {
+            Remove-Item -Recurse -Force "Working_Application\String_Conversion_All_Platform\build"
+          }
+
+      # -------------------------------
       # Configure
       # -------------------------------
       - name: Configure project
@@ -70,7 +80,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
             cd Working_Application/String_Conversion_All_Platform/build
-            & .\Debug\app.exe
+            & .\app.exe
 
       # -------------------------------
       # Run tests
