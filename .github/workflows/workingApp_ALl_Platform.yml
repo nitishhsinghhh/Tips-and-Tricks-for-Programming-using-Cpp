@@ -62,7 +62,7 @@ jobs:
 
       - name: Run app (Windows)
         if: runner.os == 'Windows'
-        run: Working_Application/String_Conversion_All_Platform/build/app.exe
+        run: .\Working_Application\String_Conversion_All_Platform\build\Release\app.exe
 
       # -------------------------------
       # Run tests
