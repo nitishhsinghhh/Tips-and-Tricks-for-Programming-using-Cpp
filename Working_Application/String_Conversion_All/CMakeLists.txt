@@ -45,6 +45,9 @@ target_link_libraries(app StringConversionLib)
 # ---------------------------
 include(FetchContent)
 
+# Force GoogleTest to use the same runtime on Windows
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
 FetchContent_Declare(
   googletest
   URL https://github.com/google/googletest/archive/main.zip
