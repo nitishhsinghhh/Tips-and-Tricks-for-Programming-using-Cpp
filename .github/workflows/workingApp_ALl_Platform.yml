@@ -1,0 +1,81 @@
+name: C++ CI Working Application
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-and-test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+
+    steps:
+      # -------------------------------
+      # Checkout repository
+      # -------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+
+      # -------------------------------
+      # Install dependencies
+      # -------------------------------
+      - name: Install compiler & CMake (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y build-essential cmake
+
+      - name: Install CMake (macOS)
+        if: runner.os == 'macOS'
+        run: brew install cmake
+
+      - name: Install CMake (Windows)
+        if: runner.os == 'Windows'
+        run: choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --yes
+
+      # -------------------------------
+      # Configure
+      # -------------------------------
+      - name: Configure project
+        run: cmake -S Working_Application/String_Conversion_All_Platform -B Working_Application/String_Conversion_All_Platform/build -DCMAKE_BUILD_TYPE=Release
+
+      # -------------------------------
+      # Build
+      # -------------------------------
+      - name: Build project
+        run: cmake --build Working_Application/String_Conversion_All_Platform/build --parallel
+
+      # -------------------------------
+      # Run app (Cross-platform safe)
+      # -------------------------------
+      - name: Run app (Linux/macOS)
+        if: runner.os != 'Windows'
+        run: ./Working_Application/String_Conversion_All_Platform/build/app
+
+      - name: Run app (Windows)
+        if: runner.os == 'Windows'
+        run: Working_Application/String_Conversion_All_Platform/build/Release/app.exe
+
+      # -------------------------------
+      # Run tests
+      # -------------------------------
+      - name: Run tests
+        run: ctest --output-on-failure --test-dir Working_Application/String_Conversion_All_Platform/build
+
+      # -------------------------------
+      # Upload logs
+      # -------------------------------
+      - name: Upload test logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-logs-${{ matrix.os }}
+          path: Working_Application/String_Conversion_All_Platform/build/Testing/Temporary/LastTest.log
