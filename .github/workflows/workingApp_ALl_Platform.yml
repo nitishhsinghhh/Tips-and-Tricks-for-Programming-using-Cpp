@@ -31,21 +31,21 @@ jobs:
       # -------------------------------
       - name: Install compiler & CMake (Linux)
         if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y build-essential cmake ninja-build
+        run: sudo apt-get update && sudo apt-get install -y build-essential cmake
 
       - name: Install CMake (macOS)
         if: runner.os == 'macOS'
-        run: brew install cmake ninja
+        run: brew install cmake
 
       - name: Install CMake (Windows)
         if: runner.os == 'Windows'
-        run: choco install cmake ninja 
+        run: choco install cmake ninja --installargs 'ADD_CMAKE_TO_PATH=System' --yes
 
       # -------------------------------
       # Configure
       # -------------------------------
       - name: Configure project
-        run: cmake -S Working_Application/String_Conversion_All_Platform -B build -G Ninja
+        run: cmake -S Working_Application/String_Conversion_All_Platform -B Working_Application/String_Conversion_All_Platform/build -DCMAKE_BUILD_TYPE=Release
 
       # -------------------------------
       # Build
@@ -62,7 +62,7 @@ jobs:
 
       - name: Run app (Windows)
         if: runner.os == 'Windows'
-        run: Working_Application/String_Conversion_All_Platform/build/app.exe
+        run: Working_Application/String_Conversion_All_Platform/build/Release/app.exe
 
       # -------------------------------
       # Run tests
