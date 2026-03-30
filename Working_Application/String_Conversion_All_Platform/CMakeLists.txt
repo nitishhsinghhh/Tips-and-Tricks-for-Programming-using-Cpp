@@ -45,12 +45,12 @@ target_link_libraries(app StringConversionLib)
 # ---------------------------
 include(FetchContent)
 
-# Force GoogleTest to use the same runtime library on Windows
+# Force GoogleTest to use the same runtime on Windows
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/refs/tags/release-1.14.0.zip
+  URL https://github.com/google/googletest/archive/main.zip
 )
 
 # Make GoogleTest available
