@@ -79,8 +79,14 @@ jobs:
       # -------------------------------
       # Run tests
       # -------------------------------
-      - name: Run tests
+    
+      - name: Run tests (Linux/macOS)
+        if: runner.os != 'Windows'
         run: ctest --output-on-failure --test-dir Working_Application/String_Conversion_All_Platform/build
+
+      - name: Run tests (Windows)
+        if: runner.os == 'Windows'
+        run: ctest --output-on-failure -C Debug --test-dir Working_Application/String_Conversion_All_Platform/build
 
       # -------------------------------
       # Upload logs
