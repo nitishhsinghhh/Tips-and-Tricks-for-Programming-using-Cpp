@@ -53,6 +53,8 @@ FetchContent_Declare(
 # Make GoogleTest available
 FetchContent_MakeAvailable(googletest)
 
+enable_testing()
+
 # ---------------------------
 # Test Executable
 # ---------------------------
