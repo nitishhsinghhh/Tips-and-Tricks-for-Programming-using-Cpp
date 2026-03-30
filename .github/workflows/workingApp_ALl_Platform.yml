@@ -1,4 +1,4 @@
-name: C++ CI Working Application
+name: C++ CI Working Application - All Platforms
 
 on:
   push:
@@ -60,9 +60,17 @@ jobs:
         if: runner.os != 'Windows'
         run: ./Working_Application/String_Conversion_All_Platform/build/app
 
+      - name: Debug build output (Windows)
+        if: runner.os == 'Windows'
+        run: |
+         dir Working_Application\String_Conversion_All_Platform\build
+         dir Working_Application\String_Conversion_All_Platform\build\Release
+
       - name: Run app (Windows)
         if: runner.os == 'Windows'
-        run: .\Working_Application\String_Conversion_All_Platform\build\app.exe
+        run: |
+            cd Working_Application/String_Conversion_All_Platform/build
+            & .\app.exe
 
       # -------------------------------
       # Run tests
