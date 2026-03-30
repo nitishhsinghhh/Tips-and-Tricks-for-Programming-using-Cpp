@@ -26,17 +26,6 @@ jobs:
         uses: actions/checkout@v4
 
       # -------------------------------
-      # Cache CMake build artifacts
-      # -------------------------------
-      - name: Cache CMake build
-        uses: actions/cache@v4
-        with:
-          path: Working_Application/String_Conversion_All/build
-          key: ${{ runner.os }}-cmake-${{ hashFiles('Working_Application/String_Conversion_All/CMakeLists.txt', 'Working_Application/String_Conversion_All/src/*.cpp', 'Working_Application/String_Conversion_All/include/*.h') }}
-          restore-keys: |
-            ${{ runner.os }}-cmake-
-
-      # -------------------------------
       # Install compiler & CMake per OS
       # -------------------------------
       - name: Install compiler and CMake (Linux)
