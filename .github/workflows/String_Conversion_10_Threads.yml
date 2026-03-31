@@ -1,0 +1,64 @@
+name: C++ CI Working Application multi-threaded
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: Working_Application
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install compiler & dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ cmake libgtest-dev
+
+      - name: Show directory structure (Debug)
+        run: ls -R
+
+      # -------------------------------
+      # String_Conversion_10_Threads
+      # -------------------------------
+      - name: Compile String Conversion Multi-threaded App
+        run: |
+          mkdir -p String_Conversion_10_Threads/build
+          g++ -O2 -std=c++17 -I String_Conversion_10_Threads/include \
+            String_Conversion_10_Threads/src/sourcecode.cpp \
+            String_Conversion_10_Threads/src/LowerCaseConversion.cpp \
+            String_Conversion_10_Threads/src/UpperCaseConversion.cpp \
+            String_Conversion_10_Threads/src/CapitalizeWordsConversion.cpp \
+            String_Conversion_10_Threads/src/SentenceCaseConversion.cpp \
+            String_Conversion_10_Threads/src/ToggleCaseConversion.cpp \
+            String_Conversion_10_Threads/src/MultiThreadManager.cpp \
+            -o String_Conversion_10_Threads/build/app
+
+      - name: Run String Conversion Multi-threaded App
+        run: ./String_Conversion_10_Threads/build/app
+
+      # -------------------------------
+      # Build and run Multi-threaded tests (GoogleTest)
+      # -------------------------------
+      - name: Configure Multi-threaded Tests
+        run: |
+          mkdir -p String_Conversion_10_Threads/build/tests
+          cd String_Conversion_10_Threads/build/tests
+          cmake ../../
+
+      - name: Build Multi-threaded Tests
+        run: cmake --build String_Conversion_10_Threads/build/tests
+
+      - name: Run Multi-threaded Tests
+        run: |
+            pwd
+            ls -R ./String_Conversion_10_Threads/build/tests
+            ./String_Conversion_10_Threads/build/tests/runTests
