@@ -72,3 +72,9 @@ jobs:
         with:
           name: oracle-query-results
           path: oracle_query_results.csv
+          
+      - name: Upload Oracle query results for 175
+        uses: actions/upload-artifact@v4
+        with:
+          name: oracle-query-results-175
+          path: oracle-query-results-175.csv

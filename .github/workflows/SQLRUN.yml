@@ -46,9 +46,8 @@ jobs:
       - name: Upload query results
         uses: actions/upload-artifact@v4
         with:
-          name: query-results
-          path: query_results.csv
-
+          name: query-results_3497
+          path: query_results_3497.csv
 
 
       - name: Run setup.sql (create tables & insert data)
@@ -66,5 +65,5 @@ jobs:
       - name: Upload query results
         uses: actions/upload-artifact@v4
         with:
-          name: query-results
-          path: query_results.csv
+          name: query-results-175
+          path: query_results_175.csv
