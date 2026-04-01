@@ -1,12 +1,13 @@
 # Problem Statement
+
 Given a string s consisting only of lowercase English letters (a–z) and single spaces between words, convert the string so that the first character of each word is uppercase. All other characters remain unchanged.
 
 ## Notes
 
-  - The string does not have leading or trailing spaces.
-  - Words are separated by exactly one space.
-  - After every space, there is always a letter.
-  - You may modify the string in-place and return it.
+- The string does not have leading or trailing spaces.
+- Words are separated by exactly one space.
+- After every space, there is always a letter.
+- You may modify the string in-place and return it.
 
   ## Constraints (what to consider)
 
@@ -20,9 +21,10 @@ Under these constraints, the simple ASCII transformation is safe:
 'a'..'z' → uppercase via ch = ch - 'a' + 'A'
 
 ## Examples
+
 - Example 1
-    - Input:  "my name is mohit"
-    - Output: "My Name Is Mohit"
+  - Input:  "my name is mohit"
+  - Output: "My Name Is Mohit"
 
 - Example 2
   - Input:  "hello world this is test"
@@ -39,7 +41,7 @@ Under these constraints, the simple ASCII transformation is safe:
 - Time Complexity: O(n)
 - Space Complexity: O(1) (in-place)
 
-##  Edge Cases (within given constraints)
+## Edge Cases (within given constraints)
 
 - Single word: "my" → "My"
 - Single character: "a" → "A"
@@ -47,7 +49,8 @@ Under these constraints, the simple ASCII transformation is safe:
 
 If constraints are ever relaxed (e.g., multiple spaces, digits/punctuation), guard conversions using std::islower before uppercasing the next character.
 
-##  C++ Solution
+## C++ Solution
+
 ```c++ []
 #include <iostream>
 #include <string>
