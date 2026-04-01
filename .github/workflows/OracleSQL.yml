@@ -45,11 +45,11 @@ jobs:
       
       - name: Run OracleQuery.sql and save output
         run: |
-          echo "Running OracleQuery.sql..."
+          echo "Running oracle_query_results_3497.sql..."
           docker exec -i ${{ job.services.oracle.id }} bash -c "\
             echo 'Executing OracleQuery.sql'; \
-            sqlplus -S system/MyPlainPassword123@//localhost:1521/XEPDB1 @/dev/stdin" < ./Leetcode/3497/OracleQuery.sql > oracle_query_results.csv
-          echo "OracleQuery.sql executed, results saved to oracle_query_results.csv"
+            sqlplus -S system/MyPlainPassword123@//localhost:1521/XEPDB1 @/dev/stdin" < ./Leetcode/3497/OracleQuery.sql > oracle_query_results_3497.csv
+          echo "OracleQuery.sql executed, results saved to oracle_query_results_3497.csv"
     
       - name: Run oracleSetup.sql
         run: |
@@ -67,14 +67,14 @@ jobs:
           echo "oracleQuery.sql executed, results saved to oracle_query_results_175.csv"
         
 
-      - name: Upload Oracle query results
+      - name: Upload Oracle query results for 3497
         uses: actions/upload-artifact@v4
         with:
-          name: oracle-query-results
-          path: oracle_query_results.csv
+          name: oracle-query-results_3497
+          path: oracle_query_results_3497.csv
           
       - name: Upload Oracle query results for 175
         uses: actions/upload-artifact@v4
         with:
           name: oracle-query-results-175
-          path: oracle-query-results-175.csv
+          path: oracle_query_results_175.csv
