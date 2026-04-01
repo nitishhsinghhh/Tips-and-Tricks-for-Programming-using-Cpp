@@ -9,10 +9,12 @@ This repository uses **GitHub Actions** to automate **Continuous Integration (CI
 **Workflow File:** `.github/workflows/charactercomparison-ci.yml`
 
 **Triggers:**
+
 - On `push` to `main`
 - On `pull_request` to `main`
 
 **Steps:**
+
 1. **Checkout repository** – gets the latest code.
 2. **Install C++ compiler**
    - Linux/macOS: `g++` and build tools.
@@ -38,14 +40,17 @@ Artifacts can be downloaded from GitHub Actions → Workflow Run → Artifacts.
 **Workflow File:** `.github/workflows/auto-merge.yml`
 
 **Trigger:**
+
 - Runs after a CI workflow completes successfully.
 
 **Steps:**
+
 1. Checks if the previous workflow was successful.
 2. Automatically merges the PR using `pascalgn/automerge-action`.
 3. No human review required if all CI checks pass.
 
 **Requirements:**
+
 - `GITHUB_TOKEN` secret is used.
 
 ---
