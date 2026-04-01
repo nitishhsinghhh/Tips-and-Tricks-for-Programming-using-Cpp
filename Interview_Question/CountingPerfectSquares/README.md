@@ -75,7 +75,9 @@ int main() {
     return 0;
 }
 ```
+
 To solve the problem of counting perfect squares between two integers a and b without using built-in libraries like <cmath>, we can implement our own versions of sqrt and rounding functions.
+
 ```cpp
 #include <iostream>
 
@@ -142,7 +144,8 @@ int main() {
 }
 ```
 
-# Refactored Code Using SOLID Principles
+## Refactored Code Using SOLID Principles
+
 ```cpp
 #include <iostream>
 #include <cassert>
@@ -321,7 +324,8 @@ int main() {
     return 0;
 }
 ```
-To incorporate smart pointers into your C++ code, we’ll use std::unique_ptr from the <memory> header. This ensures proper memory management and avoids manual delete calls, aligning with modern C++ best practices.
+
+To incorporate smart pointers into your C++ code, we’ll use std::unique_ptr from the 'memory' header. This ensures proper memory management and avoids manual delete calls, aligning with modern C++ best practices.
 
 ```cpp
 #include <iostream>
@@ -566,6 +570,7 @@ int main() {
 
 Why Use final and override Consistently?
 - **override**
+
 Ensures that a method is actually overriding a virtual method from the base class.
 Helps catch bugs at compile time if the base method signature changes or is misspelled.
 **Use override on all overridden methods in derived classes.**
@@ -581,12 +586,17 @@ You want to prevent overriding of a method in derived classes.
 ## Use const & noexcept
 
 - When to Use const
+
 1. Member Functions
+
 Use const when a member function does not modify the object’s state.
+
 ```cpp
 int calculate(int n) const; // Good: doesn't modify any member variables
 ```
+
 2. Function Parameters
+
 Use const for:
     - Pointers or references to objects that shouldn't be modified.
     - Large objects passed by reference to avoid copying.
@@ -600,6 +610,7 @@ Use noexcept when a function is **guaranteed not to throw exceptions**. This:
 - Helps the compiler optimize
 - Improves code clarity
 - Enables better exception safety guarantees
+
 ```cpp
 int calculate(int n) const noexcept; // Safe: no exceptions thrown
 ```
