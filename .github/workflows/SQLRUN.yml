@@ -43,6 +43,19 @@ jobs:
           /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P 'YourStrong@Pass123' -d master -W -s "," \
           < ./Leetcode/3497/query.sql > query_results.csv
 
+
+      - name: Run setup.sql (create tables & insert data)
+        run: |
+          docker exec -i ${{ job.services.sqlserver.id }} \
+          /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P 'YourStrong@Pass123' -d master \
+          < ./Leetcode/175/setup.sql
+
+      - name: Run query.sql and save output
+        run: |
+          docker exec -i ${{ job.services.sqlserver.id }} \
+          /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P 'YourStrong@Pass123' -d master -W -s "," \
+          < ./Leetcode/175/query.sql > query_results.csv
+
       - name: Upload query results
         uses: actions/upload-artifact@v4
         with:

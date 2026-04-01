@@ -28,3 +28,6 @@ jobs:
 
       - name: Run subscription_conversion.py
         run: python Leetcode/3497/subscription_conversion.py
+      
+      - name: Run pandasQuery.py
+        run: python Leetcode/175/pandasQuery.py
