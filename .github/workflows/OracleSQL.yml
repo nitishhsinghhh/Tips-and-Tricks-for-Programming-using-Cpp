@@ -51,12 +51,12 @@ jobs:
             sqlplus -S system/MyPlainPassword123@//localhost:1521/XEPDB1 @/dev/stdin" < ./Leetcode/3497/OracleQuery.sql > oracle_query_results.csv
           echo "OracleQuery.sql executed, results saved to oracle_query_results.csv"
     
-      - name: Run oracleQuery.sql
+      - name: Run oracleSetup.sql
         run: |
-          echo "Running oracleQuery.sql..."
+          echo "Running oracleSetup.sql..."
           docker exec -i ${{ job.services.oracle.id }} bash -c "\
-            echo 'Executing oracleQuery.sql'; \
-            sqlplus -S system/MyPlainPassword123@//localhost:1521/XEPDB1 @/dev/stdin" < ./Leetcode/175/oracleQuery.sql
+            echo 'Executing oracleSetup.sql'; \
+            sqlplus -S system/MyPlainPassword123@//localhost:1521/XEPDB1 @/dev/stdin" < ./Leetcode/175/oracleSetup.sql
       
       - name: Run oracleQuery.sql and save output
         run: |

@@ -41,7 +41,14 @@ jobs:
         run: |
           docker exec -i ${{ job.services.sqlserver.id }} \
           /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P 'YourStrong@Pass123' -d master -W -s "," \
-          < ./Leetcode/3497/query.sql > query_results.csv
+          < ./Leetcode/3497/query.sql > query_results_3497.csv
+
+      - name: Upload query results
+        uses: actions/upload-artifact@v4
+        with:
+          name: query-results
+          path: query_results.csv
+
 
 
       - name: Run setup.sql (create tables & insert data)
@@ -54,7 +61,7 @@ jobs:
         run: |
           docker exec -i ${{ job.services.sqlserver.id }} \
           /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P 'YourStrong@Pass123' -d master -W -s "," \
-          < ./Leetcode/175/query.sql > query_results.csv
+          < ./Leetcode/175/query.sql > query_results_175.csv
 
       - name: Upload query results
         uses: actions/upload-artifact@v4
