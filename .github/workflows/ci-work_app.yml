@@ -1,4 +1,4 @@
-name: C++ CI Working Application - String Conversion
+name: C++ CI Working Application both build and test
 
 on:
   push:
@@ -15,18 +15,32 @@ jobs:
         build_type: [Debug, Release]
 
     steps:
-      - uses: actions/checkout@v4
+      # Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Install dependencies
+      # Install compiler & CMake
+      - name: Install compiler and CMake
         run: sudo apt-get update && sudo apt-get install -y build-essential cmake
 
-      - name: Configure
+      # Show directory structure (Debug)
+      - name: Show directory structure
+        run: ls -R
+
+      # Configure project with CMake
+      - name: Configure String Conversion
         run: cmake -S Working_Application/String_Conversion \
-                   -B build \
+                   -B Working_Application/String_Conversion/build \
                    -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
 
-      - name: Build
-        run: cmake --build build --parallel
+      # Build application and tests
+      - name: Build project
+        run: cmake --build Working_Application/String_Conversion/build --parallel
 
-      - name: Run Tests
-        run: ctest --output-on-failure --test-dir build
+      # Run tests with CTest
+      - name: Run String Conversion Tests
+        run: ctest --output-on-failure --test-dir Working_Application/String_Conversion/build
+
+      # Run tests with logs
+      - name: Run String Conversion Tests with Logs
+        run: ./Working_Application/String_Conversion/build/runTests --gtest_output=console --gtest_brief=0
