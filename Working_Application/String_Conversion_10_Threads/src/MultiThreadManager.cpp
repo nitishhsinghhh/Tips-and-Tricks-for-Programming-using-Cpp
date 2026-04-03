@@ -5,12 +5,13 @@
 std::vector<std::string> MultiThreadManager::processStrings(
     const IStringConversion& converter,
     const std::vector<std::string>& inputs,
-    int numThreads)
-{
+    int numThreads) {
+        
     int total = inputs.size();
 
     // Edge case
-    if (total == 0) return {};
+    if (total == 0) 
+        return {};
 
     // Avoid useless threads
     numThreads = std::min(numThreads, total);
@@ -25,7 +26,8 @@ std::vector<std::string> MultiThreadManager::processStrings(
         int start = i * chunkSize;
         int end = std::min(start + chunkSize, total);
 
-        if (start >= total) break;
+        if (start >= total) 
+            break;
 
         threads.emplace_back([&converter, &inputs, &results, start, end]() {
             for (int j = start; j < end; ++j) {
