@@ -24,7 +24,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Cache apt packages to speed up subsequent runs
+      # Cache apt packages 
       - name: Cache apt packages
         uses: actions/cache@v4
         with:

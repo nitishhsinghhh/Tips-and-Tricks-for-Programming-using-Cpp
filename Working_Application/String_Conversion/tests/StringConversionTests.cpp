@@ -1,3 +1,6 @@
+/*********************************************************************/
+/* header here */
+/*********************************************************************/
 #include <gtest/gtest.h>
 #include <iostream>
 
@@ -194,6 +197,7 @@ TEST(ClientTest, NoStrategySet) {
     EXPECT_EQ(client.execute("Hello"), "Hello");
 }
 
+
 //
 // ======================================================
 // 6. PROCESS STRING TESTS
@@ -201,9 +205,26 @@ TEST(ClientTest, NoStrategySet) {
 //
 
 TEST(ProcessStringTest, BasicFlow) {
-    EXPECT_EQ(processString("Hello", 1), "hello");
-    EXPECT_EQ(processString("Hello", 2), "HELLO");
-    EXPECT_EQ(processString("Hello", 7), "olleH");
+    EXPECT_EQ(processString("Hello", 1), "hello");       // Lower
+    EXPECT_EQ(processString("Hello", 2), "HELLO");       // Upper
+    EXPECT_EQ(processString("hello world", 3), "Hello World"); // Capitalize
+    EXPECT_EQ(processString("hELLO wORLD", 4), "Hello world"); // Sentence
+    EXPECT_EQ(processString("HeLLo", 5), "hEllO");       // Toggle
+    EXPECT_EQ(processString("hello world", 6), "HeLlO WoRlD"); // Alternating
+    EXPECT_EQ(processString("Hello", 7), "olleH");       // Reverse
+}
+
+TEST(ProcessStringTest, AdvancedChoices) {
+    EXPECT_EQ(processString("Hello World", 8), "Hll Wrld");       // RemoveVowels
+    EXPECT_EQ(processString("Hello World", 9), "HelloWorld");     // RemoveSpaces
+    EXPECT_EQ(processString("Hello World", 10), "olleH dlroW");   // InvertWords
+    EXPECT_EQ(processString("Hello World", 11), "hello_world");   // SnakeCase
+    EXPECT_EQ(processString("Hello World", 12), "hello-world");   // KebabCase
+    EXPECT_EQ(processString("Test", 13), "7357");                 // LeetSpeak
+}
+
+TEST(ProcessStringTest, InvalidChoice) {
+    EXPECT_EQ(processString("Hello", 99), "Hello");
 }
 
 //

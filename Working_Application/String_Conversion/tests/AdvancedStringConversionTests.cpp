@@ -1,4 +1,9 @@
+/*********************************************************************/
+/* header here */
+/*********************************************************************/
+
 #include <gtest/gtest.h>
+#include "TestHelpers.hpp"
 
 // ---------------------------
 // Core Includes
@@ -94,6 +99,17 @@ TEST(ProcessStringTest, ProcessStringAlternating) {
     logConversion("ProcessString Alternating", input, output);
 
     EXPECT_EQ(output, "HeLlO WoRlD!");
+}
+
+TEST(ProcessStringTest, ProcessStringReverse) {
+    std::string input = "Hello World!";
+    int choice = 7; // Reverse
+
+    std::string output = processString(input, choice);
+
+    logConversion("ProcessString Reverse", input, output);
+
+    EXPECT_EQ(output, "!dlroW olleH");
 }
 
 // ============================================================
