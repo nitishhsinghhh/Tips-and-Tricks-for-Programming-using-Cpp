@@ -35,6 +35,11 @@ jobs:
         working-directory: ${{ matrix.dir }}
         run: ./main
 
+      - name: Debug matrix values
+        run: |
+          echo "NAME=${{ matrix.name }}"
+          echo "DIR=${{ matrix.dir }}"
+
       - uses: actions/upload-artifact@v5
         with:
             name: ${{ matrix.name }}-output
