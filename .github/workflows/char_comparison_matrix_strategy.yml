@@ -1,0 +1,33 @@
+name: C++ CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        version:
+          - ASCII/CharacterComparison/code/CompareTwoCharacters
+          - ASCII/CharacterComparison/code/CompareTwoCharacters_V1.1
+          - ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2   
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install compiler
+        run: sudo apt-get update && sudo apt-get install -y g++
+
+      - name: Compile main.cpp
+        working-directory: ${{ matrix.version }}
+        run: g++ main.cpp -o main
+
+      - name: Run program
+        working-directory: ${{ matrix.version }}
+        run: ./main
