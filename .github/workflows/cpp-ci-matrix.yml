@@ -26,8 +26,13 @@ jobs:
 
       - name: Compile main.cpp
         working-directory: ${{ matrix.version }}
-        run: g++ main.cpp -o main
+        run: g++ -std=c++17 -Wall -Wextra -O2 main.cpp -o main
 
       - name: Run program
         working-directory: ${{ matrix.version }}
         run: ./main
+
+      - uses: actions/upload-artifact@v5
+        with:
+            name: ${{ matrix.version }}-output
+            path: ${{ matrix.version }}/main
