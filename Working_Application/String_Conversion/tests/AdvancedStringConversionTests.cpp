@@ -92,7 +92,7 @@ TEST(ClientTest, ExecuteStrategyWithLog) {
 
 TEST(ProcessStringTest, ProcessStringAlternating) {
     std::string input = "Hello World!";
-    int choice = 6; // Alternating case
+    int choice = 1; // Alternating case
 
     std::string output = processString(input, choice);
 
