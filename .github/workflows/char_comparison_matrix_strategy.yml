@@ -1,4 +1,4 @@
-name: C++ CI
+name: C++ CI with Matrix Strategy
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
         version:
           - ASCII/CharacterComparison/code/CompareTwoCharacters
           - ASCII/CharacterComparison/code/CompareTwoCharacters_V1.1
-          - ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2   
+          - ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2 
 
     steps:
       - name: Checkout repository
