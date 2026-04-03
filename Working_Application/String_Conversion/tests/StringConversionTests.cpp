@@ -205,13 +205,13 @@ TEST(ClientTest, NoStrategySet) {
 //
 
 TEST(ProcessStringTest, BasicFlow) {
+    EXPECT_EQ(processString("hello world", 1), "HeLlO WoRlD"); // Alternating
+    EXPECT_EQ(processString("hello world", 2), "Hello World"); // Capitalize
     EXPECT_EQ(processString("Hello", 3), "hello");       // Lower
     EXPECT_EQ(processString("Hello", 4), "HELLO");       // Upper
-    EXPECT_EQ(processString("hello world", 5), "Hello World"); // Capitalize
-    EXPECT_EQ(processString("hELLO wORLD", 6), "Hello world"); // Sentence
-    EXPECT_EQ(processString("HeLLo", 7), "hEllO");       // Toggle
-    EXPECT_EQ(processString("hello world", 8), "HeLlO WoRlD"); // Alternating
-    EXPECT_EQ(processString("Hello", 9), "olleH");       // Reverse
+    EXPECT_EQ(processString("hELLO wORLD", 5), "Hello world"); // Sentence
+    EXPECT_EQ(processString("HeLLo", 6), "hEllO");       // Toggle
+    EXPECT_EQ(processString("Hello", 7), "olleH");       // Reverse
 }
 
 TEST(ProcessStringTest, AdvancedChoices) {
