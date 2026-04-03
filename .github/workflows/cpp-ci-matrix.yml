@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-       matrix:
-         include:
+      matrix:
+        include:
           - name: V1
             dir: ASCII/CharacterComparison/code/CompareTwoCharacters
           - name: V1.1
@@ -23,6 +23,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      # Cache apt packages to speed up subsequent runs
+      - name: Cache apt packages
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt
+          key: ${{ runner.os }}-apt-${{ hashFiles('.github/workflows/*.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-apt-
 
       - name: Install compiler
         run: sudo apt-get update && sudo apt-get install -y g++
@@ -40,7 +49,8 @@ jobs:
           echo "NAME=${{ matrix.name }}"
           echo "DIR=${{ matrix.dir }}"
 
-      - uses: actions/upload-artifact@v5
+      - name: Upload artifact (${{ matrix.name }})
+        uses: actions/upload-artifact@v5
         with:
-            name: ${{ matrix.name }}-output
-            path: ${{ matrix.dir }}/main
+          name: ${{ matrix.name }}-output
+          path: ${{ matrix.dir }}/main
