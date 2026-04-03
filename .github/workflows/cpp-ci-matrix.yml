@@ -1,4 +1,4 @@
-name: C++ CI with Matrix Strategy charcater comparison
+name: C++ CI with Matrix Strategy character comparison
 
 on:
   push:
@@ -11,11 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      matrix:
-        version:
-          - ASCII/CharacterComparison/code/CompareTwoCharacters
-          - ASCII/CharacterComparison/code/CompareTwoCharacters_V1.1
-          - ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2 
+       matrix:
+         include:
+          - name: V1
+            dir: ASCII/CharacterComparison/code/CompareTwoCharacters
+          - name: V1.1
+            dir: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.1
+          - name: V1.2
+            dir: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2
 
     steps:
       - name: Checkout repository
@@ -25,14 +28,14 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y g++
 
       - name: Compile main.cpp
-        working-directory: ${{ matrix.version }}
+        working-directory: ${{ matrix.dir }}
         run: g++ -std=c++17 -Wall -Wextra -O2 main.cpp -o main
 
       - name: Run program
-        working-directory: ${{ matrix.version }}
+        working-directory: ${{ matrix.dir }}
         run: ./main
 
       - uses: actions/upload-artifact@v5
         with:
-            name: ${{ matrix.version }}-output
-            path: ${{ matrix.version }}/main
+            name: ${{ matrix.name }}-output
+            path: ${{ matrix.dir }}/main
