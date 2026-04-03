@@ -1,0 +1,32 @@
+name: C++ CI Working Application - String Conversion
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y build-essential cmake
+
+      - name: Configure
+        run: cmake -S Working_Application/String_Conversion \
+                   -B build \
+                   -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+
+      - name: Build
+        run: cmake --build build --parallel
+
+      - name: Run Tests
+        run: ctest --output-on-failure --test-dir build
