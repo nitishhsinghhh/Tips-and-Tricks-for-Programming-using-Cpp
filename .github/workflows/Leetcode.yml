@@ -1,4 +1,4 @@
-name: C++ CI
+name: C++ CI Leetcode Solutions
 
 on:
   push:
