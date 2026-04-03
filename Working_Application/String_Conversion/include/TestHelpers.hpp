@@ -1,17 +1,32 @@
+/*********************************************************************/
+/* $Header: TestHelpers.hpp                                          */
+/*                                                                   */
+/* Copyright (c) 2016-2026 nitishhsinghh. All rights reserved.       */
+/* This material may be reproduced for teaching and learning         */
+/* purposes only. It is not to be used in industry or for            */
+/* commercial purposes.                                              */
+/*                                                                   */
+/* File        - TestHelpers.hpp                                      */
+/*                                                                   */
+/* Description - Provides utility functions for logging string      */
+/*               conversions during tests. Used to visualize        */
+/*               input/output for various IStringConversion         */
+/*               strategies in unit tests.                           */
+/*                                                                   */
+/* Notes       - Contains inline helper functions for GoogleTest    */
+/*               or other test frameworks.                           */
+/*                                                                   */
+/* $Log: TestHelpers.hpp                                             */
+/*********************************************************************/
+
 #ifndef TEST_HELPERS_HPP
 #define TEST_HELPERS_HPP
 
+/*********************************************************************/
+/* Dependencies                                                      */
+/*********************************************************************/
 #include <string>
 #include <iostream>
-
-/**
- * @file TestHelpers.hpp
- * @brief Provides utility functions for logging string conversions during tests.
- *
- * This header defines helper functions used in unit tests to log
- * the input and output of string conversion strategies. It helps
- * visualize transformations when running GoogleTest suites.
- */
 
 /**
  * @brief Logs the result of a string conversion.

@@ -1,18 +1,40 @@
+/*********************************************************************/
+/* $Header: SentenceCaseConversion.hpp                               */
+/*                                                                   */
+/* Copyright (c) 2016-2026 nitishhsinghh. All rights reserved.       */
+/* This material may be reproduced for teaching and learning         */
+/* purposes only. It is not to be used in industry or for            */
+/* commercial purposes.                                              */
+/*                                                                   */
+/* File        - SentenceCaseConversion.hpp                           */
+/*                                                                   */
+/* Description - Concrete implementation of IStringConversion that   */
+/*               converts a string to sentence case.                */
+/*               Capitalizes the first character of the string      */
+/*               and converts the remaining characters to lowercase.*/
+/*                                                                   */
+/* Notes       - Useful for formatting text in proper sentence style*/
+/*                                                                   */
+/* $Log: SentenceCaseConversion.hpp                                  */
+/*********************************************************************/
+
 #ifndef SENTENCECASECONVERSION_HPP
 #define SENTENCECASECONVERSION_HPP
 
+/*********************************************************************/
+/* Dependencies                                                      */
+/*********************************************************************/
 #include "IStringConversion.hpp"
+#include <string>
 
 /**
  * @class SentenceCaseConversion
- * @brief Converts a string to sentence case.
+ * @brief Concrete implementation of IStringConversion that converts a string to sentence case.
  *
- * This class implements the IStringConversion interface.
- * It capitalizes the first character of the string and converts
- * the rest to lowercase. Useful for formatting text in a
- * proper sentence style.
+ * This class transforms input strings by capitalizing the first character
+ * and converting the remaining characters to lowercase.
  *
- * Example:
+ * Example usage:
  * @code
  * SentenceCaseConversion conv;
  * std::string result = conv.convert("hELLO WORLD");

@@ -1,6 +1,28 @@
+/*********************************************************************/
+/* $Header: IStringConversion.hpp                                    */
+/*                                                                   */
+/* Copyright (c) 2016-2026 nitishhsinghh. All rights reserved.       */
+/* This material may be reproduced for teaching and learning         */
+/* purposes only. It is not to be used in industry or for            */
+/* commercial purposes.                                              */
+/*                                                                   */
+/* Class       - IStringConversion                                   */
+/*                                                                   */
+/* Description - Interface defining contract for string conversion   */
+/*               strategies.                                         */
+/*                                                                   */
+/* Notes       - Base interface for all string transformation        */
+/*               implementations (e.g., lower, upper, toggle case).  */
+/*                                                                   */
+/* $Log: IStringConversion.hpp                                       */
+/*********************************************************************/
+
 #ifndef ISTRINGCONVERSION_HPP
 #define ISTRINGCONVERSION_HPP
 
+/*********************************************************************/
+/* Dependencies                                                      */
+/*********************************************************************/
 #include <string>
 
 /**
@@ -8,14 +30,6 @@
  * @brief Interface for string conversion strategies.
  *
  * This interface defines a common API for all string conversion strategies.
- * Implementing classes provide specific conversions such as lower case, 
- * upper case, sentence case, toggle case, and capitalization of words.
- *
- * Example usage:
- * @code
- * std::unique_ptr<IStringConversion> strategy = std::make_unique<LowerCaseConversion>();
- * std::string result = strategy->convert("HELLO"); // result == "hello"
- * @endcode
  */
 class IStringConversion {
 public:

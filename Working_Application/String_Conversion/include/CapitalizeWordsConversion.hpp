@@ -1,6 +1,28 @@
+/*********************************************************************/
+/* $Header: CapitalizeWordsConversion.hpp                            */
+/*                                                                   */
+/* Copyright (c) 2016-2026 nitishhsinghh. All rights reserved.       */
+/* This material may be reproduced for teaching and learning         */
+/* purposes only. It is not to be used in industry or for            */
+/* commercial purposes.                                              */
+/*                                                                   */
+/* Class       - CapitalizeWordsConversion                           */
+/*                                                                   */
+/* Description - Converts input string by capitalizing the first     */
+/*               letter of each word while making remaining letters  */
+/*               lowercase.                                          */
+/*                                                                   */
+/* Notes       - Implements IStringConversion interface              */
+/*                                                                   */
+/* $Log: CapitalizeWordsConversion.hpp                               */
+/*********************************************************************/
+
 #ifndef CAPITALIZEWORDSCONVERSION_HPP
 #define CAPITALIZEWORDSCONVERSION_HPP
 
+/*********************************************************************/
+/* Dependencies                                                      */
+/*********************************************************************/
 #include "IStringConversion.hpp"
 
 /**
@@ -8,16 +30,9 @@
  * @brief Concrete implementation of IStringConversion that capitalizes
  *        the first letter of each word in a string.
  *
- * This class implements the IStringConversion interface. It transforms
- * input strings so that each word starts with an uppercase letter and
- * the rest of the letters are lowercase.
- *
  * Example:
- * @code
- * CapitalizeWordsConversion conv;
- * std::string result = conv.convert("hello world");
- * // result == "Hello World"
- * @endcode
+ * Input  : "hello world"
+ * Output : "Hello World"
  */
 class CapitalizeWordsConversion : public IStringConversion {
 public:

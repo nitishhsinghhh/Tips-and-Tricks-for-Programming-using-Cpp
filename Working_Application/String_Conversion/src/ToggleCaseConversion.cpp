@@ -1,14 +1,47 @@
+/*********************************************************************/
+/* $Header: ToggleCaseConversion.cpp                                 */
+/*                                                                   */
+/* Copyright (c) 2016-2026 nitishhsinghh. All rights reserved.       */
+/* This material may be reproduced for teaching and learning         */
+/* purposes only. It is not to be used in industry or for            */
+/* commercial purposes.                                              */
+/*                                                                   */
+/* Class       - ToggleCaseConversion                                */
+/*                                                                   */
+/* Description - Toggles the case of alphabetic characters in the    */
+/*               input string (lowercase to uppercase and vice versa)*/
+/*                                                                   */
+/* Notes       - Reuses LowerCaseConversion and UpperCaseConversion  */
+/*               Non-alphabetic characters unchanged                 */
+/*                                                                   */
+/* $Log: ToggleCaseConversion.cpp                                    */
+/*********************************************************************/
+
+/*********************************************************************/
+/* Dependencies                                                      */
+/*********************************************************************/
 #include "ToggleCaseConversion.hpp"
-#include <cctype>
+#include "LowerCaseConversion.hpp"
+#include "UpperCaseConversion.hpp"
 
 std::string ToggleCaseConversion::convert(const std::string& input) const {
-    std::string result = input;
+    LowerCaseConversion lowerConv;
+    UpperCaseConversion upperConv;
 
-    for (auto &c : result) {
-        if (std::islower(static_cast<unsigned char>(c)))
-            c = std::toupper(static_cast<unsigned char>(c));
-        else if (std::isupper(static_cast<unsigned char>(c)))
-            c = std::tolower(static_cast<unsigned char>(c));
+    std::string result;
+
+    for (char c : input) {
+        if ((c >= 'a' && c <= 'z')) {
+            std::string temp(1, c);
+            result += upperConv.convert(temp);
+        }
+        else if ((c >= 'A' && c <= 'Z')) {
+            std::string temp(1, c);
+            result += lowerConv.convert(temp);
+        }
+        else {
+            result += c;
+        }
     }
 
     return result;

@@ -1,16 +1,41 @@
+/*********************************************************************/
+/* $Header: UpperCaseConversion.hpp                                  */
+/*                                                                   */
+/* Copyright (c) 2016-2026 nitishhsinghh. All rights reserved.       */
+/* This material may be reproduced for teaching and learning         */
+/* purposes only. It is not to be used in industry or for            */
+/* commercial purposes.                                              */
+/*                                                                   */
+/* File        - UpperCaseConversion.hpp                              */
+/*                                                                   */
+/* Description - Concrete implementation of IStringConversion that  */
+/*               converts all alphabetic characters of a string to  */
+/*               uppercase. Non-alphabetic characters remain        */
+/*               unchanged.                                          */
+/*                                                                   */
+/* Notes       - Useful for formatting text in all-uppercase style  */
+/*               or normalizing string data for comparisons.        */
+/*                                                                   */
+/* $Log: UpperCaseConversion.hpp                                      */
+/*********************************************************************/
+
 #ifndef UPPERCASECONVERSION_HPP
 #define UPPERCASECONVERSION_HPP
 
+/*********************************************************************/
+/* Dependencies                                                      */
+/*********************************************************************/
 #include "IStringConversion.hpp"
+#include <string>
 
 /**
  * @class UpperCaseConversion
  * @brief Converts a string to uppercase.
  *
- * All alphabetic characters in the input string are converted to uppercase.
+ * Implements the IStringConversion interface.
  * Non-alphabetic characters remain unchanged.
  *
- * Usage example:
+ * Example usage:
  * @code
  * UpperCaseConversion upper;
  * std::string result = upper.convert("Hello World!");

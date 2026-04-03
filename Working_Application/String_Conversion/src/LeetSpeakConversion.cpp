@@ -1,3 +1,26 @@
+/*********************************************************************/
+/* $Header: LeetSpeakConversion.cpp                                  */
+/*                                                                   */
+/* Copyright (c) 2016-2026 nitishhsinghh. All rights reserved.       */
+/* This material may be reproduced for teaching and learning         */
+/* purposes only. It is not to be used in industry or for            */
+/* commercial purposes.                                              */
+/*                                                                   */
+/* Class       - LeetSpeakConversion                                 */
+/*                                                                   */
+/* Description - Converts input string into leetspeak format by      */
+/*               replacing certain alphabetic characters with        */
+/*               numeric representations.                            */
+/*                                                                   */
+/* Notes       - Uses unordered_map for character mapping            */
+/*               Preserves characters not in mapping                 */
+/*                                                                   */
+/* $Log: LeetSpeakConversion.cpp                                     */
+/*********************************************************************/
+
+/*********************************************************************/
+/* Dependencies                                                      */
+/*********************************************************************/
 #include "LeetSpeakConversion.hpp"
 #include <unordered_map>
 

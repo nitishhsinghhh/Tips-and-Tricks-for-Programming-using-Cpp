@@ -1,6 +1,28 @@
+/*********************************************************************/
+/* $Header: Client.hpp                                               */
+/*                                                                   */
+/* Copyright (c) 2016-2026 nitishhsinghh. All rights reserved.       */
+/* This material may be reproduced for teaching and learning         */
+/* purposes only. It is not to be used in industry or for            */
+/* commercial purposes.                                              */
+/*                                                                   */
+/* Class       - Client                                              */
+/*                                                                   */
+/* Description - Context class implementing Strategy design pattern */
+/*               to execute string conversion strategies.            */
+/*                                                                   */
+/* Notes       - Delegates conversion logic to IStringConversion     */
+/*               implementations.                                    */
+/*                                                                   */
+/* $Log: Client.hpp                                                  */
+/*********************************************************************/
+
 #ifndef CLIENT_HPP
 #define CLIENT_HPP
 
+/*********************************************************************/
+/* Dependencies                                                      */
+/*********************************************************************/
 #include <memory>
 #include <string>
 #include "IStringConversion.hpp"
@@ -9,17 +31,11 @@
  * @class Client
  * @brief Context class for executing string conversion strategies.
  *
- * The Client class follows the Strategy design pattern. It holds a 
- * reference to an IStringConversion strategy and delegates the string
- * conversion operation to the current strategy.
- *
- * Example usage:
- * @code
+ * Example:
  * auto strategy = std::make_unique<LowerCaseConversion>();
  * Client client;
  * client.setStrategy(std::move(strategy));
- * std::string result = client.execute("HELLO"); // result == "hello"
- * @endcode
+ * std::string result = client.execute("HELLO"); // "hello"
  */
 class Client {
 private:
@@ -36,8 +52,8 @@ public:
     /**
      * @brief Executes the current strategy on the given input string.
      * @param input The string to convert.
-     * @return The converted string according to the current strategy. 
-     *         Returns the original input if no strategy is set.
+     * @return The converted string according to the current strategy.
+     *         Returns original input if no strategy is set.
      */
     std::string execute(const std::string& input) const;
 };

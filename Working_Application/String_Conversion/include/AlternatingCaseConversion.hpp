@@ -1,6 +1,28 @@
+/*********************************************************************/
+/* $Header: AlternatingCaseConversion.hpp                            */
+/*                                                                   */
+/* Copyright (c) 2016-2026 nitishhsinghh. All rights reserved.       */
+/* This material may be reproduced for teaching and learning         */
+/* purposes only. It is not to be used in industry or for            */
+/* commercial purposes.                                              */
+/*                                                                   */
+/* Class       - AlternatingCaseConversion                           */
+/*                                                                   */
+/* Description - Converts input string into alternating case format  */
+/*               (uppercase/lowercase alternation starting with      */
+/*               uppercase).                                         */
+/*                                                                   */
+/* Notes       - Implements IStringConversion interface              */
+/*                                                                   */
+/* $Log: AlternatingCaseConversion.hpp                               */
+/*********************************************************************/
+
 #ifndef ALTERNATINGCASECONVERSION_HPP
 #define ALTERNATINGCASECONVERSION_HPP
 
+/*********************************************************************/
+/* Dependencies                                                      */
+/*********************************************************************/
 #include "IStringConversion.hpp"
 
 /**
@@ -8,16 +30,9 @@
  * @brief Concrete implementation of IStringConversion that alternates
  *        the case of each character in a string.
  *
- * This class implements the IStringConversion interface. It transforms
- * input strings so that characters alternate between uppercase and lowercase,
- * starting with uppercase.
- *
  * Example:
- * @code
- * AlternatingCaseConversion conv;
- * std::string result = conv.convert("hello world");
- * // result == "HeLlO WoRlD"
- * @endcode
+ * Input  : "hello world"
+ * Output : "HeLlO WoRlD"
  */
 class AlternatingCaseConversion : public IStringConversion {
 public:
