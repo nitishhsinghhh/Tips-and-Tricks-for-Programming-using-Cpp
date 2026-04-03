@@ -1,0 +1,57 @@
+name: C++ CI/CD Linux character comparison
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-test-upload:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        include:
+          - name: V1
+            dir: ASCII/CharacterComparison/code/CompareTwoCharacters
+            output: CompareTwoCharacters_V1
+
+          - name: V1.1
+            dir: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.1
+            output: CompareTwoCharacters_V1.1
+
+          - name: V1.2
+            dir: ASCII/CharacterComparison/code/CompareTwoCharacters_V1.2
+            output: CompareTwoCharacters_V1.2
+
+    steps:
+      # Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Install compiler
+      - name: Install g++ compiler
+        run: sudo apt-get update && sudo apt-get install -y build-essential
+
+      # Compile
+      - name: Compile ${{ matrix.name }}
+        working-directory: ${{ matrix.dir }}
+        run: g++ main.cpp -o ${{ matrix.output }}
+
+      # Run program
+      - name: Run ${{ matrix.name }}
+        working-directory: ${{ matrix.dir }}
+        run: ./${{ matrix.output }}
+
+      # List files (debug)
+      - name: List files
+        working-directory: ${{ matrix.dir }}
+        run: ls -l
+
+      # Upload artifact
+      - name: Upload ${{ matrix.name }} artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: ${{ matrix.name }}
+          path: ${{ matrix.dir }}/${{ matrix.output }}

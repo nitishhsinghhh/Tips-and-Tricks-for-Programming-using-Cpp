@@ -1,4 +1,4 @@
-name: C++ CI with Matrix Strategy
+name: C++ CI with Matrix Strategy charcater comparison
 
 on:
   push:
