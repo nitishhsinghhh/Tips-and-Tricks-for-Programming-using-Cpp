@@ -10,6 +10,7 @@ No matter your skill level, this repository is a great place to learn and grow. 
 
 This repository is organized by core C++ and Computer Science topics.
 Each folder focuses on a specific concept or learning area.
+
 ```cpp
 ├── .github
 │   └── workflows
@@ -34,6 +35,7 @@ Each folder focuses on a specific concept or learning area.
 ├── LICENSE.md
 └── README.md
 ```
+
 ## How to use it
 
 Everything below is an outline, and you should tackle the items in order from top to bottom.
@@ -76,7 +78,6 @@ Create a new branch so you can check items like this, just put an x in the brack
       git push                # pushes changes to your fork
     ```
 
-
 **[⬆ back to top](#tips-and-tricks-for-programming-using-cpp)**
 
 ## What You’ll Find Here
@@ -109,11 +110,13 @@ Typically C++ source code files are given the suffix:
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/assets/93253740/900ac352-6779-48de-9644-a069b0f0fef9)
 
 - Compile:
-g++ firstCode.cpp -o firstCode <br>
+g++ firstCode.cpp -o firstCode
+
 A compiler translates the C++ program into machine language code which it stores on the disk as a file with the extension .o (e.g. firstCode.o). A linker then links the object code with standard library routines that the program may use and creates an executable image which is also saved on disk, usually as a file with the file name without any extension (e.g. firstCode).
 
 - Execute:
-./firstCode <br>
+./firstCode
+
 The executable is loaded from the disk to memory and the computer’s CPU (Central Processing Unit) executes the program one instruction at a time.
 Alternatively, you can also use an online C++ compiler to run these programs without needing to install a compiler on your computer.
 
@@ -125,7 +128,7 @@ To compile and run these programs on your local machine, you'll need to have the
 
 1. Clone this repository to your local machine using git clone.
 
-```
+```bash
 git clone https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp.git
 ```
 
@@ -165,15 +168,15 @@ This repository follows **[Doxygen-style comments](https://micro-os-plus.github.
 
 ---
 
-### 📌 Commonly Used Doxygen Tags
+### Commonly Used Doxygen Tags
 
-| Tag        | Description |
-|------------|-------------|
-| `@brief`   | A short summary of the function/class/module. |
-| `@details` | A more detailed explanation, if needed. |
-| `@param`   | Describes each parameter of a function. |
-| `@return`  | Describes the return value of a function. |
-| `@note`    | Additional notes or important information. |
+| Tag        | Description                                       |
+|------------|-------------                                      |
+| `@brief`   | A short summary of the function/class/module.     |
+| `@details` | A more detailed explanation, if needed.           |
+| `@param`   | Describes each parameter of a function.           |
+| `@return`  | Describes the return value of a function.         |
+| `@note`    | Additional notes or important information.        |
 | `@warning` | Highlights potential issues or important caveats. |
 | `@see`     | References to related functions or documentation. |
 
