@@ -1,7 +1,9 @@
 # What Is Keyboard Input Mapping?
+
 Keyboard Input Mapping is the technique of translating a key press (like pressing the "A" key) into a meaningful action or symbol (like displaying "a" or triggering a command).
 
-##  Examples of Keyboard Input Mapping
+## Examples of Keyboard Input Mapping
+
  1. Character Mapping:
   Pressing A → outputs 'a' or 'A' depending on Shift/Caps Lock.
   Pressing 1 → outputs '1', or '!' with Shift.
@@ -15,12 +17,14 @@ Keyboard Input Mapping is the technique of translating a key press (like pressin
   On a French AZERTY keyboard, pressing the same physical key as Q on a US QWERTY keyboard might produce A.
 
 ## Why Is It Important?
+
 - Accessibility: Allows remapping for users with different needs.
 - Localization: Supports different languages and keyboard layouts.
 - Customization: Enables users to create shortcuts or macros.
 - Gaming & Software Development: Essential for input handling and control schemes.
 
-# Keyboard Input Mapping in C++
+## Keyboard Input Mapping in C++
+
 ```cpp
 /**
  * @file KeyboardInputMapper.cpp
@@ -119,7 +123,8 @@ int main() {
 }
 ```
 
-## Real-World Applications:
+## Real-World Applications
+
 - Game development: Detecting key presses for movement (WASD, arrows).
 - Terminal tools: Handling shortcuts like Ctrl+C, Enter, Backspace.
 - Custom input systems: Building your own text editor or command shell.

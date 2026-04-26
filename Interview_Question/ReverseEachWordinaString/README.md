@@ -21,7 +21,7 @@ We approach the problem in two main steps:
 
 We then rebuild the sentence using the reversed words, preserving the original word order.
 
-### Step-by-Step Algorithm:
+### Step-by-Step Algorithm
 
 1. Iterate through each character in the input string.
 2. Use a temporary string (`tmp`) to accumulate characters of the current word.
@@ -37,38 +37,52 @@ We then rebuild the sentence using the reversed words, preserving the original w
 ## C++ Concepts Used
 
 ### 1. std::string
+
 - Used for efficient string handling.
 - Supports indexing, concatenation, and dynamic sizing.
 
 ### 2. Range-based for loop
+
 ```cpp
 for (char c : s)
 ```
 
 Simplifies iteration over containers like std::string.
+
 ### 3. Pass-by-reference
+
 ```cpp
 string& s
 ```
+
 Avoids unnecessary copying of strings, improving performance.
+
 ### 4. In-place reversal using std::swap
+
 ```cpp
 std::swap(s[i], s[size - i - 1]);
 ```
+
 Efficiently reverses the string without extra space.
+
 ### 5. String concatenation
+
 ```cpp
 res += swapWords(tmp);
 res += ' ';
 ```
+
 Builds the final output one word at a time.
 
 ## Functions Explained
 
 ### string swapWords(string& s)
--  Reverses a string in-place using two-pointer technique.
--  Swaps characters from both ends moving toward the center.
+
+- Reverses a string in-place using two-pointer technique.
+- Swaps characters from both ends moving toward the center.
+
 ### string swapWordByWord(string& s)
+
 - Processes the sentence word by word.
 - Reverses each word individually using swapWords.
 - Builds and returns the transformed sentence.
@@ -112,6 +126,7 @@ int main() {
 ```
 
 ### Output
+
 ```cpp
 yM eman si hsitiN
 ```
@@ -122,7 +137,7 @@ yM eman si hsitiN
   Each character is visited once, and each word is reversed in linear time relative to its length.
 - Space Complexity: O(N), due to temporary strings used to construct the result.
 
-## Constraints:
+## Constraints
 
 - No <string> (we'll use C-style strings).
 - No std::swap.
@@ -184,6 +199,7 @@ int main() {
 ```
 
 ## Modern C++ with std::string
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -214,6 +230,3 @@ int main() {
     return 0;
 }
 ```
-}
-```
-

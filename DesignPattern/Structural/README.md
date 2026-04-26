@@ -1,4 +1,5 @@
 # Structural design patterns
+
 Structural design patterns in software engineering focus on how classes and objects can be composed to form larger structures. These patterns simplify the design by identifying the relationships between classes and objects and addressing the composition of these elements to create cohesive and flexible structures.
 
 Structural design patterns help in defining effective ways to build relationships between classes and objects, and they provide solutions to common design challenges related to class composition and object aggregation.

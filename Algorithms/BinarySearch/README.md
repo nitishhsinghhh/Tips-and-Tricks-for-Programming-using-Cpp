@@ -4,7 +4,7 @@ Binary search is an algorithm employed for searching in a sorted array by iterat
 
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/51e0fc30-d69d-44f6-9e14-504b51840de0)
 
-## Conditions for applying the Binary Search algorithm to a data structure:
+## Conditions for applying the Binary Search algorithm to a data structure
 
 1. The data structure must be sorted in ascending or descending order.
 2. Accessing any element within the data structure must take constant time.
@@ -15,12 +15,12 @@ Binary search is an algorithm employed for searching in a sorted array by iterat
 
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-Programming-using-Cpp/assets/93253740/9305617a-84d6-475b-a120-2bf6b4691821)
 
-2.Compare the middle element of the search space with the key: 
-   A. If the key is found at the middle element, the process is terminated. 
-   B. If the key is not found at the middle element, choose which half will be used as the next search space. 
+2.Compare the middle element of the search space with the key:
+   A. If the key is found at the middle element, the process is terminated.
+   B. If the key is not found at the middle element, choose which half will be used as the next search space.
       - If the key is smaller than the middle element, then the left side is used for the next search. <br
 
-- If the key is larger than the middle element, then the right side is used for the next search. 
+- If the key is larger than the middle element, then the right side is used for the next search.
 
 3. This process is continued until the key is found or the total search space is exhausted.
 
@@ -28,21 +28,21 @@ Binary search is an algorithm employed for searching in a sorted array by iterat
 
 The Binary Search Algorithm can be implemented in the following two ways:
 
-1. **Iterative Binary Search Algorithm:**
+1. Iterative Binary Search Algorithm:
    Here we use a while loop to continue the process of comparing the key and splitting the search space in two halves.
 
-2. **Recursive Binary Search Algorithm:**
+2. Recursive Binary Search Algorithm:
    Create a recursive function and compare the mid of the search space with the key. And based on the result either return the index where the key is found or call the recursive function for the next search space.
 
 ### Complexity Analysis of Binary Search
 
-**Time Complexity:**
+#### Time Complexity
 
 - Best Case: O(1)
 - Average Case: O(log N)
 - Worst Case: O(log N)
 
-**Auxiliary Space:** 
+#### Auxiliary Space
 
 - O(1), If the recursive call stack is considered then the auxiliary space will be O(logN).
 
@@ -52,14 +52,14 @@ The Binary Search Algorithm can be implemented in the following two ways:
 - At each iteration, We compute mid = (left + right)/2 and check whether mid * mid equals x.
 - Depending on the result, We shrink the search space to either the left half or the right half.
 
-**Size of the search space**
+### Size of the search space**
 
 - Initially, the search space is of size 𝑥(from 0 to 𝑥).
 - After the first iteration, the search space is halved: size 𝑥/2
 - After the second iteration, it is halved again: size 𝑥/4.
 - After 𝑘 iterations, the search space size is 𝑥/(2^𝑘).
 
-**When does the search stop?**
+### When does the search stop?
 
 - The loop continues until the search space reduces to size 1 (i.e., left > right).
 - So we need: 𝑥/(2^𝑘) ≤ 1
@@ -68,7 +68,7 @@ The Binary Search Algorithm can be implemented in the following two ways:
 
 Total Time Complexity = 𝑂(log𝑥)
 
-## CPP code exmaple 
+## CPP code exmaple
 
 ```cpp
 /**
@@ -200,7 +200,7 @@ So yes — binary search relies on the fact that the function (or condition) bei
 | Linear search  | O(n)            | O(1)           | O(1)  |
 | Binary search  | O(log n)        | O(1)           | O(1)  |
 
-### Implementation of Recursive  Binary Search Algorithm:
+### Implementation of Recursive  Binary Search Algorithm
 
 ```cpp
 /**
@@ -268,7 +268,7 @@ int main() {
 }
 ```
 
-### Implementation of Iterative  Binary Search Algorithm: 
+### Implementation of Iterative  Binary Search Algorithm
 
 ```cpp
 /**
@@ -360,7 +360,7 @@ bool binary_search( ForwardIt first, ForwardIt last, const T& value );
 template< class ForwardIt, class T >
 constexpr bool binary_search( ForwardIt first, ForwardIt last, const T& value );
 (since C++20)
-(2)	
+(2)
 template< class ForwardIt, class T, class Compare >
 bool binary_search( ForwardIt first, ForwardIt last,
                     const T& value, Compare comp );

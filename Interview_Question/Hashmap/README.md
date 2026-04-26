@@ -47,4 +47,3 @@ int main() {
 | std::map            | O(log n)    | Yes     | Red-black tree                |
 | vector              | O(n)        | Yes     | Fast iteration, slow lookup   |
 | set                 | O(log n)    | Yes     | Unique elements only          |
-

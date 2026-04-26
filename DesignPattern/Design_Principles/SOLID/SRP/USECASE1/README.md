@@ -46,6 +46,7 @@ int search(const std::vector<int>& arr, int target) const override {
 ```
 
 ### Binary Search
+
 Binary search works on sorted arrays. It repeatedly divides the array into two halves and checks whether the middle element is the target. It then either narrows the search to the left or right half depending on the comparison.
 
 ```cpp
@@ -69,6 +70,7 @@ int search(const std::vector<int>& arr, int target) const override {
 ```
 
 ### Factory Class
+
 The SearchAlgorithmFactory class is responsible for creating instances of the SearchAlgorithmBase derived classes based on the input.
 
 ```cpp
@@ -84,6 +86,7 @@ static std::unique_ptr<SearchAlgorithmBase> createSearchAlgorithm(SearchAlgorith
     }
 }
 ```
+
 This allows for flexibility in selecting the desired algorithm at runtime.
 
 ## Usage
@@ -120,13 +123,14 @@ To compile and run the code, follow these steps:
 1. Make sure you have a C++ compiler installed (e.g., g++).
 2. Download or clone the repository.
 3. Use the following command to compile the program:
-```
-bash
+
+```bash
 g++ -std=c++11 -o search search.cpp
 ```
+
 4. Run the program:
-```
-bash
+
+```bash
 ./search
 ```
 
@@ -137,6 +141,7 @@ Contributions are welcome! If you have any suggestions or improvements, feel fre
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-```
+
+```SH
 This `README.md` follows a clear structure and includes all necessary details for understanding, using, and contributing to the code in the repository.
 ```

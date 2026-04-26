@@ -76,7 +76,7 @@ int main() {
 }
 ```
 
-To solve the problem of counting perfect squares between two integers a and b without using built-in libraries like <cmath>, we can implement our own versions of sqrt and rounding functions.
+To solve the problem of counting perfect squares between two integers a and b without using built-in libraries like '<cmath>', we can implement our own versions of sqrt and rounding functions.
 
 ```cpp
 #include <iostream>
@@ -569,6 +569,7 @@ int main() {
  ## Use override and final consistently
 
 Why Use final and override Consistently?
+
 - **override**
 
 Ensures that a method is actually overriding a virtual method from the base class.
@@ -614,4 +615,3 @@ Use noexcept when a function is **guaranteed not to throw exceptions**. This:
 ```cpp
 int calculate(int n) const noexcept; // Safe: no exceptions thrown
 ```
-

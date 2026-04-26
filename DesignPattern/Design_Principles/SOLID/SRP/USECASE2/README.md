@@ -48,6 +48,7 @@ public:
     }
 };
 ```
+
 The AddString function does the following:
 
 - If the input string is empty, it returns an empty vector.
@@ -59,6 +60,7 @@ The AddString function does the following:
 The program includes 10 test cases to demonstrate the versatility of the ArrayListManager class with different input strings and delimiters.
 
 Example Test Cases
+
 1. Input: "apple,banana,cherry", Delimiter: ','
 2. Input: "red|green|blue", Delimiter: '|'
 3. Input: "1;2;3;4", Delimiter: ';'
@@ -75,24 +77,26 @@ Each test case will print the resulting list of substrings.
 ## Compilation and Execution
 
 ### Steps to compile and run the code:
+
 1. Ensure you have a C++ compiler installed (e.g., g++).
 2. Download or clone the repository.
 3. Compile the code using the following command:
 
-```
-bash
+```bash
 g++ -o array_list_manager array_list_manager.cpp
 ```
+
 4. Run the program:
-```
-bash
+
+```bash
 ./array_list_manager
 ```
 
 ## Output
 
 The program outputs the following for each test case:
-```
+
+```sh
 List 1:
 apple
 banana
@@ -154,6 +158,7 @@ Contributions are welcome! If you have any suggestions or improvements, feel fre
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-```
+
+```sh
 This `README.md` file provides a clear explanation of the program, including how to compile and run it, as well as examples of its output for various test cases.
 ```

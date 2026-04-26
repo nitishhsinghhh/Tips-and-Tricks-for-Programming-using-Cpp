@@ -54,8 +54,8 @@ No need for dynamic memory or shared pointers. Dependencies are statically resol
 
 ## ⚖️ Comparing CRTP to Traditional DI Methods
 
-| Method                  | Pros                                           | Cons                                           |
-|-------------------------|-----------------------------------------------|-----------------------------------------------|
-| **Constructor Injection** | Simple, explicit, and flexible at runtime    | Performance cost due to virtual function calls |
-| **Setter Injection**       | Allows delayed injection or replacement     | Prone to runtime errors if dependencies are not set properly |
-| **Service Locator**        | Centralized dependency management           | Tight coupling and harder testing             |
+| Method                     | Pros                                           | Cons                                                         |
+|-------------------------   |----------------------------------------------- |-----------------------------------------------               |
+| **Constructor Injection**  | Simple, explicit, and flexible at runtime      | Performance cost due to virtual function calls               |
+| **Setter Injection**       | Allows delayed injection or replacement        | Prone to runtime errors if dependencies are not set properly |
+| **Service Locator**        | Centralized dependency management              | Tight coupling and harder testing                            |

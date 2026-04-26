@@ -5,6 +5,7 @@ In the world of software development, creating code that not only works but is a
 This comprehensive guide will delve deep into the world of SOLID design principles. We’ll explore what each principle entails, why they matter, and how they can be applied in real-world software development scenarios. Whether you are a seasoned developer looking to reinforce your design skills or a newcomer eager to grasp the essentials of writing clean and maintainable code, this blog is for you.
 
 ## The Five SOLID Principles
+
 Before we dive in, let’s briefly introduce the five SOLID principles:
 
 1. **Single Responsibility Principle (SRP):** A class should have only one reason to change, meaning it should have a single responsibility.
@@ -17,14 +18,17 @@ Each of these principles serves as a building block for creating robust and main
 Let's dive into each principle with examples in C++.
 
 ### Single Responsibility Principle (SRP)
+
 The Single Responsibility Principle (SRP) is the first of the SOLID design principles. It states that a class should have only one reason to change, meaning it should have a single responsibility. In other words, a class should encapsulate a single, well-defined piece of functionality. This principle helps in making your code more maintainable, understandable, and easier to extend.
 
 #### Why SRP Matters
-When a class has multiple responsibilities, it becomes tightly coupled to different parts of your application. This makes it more challenging to maintain and test. If one responsibility changes, it can affect the entire class, potentially introducing bugs or requiring changes in unrelated areas. By adhering to SRP, you create classes that are more modular and less prone to unintended consequences. <br>
+
+When a class has multiple responsibilities, it becomes tightly coupled to different parts of your application. This makes it more challenging to maintain and test. If one responsibility changes, it can affect the entire class, potentially introducing bugs or requiring changes in unrelated areas. By adhering to SRP, you create classes that are more modular and less prone to unintended consequences.
 
 Let’s explore an example to demonstrate SRP in action. We’ll create a simple payroll system that calculates employee salaries and generates payroll reports.
 
 ##### Bad Practice
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -127,9 +131,11 @@ int main() {
     return 0;
 }
 ```
+
 In the above example, the PayrollSystem class handles both salary calculation and report generation. This violates SRP because it combines two distinct responsibilities.
 
 #### Good Practice
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -185,6 +191,7 @@ int main() {
     return 0;
 }
 ```
+
 In the refactored code:
 
 - The SalaryCalculator class is responsible for calculating employee salaries.
@@ -192,14 +199,17 @@ In the refactored code:
 Each class has a single, well-defined responsibility, adhering to SRP. This code is more modular and easier to maintain. Changes to salary calculation logic won’t impact report generation, and vice versa.
 
 ### Open-Closed Principle (OCP)
+
 The Open-Closed Principle (OCP) is the second principle in the SOLID design principles. It states that software entities (such as classes, modules, and functions) should be open for extension but closed for modification. In other words, you should be able to add new functionality to a system without altering its existing source code.
 
 #### Why OCP Matters
+
 OCP promotes a design that is both flexible and maintainable. When you adhere to this principle, you can introduce new features or make changes to your software without the risk of introducing bugs or affecting existing, working code. It encourages modular and reusable code, making your software more robust and adaptable.
 
 Let's illustrate OCP with a code example involving shapes and their area calculation.
 
-#### Bad Practice
+#### Bad Practice ()
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -253,6 +263,7 @@ int main() {
     return 0;
 }
 ```
+
 The above code has the following issues:
 
 - Lack of Extensibility: Adding a new shape (e.g., Triangle) would require modifying the existing codebase.
@@ -261,6 +272,7 @@ The above code has the following issues:
 - Difficulty in Testing: Testing the area calculation logic becomes challenging because it’s tightly coupled with shape classes.
 
 #### Refactored Code (Adhering to OCP)
+
 To adhere to the Open-Closed Principle, we'll introduce an interface for area calculation (AreaCalculatable) and a separate class (AreaCalculator) responsible for calculating areas. This allows us to add new shapes without modifying existing code.
 
 ```cpp
@@ -326,6 +338,7 @@ int main() {
     return 0;
 }
 ```
+
 In the refactored code:
 
 - We introduce the AreaCalculatable interface for shapes that can calculate their areas.
@@ -334,9 +347,10 @@ In the refactored code:
 With this design, adding a new shape (e.g., Triangle) is as simple as creating a new class that implements the AreaCalculatable interface, without needing to modify the AreaCalculator or existing shape classes. This demonstrates how adhering to the Open-Closed Principle leads to a more extensible and maintainable codebase.
 
 ### Liskov Substitution Principle (LSP)
+
 The Liskov Substitution Principle states that subtypes should be substitutable for their base types, meaning that objects of a superclass should be able to be replaced with objects of a subclass without altering the correctness of the program. This principle helps to ensure that objects of a subclass can be used interchangeably with objects of the superclass, without introducing any unexpected behavior.
 
-#### Bad Practice
+#### Bad Practice {}
 
 ```cpp
 #include <iostream>
@@ -374,9 +388,11 @@ int main() {
     return 0;
 }
 ```
+
 In this example, the Square class is a subclass of the Rectangle class, but the Square class overrides the setWidth and setHeight methods in a way that changes the contract of the class. This means that if an object of the Rectangle class is replaced with an object of the Square class, the behavior of the program may be unexpected.
 
-#### Good Practice
+#### Good Practice []
+
 ```cpp
 #include <iostream>
 
@@ -420,12 +436,15 @@ int main() {
     return 0;
 }
 ```
+
 In this example, the Square class has its own properties and methods, so the Square class can be used interchangeably with the Rectangle class, without introducing any unexpected behavior. This adheres to the Liskov Substitution Principle, making the code more maintainable and predictable.
 
 ### Interface Segregation Principle (ISP)
+
 The Interface Segregation Principle states that a class should not be forced to implement interfaces it does not use, meaning that a class should not be forced to implement methods it does not need. This principle encourages creating small, specific interfaces that are tailored to the needs of specific classes, rather than creating large, general interfaces that require classes to implement many methods they do not need.
 
-#### Bad Practice
+#### Bad Practice <>
+
 ```cpp
 #include <iostream>
 
@@ -455,9 +474,11 @@ int main() {
     return 0;
 }
 ```
+
 In this example, the Circle class is forced to implement the resize method, even though it is not needed. This violates the ISP principle because the class is being forced to implement methods that it does not need.
 
-#### Good Practice
+#### Good Practice >>
+
 ```cpp
 #include <iostream>
 
@@ -487,12 +508,15 @@ int main() {
     return 0;
 }
 ```
+
 In this example, the Circle class implements only the interfaces that it needs, adhering to the ISP principle, making the code more maintainable and flexible.
 
 ### Dependency Inversion Principle (DIP)
+
 The Dependency Inversion Principle states that high-level modules should not depend on low-level modules; both should depend on abstractions. This principle promotes a design where the high-level modules (such as the business logic) are not tightly coupled to the low-level modules (such as the data access layer), making the code more flexible and maintainable.
 
-#### Bad Practice
+#### Bad Practice <<>>
+
 ```cpp
 #include <iostream>
 
@@ -521,9 +545,11 @@ int main() {
     return 0;
 }
 ```
+
 In this example, the Order class depends on a specific implementation of a low-level module, the MySQLDatabase class. This violates the DIP principle because the Order class is tightly coupled to the specific implementation of the MySQLDatabase class.
 
-#### Good Practice
+#### Good Practice <<
+
 ```cpp
 #include <iostream>
 
@@ -561,4 +587,5 @@ int main() {
     return 0;
 }
 ```
+
 In this example, the Order class depends on an abstraction, the Database interface, rather than a specific implementation of a low-level module. This adheres to the DIP principle, making the code more flexible and maintainable. Now we can change the database to any other database by just creating a new implementation of the Database interface and injecting it into the Order class.

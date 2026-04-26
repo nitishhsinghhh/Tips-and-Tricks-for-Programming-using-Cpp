@@ -26,10 +26,10 @@ This repository uses **GitHub Actions** to automate **Continuous Integration (CI
 **Cross-Platform Executables:**
 
 | OS       | Executable                         |
-|----------|-----------------------------------|
-| Windows  | `CompareTwoCharacters_V1.2.exe`  |
-| Linux    | `CompareTwoCharacters_V1.2`      |
-| macOS    | `CompareTwoCharacters_V1.2`      |
+|----------|----------------------------------- |
+| Windows  | `CompareTwoCharacters_V1.2.exe`    |
+| Linux    | `CompareTwoCharacters_V1.2`        |
+| macOS    | `CompareTwoCharacters_V1.2`        |
 
 Artifacts can be downloaded from GitHub Actions → Workflow Run → Artifacts.
 

@@ -1,19 +1,49 @@
-🚫 𝗔𝘃𝗼𝗶𝗱 𝗺𝗮𝗹𝗹𝗼𝗰() 𝗮𝗻𝗱 𝗳𝗿𝗲𝗲() 𝗶𝗻 𝗖++ 𝗖𝗼𝗱𝗲 🚫
+# Engineering Standards: Memory Management in C++
+
+- Domain: Memory Safety & Object Lifecycle
+
+- Principle: Ownership is Absolute. Use type-aware allocation to guarantee system stability.
+
+## 1. Avoid malloc() and free() in C++ Code
 
 When it comes to dynamic memory allocation in C++, the use of malloc() and free() might seem like a convenient option. However, there are crucial reasons to steer clear of these functions, especially when working with C++ objects.
 
-🚧 𝗡𝗼 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗳𝗼𝗿 𝗖𝗼𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻 𝗮𝗻𝗱 𝗗𝗲𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻 🚧 One significant drawback of malloc() and free() is their lack of support for the proper construction and destruction of C++ objects. For instance, consider the code snippet in the PDF.
+### No Support for Construction and Destruction
 
-As shown, using malloc() can lead to uninitialized objects, which can cause unexpected behavior.
+One significant drawback of malloc() and free() is their lack of support for the proper construction and destruction of C++ objects. Using malloc() can lead to uninitialized objects, which can cause unexpected behavior because the constructor is never invoked.
 
-🔄 𝗠𝗶𝘅𝗶𝗻𝗴 𝘄𝗶𝘁𝗵 𝗻𝗲𝘄 𝗮𝗻𝗱 𝗱𝗲𝗹𝗲𝘁𝗲 🔄 Mixing malloc() and free() with new and delete can result in errors and is generally considered bad practice. Deleting an object allocated by malloc() or freeing an object allocated by new can lead to undefined behavior.
+### Mixing Allocation Methods
 
-🚨 𝗘𝗻𝗳𝗼𝗿𝗰𝗲𝗺𝗲𝗻𝘁 𝗼𝗳 𝗘𝘅𝗽𝗹𝗶𝗰𝗶𝘁 𝗨𝘀𝗲 🚨 It is crucial to flag the explicit use of malloc() and free() in your codebase by using comments or any other method that makes these instances easily noticeable during code review or analysis. While some implementations might allow the mixing of these memory allocation methods, it's not guaranteed and can cause runtime errors.
+Mixing malloc() and free() with new and delete results in errors and is strictly considered bad practice. Deleting an object allocated by malloc() or freeing an object allocated by new leads to undefined behavior (UB).
 
-🚫 𝗘𝘅𝗰𝗲𝗽𝘁𝗶𝗼𝗻 𝗛𝗮𝗻𝗱𝗹𝗶𝗻𝗴 𝗶𝗻 𝗛𝗮𝗿𝗱-𝗥𝗲𝗮𝗹-𝗧𝗶𝗺𝗲 𝗖𝗼𝗱𝗲 🚫 In life-critical hard-real-time code, exceptions may not be acceptable. In such cases, consider using the nothrow versions of new to handle allocation failures without throwing exceptions.
+## 2. Enforcement and Code Safety
 
-📢 𝗘𝘅𝗰𝗲𝗽𝘁𝗶𝗼𝗻 𝘁𝗼 𝘁𝗵𝗲 𝗘𝘅𝗰𝗲𝗽𝘁𝗶𝗼𝗻 📢 While there are legitimate reasons to avoid exceptions, it's essential to distinguish between genuine concerns, such as hard-real-time requirements, and outdated beliefs. In some cases, the ban on exception use might be based on superstition or concerns about older code bases. Exercise caution and evaluate the specific needs of your application.
+It is crucial to flag the explicit use of malloc() and free() in your codebase. These instances should be easily noticeable during code review or static analysis. While some legacy implementations might appear to allow mixing these methods, it is not guaranteed and frequently causes runtime corruption.
 
-🔍 𝗖𝗼𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 🔍 In modern C++, it's recommended to use new and delete for dynamic memory allocation and deallocation. This approach ensures proper construction and destruction of objects, maintains code consistency, and minimizes the risk of runtime errors. Be explicit in your code about the use of memory allocation and choose the right approach based on your application's requirements.
+### Exception Handling in Hard Real-Time Code
+
+In life-critical hard real-time code, standard exceptions may not be acceptable due to non-deterministic timing. In such cases, utilize the nothrow versions of new to handle allocation failures via null-checks rather than exception overhead.
+
+```C++
+// SDE-6 Standard: Handling allocation in real-time constraints
+MyObject* obj = new (std::nothrow) MyObject();
+if (!obj) {
+    // Handle allocation failure deterministically
+}
+```
+
+## 3. Legacy Constraints vs. Modern Requirements
+
+While there are legitimate reasons to avoid exceptions (like hard real-time requirements), it is essential to distinguish between genuine technical constraints and outdated beliefs. Evaluate the specific needs of the application rather than following a blanket ban based on older, less efficient codebases.
+
+## 4. Summary Matrix: Allocation Types
+
+| Feature            | malloc / free       | new / delete            | Smart Pointers (RAII)  |
+|--------------------|---------------------|------------------------ |------------------------|
+| Constructor Call   | No                  | Yes                     | Yes                    |
+| Destructor Call    | No                  | Yes                     | Yes                    |
+| Type Safety        | void* (None)        | Type-safe               | Type-safe              |
+| Memory Cleanup     | Manual              | Manual                  | Automatic              |
+| Best Use Case      | Legacy C Interop    | Low-level internal libs | Production Standard    |
 
 [Credit](https://www.linkedin.com/in/rafael-rodriguez-calvente/)

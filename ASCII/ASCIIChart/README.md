@@ -49,7 +49,7 @@ Each row shows four such entries, so you can see all 128 ASCII codes from 0 to 1
 
 ## Types of Characters in ASCII
 
-###  Control Characters (0–31 and 127)
+### Control Characters (0–31 and 127)
 
 These are non-printable characters used for control in text streams:
 
@@ -95,7 +95,7 @@ int main() {
 }
 ```
 
-```
+```sh
 Output: 
 Printable ASCII [32..126]:
   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ?
@@ -103,9 +103,9 @@ Printable ASCII [32..126]:
 ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 ```
 
-# ASCII Chart Generator in C++
+## ASCII Chart Generator in C++
 
-This program prints the complete ASCII chart for codes [0..127], showing: 
+This program prints the complete ASCII chart for codes [0..127], showing:
 
 - Decimal (dec)
 - Octal (oct)

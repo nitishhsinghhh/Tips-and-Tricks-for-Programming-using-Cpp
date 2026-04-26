@@ -1,12 +1,14 @@
 # The Birth of Git (April 2005)
+
 Linus Torvalds, creator of Linux, designed Git to meet very strict requirements:
+
 1. Speed – It should handle huge repositories like the Linux kernel efficiently.
 2. Distributed – Every developer should have the complete history locally.
 3. Integrity – Every file and commit should be checksummed (via SHA-1) to prevent corruption or tampering.
 4. Strong Branching/Merging – Creating and merging branches should be fast and safe.
 Linus developed the first version of Git in just 10 days in April 2005. He initially managed it himself, but soon handed maintenance to Junio C Hamano, who still leads the project today.
 
-# Understanding Git: A Comprehensive Guide
+## Understanding Git: A Comprehensive Guide
 
 Imagine writing a story in a notebook. Every day you tweak chapters, correct spelling, or revise the ending. Wouldn’t it be magical to revisit every version you've ever created? That’s exactly what Git does—for your code.
 
@@ -26,25 +28,25 @@ Git was created in **2005** by **Linus Torvalds**, the same legendary developer 
 
 Git's power lies in its distributed nature. Every user has their own complete copy of the repository. Locally, Git uses three layers to manage files:
 
-| Storage Area       | Description                                                                 |
-|--------------------|-----------------------------------------------------------------------------|
-| **Working Directory** | Where you edit your files. Git doesn't track changes here unless you stage them. |
-| **Staging Area**      | Use `git add` to move changes here. Git starts tracking these updates.        |
-| **Local Repository**  | After running `git commit`, changes are safely stored here. View history with `git log`. |
+| Storage Area           | Description                                                                                 |
+|--------------------    |---------------------------------------------------------------------------------------------|
+| **Working Directory**  | Where you edit your files. Git doesn't track changes here unless you stage them.         |
+| **Staging Area**       | Use `git add` to move changes here. Git starts tracking these updates.                   |
+| **Local Repository**   | After running `git commit`, changes are safely stored here. View history with `git log`. |
 
 ## Essential Git Commands
 
 | Command         | Purpose                                                               |
-|----------------|-----------------------------------------------------------------------|
-| `git init`     | Create a new Git repository                                           |
-| `git branch`   | Create a new branch                                                   |
-| `git checkout` | Switch between branches                                               |
-| `git add`      | Stage changes for the next commit                                    |
-| `git commit`   | Save staged changes to the repository                                |
-| `git status`   | Show file tracking status                                             |
-| `git diff`     | Compare changes between working directory and staged files           |
-| `git pull`     | Fetch and merge changes from the remote repository                   |
-| `git push`     | Upload local commits to the remote repository                        |
+|---------------- |-----------------------------------------------------------------------|
+| `git init`      | Create a new Git repository                                           |
+| `git branch`    | Create a new branch                                                   |
+| `git checkout`  | Switch between branches                                               |
+| `git add`       | Stage changes for the next commit                                     |
+| `git commit`    | Save staged changes to the repository                                 |
+| `git status`    | Show file tracking status                                             |
+| `git diff`      | Compare changes between working directory and staged files            |
+| `git pull`      | Fetch and merge changes from the remote repository                    |
+| `git push`      | Upload local commits to the remote repository                         |
 
 ## Popular Git Tools
 
@@ -59,9 +61,11 @@ Explore graphical interfaces that simplify Git workflows:
 - **Tower**
 
 ## GIT Cheat Sheet
+
 <img width="1100" height="1075" alt="image" src="https://github.com/user-attachments/assets/d9b16ec0-608e-4d7e-bced-218482ab7c7d" />
 
 ## Git Workflow
+
 <img width="800" height="962" alt="image" src="https://github.com/user-attachments/assets/602658d3-90b0-4bae-a2ba-9b7f9bfa3bd8" />
 
 ## How Git Works Under the Hood
@@ -105,13 +109,12 @@ There’s no one-size-fits-all Git workflow, but here are a few popular ones:
 | Command                    | Purpose                                              |
 |----------------------------|------------------------------------------------------|
 | git stash                  | Temporarily save changes without committing          |
-| git cherry-pick <commit>  | Apply a specific commit from another branch          |
+| git cherry-pick <commit>   | Apply a specific commit from another branch          |
 | git rebase                 | Reapply commits on top of another base commit        |
-| git revert <commit>       | Create a new commit that undoes a previous one       |
+| git revert <commit>        | Create a new commit that undoes a previous one       |
 | git reset                  | Undo commits or unstage files                        |
 
-
-## 🧩 Conclusion
+## Conclusion
 
 Git is more than just version control—it's a powerful tool for collaboration, agility, and project integrity. Once you grasp its flow and commands, you’ll become a more confident and productive developer. Happy coding!
 

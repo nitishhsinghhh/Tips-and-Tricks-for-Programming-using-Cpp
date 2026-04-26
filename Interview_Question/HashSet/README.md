@@ -1,14 +1,16 @@
 # Custom HashSet in C++
+
 A simple, template-based HashSet implementation in C++ using separate chaining (linked lists) to resolve hash collisions. This class mimics the behavior of HashSet<T> from C# (.NET) — a collection that contains no duplicate elements and supports fast insert, delete, and search operations.
 
 ## Features
+
 - Templated for generic use
 - Handles collisions via separate chaining
 - Supports:
   - insert(key)
   - remove(key)
   - contains(key)
- 
+
 ```cpp
 #include <iostream>
 #include <list>
@@ -46,7 +48,9 @@ public:
     }
 };
 ```
+
 ## Example Usage
+
 ```cpp
 int main() {
     HashSet<int> intSet;
@@ -62,9 +66,10 @@ int main() {
 ```
 
 ## Class Diagram (UML)
+
 Represents the structure of the class, its attributes, and methods.
 
-```
+```sh
 +------------------+
 |   HashSet<T>     |
 +------------------+
@@ -79,6 +84,7 @@ Represents the structure of the class, its attributes, and methods.
 ```
 
 ## STL Equivalent
+
 ```cpp
 #include <unordered_set>
 #include <iostream>

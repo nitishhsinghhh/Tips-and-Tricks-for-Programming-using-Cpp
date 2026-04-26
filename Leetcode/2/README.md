@@ -1,6 +1,7 @@
 # [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/?envType=problem-list-v2&envId=5kiae7i1)
 
 ## Topics
+
 - Linked List
 - Math
 - Recursion
@@ -111,9 +112,10 @@ int main() {
     std::cout << "All test cases passed successfully!" << std::endl;
     return 0;
 }
-
 ```
+
 To improve memory management in your C++ program, especially when working with dynamic memory (like linked lists), it's important to free the memory you've allocated using new. Otherwise, your program will leak memory over time.
+
 ```cpp
 #include <iostream>
 #include <vector>

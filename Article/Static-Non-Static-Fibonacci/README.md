@@ -61,6 +61,7 @@ fibonacci::fibByValueStatic(5);
 ```
 
 ### Common Error
+
 Trying to call a non-static function like this:
 
 ```CPP
@@ -91,7 +92,7 @@ int fibonacci::fibByRef(const int& num);
 ```
 
 ### [Pass by Pointer](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/blob/main/Interview_Question/Pointers-in-Cpp/README.md)
- 
+
 - Passes the address of the variable.
 - Allows modification of the original value (unless const is used).
 - Requires careful memory handling.

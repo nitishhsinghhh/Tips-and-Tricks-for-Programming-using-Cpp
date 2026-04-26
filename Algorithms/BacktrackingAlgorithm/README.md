@@ -31,15 +31,16 @@ Backtrack(x)
 
 ## Example Backtracking Approach
 
-```
+```sh
 Problem: You want to find all the possible ways of arranging 2 boys and 1 girl on 3 benches. Constraint: Girl should not be on the middle bench.
 ```
 
-```
+```sh
 Solution: There are a total of 3! = 6 possibilities. We will try all the possibilities and get the possible solutions. We recursively try all the possibilities.
 ```
+
 All the possibilities are:
-<br>
+
 The following state space tree shows the possible solutions.
 
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/assets/93253740/a8201900-13e2-4e1d-be1b-11bc08c5db74)

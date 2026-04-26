@@ -1,4 +1,4 @@
-### A C++ Program to Check Whether a Number is a Positive or Negative Number
+# A C++ Program to Check Whether a Number is a Positive or Negative Number
 
 ```cpp
 #include <iostream>
@@ -20,7 +20,8 @@ int main() {
 }
 ```
 
-### Let's improve on this by taking the input from the user
+## Let's improve on this by taking the input from the user
+
 ```cpp
 #include <iostream>
 
@@ -43,7 +44,8 @@ int main() {
 }
 ```
 
-### Lets say we also want to test for cases when we have to check if it is odd or even also
+## Lets say we also want to test for cases when we have to check if it is odd or even also
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -68,7 +70,9 @@ int main() {
     return 0;
 }
 ```
+
 ### Let's further improve upon this
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -99,10 +103,12 @@ int main() {
 ```
 
 #### Findings from the last program
+
 1. The [append](https://en.cppreference.com/w/cpp/string/basic_string/append) function in C++ is a member function of the std::string class that is used to concatenate (append) a string or a part of a string to the end of another string. This function is commonly used to combine two strings together.
 2. The ?: operator in C++ is known as the ternary conditional operator. It is a shorthand way of writing an if-else statement in a single line. The ternary operator takes three operands: a condition, a value to be returned if the condition is true, and a value to be returned if the condition is false.
 
-### To return a value using the ternary conditional operator in C++, we  can simply use the operator within the return statement. Here is an example demonstrating how to return a value using the ternary operator:
+### To return a value using the ternary conditional operator in C++, we  can simply use the operator within the return statement. Here is an example demonstrating how to return a value using the ternary operator
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -130,6 +136,7 @@ int main() {
 ```
 
 ### Let's imrpove upon it by taking input from the user
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -162,7 +169,9 @@ int main() {
     return 0;
 }
 ```
+
 - Let's include OOP
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -209,7 +218,9 @@ int main() {
     return 0;
 }
 ```
+
 ### Using Copy Constructor
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -262,7 +273,9 @@ int main() {
     return 0;
 }
 ```
+
 ### Positive, Negative and Even Odd fucntion
+
 ```cpp
 #include <iostream>
 #include <string>

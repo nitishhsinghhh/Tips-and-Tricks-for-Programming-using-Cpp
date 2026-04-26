@@ -1,7 +1,9 @@
 # Demystifying Dynamic Programming
+
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/assets/93253740/c205a954-54e2-4029-85f0-69a4a1cda8c7)
 
 ## Dynamic Programming Defined
+
 Dynamic programming amounts to breaking down an optimization problem into simpler sub-problems, and storing the solution to each sub-problem so that each sub-problem is only solved once.
 
 To be honest, this definition may not make total sense until you see an example of a sub-problem. That’s okay, it’s coming up in the next section.
@@ -11,12 +13,12 @@ What I hope to convey is that DP is a useful technique for optimization problems
 In the next two sections, I’ll explain what a sub-problem is, and then motivate why storing solutions — a technique known as memoization — matters in dynamic programming.
 
 ## Sub-problems on Sub-problems on Sub-problems
+
 Sub-problems are smaller versions of the original problem. In fact, sub-problems often look like a reworded version of the original problem. If formulated correctly, sub-problems build on each other in order to obtain the solution to the original problem.
 
 To give you a better idea of how this works, let’s find the sub-problem in an example dynamic programming problem.
 
 Pretend you’re back in the 1950s working on an IBM-650 computer. You know what this means — punchcards! Your job is to man, or woman, the IBM-650 for a day. You’re given a natural number n punchcards to run. Each punchcard i must be run at some predetermined start time s_i and stop running at some predetermined finish time f_i. Only one punchcard can run on the IBM-650 at once. Each punchcard also has an associated value v_i based on how important it is to your company.
-
 
 **Problem:** As the person in charge of the IBM-650, you must determine the optimal schedule of punchcards that maximizes the total value of all punchcards run.
 
@@ -28,26 +30,30 @@ Notice how the sub-problem breaks down the original problem into components that
 
 In dynamic programming, after you solve each sub-problem, you must memoize, or store it. Let’s find out why in the following section.
 
-
 ## Motivating Memoization with Fibonacci Numbers
 
 When told to implement an algorithm that calculates the Fibonacci value for any given number, what would you do? Most people I know would opt for a recursive algorithm that looks something like this in C++:
+
 ```cpp
+/**
+ * @brief Naive Recursive Fibonacci
+ * @complexity Time: O(2^n) | Space: O(n) due to stack depth
+ * @note High risk of Stack Overflow and CPU saturation for n > 40.
+ */
 int fibonacciVal(int n) {
-	if (n == 0)
-		return 0;
-	else if (n == 1)
-		return 1;
-	else
-		return fibonacciVal(n - 1) + fibonacciVal(n - 2);
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    
+    return fibonacciVal(n - 1) + fibonacciVal(n - 2);
 }
 ```
 
 This algorithm accomplishes its purpose, but at a huge cost. For example, let’s look at what this algorithm must calculate in order to solve for n = 5 (abbreviated as F(5)):
 
-```
+```sh
 F(5)                      /      \                                     /        \                  /          \               F(4)          F(3)            /       \        /   \          F(3)     F(2)     F(2)  F(1)         /   \     /  \     /   \       F(2) F(1) F(1) F(0) F(1) F(0)       /  \     F(1) F(0)
 ```
+
 The tree above represents each computation that must be made in order to find the Fibonacci value for n = 5. Notice how the sub-problem for n = 2 is solved thrice. For a relatively small example (n = 5), that’s a lot of repeated , and wasted, computation!
 
 What if, instead of calculating the Fibonacci value for n = 2 three times, we created an algorithm that calculates it once, stores its value, and accesses the stored Fibonacci value for every subsequent occurrence of n = 2? That’s exactly what memoization does.
@@ -55,13 +61,25 @@ What if, instead of calculating the Fibonacci value for n = 2 three times, we cr
 With this in mind, I’ve written a dynamic programming solution to the Fibonacci value problem:
 
 ```cpp
+/**
+ * @brief Fibonacci via DP Tabulation
+ * @complexity Time: O(n) | Space: O(n)
+ * @note Efficiently handles large n without stack risk.
+ */
 int fibonacciVal(int n) {
-	vector<int> memo(n + 1, 0);
-	memo[0] = 0;
-	memo[1] = 1;
-	for (int i = 2; i <= n; i++) 
-		memo[i] = memo[i - 1] + memo[i - 2];
-	return memo[n];
+    if (n <= 1) return n;
+
+    // The Detail: Initializing the state table (Memo)
+    std::vector<int> memo(n + 1, 0);
+    memo[0] = 0;
+    memo[1] = 1;
+
+    // Linear iteration replaces exponential recursion
+    for (int i = 2; i <= n; i++) {
+        memo[i] = memo[i - 1] + memo[i - 2];
+    }
+
+    return memo[n];
 }
 ```
 
@@ -73,7 +91,8 @@ Now that we’ve addressed memoization and sub-problems, it’s time to learn th
 
 ## My Dynamic Programming Process
 
-### Step 1: Identify the sub-problem in words.
+### Step 1: Identify the sub-problem in words
+
 Too often, programmers will turn to writing code before thinking critically about the problem at hand. Not good. One strategy for firing up your brain before you touch the keyboard is using words, English or otherwise, to describe the sub-problem that you have identified within the original problem.
 
 If you’re solving a problem that requires dynamic programming, grab a piece of paper and think about the information that you need to solve this problem. Write out the sub-problem with this in mind.
@@ -86,7 +105,7 @@ For example, in the punchcard problem, I stated that the sub-problem can be writ
 - The maximum value schedule for punchcards 2 through n such that the punchcards are sorted by start time
 If you can identify a sub-problem that builds upon previous sub-problems to solve the problem at hand, then you’re on the right track.
 
-### Step 2: Write out the sub-problem as a recurring mathematical decision.
+### Step 2: Write out the sub-problem as a recurring mathematical decision
 
 Once you’ve identified a sub-problem in words, it’s time to write it out mathematically. Why? Well, the mathematical recurrence, or repeated decision, that you find will eventually be what you put into your code. Besides, writing out the sub-problem mathematically vets your sub-problem in words from Step 1. If it is difficult to encode your sub-problem from Step 1 in math, then it may be the wrong sub-problem!
 
@@ -96,7 +115,9 @@ There are two questions that I ask myself every time I try to find a recurrence:
 - If my algorithm is at step i, what information would it need to decide what to do in step i+1? (And sometimes: If my algorithm is at step i, what information did it need to decide what to do in step i-1?)
 Let’s return to the punchcard problem and ask these questions.
 
-**What decision do I make at every step?**<br> Assume that the punchcards are sorted by start time, as mentioned previously. For each punchcard that is compatible with the schedule so far (its start time is after the finish time of the punchcard that is currently running), the algorithm must choose between two options: to run, or not to run the punchcard.
+**What decision do I make at every step?**
+
+Assume that the punchcards are sorted by start time, as mentioned previously. For each punchcard that is compatible with the schedule so far (its start time is after the finish time of the punchcard that is currently running), the algorithm must choose between two options: to run, or not to run the punchcard.
 
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/assets/93253740/884fff4d-6478-4b32-bd71-a9eefe98e0a9)
 
@@ -108,9 +129,10 @@ Now that we’ve answered these questions, perhaps you’ve started to form a re
 
 Without further ado, here’s our recurrence:
 
-```
+```sh
 OPT(i) = max(v_i + OPT(next[i]), OPT(i+1))
 ```
+
 In this equation, OPT(i) is defined as the maximum of two choices:
 
 Choose the value at position i (v_i) and add it to the optimal value at the next position (OPT(next[i])).
@@ -123,34 +145,40 @@ In order to determine the value of OPT(i), we consider two options, and we want 
 
 The two options — to run or not to run punchcard i — are represented mathematically as follows:
 
-```
+```sh
 v_i + OPT(next[i])
 ```
+
 This clause represents the decision to run punchcard i. It adds the value gained from running punchcard i to OPT(next[i]), where next[i] represents the next compatible punchcard following punchcard i. OPT(next[i]) gives the maximum value schedule for punchcards next[i] through n such that the punchcards are sorted by start time. Adding these two values together produces maximum value schedule for punchcards i through n such that the punchcards are sorted by start time if punchcard i is run.
 
-```
+```sh
 OPT(i+1)
 ```
+
 Conversely, this clause represents the decision to not run punchcard i. If punchcard i is not run, its value is not gained. OPT(i+1) gives the maximum value schedule for punchcards i+1 through n such that the punchcards are sorted by start time. So, OPT(i+1) gives the maximum value schedule for punchcards i through n such that the punchcards are sorted by start time if punchcard i is not run.
 
 In this way, the decision made at each step of the punchcard problems is encoded mathematically to reflect the sub-problem in Step 1.
 
-### Step 3: Solve the original problem using Steps 1 and 2.
+### Step 3: Solve the original problem using Steps 1 and 2
+
 In Step 1, we wrote down the sub-problem for the punchcard problem in words. In Step 2, we wrote down a recurring mathematical decision that corresponds to these sub-problems. How can we solve the original problem with this information?
 
-```
+```sh
 OPT(1)
 ```
+
 It’s that simple. Since the sub-problem we found in Step 1 is the maximum value schedule for punchcards i through n such that the punchcards are sorted by start time, we can write out the solution to the original problem as the maximum value schedule for punchcards 1 through n such that the punchcards are sorted by start time. Since Steps 1 and 2 go hand in hand, the original problem can also be written as OPT(1).
 
-### Step 4: Determine the dimensions of the memoization array and the direction in which it should be filled.
+### Step 4: Determine the dimensions of the memoization array and the direction in which it should be filled
+
 Did you find Step 3 deceptively simple? It sure seems that way. You may be thinking, how can OPT(1) be the solution to our dynamic program if it relies on OPT(2), OPT(next[1]), and so on?
 
 You’re correct to notice that OPT(1) relies on the solution to OPT(2). This follows directly from Step 2:
 
-```
+```sh
 OPT(1) = max(v_1 + OPT(next[1]), OPT(2))
 ```
+
 But this is not a crushing issue. Think back to Fibonacci memoization example. To find the Fibonacci value for n = 5, the algorithm relies on the fact that the Fibonacci values for n = 4, n = 3, n = 2, n = 1, and n = 0 were already memoized. If we fill in our memoization table in the correct order, the reliance of OPT(1) on other sub-problems is no big deal.
 
 How can we identify the correct direction to fill the memoization table? In the punchcard problem, since we know OPT(1) relies on the solutions to OPT(2) and OPT(next[1]), and that punchcards 2 and next[1] have start times after punchcard 1 due to sorting, we can infer that we need to fill our memoization table from OPT(n) to OPT(1).
@@ -159,29 +187,31 @@ How do we determine the dimensions of this memoization array? Here’s a trick: 
 
 If we know that n = 5, then our memoization array might look like this:
 
-```
+```sh
 memo = [OPT(1), OPT(2), OPT(3), OPT(4), OPT(5)]
 ```
+
 However, because many programming languages start indexing arrays at 0, it may be more convenient to create this memoization array so that its indices align with punchcard numbers:
 
-```
+```sh
 memo = [0, OPT(1), OPT(2), OPT(3), OPT(4), OPT(5)]
 ```
 
-### Step 5: Code it!
+### Step 5: Code it
+
 To code our dynamic program, we put together Steps 2–4. The only new piece of information that you’ll need to write a dynamic program is a base case, which you can find as you tinker with your algorithm.
 
 A dynamic program for the punchcard problem will look something like this:
 
-```
+```sh
 def punchcardSchedule(n, values, next): # Initialize memoization array - Step 4  memo = [0] * (n+1)   # Set base case  memo[n] = values[n]   # Build memoization table from n to 1 - Step 2  for i in range(n-1, 0, -1):    memo[i] = max(v_i + memo[next[i]], memo[i+1])  # Return solution to original problem OPT(1) - Step 3  return memo[1]
 ```
+
 Congrats on writing your first dynamic program! Now that you’ve wet your feet, I’ll walk you through a different type of dynamic program.
 
 ## Paradox of Choice: Multiple Options DP Example
 
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/assets/93253740/980dad59-bd0b-4190-b8a1-051d276703d6)
-
 
 Although the previous dynamic programming example had a two-option decision — to run or not to run a punchcard — some problems require that multiple options be considered before a decision can be made at each step.
 
@@ -193,7 +223,8 @@ Pretend you’re selling the friendship bracelets to n customers, and the value 
 
 Take a second to think about how you might address this problem before looking at my solutions to Steps 1 and 2.
 
-### Step 1: Identify the sub-problem in words.
+### Step 1: Identify the sub-problem in words ()
+
 Sub-problem: The maximum revenue obtained from customers i through n such that the price for customer i-1 was set at q.
 
 I found this sub-problem by realizing that to determine the maximum revenue for customers 1 through n, I would need to find the answer to the following sub-problems:
@@ -203,7 +234,8 @@ The maximum revenue obtained from customers n-2 through n such that the price fo
 (Et cetera)
 Notice that I introduced a second variable q into the sub-problem. I did this because, in order to solve each sub-problem, I need to know the price I set for the customer before that sub-problem. Variable q ensures the monotonic nature of the set of prices, and variable i keeps track of the current customer.
 
-### Step 2: Write out the sub-problem as a recurring mathematical decision.
+### Step 2: Write out the sub-problem as a recurring mathematical decision ()
+
 There are two questions that I ask myself every time I try to find a recurrence:
 
 - What decision do I make at every step?
@@ -215,21 +247,24 @@ What decision do I make at every step? I decide at which price to sell my friend
 **If my algorithm is at step i, what information would it need to decide what to do in step i+1? My algorithm needs to know the price set for customer i and the value of customer i+1 in order to decide at what natural number to set the price for customer i+1.**
 With this knowledge, I can mathematically write out the recurrence:
 
-```
+```sh
 OPT(i,q) = max~([Revenue(v_i, a) + OPT(i+1, a)])
 ```
 
-```
+```sh
 such that max~ finds the maximum over all a in the range q ≤ a ≤ v_i
 ```
+
 Once again, this mathematical recurrence requires some explaining. Since the price for customer i-1 is q, for customer i, the price a either stays at integer q or it changes to be some integer between q+1 and v_i. To find the total revenue, we add the revenue from customer i to the maximum revenue obtained from customers i+1 through n such that the price for customer i was set at a.
 
 In other words, to maximize the total revenue, the algorithm must find the optimal price for customer i by checking all possible prices between q and v_i. If v_i ≤ q, then the price a must remain at q.
 
-## What about the other steps?
+## What about the other steps
+
 Working through Steps 1 and 2 is the most difficult part of dynamic programming. As an exercise, I suggest you work through Steps 3, 4, and 5 on your own to check your understanding.
 
 ## Runtime Analysis of Dynamic Programs
+
 Now for the fun part of writing algorithms: runtime analysis. I’ll be using big-O notation throughout this discussion . If you’re not yet familiar with big-O, I suggest you read up on it here.
 
 Generally, a dynamic program’s runtime is composed of the following features:
@@ -240,14 +275,16 @@ Generally, a dynamic program’s runtime is composed of the following features:
 - Post-processing
 Overall, runtime takes the following form:
 
-```
+```sh
 Pre-processing + Loop * Recurrence + Post-processing
 ```
+
 Let’s perform a runtime analysis of the punchcard problem to get familiar with big-O for dynamic programs. Here is the punchcard problem dynamic program:
 
-```
+```sh
 def punchcardSchedule(n, values, next): # Initialize memoization array - Step 4  memo = [0] * (n+1)   # Set base case  memo[n] = values[n]   # Build memoization table from n to 1 - Step 2  for i in range(n-1, 0, -1):    memo[i] = max(v_i + memo[next[i]], memo[i+1])  # Return solution to original problem OPT(1) - Step 3  return memo[1]
 ```
+
 Let’s break down its runtime:
 
 - Pre-processing: Here, this means building the the memoization array. O(n).

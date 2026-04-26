@@ -1,4 +1,5 @@
 # Sorting and Converting Strings to Integers (Basic Version)
+
 ```cpp
 /**
  * @file StringSorterAndConverter.cpp
@@ -98,18 +99,20 @@ int main() {
 }
 ```
 
-## Key Features:
+## Key Features
+
 - Uses StringConverter to sort a string and convert it to an integer.
 - Uses InputHandler to create two hardcoded strings ("65321" and "98765"), convert them, and print the smallest and largest.
 - No error handling or user input.
 - Uses int for conversion.
 
-## Limitations:
+## Limitations
+
 - No input validation.
 - No exception handling.
 - Limited to small integer values.
 
-# Sorting and Converting Strings with Overflow Handling
+## Sorting and Converting Strings with Overflow Handling
 
 ```cpp
  * @file StringSortAndCompare.cpp
@@ -235,7 +238,9 @@ int main() {
     return 0;
 }
 ```
-## Key Features:
+
+## Key Features []
+
 - Builds on Program 1 by adding:
 - Overflow checks using INT_MAX.
 - Input validation for non-numeric characters.
@@ -243,16 +248,18 @@ int main() {
 - Uses int for conversion.
 - Includes a note about 32-bit and 64-bit integer limits.
 
-## Improvements Over Program 1:
+## Improvements Over Program 1
+
 - Safer conversion with overflow protection.
 - More robust error checking.
 - Better user guidance via console messages.
 
-## Limitations:
+## Limitations ()
+
 - Still no user input.
 - Limited to int range.
 
-# Full User Input with Long Integer Support
+## Full User Input with Long Integer Support
 
 ```cpp
  * @file StringToLongConverter.cpp
@@ -389,29 +396,32 @@ int main() {
 }
 ```
 
-## Key Features:
+## Key Features {}
+
 - Accepts user input for both strings.
 - Uses long instead of int to support larger numbers.
 
-## Validates:
+## Validates
+
 - Input length against LONG_MAX.
 - Non-numeric characters.
 - Overflow during conversion.
 - Uses try-catch to handle exceptions gracefully.
 
-## Improvements Over Program 2:
+## Improvements Over Program 2
+
 - Accepts dynamic input from the user.
 - Supports larger values using long.
 - Fully robust with exception handling and input validation.
 
-# Summary Table
+## Summary Table
 
-| Feature                  | Program 1   | Program 2           | Program 3               |
+| Feature                  | Program 1   | Program 2            | Program 3                |
 |--------------------------|-------------|----------------------|--------------------------|
 | Input Type               | Hardcoded   | Hardcoded            | User input               |
 | Data Type Used           | int         | int                  | long                     |
 | Sorting                  | Yes         | Yes                  | Yes                      |
-| Overflow Handling        | No          | Yes (INT_MAX)         | Yes (LONG_MAX)            |
-| Non-Numeric Validation   | No           | Yes                   | Yes                      |
-| Exception Handling       | No           |Yes (basic)           | Yes (full try-catch)      |
-| User Guidance / Notes    | No           | Yes (int size info)   | Yes (long size info)      |
+| Overflow Handling        | No          | Yes (INT_MAX)        | Yes (LONG_MAX)           |
+| Non-Numeric Validation   | No          | Yes                  | Yes                      |
+| Exception Handling       | No          | Yes (basic)          | Yes (full try-catch)     |
+| User Guidance / Notes    | No          | Yes (int size info)  | Yes (long size info)     |

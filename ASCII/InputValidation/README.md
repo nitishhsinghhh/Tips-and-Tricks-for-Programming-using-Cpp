@@ -1,4 +1,5 @@
 # Validating Input Data in C++ Programming
+
 ASCII, which stands for American Standard Code for Information Interchange, is a character encoding standard used in computers and communication equipment to represent text and control characters. In the context of validating input, ASCII can be used to convert characters to their corresponding numeric values.
 
 When a character is input by the user, it is represented in the computer's memory as a numeric value based on the ASCII encoding. For example, the character '0' has an ASCII value of 48, '1' has a value of 49, and so on up to '9' with a value of 57.
@@ -150,7 +151,8 @@ int main() {
 }
 ```
 
-### Key Features:
+### Key Features
+
 - Uses an interface-based validator (IValidator) that validates integers.
 - Implements unit testing using assert() in runValidatorTests().
 - Uses a TestInputHandler class to simulate and validate multiple test inputs.
@@ -307,7 +309,8 @@ int main() {
 }
 ```
 
-### Key Features:
+### Key Features ()
+
 - Uses an interface-based validator (IValidator) that validates characters.
 - Implements a DigitValidator class that converts and validates a single character.
 - Includes an InputTest class to simulate test cases.
@@ -315,6 +318,7 @@ int main() {
 - Focuses on interactive validation and runtime input handling.
 
 ## C++ Program: Validate Single-Character Numeric Input (1–3999)
+
 ```cpp
 /**
  * @file RomanIntegerValidator.cpp
@@ -472,7 +476,8 @@ int main() {
 }
 ```
 
-## Key Features:
+## Key Features []
+
 - Uses an interface-based validator (IValidator) that abstracts the validation logic for different input types.
 - Implements an IntegerValidator class that validates whether a string represents a valid integer between 1 and 3999.
 - Includes a ValidatorTest class to simulate and run multiple predefined test cases.
@@ -480,4 +485,3 @@ int main() {
 - Focuses on test-driven validation and modular design, making it easy to extend (e.g., to support Roman numerals in the future).
 - Handles edge cases such as empty strings, non-digit characters, and out-of-range values.
 - Follows SOLID principles, especially the Single Responsibility and Open/Closed principles, for clean and maintainable code.
-
