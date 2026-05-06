@@ -13,6 +13,7 @@ int main() {
 		std::cout << pq.top() << " ";
 		pq.pop();
 	}
+	
 	std::cout << std::endl;
 	return 0;
 }
