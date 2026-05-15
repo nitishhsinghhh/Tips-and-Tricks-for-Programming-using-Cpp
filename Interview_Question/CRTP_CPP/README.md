@@ -4,7 +4,7 @@ Dependency Injection (DI) is a cornerstone of modern software design, fostering 
 
 ---
 
-## 🔍 How Does CRTP Work for DI?
+## How Does CRTP Work for DI?
 
 In CRTP, a base class is templated on its derived class, enabling the base class to interact with the derived class without runtime coupling. This mechanism allows dependencies to be *"injected"* at **compile time**.  
 
@@ -52,7 +52,7 @@ Compiler catches errors like missing implementations or incompatible types.
 - Simpler Lifetime Management
 No need for dynamic memory or shared pointers. Dependencies are statically resolved.
 
-## ⚖️ Comparing CRTP to Traditional DI Methods
+## Comparing CRTP to Traditional DI Methods
 
 | Method                     | Pros                                           | Cons                                                         |
 |-------------------------   |----------------------------------------------- |-----------------------------------------------               |

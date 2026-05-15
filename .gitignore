@@ -3,3 +3,5 @@ build/
 */build/
 CMakeCache.txt
 CMakeFiles/
+.venv/
+*.DS_Store

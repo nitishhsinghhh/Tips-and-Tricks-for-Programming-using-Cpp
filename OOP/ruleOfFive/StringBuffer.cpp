@@ -79,12 +79,17 @@ int main() {
 
     // B. Trigger COPY CONSTRUCTOR
     // s2 makes a brand new "Hello" copy in a new memory address
-    StringBuffer s2 = s1; 
+    StringBuffer s2 = s1;
+    std::cout << "s2 contents: " << s2.getData() << " (Size: " << s2.getSize() << ")\n";
+    std::cout << "s1 contents: " << s1.getData() << " (Size: " << s1.getSize() << ")\n";
+ 
 
     // C. Trigger COPY ASSIGNMENT
     // s3 was "World", now it deletes "World" and makes a copy of "Hello"
     StringBuffer s3("World");
     s3 = s1; 
+    std::cout << "s3 contents: " << s3.getData() << " (Size: " << s3.getSize() << ")\n";
+    std::cout << "s1 contents: " << s1.getData() << " (Size: " << s1.getSize() << ")\n";
 
     // D. Trigger MOVE CONSTRUCTOR
     // s4 "steals" the pointer from s1. s1 is now empty/null.
@@ -93,12 +98,14 @@ int main() {
    
     // To access .data and .size, they must be public in your class!
     std::cout << "s4 contents: " << s4.getData() << " (Size: " << s4.getSize() << ")\n";
+    std::cout << "s1 contents: " << s1.getData() << " (Size: " << s1.getSize() << ")\n";
 
     // E. Trigger MOVE ASSIGNMENT
     // s2 steals the pointer from s3. s3 becomes null.
     s2 = std::move(s3);
     
     std::cout << "s2 contents: " << s2.getData() << " (Size: " << s2.getSize() << ")\n";
+    std::cout << "s3 contents: " << s3.getData() << " (Size: " << s3.getSize() << ")\n";
 
     return 0; 
     // F. Trigger DESTRUCTOR (for s1, s2, s3, s4)
