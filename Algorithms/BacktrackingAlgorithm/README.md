@@ -112,7 +112,6 @@ int main() {
 ## N-Queens Problem using Backtracking in C++
 
 ```cpp
-/*
 /**
  * @file n_queens.cpp
  * @author Nitish Singh
@@ -218,5 +217,4 @@ int main() {
 
     return 0;
 }
-
 ```

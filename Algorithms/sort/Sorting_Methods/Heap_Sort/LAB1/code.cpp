@@ -14,6 +14,7 @@ public:
      * @param rootInd The index from where to start heapifying down.
      * @param isMin Set true for min-heap, false for max-heap (default).
      */
+    
     static void heapifyDown(std::vector<int> &nums, int size, int rootInd, bool isMin = false) {
         if (size <= 1 || rootInd < 0 || rootInd >= size - 1) 
             return;
@@ -72,6 +73,7 @@ public:
  * 
  * @return int Exit status code.
  */
+
 int main() {
     std::vector<int> nums = { 4, 2, 9, 6, 5, 1, 3, 7, 8 };
     HeapSort::heapSort(nums);

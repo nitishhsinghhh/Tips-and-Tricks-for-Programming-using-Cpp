@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
 /**
  * @brief Calculates the number of coins needed to make change for a given amount using a greedy algorithm.
@@ -18,8 +17,9 @@ using namespace std;
  * 
  * @see https://en.wikipedia.org/wiki/Greedy_algorithm
  */
-vector<int> coinChange(vector<int>& coins, int amount) {
-    vector<int> result(coins.size(), 0);
+
+std::vector<int> coinChange(std::vector<int>& coins, int amount) {
+    std::vector<int> result(coins.size(), 0);
 
     // Iterate from the largest coin to the smallest
     for (int i = coins.size() - 1; i >= 0; i--) {
@@ -47,24 +47,23 @@ vector<int> coinChange(vector<int>& coins, int amount) {
  * 
  * @return int Exit code (0 = success).
  */
+
 int main() {
-    vector<int> coins = { 1, 5, 10, 25 }; ///< US coin denominations (in cents)
+    std::vector<int> coins = { 1, 5, 10, 25 }; ///< US coin denominations (in cents)
     int amount;
 
-    cout << "Enter the amount to make change for: ";
-    cin >> amount;
+    std::cout << "Enter the amount to make change for: ";
+    std::cin >> amount;
 
-    vector<int> result = coinChange(coins, amount);
+    std::vector<int> result = coinChange(coins, amount);
 
-    if (result[0] == -1) {
-        cout << "Cannot make change for " << amount << "." << endl;
-    } else {
-        cout << "Coins needed to make change for " << amount << ":" << endl;
-        for (int i = coins.size() - 1; i >= 0; i--) {
-            if (result[i] > 0) {
-                cout << result[i] << " x " << coins[i] << " cents" << endl;
-            }
-        }
+    if (result[0] == -1) 
+        std::cout << "Cannot make change for " << amount << "." << std::endl;
+    else {
+        std::cout << "Coins needed to make change for " << amount << ":" << std::endl;
+        for (int i = coins.size() - 1; i >= 0; i--) 
+            if (result[i] > 0) 
+                std::cout << result[i] << " x " << coins[i] << " cents" << std::endl;
     }
 
     return 0;

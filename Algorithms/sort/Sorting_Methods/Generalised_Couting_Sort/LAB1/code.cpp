@@ -5,6 +5,7 @@
 /**
  * @brief Class for sorting algorithms.
  */
+
 class Sorting {
 public:
     /**
@@ -13,6 +14,7 @@ public:
      * @param nums Vector of integers to sort.
      * @param isAscending If true, sorts in ascending order; otherwise, in descending order.
      */
+    
     static void countingSort(std::vector<int>& nums, bool isAscending = true) {
         // Find the minimum and maximum values in the input array
         int minVal = *std::min_element(nums.begin(), nums.end());

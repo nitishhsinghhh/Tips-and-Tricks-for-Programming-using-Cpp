@@ -13,25 +13,22 @@
  * @param x The target element to search for.
  * @return int The index of the element if found; otherwise, -1.
  */
+
 int binarySearch(int arr[], int left, int right, int x) {
+    
     if (right >= left) {
         int mid = left + (right - left) / 2;
 
         // Check if the middle element is the target
-        if (arr[mid] == x) {
+        if (arr[mid] == x) 
             return mid;
-        }
 
-        // If target is smaller than mid, search the left subarray
-        if (arr[mid] > x) {
+        if (arr[mid] > x) 
             return binarySearch(arr, left, mid - 1, x);
-        }
 
-        // If target is larger than mid, search the right subarray
         return binarySearch(arr, mid + 1, right, x);
     }
 
-    // Element not found
     return -1;
 }
 
@@ -44,6 +41,7 @@ int binarySearch(int arr[], int left, int right, int x) {
  *
  * @return int Exit code.
  */
+
 int main() {
     int arr[] = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -54,11 +52,10 @@ int main() {
 
     int result = binarySearch(arr, 0, n - 1, x);
 
-    if (result == -1) {
+    if (result == -1) 
         std::cout << "Element not found." << std::endl;
-    } else {
+    else 
         std::cout << "Element found at index " << result << "." << std::endl;
-    }
 
     return 0;
 }

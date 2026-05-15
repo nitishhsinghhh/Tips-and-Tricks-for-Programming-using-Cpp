@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <vector>
-using namespace std;
 
 /**
  * @brief Calculates the nth Fibonacci number using dynamic programming.
@@ -19,10 +18,11 @@ using namespace std;
  * It is assumed that n is a non-negative integer. For n=0, it returns 0.
  * @return int The nth Fibonacci number.
  */
+
 int fibonacci(int n) {
     // Create a vector to store the computed Fibonacci numbers.
     // The size is n + 1 because we need to store up to F(n), and indices are 0-based.
-    vector<int> memo(n + 1, 0);
+    std::vector<int> memo(n + 1, 0);
 
     // Base cases for the Fibonacci sequence.
     // F(0) is already 0 by initialization.
@@ -50,9 +50,9 @@ int fibonacci(int n) {
  */
 int main() {
     int n;
-    cout << "Enter a number: ";
-    cin >> n; // Read the input number from the user.
+    std::cout << "Enter a number: ";
+    std::cin >> n; // Read the input number from the user.
     // Print the result to the console.
-    cout << "The " << n << "th Fibonacci number is " << fibonacci(n) << endl;
+    std::cout << "The " << n << "th Fibonacci number is " << fibonacci(n) << std::endl;
     return 0; // Indicate successful program execution.
 }

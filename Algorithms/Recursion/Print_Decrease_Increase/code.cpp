@@ -14,7 +14,8 @@ private:
      * @param n Reference to the number to be printed.
      */
     void pdi(int &n) {
-        if (n == 0) return;
+        if (n == 0) 
+            return;
         std::cout << n << std::endl;
         pdi(--n);
         std::cout << ++n << std::endl;
