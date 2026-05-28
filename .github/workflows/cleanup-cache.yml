@@ -1,0 +1,100 @@
+#*********************************************************************/
+# SYSTEM      : GitHub Actions Infrastructure                        */
+# SUBSYSTEM   : CI/CD Resource Management                            */
+# COMPONENT   : stale-cache-cleanup                                  */
+# VERSION     : 1.0                                                  */
+#                                                                    */
+# DESCRIPTION : Automatically purges GitHub Actions caches older     */
+#               than 7 days. Ensures the 10GB repository limit is    */
+#               not exceeded to prevent CI failure across the        */
+#               polyglot build matrix (C++ & .NET).                  */
+#                                                                    */
+# SIDE EFFECTS: Irreversibly deletes cache blobs. May increase build */
+#               times slightly on the first run post-cleanup.        */
+#                                                                    */
+# LICENSE     : Apache License, Version 2.0                          */
+#               Licensed under the Apache License, Version 2.0.      */
+#               You may obtain a copy of the License at              */
+#               http://www.apache.org/licenses/LICENSE-2.0           */
+#                                                                    */
+# AUTHOR      : Nitish Singh (nitishhsinghhh)                        */
+# CONTACT     : me.singhnitish@yandex.com                            */
+#                                                                    */
+# REVISION HISTORY:                                                  */
+# ------------------------------------------------------------------ */
+# Ver  Date        Author          Description                       */
+# ---  ----------  --------------  --------------------------------- */
+# 1.0  2026-05-03  Nitish Singh    Initial Implementation            */
+#
+#*********************************************************************/
+
+name: Cache Cleanup
+
+on:
+  schedule:
+    - cron: '30 18 * * *' # Midnight IST (18:30 UTC)
+  workflow_dispatch: {}
+
+permissions:
+  actions: write    
+  contents: read  
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Install Cache Extension
+        run: |
+          gh extension install actions/gh-actions-cache
+
+      - name: Delete Old Caches
+        run: |
+          # Dependency Check
+          command -v jq >/dev/null 2>&1 || { echo >&2 "FATAL: jq required; aborting."; exit 1; }
+          command -v gh >/dev/null 2>&1 || { echo >&2 "FATAL: gh CLI required; aborting."; exit 1; }
+
+          REPO=${{ github.repository }}
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          # Structured Logging Function 
+          log_event() {
+            local level=$1
+            local message=$2
+            local cache_key=$3
+            local age=$4
+            jq -n \
+              --arg ts "$TIMESTAMP" \
+              --arg repo "$REPO" \
+              --arg lvl "$level" \
+              --arg msg "$message" \
+              --arg key "$cache_key" \
+              --arg age "$age" \
+              '{timestamp: $ts, repository: $repo, level: $lvl, message: $msg, cache_key: $key, age_days: $age}' -c
+          }
+
+          echo "Fetching cache list for $REPO..." 
+
+          gh actions-cache list -R $REPO --limit 100 | tail -n +2 | while read -r line; do
+            
+            # Using awk for reliable column extraction regardless of whitespace variation
+            KEY=$(echo "$line" | awk '{print $2}')
+            LAST_USED=$(echo "$line" | awk '{print $6}')
+
+            # Safety check: skip if extraction failed
+            [[ -z "$KEY" || -z "$LAST_USED" ]] && continue
+
+            # Convert to Epoch and calculate delta
+            LAST_USED_TS=$(date -d "$LAST_USED" +%s 2>/dev/null || echo 0)
+            NOW_TS=$(date +%s)
+            AGE=$(( (NOW_TS - LAST_USED_TS) / 86400 ))
+
+            if [ "$AGE" -gt 7 ]; then
+              log_event "INFO" "Deleting stale cache" "$KEY" "$AGE"
+              gh actions-cache delete "$KEY" -R $REPO --confirm || true
+            else
+              log_event "DEBUG" "Skipping active cache" "$KEY" "$AGE"
+            fi
+          done
