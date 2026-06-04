@@ -4,7 +4,8 @@
 
 A Circular Queue is an extended version of a normal queue where the last element of the queue is connected to the first element of the queue forming a circle.
 
-The operations are performed based on FIFO (First In First Out) principle. It is also called ‘Ring Buffer’. 
+The operations are performed based on FIFO (First In First Out) principle. It is also called ‘Ring Buffer’.
+
 ![image](https://github.com/nitishhsinghhh/Tips-and-Tricks-for-Programming-using-Cpp/assets/93253740/ba091b3d-d8b7-46f4-8c2c-1481223538d2)
 
 In a normal Queue, we can insert elements until queue becomes full. But once queue becomes full, we can not insert the next element even if there is a space in front of queue.
