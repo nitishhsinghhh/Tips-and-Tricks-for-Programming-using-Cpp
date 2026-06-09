@@ -6,14 +6,13 @@ int main() {
 	pq.push(5);
 	pq.push(2);
 	pq.push(10);
-	pq.push(1);
 
 	std::cout << "Priority Queue: ";
 	while (!pq.empty()) {
 		std::cout << pq.top() << " ";
 		pq.pop();
 	}
-	
+
 	std::cout << std::endl;
 	return 0;
 }
