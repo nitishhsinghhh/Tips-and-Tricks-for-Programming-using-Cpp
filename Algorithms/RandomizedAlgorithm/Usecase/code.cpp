@@ -20,7 +20,7 @@ void shuffle(std::vector<int>& arr) {
     std::random_device rd;              ///< Random device to seed the generator
     std::mt19937 gen(rd());             ///< Mersenne Twister pseudo-random generator
 
-    for (int i = arr.size() - 1; i > 0; i--) {
+    for (size_t i = arr.size() - 1; i > 0; i--) {
         std::uniform_int_distribution<int> dist(0, i);
         int j = dist(gen);         ///< Generate a random index in range [0, i]
         std::swap(arr[i], arr[j]);      ///< Swap current element with randomly chosen element
@@ -41,7 +41,7 @@ int main() {
     shuffle(arr);
 
     std::cout << "Shuffled array: ";
-    for (int i = 0; i < arr.size(); i++) {
+    for (size_t i = 0; i < arr.size(); i++) {
         std::cout << arr[i] << " ";
     }
     std::cout << std::endl;
