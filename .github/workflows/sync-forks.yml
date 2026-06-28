@@ -2,18 +2,15 @@ name: Sync Forks Daily
 
 on:
   schedule:
-    # Runs at 08:00 AM UTC every day
     - cron: '0 8 * * *'
   workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - name: Sync Fork
-        run: |
-          gh repo list nitishhsinghhh --limit 1000 --json nameWithOwner --jq '.[].nameWithOwner' | xargs -I {} gh repo sync {}
+      - name: Sync Forks
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MY_PAT }}
+        run: |
+          gh repo list nitishhsinghhh --limit 1000 --json nameWithOwner,isFork --jq '.[] | select(.isFork == true) | .nameWithOwner' | xargs -I {} sh -c 'echo "Syncing {}..."; gh repo sync {} || echo "Failed to sync {}"'
