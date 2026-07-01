@@ -12,7 +12,7 @@ int main() {
 
 	cout << "\nVector after sorting using "
 		"default sort is: ";
-	for (int i = 0; i < vect.size(); ++i)
+	for (size_t i = 0; i < vect.size(); ++i)
 		cout << vect[i] << " ";
 
 	return 0;
