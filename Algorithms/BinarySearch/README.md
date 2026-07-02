@@ -691,7 +691,7 @@ public:
 
 #include <vector>
 
-using namespace std;
+using std::vector;
 
 /**
  * @class Solution
@@ -748,7 +748,9 @@ public:
 #include <map>
 #include <string>
 
-using namespace std;
+using std::string;
+using std::unordered_map;
+using std::set;
 
 /**
  * @class TimeMap
@@ -812,7 +814,9 @@ public:
 #include <climits>
 #include <algorithm>
 
-using namespace std;
+using std::vector; 
+using std::min;
+using std::max;
 
 /**
  * @class Solution
