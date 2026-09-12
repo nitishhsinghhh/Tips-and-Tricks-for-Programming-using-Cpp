@@ -16,7 +16,7 @@ This automation eliminates manual build verification and helps maintain a stable
 
 ---
 
-# Continuous Integration (CI)
+## Continuous Integration (CI)
 
 ## Workflow Information
 
@@ -189,19 +189,19 @@ Artifacts remain downloadable directly from GitHub Actions.
 
 ## Build Artifacts
 
-### Windows
+### Windows OS
 
 ```text
 CompareTwoCharacters_V1.2.exe
 ```
 
-### Linux
+### Linux OS
 
 ```text
 CompareTwoCharacters_V1.2
 ```
 
-### macOS
+### macOS OS
 
 ```text
 CompareTwoCharacters_V1.2
@@ -229,9 +229,9 @@ If any stage fails, the workflow is marked as failed and the pull request cannot
 
 ---
 
-# Continuous Deployment (CD)
+## Continuous Deployment (CD)
 
-## Workflow Information
+### Workflow Information CD
 
 | Property       | Value                              |
 | -------------- | ---------------------------------- |
@@ -336,7 +336,7 @@ No additional credentials are required.
 
 ---
 
-# Cross-Platform Build Matrix
+## Cross-Platform Build Matrix
 
 The CI pipeline executes builds simultaneously across multiple operating systems.
 
@@ -366,7 +366,7 @@ Benefits:
 
 ---
 
-# Failure Handling
+## Failure Handling
 
 The workflow automatically stops if any of the following occur:
 
@@ -380,9 +380,9 @@ Failed workflows generate logs that can be inspected from the GitHub Actions das
 
 ---
 
-# Developer Workflow
+## Developer Workflow
 
-## Standard Development Process
+### Standard Development Process
 
 ```text
 Create Feature Branch
@@ -408,7 +408,7 @@ Main Updated
 
 ---
 
-# Benefits of This CI/CD Setup
+## Benefits of This CI/CD Setup
 
 ### Faster Feedback
 
@@ -432,7 +432,7 @@ Successful pull requests are merged automatically, accelerating development velo
 
 ---
 
-# Future Enhancements
+## Future Enhancements
 
 Potential improvements include:
 
