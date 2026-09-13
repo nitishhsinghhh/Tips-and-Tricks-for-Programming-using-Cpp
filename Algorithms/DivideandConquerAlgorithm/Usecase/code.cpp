@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
 /**
  * @brief Merges two sorted subarrays of arr[].
@@ -13,8 +12,8 @@ using namespace std;
  * @param mid  Ending index of the first subarray.
  * @param right Ending index of the second subarray.
  */
-void merge(vector<int>& arr, int left, int mid, int right) {
-    vector<int> temp(right - left + 1);
+void merge(std::vector<int>& arr, int left, int mid, int right) {
+    std::vector<int> temp(right - left + 1);
     int i = left, j = mid + 1, k = 0;
     while (i <= mid && j <= right) {
         if (arr[i] <= arr[j]) {
@@ -51,7 +50,7 @@ void merge(vector<int>& arr, int left, int mid, int right) {
  * @param left Starting index of the portion to sort.
  * @param right Ending index of the portion to sort.
  */
-void mergeSort(vector<int>& arr, int left, int right) {
+void mergeSort(std::vector<int>& arr, int left, int right) {
     if (left < right) {
         int mid = left + (right - left) / 2;
         mergeSort(arr, left, mid);
@@ -69,13 +68,13 @@ void mergeSort(vector<int>& arr, int left, int right) {
  * @return int Exit status code.
  */
 int main() {
-    vector<int> arr = { 7, 5, 3, 9, 2, 8, 4, 1, 6 };
+    std::vector<int> arr = { 7, 5, 3, 9, 2, 8, 4, 1, 6 };
     int n = arr.size();
     mergeSort(arr, 0, n - 1);
-    cout << "Sorted array: ";
+    std::cout << "Sorted array: ";
     for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+        std::cout << arr[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
     return 0;
 }
