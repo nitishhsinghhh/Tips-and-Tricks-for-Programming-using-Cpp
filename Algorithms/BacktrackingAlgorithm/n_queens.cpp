@@ -1,104 +1,134 @@
 /**
  * @file n_queens.cpp
  * @author Nitish Singh
- * @email me.singhnitish@yandex.com
- * @brief This program demonstrates the use of a backtracking algorithm to solve the N-Queens problem.
- * @details The goal is to place N queens on an N x N chessboard such that no two queens attack each other.
- * It uses a recursive backtracking approach and prints the solution if one exists.
+ * @brief Backtracking solver for the N-Queens problem.
+ * @version 0.1
+ * @date 2026-05-15
+ * * @copyright Copyright (c) 2016-2026
  */
 
 #include <iostream>
 #include <vector>
 
 /**
- * @brief Checks if it's safe to place a queen at board[row][col].
- * 
+ * @brief Checks whether a queen can be safely placed at a given position.
+ *
+ * This function validates the current position against previously placed
+ * queens. Since queens are placed row by row, only the same column and
+ * the two upper diagonals need to be checked.
+ *
  * @param board The current state of the chessboard.
- * @param row The row where the queen is to be placed.
- * @param col The column where the queen is to be placed.
- * @return true if it's safe to place the queen.
- * @return false if placing the queen leads to a conflict.
+ * @param row The row where the queen is being considered.
+ * @param col The column where the queen is being considered.
+ * @return true If no previously placed queen can attack this position.
+ * @return false If the position is under attack by another queen.
  */
-bool isSafe(std::vector<std::vector<int>>& board, int row, int col) {
-    // Check same column
-    for (int i = 0; i < row; i++) 
-        if (board[i][col] == 1) 
-            return false;
+bool isSafe(const std::vector<std::vector<int>>& board, int row, int col) {
+    const int n = static_cast<int>(board.size());
 
-    // Check upper left diagonal
-    int i = row, j = col;
-    while (i >= 0 && j >= 0) {
-        if (board[i][j] == 1) {
+    // Check same column
+    for (int i = 0; i < row; ++i) {
+        if (board[i][col] == 1) {
             return false;
         }
-        i--;
-        j--;
     }
 
-    // Check upper right diagonal
-    i = row, j = col;
-    while (i >= 0 && j < board.size()) {
+    // Check upper-left diagonal
+    for (int i = row - 1, j = col - 1;
+         i >= 0 && j >= 0;
+         --i, --j) {
         if (board[i][j] == 1) {
             return false;
         }
-        i--;
-        j++;
+    }
+
+    // Check upper-right diagonal
+    for (int i = row - 1, j = col + 1;
+         i >= 0 && j < n;
+         --i, ++j) {
+        if (board[i][j] == 1) {
+            return false;
+        }
     }
 
     return true;
 }
 
 /**
- * @brief Attempts to place queens on the board using backtracking.
- * 
+ * @brief Recursively solves the N-Queens problem using backtracking.
+ *
+ * The algorithm places one queen in each row and explores every possible
+ * column. If a placement leads to a dead end, the queen is removed and
+ * the algorithm backtracks to try the next available position.
+ *
  * @param board The current state of the chessboard.
- * @param row The current row where we want to place a queen.
- * @return true if a solution is found.
- * @return false if no solution exists from this state.
+ * @param row The current row where a queen is to be placed.
+ * @return true If a valid N-Queens solution is found.
+ * @return false If no valid solution exists from the current state.
  */
 bool solveNQueens(std::vector<std::vector<int>>& board, int row) {
-    // Base case: all queens have been placed
-    if (row >= board.size()) 
-        return true;
+    const int n = static_cast<int>(board.size());
 
-    // Try placing queen in all columns of current row
-    for (int col = 0; col < board.size(); col++) {
+    // Base case: all queens have been successfully placed.
+    if (row >= n) {
+        return true;
+    }
+
+    // Try placing a queen in every column of the current row.
+    for (int col = 0; col < n; ++col) {
         if (isSafe(board, row, col)) {
             board[row][col] = 1;
 
-            // Recursively place the rest of the queens
-            if (solveNQueens(board, row + 1)) 
+            // Recursively solve the remaining rows.
+            if (solveNQueens(board, row + 1)) {
                 return true;
+            }
 
-            // Backtrack
+            // Backtrack and remove the queen.
             board[row][col] = 0;
         }
     }
+
     return false;
 }
 
 /**
- * @brief Main function to accept board size and solve the N-Queens problem.
- * 
- * @return int Exit status.
+ * @brief Main entry point for the N-Queens solver.
+ *
+ * Reads the board size from standard input, initializes the chessboard,
+ * and invokes the recursive backtracking solver. If a solution exists,
+ * the resulting board configuration is printed.
+ *
+ * @return int Standard exit code (0 for success, 1 for invalid input).
  */
 int main() {
     int num;
+
     std::cout << "Enter the size of the chessboard (num): ";
     std::cin >> num;
 
-    std::vector<std::vector<int>> board(num, std::vector<int>(num, 0));
+    if (num <= 0) {
+        std::cerr << "Board size must be positive.\n";
+        return 1;
+    }
+
+    std::vector<std::vector<int>> board(
+        num, std::vector<int>(num, 0)
+    );
 
     if (solveNQueens(board, 0)) {
-        std::cout << "Solution found:" << std::endl;
-        for (int i = 0; i < board.size(); i++) {
-            for (int j = 0; j < board.size(); j++) 
-                std::cout << board[i][j] << " ";
-            std::cout << std::endl;
+        std::cout << "Solution found:\n";
+
+        // Output the solved chessboard.
+        for (int i = 0; i < num; ++i) {
+            for (int j = 0; j < num; ++j) {
+                std::cout << board[i][j] << ' ';
+            }
+
+            std::cout << '\n';
         }
-    }
-    else {
-        std::cout << "No solution found." << std::endl;
+    } else {
+        std::cout << "No solution found.\n";
     }
 
     return 0;
